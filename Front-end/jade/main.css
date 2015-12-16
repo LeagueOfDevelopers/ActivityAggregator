@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  font-family: Calibri Arial;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+@font-face {
+  font-family: Calibri;
+  src: url(calibri.ttf);
+}
+@font-face {
+  font-family: Calibrib;
+  src: url(calibrib.ttf);
+}
+@font-face {
+  font-family: DaysSans;
+  src:url(DaysSansBlack.otf);
+}
+.header {
+  min-height: 82px;
+  height: auto;
+  width: 100%;
+  min-width: 500px;
+  background-color: #87b1cd;
+
+}
+
+.logo {
+  width: 245px;
+  height: 100%;
+  float: left;
+  background-image: url(/logos.png);
+  -webkit-background-size: contain;
+  background-size: auto;
+}
+
+.nav_bar {
+  float: right;
+  margin-top: 30px;
+  min-width: 500px;
+}
+
+.nav_bar li {
+  display: inline-block;
+  color: #fff;
+  margin-right: 25px;
+  height: 25px;
+  box-sizing: border-box;
+  transition: all .2s;
+  color: #fff;
+  font-family: Calibrib !important;
+  font-size: 18px;
+  border-bottom: 0px solid #fff;
+
+}
+
+.nav_bar li:hover {
+  border-bottom: 3px solid #fff;
+}
+
+.nav_bar a {
+  color: #fff;
+  font-family: Calibrib;
+}
+.page_content {
+  height: 100%;
+  min-width: 960px;
+  max-width: 1240px;
+}
+
+.index_header {
+  height: 85px;
+}
+.index_title {
+  display: inline-block;
+  font-family: DaysSans;
+  font-size: 18px;
+  color: rgb(39, 40, 38);
+  padding-left: 40px;
+  line-height: 1.5;
+  width: 560px;
+}
+.profile_view {
+	display: inline-block;
+	position: relative;
+	margin-top: 30px;
+}
+
+.profile_view div {
+  display: inline-block;
+}
+.avatar {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  background-color: #000;
+}
+
+.profile_name {
+	position: absolute;
+	top: 5px;
+	left: 65px;
+	width: 100px;
+}
+
+.ach {
+	height: 70px;
+	width: 270px;
+	margin: 3px;
+	background-color: #87b1cd;
+	opacity: .9;
+	position: relative;
+	-webkit-transition: all .2s;
+	-o-transition: all .2s;
+	transition: all .2s;
+}
+  ul {
+    height: 250px;
+  }
+  ul li {
+    display: inline-block;
+  }
+.ach:hover {
+	opacity: 1;
+  cursor: pointer;
+}
+
+.ach_icon {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background-color: #fff;
+  -webkit-background-size: contain;
+  background-size: cover;
+  background-image: url(cultural.png);
+}
+
+
+.ach_title {
+	position: absolute;
+	top: 5px;
+	left: 75px;
+	color: #fff;
+	font-family: Calibrib;
+  font-size: 15px;
+}
