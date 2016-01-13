@@ -232,11 +232,11 @@ ul {
 
 .user_detail p {
   margin-top: 7px;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .btn_edit_user_detail{
-  margin-top: 10px;
+  margin-top: 15px;
   float: right;
   background: #fff;
   padding: 8px 10px;
@@ -324,7 +324,7 @@ ul {
 	height: 70px;
 	width: 270px;
 	background-color: #87b1cd;
-	opacity: .9;
+	opacity: 1;
 	position: relative;
 	-webkit-transition: all .2s;
 	-o-transition: all .2s;
@@ -339,9 +339,11 @@ ul {
 .ach:hover {
 	opacity: 1;
   cursor: pointer;
-
+  background: #78a0ba;
 
 }
+
+
 
 .ach_icon {
 	position: absolute;
@@ -354,9 +356,14 @@ ul {
   -webkit-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
 	-moz-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
 	box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
-	transition: all .2s;
 }
-
+.card {
+  -webkit-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
+	-moz-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
+	box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
+  z-index: 200;
+}
+}
 .ach_icon:after {
   position: absolute;
   align: center;
@@ -366,6 +373,7 @@ ul {
   background-repeat: no-repeat;
   width: 55px;
   height: 55px;
+  transition: all .2s;
 
 }
 
@@ -392,4 +400,68 @@ ul {
 	font-family: Calibri;
   	font-size: 15px;
   	width: 190px;
+}
+
+.students_base {
+  font-family: Calibri;
+}
+ .students_base_container {
+  margin: 0 auto;
+  max-width: 800px;
+}
+.students_base_header {
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  top: 60px;
+  background: #fff;
+}
+
+.students_base_title {
+  display: block;
+  margin-top: 15px;
+  color: #59595b;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.search_params  {
+  margin-top: 15px;
+}
+
+.search_params div {
+  display: inline-block;
+}
+
+.search_student_input {
+  width: 270px;
+  padding: 7px;
+  border: 1px solid #009fdf;
+  font-size: 16px;
+}
+
+.btn_start_search {
+  width: 30px;
+  height: 34px;
+  margin-left: -35px;
+  background: transparent;
+  border: transparent;
+  color: #009fdf;
+  font-size: 20px;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+}
+
+
+.btn_start_search:hover {
+  cursor: pointer;
+}
+
+.category_label {
+  display: inline-block;
+  margin-left: 40px;
+  color: #59595b;
+  font-weight: bold;
+  font-size: 18px;
 }

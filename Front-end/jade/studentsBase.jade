@@ -1,0 +1,20 @@
+extends layout
+block header
+  include header
+block content
+  section.students_base
+    div.students_base_header.card
+        span.students_base_title 
+          center База активистов НИТУ МИСиС
+        div.search_params.students_base_container
+            input(type="text", name="name",max-lenght="15",value="", placeholder="Найти студента").search_student_input
+            button.btn_start_search
+              i.fa.fa-search
+            span.category_label По категории
+            select(name="category").select_category
+              
+      
+               
+ 
+
+  
