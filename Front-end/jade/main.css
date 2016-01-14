@@ -511,7 +511,7 @@ ul {
 }
 
 .first_name, .last_name {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
 }
 
@@ -574,4 +574,23 @@ ul {
 .achivments_count:hover {
   color: #009fdf;
   cursor: pointer;
+}
+
+#achivments_popup {
+  background: #fff;
+  padding: 10px;
+  top: 200px;
+  left: 900px;
+  position: absolute;
+  height: 300px;
+  width: auto;
+  border-top: 10px solid #009fdf;
+  border-bottom: 10px solid #009fdf;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 500px;
+
+}
+#achivments_popup li {
+  margin-bottom: 3px;
 }
