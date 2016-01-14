@@ -22,10 +22,55 @@
           <center>База активистов НИТУ МИСиС</center></span>
         <div class="search_params students_base_container">
           <input type="text" name="name" max-lenght="15" value="" placeholder="Найти студента" class="search_student_input"/>
-          <button class="btn_start_search"><i class="fa fa-search"></i></button><span class="category_label">По категории</span>
-          <select name="category" class="select_category"></select>
+          <button class="btn_start_search"><i class="fa fa-search"></i></button>
+          <div class="category_search">   
+            <label class="category_label">По категории</label>
+            <select name="category" class="select_category">
+              <option>Спорт</option>
+              <option>Культура</option>
+              <option>Наука</option>
+              <option>Организационная деятельность</option>
+            </select>
+          </div>
         </div>
       </div>
+      <ul class="students_list students_base_container">
+        <li class="student_card">
+          <div class="avatar"></div>
+          <ul class="profile_detail">
+            <li class="first_name">Жамбыл</li>
+            <li class="last_name">Ермагамбет</li>
+            <li class="course">Итасу 2 курс</li>
+            <li> 
+              <button class="btn_profile_link">Профиль</button>
+            </li>
+          </ul>
+          <ul class="short_achivments_list">
+            <li class="achivment_link"><a href="#">Победа в квн</a></li>
+            <li class="achivment_link"><a href="#">Международный конкурс</a></li>
+            <li class="achivment_link"><a href="#">Бла бла бла</a></li>
+            <button class="achivments_count"> <span>8</span><i class="fa fa-trophy"> </i></button>
+          </ul>
+        </li>
+        <li class="student_card">
+          <div class="avatar"></div>
+          <ul class="profile_detail">
+            <li class="first_name">Жамбыл</li>
+            <li class="last_name">Ермагамбет</li>
+            <li class="course">Итасу 2 курс</li>
+            <li> 
+              <button class="btn_profile_link">Профиль</button>
+            </li>
+          </ul>
+          <ul class="short_achivments_list">
+            <li class="achivment_link"><a href="#">Победа в квн</a></li>
+            <li class="achivment_link"><a href="#">Международный конкурс</a></li>
+            <li class="achivment_link"><a href="#">Бла бла бла</a></li>
+            <li class="achivment_link"><a href="#">Еще одно  </a></li>
+          </ul>
+          <button class="achivments_count"> <span>8</span><i class="fa fa-trophy"></i></button>
+        </li>
+      </ul>
     </section>
   </div>
 </body>

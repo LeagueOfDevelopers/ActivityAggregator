@@ -361,7 +361,6 @@ ul {
   -webkit-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
 	-moz-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
 	box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
-  z-index: 200;
 }
 }
 .ach_icon:after {
@@ -411,10 +410,12 @@ ul {
 }
 .students_base_header {
   width: 100%;
-  height: 100px;
+  min-height: 100px;
+  padding-bottom: 10px;
   position: fixed;
   top: 60px;
   background: #fff;
+  z-index: 200;
 }
 
 .students_base_title {
@@ -440,6 +441,7 @@ ul {
   font-size: 16px;
 }
 
+
 .btn_start_search {
   width: 30px;
   height: 34px;
@@ -457,11 +459,119 @@ ul {
 .btn_start_search:hover {
   cursor: pointer;
 }
-
+.category_search {
+  float: right;
+}
 .category_label {
   display: inline-block;
-  margin-left: 40px;
+  margin-right: 10px;
   color: #59595b;
   font-weight: bold;
   font-size: 18px;
+}
+
+.select_category {
+  clear: both;
+  padding: 7px;
+  border: 1px solid #009fdf;
+  font-size: 16px;
+}
+.students_list {
+  padding-top: 190px;
+}
+
+.student_card {
+  position: relative;
+  background: #fff;
+  width: 100%;
+  min-height: 100px;
+  margin-bottom: 20px;
+  padding: 15px;
+
+  -webkit-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
+	-moz-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
+	box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
+}
+
+
+.avatar {
+  background: #000;
+  background-image: url(jambul.jpg);
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+}
+
+.profile_detail {
+  vertical-align: top;
+  margin-left: 10px;
+  display: inline-block;
+  color: #59595b;
+}
+
+.first_name, .last_name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.course {
+  font-size: 18px;
+}
+
+.btn_profile_link {
+  margin-top: 3px;
+  background: #fff;
+  padding: 4px 15px;
+  border: 1px solid #009fdf;
+  color: #009fdf;
+  font-size: 14px;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+}
+
+.btn_profile_link:hover {
+  cursor: pointer;
+  color: #fff;
+  background: #009fdf;
+  -webkit-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.75);
+  box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.75);
+}
+
+.short_achivments_list {
+  margin-left: 50px;
+  display: inline-block;
+  vertical-align: top;
+  width: 240px;
+  line-height: 25px;
+}
+
+.achivment_link a  {
+  color: #009fdf;
+  font-size: 18px;
+}
+.achivment_link a:hover {
+  color: #028ec7;
+}
+
+.achivments_count {
+  border: none;
+  background: transparent;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+}
+.achivments_count i {
+  margin-left: 3px;
+  font-size: 20px;
+}
+
+.achivments_count:hover {
+  color: #009fdf;
+  cursor: pointer;
 }

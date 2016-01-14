@@ -10,9 +10,53 @@ block content
             input(type="text", name="name",max-lenght="15",value="", placeholder="Найти студента").search_student_input
             button.btn_start_search
               i.fa.fa-search
-            span.category_label По категории
-            select(name="category").select_category
-              
+            div.category_search    
+              label.category_label По категории
+              select(name="category").select_category
+                option Спорт
+                option Культура
+                option Наука
+                option Организационная деятельность
+    ul.students_list.students_base_container
+      li.student_card
+        div.avatar
+        ul.profile_detail
+          li.first_name Жамбыл
+          li.last_name Ермагамбет
+          li.course Итасу 2 курс
+          li 
+            button.btn_profile_link Профиль
+        ul.short_achivments_list
+          li.achivment_link
+            a(href="#") Победа в квн
+          li.achivment_link
+            a(href="#") Международный конкурс
+          li.achivment_link
+            a(href="#") Бла бла бла
+          button.achivments_count 
+            span 8
+            i.fa.fa-trophy  
+      li.student_card
+        div.avatar
+        ul.profile_detail
+          li.first_name Жамбыл
+          li.last_name Ермагамбет
+          li.course Итасу 2 курс
+          li 
+            button.btn_profile_link Профиль
+        ul.short_achivments_list
+          li.achivment_link
+            a(href="#") Победа в квн
+          li.achivment_link
+            a(href="#") Международный конкурс
+          li.achivment_link
+            a(href="#") Бла бла бла
+          li.achivment_link
+            a(href="#") Еще одно  
+        button.achivments_count 
+          span 8
+          i.fa.fa-trophy
+          
       
                
  
