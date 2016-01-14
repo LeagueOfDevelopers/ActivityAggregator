@@ -158,7 +158,7 @@ ul {
 .profile_info_card {
   box-sizing: border-box;
   display: inline-block;
-  width: 500px;
+  max-width: 500px;
   min-height: 300px;
   background: #fff;
   -webkit-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
@@ -241,6 +241,7 @@ ul {
   background: #fff;
   padding: 8px 10px;
   border: 1px solid #009fdf;
+  border-radius: 0;
   color: #009fdf;
   font-size: 15px;
   -webkit-transition: all .2s;
@@ -261,11 +262,12 @@ ul {
   margin-left: 10px;
   border-radius: 50%;
   background: transparent;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border: 1px solid #009fdf;
   color: #009fdf;
-  font-size: 20px;
+  font-size: 23px;
+  line-height: normal !important;
   -webkit-transition: all .2s;
   -o-transition: all .2s;
   transition: all .2s;
@@ -357,11 +359,7 @@ ul {
 	-moz-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
 	box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
 }
-.card {
-  -webkit-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
-	-moz-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
-	box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
-}
+
 }
 .ach_icon:after {
   position: absolute;
@@ -397,8 +395,9 @@ ul {
 	left: 75px;
 	color: #fff;
 	font-family: Calibri;
-  	font-size: 15px;
-  	width: 190px;
+  line-height: normal;
+  font-size: 15px;
+  width: 190px;
 }
 
 .students_base {
@@ -416,6 +415,10 @@ ul {
   top: 60px;
   background: #fff;
   z-index: 200;
+
+  -webkit-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
+	-moz-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
+	box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
 }
 
 .students_base_title {
@@ -578,7 +581,7 @@ ul {
 
 #achivments_popup {
   background: #fff;
-  padding: 10px;
+  padding: 5px 15px;
   top: 200px;
   left: 900px;
   position: absolute;
@@ -589,7 +592,6 @@ ul {
   overflow-y: auto;
   overflow-x: hidden;
   z-index: 500px;
-
 }
 #achivments_popup li {
   margin-bottom: 3px;
