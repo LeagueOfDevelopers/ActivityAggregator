@@ -360,32 +360,36 @@ ul {
 	box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
 }
 
-}
+
 .ach_icon:after {
   position: absolute;
   align: center;
   content: "";
   display: block;
-  background-size: 40px;
   background-repeat: no-repeat;
   width: 55px;
   height: 55px;
-  transition: all .2s;
+
 
 }
 
+
 .ach_icon.science:after {
 
-  background: url(icons.png) 14px no-repeat;
+  background: url(achivments_icons.png) -59px  no-repeat;
 
 }
 
 .ach_icon.cultural:after {
-  background: url(icons.png) -20px no-repeat;
+  background: url(achivments_icons.png) 11px  no-repeat;
 }
 
 .ach_icon.organization:after {
-  background: url(icons.png) -60px no-repeat;
+  background: url(achivments_icons.png) -130px no-repeat;
+}
+
+.ach_icon.sport:after {
+  background: url(achivments_icons.png) -200px no-repeat;
 }
 
 
