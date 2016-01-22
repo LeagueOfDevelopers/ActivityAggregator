@@ -23,15 +23,15 @@ ul {
 }
 @font-face {
   font-family: Calibri;
-  src: url(calibri.ttf);
+  src: url(../fonts/calibri.ttf);
 }
 @font-face {
   font-family: Calibrib;
-  src: url(calibrib.ttf);
+  src: url(../fonts/calibrib.ttf);
 }
 @font-face {
   font-family: DaysSans;
-  src:url(DaysSansBlack.otf);
+  src:url(../fonts/DaysSansBlack.otf);
 }
 
 .wrapper {
@@ -77,7 +77,7 @@ ul {
   width: 120px;
   height: 50px;
   background-size: cover;
-  background: url(Misis_logo.png) no-repeat;
+  background: url(../icons/Misis_logo.png) no-repeat;
   float: right;
 }
 
@@ -87,7 +87,7 @@ ul {
   height: 60px;
   float: left;
   background-position: center;
-  background: url(logo.png) no-repeat;
+  background: url(../icons/logo.png) no-repeat;
   -webkit-background-size: cover;
   background-size: cover;
 }
@@ -180,7 +180,7 @@ ul {
   width: 120px;
   height: 120px;
   background-color: #8c9397;
-  background: url(jambul.jpg);
+  background: url(../img/jambul.jpg);
   background-size: cover;
 
 }
@@ -376,20 +376,20 @@ ul {
 
 .ach_icon.science:after {
 
-  background: url(achivments_icons.png) -59px  no-repeat;
+  background: url(../icons/achivments_icons.png) -59px  no-repeat;
 
 }
 
 .ach_icon.cultural:after {
-  background: url(achivments_icons.png) 11px  no-repeat;
+  background: url(../icons/achivments_icons.png) 11px  no-repeat;
 }
 
 .ach_icon.organization:after {
-  background: url(achivments_icons.png) -130px no-repeat;
+  background: url(../icons/achivments_icons.png) -130px no-repeat;
 }
 
 .ach_icon.sport:after {
-  background: url(achivments_icons.png) -200px no-repeat;
+  background: url(../icons/achivments_icons.png) -200px no-repeat;
 }
 
 
@@ -503,7 +503,7 @@ ul {
 
 .avatar {
   background: #000;
-  background-image: url(jambul.jpg);
+  background-image: url(../img/jambul.jpg);
   background-size: cover;
   width: 100px;
   height: 100px;
