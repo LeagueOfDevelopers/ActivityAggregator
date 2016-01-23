@@ -5,6 +5,7 @@
   <title>Document</title>
   <link rel="stylesheet" href="../styles/main.css"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="../styles/lib/foundation.min.css"/>
 </head>
 <body>
   <div class="wrapper">
@@ -18,20 +19,19 @@
       </nav>
     </section>
     <section class="students_base">
-      <div class="students_base_header card"><span class="students_base_title">
+      <div class="students_base_header card">
+        <span class="students_base_title">
           <center>База активистов НИТУ МИСиС</center></span>
-        <div class="search_params students_base_container">
-          <input type="text" name="name" max-lenght="15" value="" placeholder="Найти студента" class="search_student_input"/>
-          <button class="btn_start_search"><i class="fa fa-search"></i></button>
-          <div class="category_search">
-            <label class="category_label">По категории</label>
-            <select name="category" class="select_category">
+        <div class="row search_params">
+          <input type="text" name="name" max-lenght="15" value="" placeholder="Найти студента" class="search_student_input small-12 medium-4 columns"/>
+          <button class="columns medium-1 btn_start_search"><i class=" fa fa-search"></i></button>
+          <span class="category_label columns medium-2">По категории</span>
+            <select name="category" class="select_category small-12 medium-5 columns">
               <option>Спорт</option>
               <option>Культура</option>
               <option>Наука</option>
               <option>Организационная деятельность</option>
             </select>
-          </div>
         </div>
       </div>
       <ul class="students_list students_base_container">

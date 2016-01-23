@@ -47,10 +47,6 @@ ul {
   background-color: #009fdf;
   z-index: 1000;
   position: fixed;
-
-
-  -webkit-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
-  -moz-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
   box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
 }
 
@@ -88,7 +84,6 @@ ul {
   float: left;
   background-position: center;
   background: url(../icons/logo.png) no-repeat;
-  -webkit-background-size: cover;
   background-size: cover;
 }
 
@@ -157,8 +152,6 @@ ul {
   box-sizing: border-box;
   display: inline-block;
   background: #fff;
-  -webkit-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
-  -moz-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
   box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
   padding: 20px;
   color: #59595b;
@@ -191,8 +184,6 @@ ul {
   font-size: 16px;
   background: rgba(0, 0, 0, 0.5);;
   opacity: 0;
-  -webkit-transition: all .2s;
-  -o-transition: all .2s;
   transition: all .2s;
 }
 
@@ -239,8 +230,6 @@ ul {
   border-radius: 0;
   color: #009fdf;
   font-size: 15px;
-  -webkit-transition: all .2s;
-  -o-transition: all .2s;
   transition: all .2s;
 }
 
@@ -248,8 +237,6 @@ ul {
   cursor: pointer;
   color: #fff;
   background: #009fdf;
-  -webkit-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.75);
-  -moz-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.75);
   box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.75);
 }
 
@@ -263,8 +250,6 @@ ul {
   color: #009fdf;
   font-size: 23px;
   line-height: normal !important;
-  -webkit-transition: all .2s;
-  -o-transition: all .2s;
   transition: all .2s;
 }
 
@@ -272,8 +257,6 @@ ul {
   cursor: pointer;
   color: #fff;
   background: #009fdf;
-  -webkit-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.75);
-  -moz-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.75);
   box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.75);
 }
 
@@ -324,12 +307,7 @@ ul {
 	background-color: #87b1cd;
 	opacity: 1;
 	position: relative;
-	-webkit-transition: all .2s;
-	-o-transition: all .2s;
 	transition: all .2s;
-
-	-webkit-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
-	-moz-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
 	box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
 }
 
@@ -351,8 +329,6 @@ ul {
 	height: 55px;
 	border-radius: 50%;
 	background-color: #fff;
-  -webkit-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
-	-moz-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
 	box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
 }
 
@@ -415,9 +391,6 @@ ul {
   top: 60px;
   background: #fff;
   z-index: 200;
-
-  -webkit-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
-	-moz-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
 	box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
 }
 
@@ -456,8 +429,6 @@ ul {
   color: #fff;
   background: #009fdf;
   font-size: 20px;
-  -webkit-transition: all .2s;
-  -o-transition: all .2s;
   transition: all .2s;
 }
 
@@ -502,8 +473,6 @@ ul {
   margin-bottom: 20px;
   padding: 15px;
   line-height: normal;
-  -webkit-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
-	-moz-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
 	box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
 }
 
@@ -541,8 +510,6 @@ ul {
   color: #009fdf;
   font-size: 15px;
   border-radius: 0;
-  -webkit-transition: all .2s;
-  -o-transition: all .2s;
   transition: all .2s;
 }
 
@@ -550,8 +517,6 @@ ul {
   cursor: pointer;
   color: #fff;
   background: #009fdf;
-  -webkit-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.75);
-  -moz-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.75);
   box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.75);
 }
 
