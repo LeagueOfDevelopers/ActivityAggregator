@@ -312,7 +312,7 @@ ul {
   margin-bottom: 100px;
 }
 .achivments_list ul {
-  margin-top: 20px;
+  margin: 20px auto;
 }
 .achivments_list li {
   display: inline-block;

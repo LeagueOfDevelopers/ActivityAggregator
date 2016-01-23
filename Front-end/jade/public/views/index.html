@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ActivityAggregator" ng-controller=""></html>
+<head>
+  <meta charset="UTF-8"/>
+  <title>Document</title>
+  <link rel="stylesheet" href="../styles/main.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="../styles/lib/foundation.min.css"/>
+</head>
+<body>
+  <div class="wrapper">
+    <section class="header"><a href="#" class="logo"></a>
+      <nav class="nav_bar">
+        <ul>
+          <li><a href="#/">Информация</a></li>
+          <li><a ui-sref="studentsBase">База активистов</a></li>
+          <li><a ui-sref="profile">Рассказать о себе</a></li>
+        </ul>
+      </nav>
+    </section>
+    <section ui-view="page_content"></section>
+    <section ui-view="footer"></section>
+    <script type="text/javascript" src="../js/lib/angular.min.js">
+    <script type="text/javascript" src="../js/lib/angular-ui-router.min.js">
+    <script type="text/javascript" src="../js/build.js">
