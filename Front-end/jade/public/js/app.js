@@ -4,7 +4,6 @@ angular.module('ActivityAggregator', ['ui.router'])
     ['$urlRouterProvider',
     '$stateProvider',
      function ($urlRouterProvider, $stateProvider) {
-
        $urlRouterProvider.otherwise("/studentsBase");
 
        $stateProvider.state('studentsBase', {
