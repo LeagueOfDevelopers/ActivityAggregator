@@ -14,7 +14,7 @@ gulp.task('prefixCss', function () {
 gulp.task('scripts', function() {
   return gulp.src('public/js/*.js')
     .pipe(concat('build.js'))
-    .pipe(gulp.dest('public/js/'));
+    .pipe(gulp.dest('public/js/build/'));
 });
 
 //Watch task

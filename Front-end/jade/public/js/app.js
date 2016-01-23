@@ -2,21 +2,32 @@ angular.module('ActivityAggregator', ['ui.router'])
 
   .config(
     ['$urlRouterProvider',
-    '$stateProvider'],
+    '$stateProvider',
      function ($urlRouterProvider, $stateProvider) {
-       $urlRouterProvider.html5Mode(true);
+
        $urlRouterProvider.otherwise("/studentsBase");
+
        $stateProvider.state('studentsBase', {
-         url: '/studentsBase'
+         url: '/studentsBase',
          views: {
            'page_content': {
-             template: 'partials/studentsBase.html',
+             templateUrl: 'partials/studentsBase.html',
              controller: 'studentsBaseCtrl'
-           }
-           'footer': {
-             template: 'partials/footer.html'
            }
          }
        })
 
-})
+       .state('profile', {
+         url: '/profile',
+         views: {
+           'page_content': {
+             templateUrl: 'partials/profile.html',
+             controller: 'profileCtrl'
+           },
+           'footer': {
+             templateUrl: 'partials/footer.html',
+             controller: 'footerCtrl'
+           }
+         }
+       })
+     }]);
