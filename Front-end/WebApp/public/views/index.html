@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="ActivityAggregator"></html>
+<html lang="en" ng-app="ActivityAggregator"   ng-controller='appCtrl'></html>
 <head>
   <meta charset="UTF-8"/>
-  <title>Document</title>
+  <title ng-bind='title'></title>
   <link rel="stylesheet" href="../styles/main.css"/>
   <link rel="stylesheet" href="../styles/lib/font-awesome/css/font-awesome.min.css"/>
   <link rel="stylesheet" href="../styles/lib/foundation.min.css"/>
 </head>
-<body>
+<body ng-controller='pageCtrl'>
   <div class="wrapper">
     <section class="header"><a href="#" class="logo"></a>
-      <nav class="nav_bar">
+      <nav class="nav_bar" ng-cloak>
         <ul>
           <li><a href="#/">Информация</a></li>
           <li><a ui-sref="studentsBase">База активистов</a></li>
-          <li><a ui-sref="profile">Рассказать о себе</a></li>
+          <li><a ui-sref="{{sref}}" ng-bind="profileLink"></a></li>
         </ul>
       </nav>
     </section>

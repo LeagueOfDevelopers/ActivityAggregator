@@ -1,4 +1,4 @@
-angular.module('ActivityAggregator', ['ui.router'])
+angular.module('ActivityAggregator', ['ui.router', 'app.controllers'])
 
   .config(
     ['$urlRouterProvider',
@@ -11,7 +11,6 @@ angular.module('ActivityAggregator', ['ui.router'])
          views: {
            'page_content': {
              templateUrl: 'partials/studentsBase.html',
-             controller: 'studentsBaseCtrl'
            }
          }
        })
@@ -21,11 +20,9 @@ angular.module('ActivityAggregator', ['ui.router'])
          views: {
            'page_content': {
              templateUrl: 'partials/profile.html',
-             controller: 'profileCtrl'
            },
            'footer': {
              templateUrl: 'partials/footer.html',
-             controller: 'footerCtrl'
            }
          }
        })
