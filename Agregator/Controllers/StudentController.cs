@@ -15,11 +15,11 @@ namespace Agregator.Controllers
 {
     public class StudentController : ApiController
     {
-        IRepository _repository;
+        IStudentRepository _repository;
 
         public StudentController()
         {
-            _repository = new MySqlRepository();      
+            _repository = new MySqlStudentRepository();      
         }
              
 

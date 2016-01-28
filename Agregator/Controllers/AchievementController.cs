@@ -12,11 +12,11 @@ namespace Agregator.Controllers
 {
     public class AchievementController : ApiController
     {
-        IRepository _repository;
+        IAchievementRepository _repository;
 
         public AchievementController()
         {
-            _repository = new MySqlRepository();
+            _repository = new MySqlAchievementRepository();
         }
 
         [EnableCors(origins: "*", headers: "*", methods: "*")]
