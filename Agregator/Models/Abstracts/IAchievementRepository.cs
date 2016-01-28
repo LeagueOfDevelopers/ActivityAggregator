@@ -11,5 +11,6 @@ namespace Agregator.Models.Abstracts
         int GetAmountOfAchievementsById(int id);
         AchievementBase GetAchievementById(int id);
         void ConfirmAchievement(int id);
+        void AddNewAchievement(string eventName, string eventType, string result, string eventLevel, int student_id, string isIndividual, string organizationFunctions, bool isConfirmed, string confirmationPerson, string confirmationImage, DateTime eventDate);
     }
 }

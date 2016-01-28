@@ -118,6 +118,7 @@
     <Compile Include="Models\Abstracts\IStudentRepository.cs" />
     <Compile Include="Models\Concrete\MySqlAchievementRepository.cs" />
     <Compile Include="Models\Concrete\MySqlStudentRepository.cs" />
+    <Compile Include="Models\Entities\Achievement.cs" />
     <Compile Include="Models\Entities\OrganizationAchievement.cs" />
     <Compile Include="Models\Entities\TypicalAchievement.cs" />
     <Compile Include="Models\Entities\FullStudent.cs" />

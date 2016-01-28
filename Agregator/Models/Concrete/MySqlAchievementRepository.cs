@@ -98,5 +98,21 @@ namespace Agregator.Models.Concrete
             myCommand.ExecuteNonQuery();
             _myConnection.Close();
         }
+
+        public void AddNewAchievement(string eventName, string eventType, string result, string eventLevel, int student_id, string isIndividual, string organizationFunctions, bool isConfirmed, string confirmationPerson, string confirmationImage, DateTime eventDate)
+        {
+            string date = eventDate.ToString().Substring(0, 10);
+            int isConfirmedToBit = 0;
+            if (isConfirmed)
+                isConfirmedToBit = 1;
+            else isConfirmedToBit = 0;
+
+            string CommandText = string.Format("INSERT INTO achievements(achievements.EventName, EventType, Result, EventLevel, Student_id, IsIndividual, OrganizationFunctions, IsConfirmed, ConfirmationPerson, ConfirmationImage, EventDate) VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}'); ", eventName, eventType, result, eventLevel, student_id, isIndividual, organizationFunctions, isConfirmedToBit, confirmationPerson, confirmationImage, date);
+
+            MySqlCommand myCommand2 = new MySqlCommand(CommandText, _myConnection);
+            _myConnection.Open();
+            myCommand2.ExecuteNonQuery();
+            _myConnection.Close();
+        }
     }
 }

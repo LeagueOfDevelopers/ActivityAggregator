@@ -1,5 +1,6 @@
 ﻿using Agregator.Models.Abstracts;
 using Agregator.Models.Concrete;
+using Agregator.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,10 +33,17 @@ namespace Agregator.Controllers
         }
 
         [EnableCors(origins: "*", headers: "*", methods: "*")]
-        [HttpPost]
+        [HttpPut]
         public void PostToConfirm([FromBody]int id)
         {
             _repository.ConfirmAchievement(id);
+        }
+
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        [HttpPost]
+        public void PostToAddAchievement([FromBody]Achievement newAchievement)
+        {
+            _repository.AddNewAchievement(newAchievement.EventName, newAchievement.EventType, newAchievement.Result, newAchievement.EventLevel, newAchievement.Student_id, newAchievement.IsIndividual, newAchievement.OrganizationFunctions, newAchievement.IsConfirmed, newAchievement.ConfirmationPerson, newAchievement.ConfirmationImage, newAchievement.EventDate);
         }
 
     }
