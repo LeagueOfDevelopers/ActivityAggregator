@@ -321,11 +321,14 @@ ul {
 .ach_icon.cultural:after {
   background: url(../icons/achivments_icons.png) 11px no-repeat; }
 
-.ach_icon.organization:after {
+.ach_icon.social:after {
   background: url(../icons/achivments_icons.png) -130px no-repeat; }
 
 .ach_icon.sport:after {
   background: url(../icons/achivments_icons.png) -200px no-repeat; }
+
+.ach_icon.study:after {
+  background: url(../icons/achivments_icons.png) -256px no-repeat; }
 
 .ach_title {
   position: absolute;
@@ -491,7 +494,8 @@ ul {
   right: 20px;
   color: #000;
   font-size: 18px;
-  font-weight: bold; }
+  font-weight: bold;
+  text-decoration: underline; }
 
 .achivments_count i {
   margin-left: 3px;

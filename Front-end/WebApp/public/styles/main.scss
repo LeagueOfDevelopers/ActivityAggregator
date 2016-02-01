@@ -1,5 +1,6 @@
 $mainColor: #009fdf;
 $fontColor: #59595b;
+$achivmentsIcons: url(../icons/achivments_icons.png);
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
      -moz-border-radius: $radius;
@@ -384,22 +385,25 @@ ul {
 
 .ach_icon.science:after {
 
-  background: url(../icons/achivments_icons.png) -59px  no-repeat;
+  background: $achivmentsIcons -59px  no-repeat;
 
 }
 
 .ach_icon.cultural:after {
-  background: url(../icons/achivments_icons.png) 11px  no-repeat;
+  background: $achivmentsIcons 11px  no-repeat;
 }
 
-.ach_icon.organization:after {
-  background: url(../icons/achivments_icons.png) -130px no-repeat;
+.ach_icon.social:after {
+  background: $achivmentsIcons -130px no-repeat;
 }
 
 .ach_icon.sport:after {
-  background: url(../icons/achivments_icons.png) -200px no-repeat;
+  background: $achivmentsIcons -200px no-repeat;
 }
 
+.ach_icon.study:after {
+  background: $achivmentsIcons -256px no-repeat;
+}
 
 .ach_title {
 	position: absolute;
@@ -586,6 +590,7 @@ ul {
   color: #000;
   font-size: 18px;
   font-weight: bold;
+  text-decoration: underline;
 }
 .achivments_count i {
   margin-left: 3px;

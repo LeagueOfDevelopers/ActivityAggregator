@@ -1,6 +1,14 @@
-var controllers = angular.module('app.controllers', ['app.controllers.main', 'app.controllers.routes', 'ui.router']);
+var controllers = angular.module('app.controllers',
+[
+'app.controllers.main',
+'app.controllers.partials',
+'ui.router'
+]);
 
-var mainControllers = angular.module('app.controllers.main', ['ui.router'])
+var mainControllers = angular.module('app.controllers.main',
+ [
+   'ui.router'
+ ])
 
 .controller('appCtrl',
   ['$scope',
@@ -22,15 +30,19 @@ var mainControllers = angular.module('app.controllers.main', ['ui.router'])
   '$state',
   '$http',
     function ($scope, $state, $http) {
-
-      $scope.currentUser = {name: 'Жамбыл Ермагамбет', id: '1'};
-      if($scope.currentUser) {
-        $scope.sref = 'profile(id=' + $scope.currentUser.id + ')';
-        $scope.profileLink = $scope.currentUser.name;
-      } else {
-        $scope.sref = 'registry';
-        $scope.profileLink = 'Рассказать о себе';
+      $scope.profileLink = {
+        sref: 'registry',
+        title: 'Рассказать о себе'
       }
+      $scope.currentUser = {};
+      if($scope.currentUser.name && $scope.currentUser.id) {
+        $scope.profileLink.sref = 'profile(id=' + $scope.currentUser.id + ')';
+        $scope.profileLink.title = $scope.currentUser.name;
+      }
+
 }]);
 
-angular.module('app.controllers.routes', ['ui.router']);
+angular.module('app.controllers.partials',
+[
+  'ui.router'
+]);

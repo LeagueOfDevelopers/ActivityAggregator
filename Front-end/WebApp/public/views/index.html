@@ -14,7 +14,7 @@
         <ul>
           <li><a href="#/">Информация</a></li>
           <li><a ui-sref="studentsBase">База активистов</a></li>
-          <li><a ui-sref="{{sref}}" ng-bind="profileLink"></a></li>
+          <li><a ui-sref="{{profileLink.sref}}" ng-bind="profileLink.title"></a></li>
         </ul>
       </nav>
     </section>
@@ -22,6 +22,8 @@
     <section ui-view="footer"></section>
   </div>
     <script type="text/javascript" src="../js/lib/angular.min.js"></script>
+      <script type="text/javascript" src="../js/lib/angular-sanitize.min.js"></script>
     <script type="text/javascript" src="../js/lib/angular-ui-router.min.js"></script>
     <script type="text/javascript" src="../js/build/build.js"></script>
+
   </body>

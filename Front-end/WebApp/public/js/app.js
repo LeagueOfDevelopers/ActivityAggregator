@@ -1,4 +1,9 @@
-angular.module('ActivityAggregator', ['ui.router', 'app.controllers'])
+angular.module('ActivityAggregator',
+ [
+   'ui.router',
+   'app.controllers',
+   'ngSanitize'
+ ])
 
   .config(
     ['$urlRouterProvider',
