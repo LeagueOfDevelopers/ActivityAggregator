@@ -15,40 +15,24 @@
         </div>
       </div>
       <ul class="students_list students_base_container">
-        <li class="student_card">
+        <li class="student_card" ng-repeat='student in searchResults'>
           <div class="avatar"></div>
           <ul class="profile_detail">
-            <li class="first_name">{{hey}}</li>
-            <li class="last_name">Ермагамбет</li>
-            <li class="course">ИТАСУ 2 курс</li>
+            <li class="first_name" ng-bind='student.firstName'></li>
+            <li class="last_name" ng-bind='student.lastName'></li>
+            <li class="course" ng-bind='student.course'></li>
             <li>
-              <button class="btn_profile_link">Профиль</button>
+              <button class="btn_profile_link" ui-sref='profile'>Профиль</button>
             </li>
           </ul>
           <ul class="short_achivments_list">
-            <li class="achivment_link"><a href="#">Победа в квн</a></li>
-            <li class="achivment_link"><a href="#">Международный конкурс</a></li>
-            <li class="achivment_link"><a href="#">Бла бла бла</a></li>
-            <button class="achivments_count"> <span>8</span><i class="fa fa-trophy"> </i></button>
+            <li class="achivment_link" ng-if='student.achivments[0]'><a href="#" ng-bind='student.achivments[0].name'></a></li>
+            <li class="achivment_link" ng-if='student.achivments[1]'><a href="#" ng-bind='student.achivments[1].name'></a></li>
+            <li class="achivment_link" ng-if='student.achivments[2]'><a href="#" ng-bind='student.achivments[2].name'></a></li>
+            <li class="achivment_link" ng-if='student.achivments[3]'><a href="#" ng-bind='student.achivments[3].name'></a></li>
+
+            <button class="achivments_count"> <span ng-bind='student.achivments.length'></span><i class="fa fa-trophy"> </i></button>
           </ul>
-        </li>
-        <li class="student_card">
-          <div class="avatar"></div>
-          <ul class="profile_detail">
-            <li class="first_name">Жамбыл</li>
-            <li class="last_name">Ермагамбет</li>
-            <li class="course">ИТАСУ 2 курс</li>
-            <li>
-              <button class="btn_profile_link">Профиль</button>
-            </li>
-          </ul>
-          <ul class="short_achivments_list">
-            <li class="achivment_link"><a href="#">Победа в квн</a></li>
-            <li class="achivment_link"><a href="#">Международный конкурс</a></li>
-            <li class="achivment_link"><a href="#">Бла бла бла</a></li>
-            <li class="achivment_link"><a href="#">Еще одно  </a></li>
-          </ul>
-          <button class="achivments_count"> <span>8</span><i class="fa fa-trophy"></i></button>
         </li>
       </ul>
       <section id="achivments_popup" style="visibility: hidden;">

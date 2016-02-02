@@ -481,7 +481,8 @@ ul {
 
 .achivment_link a {
   color: #009fdf;
-  font-size: 18px; }
+  font-size: 18px;
+  text-decoration: underline; }
 
 .achivment_link a:hover {
   color: #028ec7; }

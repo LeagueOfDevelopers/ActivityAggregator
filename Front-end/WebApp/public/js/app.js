@@ -2,6 +2,7 @@ angular.module('ActivityAggregator',
  [
    'ui.router',
    'app.controllers',
+   'app.services',
    'ngSanitize'
  ])
 
@@ -16,6 +17,7 @@ angular.module('ActivityAggregator',
          views: {
            'page_content': {
              templateUrl: 'partials/studentsBase.html',
+             controller: 'studentsBaseCtrl'
            }
          }
        })

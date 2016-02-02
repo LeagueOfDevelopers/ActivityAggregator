@@ -1,11 +1,13 @@
-var controllers = angular.module('app.controllers',
+
+/* Controllers */
+angular.module('app.controllers',
 [
 'app.controllers.main',
 'app.controllers.partials',
 'ui.router'
 ]);
 
-var mainControllers = angular.module('app.controllers.main',
+angular.module('app.controllers.main',
  [
    'ui.router'
  ])
@@ -29,20 +31,69 @@ var mainControllers = angular.module('app.controllers.main',
   ['$scope',
   '$state',
   '$http',
-    function ($scope, $state, $http) {
+  'UserManager',
+    function ($scope, $state, $http, UserManager) {
+
       $scope.profileLink = {
-        sref: 'registry',
+        sref: 'profile',
         title: 'Рассказать о себе'
       }
       $scope.currentUser = {};
-      if($scope.currentUser.name && $scope.currentUser.id) {
-        $scope.profileLink.sref = 'profile(id=' + $scope.currentUser.id + ')';
-        $scope.profileLink.title = $scope.currentUser.name;
-      }
+      updateUserData();
+
+      function updateUserData() {
+        UserManager.getCurrentUser().then(function (result) {
+          $scope.currentUser = result;
+          if($scope.currentUser.name && $scope.currentUser.id) {
+            $scope.profileLink.sref = 'profile';
+            $scope.profileLink.title = $scope.currentUser.name;
+          } else {
+            state.go('auth')
+          }
+          console.log(result);
+        })
+      };
+
+
+
+      $scope.$on('needAuth', function (e, args) {
+        if(!($scope.currentUser.name && $scope.currentUser.id)) {
+          updateUserData();
+        }
+        console.log($scope.currentUser);
+      })
 
 }]);
 
 angular.module('app.controllers.partials',
 [
   'ui.router'
-]);
+])
+
+  .controller('studentsBaseCtrl',
+  [
+    '$scope',
+    '$http',
+    function ($scope, $http) {
+      $scope.searchResults = [
+        {
+          firstName: 'Жамбыл',
+          lastName: 'Ермагамбет',
+          course: 'ИТАСУ 2 курс',
+          achivments: [{name:'Победа в квн', id: '12'}, {name:'Победаdwd в квн', id: '12'}, {name:'Победаqwdq в квн', id: '12'}, {name:'Побеdwdда в квн', id: '12'}]
+        },
+        {
+          firstName: 'Жамбыл',
+          lastName: 'Ермагамбет',
+          course: 'ИТАСУ 2 курс',
+          achivments: [{name:'Победа в квн', id: '12'}, {name:'Победаdwd в квн', id: '12'}, {name:'Победаqwdq в квн', id: '12'}, {name:'Побеdwdда в квн', id: '12'}]
+        },
+        {
+          firstName: 'Жамбыл',
+          lastName: 'Ермагамбет',
+          course: 'ИТАСУ 2 курс',
+          achivments: [{name:'Победа в квн', id: '12'}, {name:'Победаdwd в квн', id: '12'}, {name:'Победаqwdq в квн', id: '12'}, {name:'Побеdwdда в квн', id: '12'}]
+        }];
+
+    }
+  ])
