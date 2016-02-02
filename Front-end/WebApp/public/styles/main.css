@@ -150,7 +150,6 @@ ul {
   width: 120px;
   height: 120px;
   background-color: #8c9397;
-  background: url(../img/jambul.jpg);
   background-size: cover; }
 
 .user_avatar_profile:after {
@@ -433,7 +432,6 @@ ul {
 
 .avatar {
   background: #000;
-  background-image: url(../img/jambul.jpg);
   background-size: cover;
   width: 100px;
   height: 100px;
