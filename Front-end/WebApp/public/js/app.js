@@ -27,6 +27,7 @@ angular.module('ActivityAggregator',
          views: {
            'page_content': {
              templateUrl: 'partials/profile.html',
+             controller: 'profileCtrl'
            },
            'footer': {
              templateUrl: 'partials/footer.html',

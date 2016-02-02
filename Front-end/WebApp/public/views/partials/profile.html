@@ -3,10 +3,12 @@
         <div class="row profile_info">
           <div class="profile_info_card small-12 medium-7 columns">
             <div class="user_main_info">
-              <div class="user_avatar_profile"></div><span class="user_name_profile">Жамбыл Ермаганбет</span><span class="user_course_profile">ИТАСУ 2 курс</span>
+              <div class="user_avatar_profile">
+              </div><span class="user_name_profile" ng-bind="userDetail.firstName + ' ' + userDetail.lastName"></span>
+              <span class="user_course_profile" ng-bind="userDetail.department +' '+ userDetail.course + ' курс'"></span>
             </div>
             <div class="user_detail"><span>O ceбе</span>
-              <p> Задача организации, в особенности же рамки и место обучения кадров позволяет выполнять важные задания по разработке соответствующий условий активизации. Мы хотим, чтобы наш вейп-шоп был удобен и полезен для всех категорий покупателей. вас все замечания и предложения о товаре, ценах, а главное — о сайте отправлять.</p>
+              <p ng-bind="userDetail.about"></p>
             </div>
             <button class="btn_edit_user_detail">Редактировать</button>
           </div>
@@ -21,35 +23,13 @@
           </div>
         <div class="achivments_list">
           <ul class="small-12">
-            <li>
+            <li ng-repeat='ach in userDetail.achivments'>
+              <a href="#hey">
               <div class="ach">
-                <div class="ach_icon science"></div>
-                <div class="ach_title">Научное достижение</div>
+                <div class="ach_icon {{ach.type}}"></div>
+                <div class="ach_title" ng-bind="ach.name"></div>
               </div>
-            </li>
-            <li>
-              <div class="ach">
-                <div class="ach_icon cultural"></div>
-                <div class="ach_title">Танцульки шутейки</div>
-              </div>
-            </li>
-            <li>
-              <div class="ach">
-                <div class="ach_icon social"></div>
-                <div class="ach_title">Организационная деятельность</div>
-              </div>
-            </li>
-            <li>
-              <div class="ach">
-                <div class="ach_icon sport"></div>
-                <div class="ach_title">Спорт</div>
-              </div>
-            </li>
-            <li>
-              <div class="ach">
-                <div class="ach_icon study"></div>
-                <div class="ach_title">Atquwdwdusto nobis assumenda unde veniam aperiam architecto! </div>
-              </div>
+              </a>
             </li>
           </ul>
         </div>

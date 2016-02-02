@@ -97,3 +97,18 @@ angular.module('app.controllers.partials',
 
     }
   ])
+
+  .controller('profileCtrl',
+  [
+    '$scope',
+    '$http',
+    'UserManager',
+    function ($scope, $http, UserManager) {
+      UserManager.getUserDetail().then(function (result) {
+
+          $scope.userDetail = result;
+          console.log(result);
+
+      })
+    }
+  ])
