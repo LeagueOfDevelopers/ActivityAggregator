@@ -60,7 +60,7 @@ angular.module('app.controllers.main',
         if(!($scope.currentUser.name && $scope.currentUser.id)) {
           updateUserData();
         }
-        console.log($scope.currentUser);
+        console.log($scope.currentUser + 'auth');
       })
 
 }]);
@@ -94,7 +94,6 @@ angular.module('app.controllers.partials',
           course: 'ИТАСУ 2 курс',
           achivments: [{name:'Победа в квн', id: '12'}, {name:'Победаdwd в квн', id: '12'}, {name:'Победаqwdq в квн', id: '12'}, {name:'Побеdwdда в квн', id: '12'}]
         }];
-
     }
   ])
 
