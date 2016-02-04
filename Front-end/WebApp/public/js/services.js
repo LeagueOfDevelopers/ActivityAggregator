@@ -1,7 +1,7 @@
 angular.module('app.services', [])
 
   .service('UserManager', ['$rootScope', '$q', '$http', function ($rootScope, $q, $http) {
-        var curUser = {name: 'Жамбыл Ермагамбет', id: '1'};
+        var curUser = {};
         var userInfo = {
           firstName: 'Жамбыл',
           lastName: 'Ермагамбет',

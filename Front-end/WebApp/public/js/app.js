@@ -3,11 +3,13 @@ angular.module('ActivityAggregator',
    'ui.router',
    'app.controllers',
    'app.services',
+   'app.directives',
    'ngSanitize'
  ])
 
   .config(
-    ['$urlRouterProvider',
+    [
+    '$urlRouterProvider',
     '$stateProvider',
      function ($urlRouterProvider, $stateProvider) {
        $urlRouterProvider.otherwise("/studentsBase");
@@ -33,5 +35,29 @@ angular.module('ActivityAggregator',
              templateUrl: 'partials/footer.html',
            }
          }
+       })
+       .state('auth', {
+          url: '/auth',
+           views: {
+             'page_content': {
+               templateUrl: 'partials/auth.html',
+               controller: 'authCtrl'
+             },
+             'footer': {
+               templateUrl: 'partials/footer.html',
+             }
+           }
+       })
+       .state('registry', {
+          url: '/registry',
+           views: {
+             'page_content': {
+               templateUrl: 'partials/registry.html',
+               controller: 'registryCtrl'
+             },
+             'footer': {
+               templateUrl: 'partials/footer.html',
+             }
+           }
        })
      }]);

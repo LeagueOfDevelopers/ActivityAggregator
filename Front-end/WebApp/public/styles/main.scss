@@ -195,6 +195,7 @@ ul {
   height: 120px;
   background-color: #8c9397;
   background-size: cover;
+  background-image: url(../img/default-avatar.gif)
 
 }
 
@@ -520,7 +521,7 @@ ul {
 
 
 .avatar {
-  background: #000;
+  background-image: url(../img/default-avatar.gif);
   background-size: cover;
   width: 100px;
   height: 100px;

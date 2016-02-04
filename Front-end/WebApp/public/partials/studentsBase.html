@@ -3,10 +3,10 @@
         <span class="students_base_title">
           <center>База активистов НИТУ МИСиС</center></span>
         <div class="row search_params">
-          <input type="text" name="name" max-lenght="15" value="" placeholder="Найти студента" class="search_student_input small-12 medium-4 columns"/>
+          <input type="text" name="name" max-lenght="15" value="" placeholder="Найти студента" class="search_student_input small-12 medium-4 columns" ng-model='searchParams.name'/>
           <button class="columns medium-1 btn_start_search"><i class=" fa fa-search"></i></button>
           <span class="category_label columns medium-2">По категории</span>
-            <select name="category" class="select_category small-12 medium-5 columns">
+            <select name="category" class="select_category small-12 medium-5 columns" ng-model='searchParams.category'>
               <option>Спорт</option>
               <option>Культура</option>
               <option>Наука</option>
@@ -35,7 +35,7 @@
           </ul>
         </li>
       </ul>
-      <section id="achivments_popup" style="visibility: hidden;">
+      <section id="achivments_popup" style="visibility: visible;">
         <ul><li>
           <div class="ach">
             <div class="ach_icon sport"></div>

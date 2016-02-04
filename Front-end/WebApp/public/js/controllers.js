@@ -35,7 +35,7 @@ angular.module('app.controllers.main',
     function ($scope, $state, $http, UserManager) {
 
       $scope.profileLink = {
-        sref: 'profile',
+        sref: 'auth',
         title: 'Рассказать о себе'
       }
       $scope.currentUser = {};
@@ -75,6 +75,15 @@ angular.module('app.controllers.partials',
     '$scope',
     '$http',
     function ($scope, $http) {
+      $scope.searchParams = {
+        name: '',
+        category: 'Наука'
+      }
+
+      $scope.$watch('searchParams.category', function() {
+        console.log($scope.searchParams);
+      })
+
       $scope.searchResults = [
         {
           firstName: 'Жамбыл',
@@ -111,3 +120,11 @@ angular.module('app.controllers.partials',
       })
     }
   ])
+
+  .controller('authCtrl', ['$scope', function($scope){
+    
+  }])
+
+  .controller('registryCtrl', ['$scope', function($scope){
+    
+  }])

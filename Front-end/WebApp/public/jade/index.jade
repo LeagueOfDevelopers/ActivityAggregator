@@ -2,10 +2,6 @@ extends layout
 block header
   include header
 block content
-  section.page_content 
-    div.index_header
-      div.index_title
-        p Онлайн портфолио активных студентов  ниту мисис
+  section(ui-view="page_content")
  block footer 
-   include footer
- 
+  section(ui-view="footer")
