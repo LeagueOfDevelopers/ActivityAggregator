@@ -16,7 +16,8 @@ angular.module('app.controllers.main',
   ['$scope',
   '$state',
     function ($scope, $state) {
-      switch ($state.current.name) {
+      var stateName = $state.current.name;
+      switch (stateName) {
         case 'studentsBase': $scope.title = 'База активистов НИТУ МИСиС';
           break;
         case 'profile': $scope.title = 'Профиль студента';
@@ -48,7 +49,7 @@ angular.module('app.controllers.main',
             $scope.profileLink.sref = 'profile';
             $scope.profileLink.title = $scope.currentUser.name;
           } else {
-            state.go('auth')
+            $state.go('auth')
           }
           console.log(result);
         })
@@ -81,9 +82,13 @@ angular.module('app.controllers.partials',
       }
 
       $scope.$watch('searchParams.category', function() {
-        console.log($scope.searchParams);
+        $scope.getStudentsList($scope.searchParams);
       })
 
+      $scope.getStudentsList = function(searchParams) {
+        var requestUrl = 'api/' + ((searchParams.name == '') ? searchParams.category : searchParams.name);
+        console.log(requestUrl);
+      };
       $scope.searchResults = [
         {
           firstName: 'Жамбыл',
