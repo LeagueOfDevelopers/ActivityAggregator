@@ -44,6 +44,17 @@ angular.module('app.services', [])
 
       }
 
+      function updateUserDetail(data) {
+        return $q.when(updateData(data)).then(function () {
+          return getUserDetail();
+        })
+
+        function updateData(data) {
+          userInfo[about] = data;
+
+        }
+      }
+
         function logout() {
             return $http.post('/api/auth/logout').success(function (data) {
                 curUser = null;

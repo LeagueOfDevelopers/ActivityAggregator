@@ -1,6 +1,6 @@
 angular.module('app.directives', [])
 
-.directive('achivments.popup', {
+.directive('popup.achivments', {
 	restrict: 'E',
 	scope: {
 		achivmentsList: '='

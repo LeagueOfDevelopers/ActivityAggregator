@@ -27,12 +27,12 @@ button:active :after :before {
 display: none;
 }
 html {
-  min-height: 100%;
+  height: 100% !important;
 }
 
 body {
   font-family: arial, sans-serif;
-  min-height: 100%;
+  height: 100%  !important;
   font-family: Calibri Arial;
   background: #fafafa;
 }
@@ -58,7 +58,7 @@ ul {
 }
 
 .wrapper {
-  min-height: 100%;
+  height: 100% !important;
   position: relative;
 }
 
@@ -76,7 +76,7 @@ ul {
 }
 
 .page_content {
-  min-height: 100%;
+  height: 100% !important;
   font-family: Calibri;
   padding-top: 60px;
   padding-bottom: 60px;
@@ -88,7 +88,6 @@ ul {
   line-height: 60px;
   border-top: 2px solid $mainColor;
   background: #fff;
-  margin-top: -62px;
 
 }
 
@@ -619,3 +618,17 @@ ul {
 #achivments_popup li {
   margin-bottom: 3px;
 }
+ .form_card {
+   margin: 0 auto;
+   margin-top: 100px;
+   width: 400px;
+   @include cardShadow();
+ }
+
+ achivment_detail
+ .achivment_detail_card {
+   margin: 0 auto;
+   margin-top: 100px;
+   width: 500px;
+   @include cardShadow();
+ }

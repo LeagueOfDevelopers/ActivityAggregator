@@ -117,19 +117,33 @@ angular.module('app.controllers.partials',
     '$http',
     'UserManager',
     function ($scope, $http, UserManager) {
+      $scope.showEditField= false;
       UserManager.getUserDetail().then(function (result) {
-
-          $scope.userDetail = result;
+        $scope.userDetail = result;
           console.log(result);
+        });
+      $scope.editUserDetail = function () {
+        $scope.showEditField= true;
+      }
+      $scope.applyChanges = function () {
+        if($scope.newUserDetail) {
+          $scope.showEditField = false;
+             $scope.userDetail = UserManager.updatdeUserDetail($scope.newUserDetail);
+        }
+      }
+      $scope.notApplyChanges = function () {
+          $scope.showEditField = false;
+          $scope.newUserDetail = null;
+      }
 
-      })
+
     }
   ])
 
   .controller('authCtrl', ['$scope', function($scope){
-    
+    $scope.login = {};
   }])
 
   .controller('registryCtrl', ['$scope', function($scope){
-    
+
   }])

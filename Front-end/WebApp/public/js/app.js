@@ -42,10 +42,7 @@ angular.module('ActivityAggregator',
              'page_content': {
                templateUrl: 'partials/auth.html',
                controller: 'authCtrl'
-             },
-             'footer': {
-               templateUrl: 'partials/footer.html',
-             }
+            }
            }
        })
        .state('registry', {
@@ -54,9 +51,6 @@ angular.module('ActivityAggregator',
              'page_content': {
                templateUrl: 'partials/registry.html',
                controller: 'registryCtrl'
-             },
-             'footer': {
-               templateUrl: 'partials/footer.html',
              }
            }
        })

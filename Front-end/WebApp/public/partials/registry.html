@@ -1,14 +1,11 @@
 <section class="page_content">
-	<div class="container">
-		<div class="authorization">
-			<a ui-sref="auth">Войти</a>
-			<form name='autorize' class="small-12">
-					<label for="studentNumber">Номер cтуденческого билета</label>
-					<input class='small-12 medium-3' name='studentNumber' size='6' type="digit">
-					<label for="password">Пароль</label>
-					<input name="password" size="12" type="password">
-					<input type="submit" value='Войти'>
+	<div class="form_card">
+			<form name='regitry_form'>
+					<label for='name' class="small-12 columns" for="studentNumber">Имя</label>
+					<input  name='email' size='6' type="email" ng-model="login.Email">
+					<label class="small-12 columns" for="password">Пароль</label>
+					<input name="password" size="12" type="password"  ng-model="login.password">
+					<input type="submit" value='Войти' ng-click="tryToLogin()">
+</div>
 			</form>
-		</div>
-	</div>
-</section>
+	</section>

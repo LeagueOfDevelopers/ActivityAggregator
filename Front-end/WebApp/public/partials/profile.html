@@ -9,8 +9,10 @@
             </div>
             <div class="user_detail"><span>O ceбе</span>
               <p ng-bind="userDetail.about"></p>
+              <textarea name="name" rows="5" cols="70" ng-if="showEditField" ng-model="newUserDetail"></textarea>
             </div>
-            <button class="btn_edit_user_detail">Редактировать</button>
+            <button  class="btn_edit_user_detail" ng-click="applyChanges()" ng-if="showEditField">Применить</button>
+            <button class="btn_edit_user_detail" ng-click="showEditField ? notApplyChanges() : editUserDetail()" ng-bind="showEditField ? 'Отмена' : 'Редактировать'"></button>
           </div>
           <div class="help small-12 medium-5 columns">
             <span class="help_title small-12">Это ваш профиль студента</span>
