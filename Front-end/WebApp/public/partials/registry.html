@@ -4,12 +4,18 @@
 
     <form>
       <div class="row column login_form">
-        <span class="form_title">Вход на платформу</span>
+        <span class="form_title">Регистрация на платформе</span>
         <label>Электронная почта</label>
-          <input type="text" placeholder="jambul@example.com">
+            <input type="text" placeholder="jambul@example.com">
+				<label>ФИО</label>
+						<input type="text" placeholder="Иванов Иван Иванович">
+				<label>Институт</label>
+						<input type="text" placeholder="экотех">
+				<label>Номер студенческого билета</label>
+						<input type="number" placeholder="142062">
         <label>Пароль</label>
-          <input type="text" placeholder="********">
-					<input type="submit" class="submit_form" value="Войти">
+          <input type="password" placeholder="********">
+					<input type="submit" class="submit_form" value="Регистрация">
 					<a ui-sref="auth">Вход</a>
       </div>
     </form>

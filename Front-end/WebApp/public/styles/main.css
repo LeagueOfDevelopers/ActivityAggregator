@@ -566,8 +566,13 @@ achivment_detail
 .submit_form {
   text-align: center;
   font-weight: bold;
-  background: #009fdf;
+  background: transparent;
   width: 100%;
   padding: 10px;
-  border: none;
+  border: 1px solid #009fdf !important;
+  color: #009fdf;
+  transition: all .2s; }
+
+.submit_form:hover {
+  background: #009fdf;
   color: #fff; }

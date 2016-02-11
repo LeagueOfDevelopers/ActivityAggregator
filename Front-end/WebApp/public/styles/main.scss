@@ -679,9 +679,14 @@ $form-radius: $global-radius;
  .submit_form {
   text-align: center;
   font-weight: bold;
-  background: $mainColor;
+  background: transparent;
   width: 100%;
   padding: 10px;
-  border: none;
+  border: 1px solid $mainColor !important;
+  color: $mainColor;
+  transition: all .2s;
+}
+.submit_form:hover {
+  background: $mainColor;
   color: #fff;
 }

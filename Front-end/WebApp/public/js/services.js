@@ -2,15 +2,6 @@ angular.module('app.services', [])
 
   .service('UserManager', ['$rootScope', '$q', '$http', function ($rootScope, $q, $http) {
         var curUser = {};
-        var userInfo = {
-          firstName: 'Жамбыл',
-          lastName: 'Ермагамбет',
-          department: 'ИТАСУ',
-          course: '2',
-          about: 'Задача организации, в особенности же рамки и место обучения кадров позволяет выполнять важные задания по разработке соответствующий условий активизации. Мы хотим, чтобы наш вейп-шоп был удобен и полезен для всех категорий покупателей. вас все замечания и предложения о товаре, ценах, а главное — о сайте отправлять.',
-          photoUri: '../img/jambul.jpg',
-          achivments: [{name:'Победа в квн', id: '12', type: 'sport'}, {name:'Победаdwd в квн', id: '12', type: 'sport'}, {name:'Победаqwdq в квн', id: '12', type: 'sport'}, {name:'Побеdwdда в квн', id: '12', type: 'sport'}]
-        }
         function getCurrentUser(params) {
             params = params || { cache: true };
             return $q.when(curUser && params.cache ? curUser : getUser()).then(function (result) {
