@@ -537,3 +537,37 @@ achivment_detail
   -webkit-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
   box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5); }
+
+.form_title {
+  font-size: 18px;
+  font-family: Calibrib;
+  color: #59595b;
+  text-align: center;
+  display: block; }
+
+.login_form {
+  padding: 10px;
+  padding-left: 100px; }
+
+.login_form label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px; }
+
+.login_form input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #cacaca;
+  margin: 5px auto; }
+
+.login_form a {
+  color: #009fdf; }
+
+.submit_form {
+  text-align: center;
+  font-weight: bold;
+  background: #009fdf;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  color: #fff; }

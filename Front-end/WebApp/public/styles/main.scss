@@ -632,3 +632,56 @@ ul {
    width: 500px;
    @include cardShadow();
  }
+ // Default medium-gray color
+$medium-gray: #cacaca;
+// Default global padding
+$global-padding: 1rem;
+// Global value used for all elements that have a border radius.
+$global-radius: 3px;
+
+// Setting the form border color
+$form-border-color: $medium-gray;
+// Setting the form padding
+$form-padding: $global-padding;
+// Setting the form border radius
+$form-radius: $global-radius;
+
+
+.form_title {
+ font-size: 18px;
+ font-family: Calibrib;
+ color: $fontColor;
+ text-align: center;
+ display: block;
+
+
+}
+.login_form {
+  padding: 10px;
+  padding-left: 100px;
+}
+
+.login_form label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+
+}
+.login_form input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid $medium-gray;
+  margin: 5px auto;
+}
+.login_form  a {
+  color: $mainColor;
+}
+ .submit_form {
+  text-align: center;
+  font-weight: bold;
+  background: $mainColor;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  color: #fff;
+}

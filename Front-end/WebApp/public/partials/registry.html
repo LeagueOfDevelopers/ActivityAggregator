@@ -1,11 +1,19 @@
-<section class="page_content">
-	<div class="form_card">
-			<form name='regitry_form'>
-					<label for='name' class="small-12 columns" for="studentNumber">Имя</label>
-					<input  name='email' size='6' type="email" ng-model="login.Email">
-					<label class="small-12 columns" for="password">Пароль</label>
-					<input name="password" size="12" type="password"  ng-model="login.password">
-					<input type="submit" value='Войти' ng-click="tryToLogin()">
+<div class="page_content">
+	<div class="row">
+  <div class=" form_card medium-6 medium-centered large-5 large-centered columns">
+
+    <form>
+      <div class="row column login_form">
+        <span class="form_title">Вход на платформу</span>
+        <label>Электронная почта</label>
+          <input type="text" placeholder="jambul@example.com">
+        <label>Пароль</label>
+          <input type="text" placeholder="********">
+					<input type="submit" class="submit_form" value="Войти">
+					<a ui-sref="auth">Вход</a>
+      </div>
+    </form>
+
+  </div>
 </div>
-			</form>
-	</section>
+</div>
