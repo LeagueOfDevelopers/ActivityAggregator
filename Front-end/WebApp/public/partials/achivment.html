@@ -1,11 +1,13 @@
-<section class="achivment_detail page_content">
-  <div class="achivment_detail_card">
-    <a class="achivment_owner" ui-sref="profile(id={{achivment.owner.id}})" ng-bind="achivment.owner.name"></a>
+<section class=" page_content">
+<div class="row">
+  <div class="form_card small-12 medium-6 medium-centred columns">
+    <a class="achivment_owner" ui-sref="profile({{achivment.owner.id}})" ng-bind="achivment.owner.name"></a>
     <span class="achivment_title" ng-bind="achivment.title"></span>
     <ul class="achivment_detail_photo" ng-if="achivment.photo.length > 0">
       <li ng-repeat="photoUri in achivment.photo"><img ng-src="photoUri" alt="{{achivment.name}}"></li>
     </ul>
     <p class="achivment_detail_description" ng-bind="achivment.description"></p>
   </div>
+ </div>
 
 </section>

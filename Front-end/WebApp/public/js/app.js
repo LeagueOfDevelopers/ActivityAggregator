@@ -37,6 +37,16 @@ angular.module('ActivityAggregator',
          }
        })
 
+       .state('add_achivment', {
+        url: '/profile/new_achivment',
+        views: {
+          'page_content': {
+           templateUrl: 'partials/addAchivment.html',
+           controller: 'newAchCtrl'
+          }
+        }
+       })
+
        .state('achivment_detail', {
           url: '/achivment_detail/:id',
           views: {
@@ -47,8 +57,7 @@ angular.module('ActivityAggregator',
           },
           resolve: {
             achToShow: function($http, $stateParams) {
-              var reqUrl = '/api/achivments/' + $stateParams.id;
-              return $http.get(reqUrl);
+              return true;
             }
           }
            

@@ -29,29 +29,52 @@ function getStudentsList(req, res, next) {
           lastName: 'Ермагамбет',
           department: 'ИТАСУ',
           course: '2',
-          achivments: [{name:'Победа в квн', id: '12'}, {name:'Победаdwd в квн', id: '12'}, {name:'Победаqwdq в квн', id: '12'}, {name:'Побеdwdда в квн', id: '12'}]
+          achivments: [
+          {name:'Победа в квн', id: '12', type: 'science'}, 
+          {name:'Победаdwd в квн', id: '12', type: 'science'}, 
+          {name:'Победаqwdq в квн', id: '12', type: 'science'}, 
+          {name:'Побеdwdда в квн', id: '12', type: 'science'}]
         },
         {
           firstName: 'Жамбыл',
           lastName: 'Ермагамбет',
           department: 'ИТАСУ',
           course: '2',
-          achivments: [{name:'Победа в квн', id: '12'}, {name:'Победаdwd в квн', id: '12'}, {name:'Победаqwdq в квн', id: '12'}, {name:'Побеdwdда в квн', id: '12'}]
+          achivments: [{name:'Победа в квн', id: '12', type: 'science'}, 
+          {name:'Победаdwd в квн', id: '12', type: 'science'}, 
+          {name:'Победаqwdq в квн', id: '12', type: 'science'}, 
+          {name:'Побеdwdда в квн', id: '12', type: 'science'}]
         },
         {
           firstName: 'Жамбыл',
           lastName: 'Ермагамбет',
           department: 'ИТАСУ',
           course: '2',
-          achivments: [{name:'Победа в квн', id: '12'}, {name:'Победаdwd в квн', id: '12'}, {name:'Победаqwdq в квн', id: '12'}, {name:'Побеdwdда в квн', id: '12'}]
+          achivments: [{name:'Победа в квн', id: '12', type: 'science'}, 
+          {name:'Победаdwd в квн', id: '12', type: 'science'}, 
+          {name:'Победаqwdq в квн', id: '12', type: 'science'}, 
+          {name:'Побеdwdда в квн', id: '12', type: 'science'}]
         },
         {
           firstName: 'Жамбыл',
           lastName: 'Ермагамбет',
           department: 'ИТАСУ',
           course: '2',
-          achivments: [{name:'Победа в квн', id: '12'}, {name:'Победаdwd в квн', id: '12'}, {name:'Победаqwdq в квн', id: '12'}, {name:'Побеdwdда в квн', id: '12'}]
-        }
+          achivments: [{name:'Победа в квн', id: '12', type: 'science'}, 
+          {name:'Победаdwd в квн', id: '12', type: 'science'}, 
+          {name:'Победаqwdq в квн', id: '12', type: 'science'}, 
+          {name:'Побеdwdда в квн', id: '12', type: 'science'}]
+        },
+        {
+          firstName: 'Жамбыл',
+          lastName: 'Ермагамбет',
+          department: 'ИТАСУ',
+          course: '2',
+          achivments: [{name:'Победа в квн', id: '12', type: 'science'}, 
+          {name:'Победаdwd в квн', id: '12', type: 'science'}, 
+          {name:'Победаqwdq в квн', id: '12', type: 'science'}, 
+          {name:'Побеdwdда в квн', id: '12', type: 'science'}]
+        },
         ]);
 
 	res.end(data);

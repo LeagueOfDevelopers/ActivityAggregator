@@ -5,11 +5,24 @@
       <div class="row column login_form">
         <span class="form_title">Ваши успехи</span>
         <label>Название достижения</label>
-          <input type="text" placeholder="jambul@example.com">
-        <label>Пароль</label>
-          <input type="text" placeholder="********">
-					<input type="submit" class="submit_form" value="Войти">
-					<a ui-sref="registry">Регистрация</a>
+          <input type="text" placeholder='Олимпиада по программирванию' required='true' ng-model='newAch.name'>
+        <select name="category" class="select_category" ng-model='newAch.type' required='true'>
+              <option>Спорт</option>
+              <option>Культура</option>
+              <option>Наука</option>
+              <option>Общественная деятельность</option>
+            </select>
+          <label>Результаты</label>
+          <input type="text" placeholder="Призер 2 место" required='true' ng-model='newAch.result'>
+          <label>Организация</label>
+          <input type="text" placeholder="mail.ru" required='true'>
+           <label>Подробнее (не обязательно)</label>
+          <textarea name="name" rows="5" cols="50" ng-model="newAch.descrption"></textarea>
+          <label>Фотографии</label>
+          <input type="file" class='fa fa-file' value=''>
+           <label>Сканы документов</label>
+          <input type="file" class='fa fa-file' required='true'>
+					<input type="submit" class="submit_form" value="Отправить">
       </div>
     </form>
 

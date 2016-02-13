@@ -1,6 +1,9 @@
+fs = require('fs');
+
 module.exports = {
   	getAchivmentsList: getAchivmentsList,
   	getAchivmentDetail: getAchivmentDetail,
+  	newAchivment: newAchivment
 };
 
 function getAchivmentsList(req, res, next) {
@@ -10,4 +13,8 @@ function getAchivmentsList(req, res, next) {
 function getAchivmentDetail(req, res, next) {
   res.end('getAchivmentDetail' + ' ' + req.params.id);
 
+};
+
+function newAchivment(req, res, next) {
+	res.end('newAchivment');
 };

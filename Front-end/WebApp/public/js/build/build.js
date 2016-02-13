@@ -37,6 +37,16 @@ angular.module('ActivityAggregator',
          }
        })
 
+       .state('add_achivment', {
+        url: '/profile/new_achivment',
+        views: {
+          'page_content': {
+           templateUrl: 'partials/addAchivment.html',
+           controller: 'newAchCtrl'
+          }
+        }
+       })
+
        .state('achivment_detail', {
           url: '/achivment_detail/:id',
           views: {
@@ -47,8 +57,7 @@ angular.module('ActivityAggregator',
           },
           resolve: {
             achToShow: function($http, $stateParams) {
-              var reqUrl = '/api/achivments/' + $stateParams.id;
-              return $http.get(reqUrl);
+              return true;
             }
           }
            
@@ -90,7 +99,7 @@ angular.module('app.controllers.main',
 
 .controller('appCtrl',
   ['$scope',
-  '$state',
+   '$state',
     function ($scope, $state) {
       var stateName = $state.current.name;
       switch (stateName) {
@@ -106,9 +115,9 @@ angular.module('app.controllers.main',
 
 .controller('pageCtrl',
   ['$scope',
-  '$state',
-  '$http',
-  'UserManager',
+   '$state',
+   '$http',
+   'UserManager',
     function ($scope, $state, $http, UserManager) {
 
       $scope.profileLink = {
@@ -125,7 +134,7 @@ angular.module('app.controllers.main',
             $scope.profileLink.sref = 'profile';
             $scope.profileLink.title = $scope.currentUser.name;
           } else {
-            $state.go('auth')
+            $state.go('auth');
           }
           console.log(result);
         })
@@ -143,7 +152,7 @@ angular.module('app.controllers.main',
 }]);
 
 angular.module('app.controllers.partials',
-[
+[ 
   'ui.router'
 ])
 
@@ -152,22 +161,30 @@ angular.module('app.controllers.partials',
     '$scope',
     '$http',
     function ($scope, $http) {
+      $scope.showPopup = false;
       $scope.searchParams = {
         name: '',
         category: 'Наука'
       }
 
       $scope.$watch('searchParams.category', function() {
+        $scope.searchParams.name = '';
         $scope.getStudentsList($scope.searchParams);
       })
 
       $scope.getStudentsList = function(searchParams) {
+        $scope.$emit('result loading');
         var reqUrl = 'api/students/' + ((searchParams.name == '') ? 'search_by_category/' + searchParams.category : 'search_by_name/' + searchParams.name);
         console.log(reqUrl);
           $http.get(reqUrl).success(function(result) {
             console.log(result);
             $scope.searchResults = result;
           })
+      };
+
+      $scope.viewAchList = function(achivments) {
+        $scope.listToShow = achivments;
+        $scope.showPopup = !$scope.showPopup;
       };
     }
   ])
@@ -221,12 +238,16 @@ angular.module('app.controllers.partials',
     
        }])
 
+  .controller('newAchCtrl', ['$scope', function($scope){
+    $scope.submit = function() {};
+  }])
+
   .controller('authCtrl', ['$scope', function($scope){
-    $scope.login = {};
+    $scope.submit = function() {};
   }])
 
   .controller('registryCtrl', ['$scope', function($scope){
-
+    $scope.submit = function() {};
   }])
 
 angular.module('app.directives', [])

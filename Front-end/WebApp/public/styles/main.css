@@ -575,3 +575,6 @@ achivment_detail
 .submit_form:hover {
   background: #009fdf;
   color: #fff; }
+
+input .ng-invalid {
+  border: 1px solid red; }

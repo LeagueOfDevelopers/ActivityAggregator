@@ -16,5 +16,13 @@ var student = mongoose.model('Student', {
 	phone: String,
 	about: String,
 	avatarUri: String,
-	achivments: [{name: String, type: String}]
+	achivments: [
+		{    
+			 id: String,
+			 name: String, 
+			 type: String, 
+			 organization: String,
+			 results: String, 
+			 description: String
+		}]
 })
