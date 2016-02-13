@@ -1,14 +1,28 @@
 angular.module('app.services', [])
 
-  .service('UserManager', ['$rootScope', '$q', '$http', function ($rootScope, $q, $http) {
-        var curUser = {};
+
+  .service('UserManager',
+   ['$rootScope',
+    '$q',
+    '$http',
+     function ($rootScope, $q, $http) {
+
+        var apiUrl = '/api';
+        var curUser = {
+          id: '1',
+          name: 'Здрасте Здрасте'
+        };
+        var userDetail = null;
+
         function getCurrentUser(params) {
             params = params || { cache: true };
             return $q.when(curUser && params.cache ? curUser : getUser()).then(function (result) {
                 return result.status ? result.data.user : result;
             });
+
             function getUser() {
-                return $http.get('/api/auth/isAuth').success(function (data) {
+              var reqUrl = apiUrl + '/auth/isAuth';
+                return $http.get(reqUrl).success(function (data) {
                     if (!data.result) {
                         return false;
                     } else if (data.user) {
@@ -19,21 +33,25 @@ angular.module('app.services', [])
             }
         }
 
-        function getUserDetail(params) {
-          var result = {};
-          if(!params) {
-            result = userInfo;
-          } else {
-          params.forEach(function (item) {
-            result[item] = userInfo[item];
-          })
-        }
-        return $q.when(result).then(function (result) {
-          return result;
-
+        function getUserDetail() {
+        return $q.when(userDetail ? userDetail : getDetail()).then(function (result) {
+          return result.data.info;
         })
 
-      }
+          function getDetail() {
+            var reqUrl = apiUrl + '/students/' + curUser.id;
+            return $http.get(reqUrl).success(function(data) {
+              if (!data.result) {
+                        return false;
+                    } else {
+                        userDetail = data;
+                    }
+                    return userDetail;
+            })
+          };
+        }
+
+      
 
       function updateUserDetail(data) {
         return $q.when(updateData(data)).then(function () {
@@ -61,3 +79,4 @@ angular.module('app.services', [])
             getUserDetail: getUserDetail
         }
     }])
+

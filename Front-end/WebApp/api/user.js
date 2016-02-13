@@ -1,13 +1,11 @@
-var user = {
+module.exports = {
   getUserDetail: getUserDetail,
   updateUserDetail: updateUserDetail,
   addAchivment: addAchivment,
   getAchivmentsList: getAchivmentsList,
   getAchivmentDetail: getAchivmentDetail,
   updateAchivmentDetail: updateAchivmentDetail
-};
-
-module.exports = user;
+};;
 
 function getUserDetail(req, res, next) {
   var data = JSON.stringify({

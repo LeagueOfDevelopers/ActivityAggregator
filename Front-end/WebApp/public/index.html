@@ -14,7 +14,9 @@
         <ul>
           <li><a href="#/">Информация</a></li>
           <li><a ui-sref="studentsBase">База активистов</a></li>
-          <li><a ui-sref="{{profileLink.sref}}" ng-bind="profileLink.title"></a></li>
+          <li><a ui-sref="auth" ng-if="!(currentUser.id && currentUser.name)">Рассказать о себе</a>
+              <a  id='profile_link' ui-sref="profile(id=currentUser.id)" ng-if="currentUser" ng-bind='currentUser.name'></a>
+          </li>
         </ul>
       </nav>
     </section>

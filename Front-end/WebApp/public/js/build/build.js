@@ -144,28 +144,14 @@ angular.module('app.controllers.partials',
       })
 
       $scope.getStudentsList = function(searchParams) {
-        var requestUrl = 'api/' + ((searchParams.name == '') ? searchParams.category : searchParams.name);
+        var reqUrl = 'api/students/' + ((searchParams.name == '') ? 'search_by_category/' + searchParams.category : 'search_by_name/' + searchParams.name);
         console.log(requestUrl);
       };
-      $scope.searchResults = [
-        {
-          firstName: 'Жамбыл',
-          lastName: 'Ермагамбет',
-          course: 'ИТАСУ 2 курс',
-          achivments: [{name:'Победа в квн', id: '12'}, {name:'Победаdwd в квн', id: '12'}, {name:'Победаqwdq в квн', id: '12'}, {name:'Побеdwdда в квн', id: '12'}]
-        },
-        {
-          firstName: 'Жамбыл',
-          lastName: 'Ермагамбет',
-          course: 'ИТАСУ 2 курс',
-          achivments: [{name:'Победа в квн', id: '12'}, {name:'Победаdwd в квн', id: '12'}, {name:'Победаqwdq в квн', id: '12'}, {name:'Побеdwdда в квн', id: '12'}]
-        },
-        {
-          firstName: 'Жамбыл',
-          lastName: 'Ермагамбет',
-          course: 'ИТАСУ 2 курс',
-          achivments: [{name:'Победа в квн', id: '12'}, {name:'Победаdwd в квн', id: '12'}, {name:'Победаqwdq в квн', id: '12'}, {name:'Побеdwdда в квн', id: '12'}]
-        }];
+      $http.get(reqUrl).sucess(function(result) {
+        console.log(result);
+        $scope.searchResults = result.data;
+
+      })
     }
   ])
 
@@ -177,6 +163,7 @@ angular.module('app.controllers.partials',
     function ($scope, $http, UserManager) {
       $scope.showEditField= false;
       UserManager.getUserDetail().then(function (result) {
+        console.log(result);
         $scope.userDetail = result;
           console.log(result);
         });
@@ -221,15 +208,29 @@ angular.module('app.directives', [])
 
 angular.module('app.services', [])
 
-  .service('UserManager', ['$rootScope', '$q', '$http', function ($rootScope, $q, $http) {
-        var curUser = {};
+
+  .service('UserManager',
+   ['$rootScope',
+    '$q',
+    '$http',
+     function ($rootScope, $q, $http) {
+
+        var apiUrl = '/api';
+        var curUser = {
+          id: '1',
+          name: 'Здрасте Здрасте'
+        };
+        var userDetail = null;
+
         function getCurrentUser(params) {
             params = params || { cache: true };
             return $q.when(curUser && params.cache ? curUser : getUser()).then(function (result) {
                 return result.status ? result.data.user : result;
             });
+
             function getUser() {
-                return $http.get('/api/auth/isAuth').success(function (data) {
+              var reqUrl = apiUrl + '/auth/isAuth';
+                return $http.get(reqUrl).success(function (data) {
                     if (!data.result) {
                         return false;
                     } else if (data.user) {
@@ -240,21 +241,25 @@ angular.module('app.services', [])
             }
         }
 
-        function getUserDetail(params) {
-          var result = {};
-          if(!params) {
-            result = userInfo;
-          } else {
-          params.forEach(function (item) {
-            result[item] = userInfo[item];
-          })
-        }
-        return $q.when(result).then(function (result) {
-          return result;
-
+        function getUserDetail() {
+        return $q.when(userDetail ? userDetail : getDetail()).then(function (result) {
+          return result.data.info;
         })
 
-      }
+          function getDetail() {
+            var reqUrl = apiUrl + '/students/' + curUser.id;
+            return $http.get(reqUrl).success(function(data) {
+              if (!data.result) {
+                        return false;
+                    } else {
+                        userDetail = data;
+                    }
+                    return userDetail;
+            })
+          };
+        }
+
+      
 
       function updateUserDetail(data) {
         return $q.when(updateData(data)).then(function () {
@@ -282,3 +287,4 @@ angular.module('app.services', [])
             getUserDetail: getUserDetail
         }
     }])
+

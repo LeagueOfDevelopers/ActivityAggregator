@@ -1,4 +1,5 @@
 $mainColor: #009fdf;
+$softBlue: #87b1cd;
 $fontColor: #59595b;
 $achivmentsIcons: url(../icons/achivments_icons.png);
 @mixin border-radius($radius) {
@@ -31,9 +32,8 @@ html {
 }
 
 body {
-  font-family: arial, sans-serif;
+  font-family: Calibri, Helvetica, sans-serif;
   height: 100%  !important;
-  font-family: Calibri Arial;
   background: #fafafa;
 }
 
@@ -44,6 +44,7 @@ a {
 ul {
   list-style: none;
 }
+
 @font-face {
   font-family: Calibri;
   src: url(../fonts/calibri.ttf);
@@ -335,7 +336,7 @@ ul {
 .ach {
 	height: 70px;
 	width: 270px;
-	background-color: #87b1cd;
+	background-color: $softBlue;
 	opacity: 1;
 	position: relative;
 	-webkit-transition: all .2s;

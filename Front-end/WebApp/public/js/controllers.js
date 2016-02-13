@@ -86,28 +86,14 @@ angular.module('app.controllers.partials',
       })
 
       $scope.getStudentsList = function(searchParams) {
-        var requestUrl = 'api/' + ((searchParams.name == '') ? searchParams.category : searchParams.name);
+        var reqUrl = 'api/students/' + ((searchParams.name == '') ? 'search_by_category/' + searchParams.category : 'search_by_name/' + searchParams.name);
         console.log(requestUrl);
       };
-      $scope.searchResults = [
-        {
-          firstName: 'Жамбыл',
-          lastName: 'Ермагамбет',
-          course: 'ИТАСУ 2 курс',
-          achivments: [{name:'Победа в квн', id: '12'}, {name:'Победаdwd в квн', id: '12'}, {name:'Победаqwdq в квн', id: '12'}, {name:'Побеdwdда в квн', id: '12'}]
-        },
-        {
-          firstName: 'Жамбыл',
-          lastName: 'Ермагамбет',
-          course: 'ИТАСУ 2 курс',
-          achivments: [{name:'Победа в квн', id: '12'}, {name:'Победаdwd в квн', id: '12'}, {name:'Победаqwdq в квн', id: '12'}, {name:'Побеdwdда в квн', id: '12'}]
-        },
-        {
-          firstName: 'Жамбыл',
-          lastName: 'Ермагамбет',
-          course: 'ИТАСУ 2 курс',
-          achivments: [{name:'Победа в квн', id: '12'}, {name:'Победаdwd в квн', id: '12'}, {name:'Победаqwdq в квн', id: '12'}, {name:'Побеdwdда в квн', id: '12'}]
-        }];
+      $http.get(reqUrl).sucess(function(result) {
+        console.log(result);
+        $scope.searchResults = result.data;
+
+      })
     }
   ])
 
@@ -119,6 +105,7 @@ angular.module('app.controllers.partials',
     function ($scope, $http, UserManager) {
       $scope.showEditField= false;
       UserManager.getUserDetail().then(function (result) {
+        console.log(result);
         $scope.userDetail = result;
           console.log(result);
         });
