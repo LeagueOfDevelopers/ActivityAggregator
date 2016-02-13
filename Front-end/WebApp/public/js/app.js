@@ -36,6 +36,24 @@ angular.module('ActivityAggregator',
            }
          }
        })
+
+       .state('achivment_detail', {
+          url: '/achivment_detail/:id',
+          views: {
+           'page_content': {
+             templateUrl: 'partials/achivment.html',
+             controller: 'achCtrl'
+             }
+          },
+          resolve: {
+            achToShow: function($http, $stateParams) {
+              var reqUrl = '/api/achivments/' + $stateParams.id;
+              return $http.get(reqUrl);
+            }
+          }
+           
+       })
+
        .state('auth', {
           url: '/auth',
            views: {

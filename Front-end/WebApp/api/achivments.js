@@ -8,6 +8,6 @@ function getAchivmentsList(req, res, next) {
 };
 
 function getAchivmentDetail(req, res, next) {
-  res.end('getAchivmentDetail' + ' ' + req.params.student_id + ' ' + req.params.id);
+  res.end('getAchivmentDetail' + ' ' + req.params.id);
 
 };

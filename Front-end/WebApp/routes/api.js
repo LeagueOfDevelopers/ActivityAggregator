@@ -7,7 +7,7 @@ router.get('/students/:id', students.getStudentDetail);
 router.get('/students/search_by_category/:searchParams', students.getStudentsList);
 router.get('/students/search_by_name/:searchParams', students.getStudentsList);
 router.get('/students/:student_id/achivments', achivments.getAchivmentsList);
-router.get('/students/:student_id/achivments/:id', achivments.getAchivmentDetail);
+router.get('/achivments/:id', achivments.getAchivmentDetail);
 
 router.post('/user/:id', user.updateUserDetail);
 router.post('/user/:id/achivments', user.addAchivment);

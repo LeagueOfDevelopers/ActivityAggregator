@@ -20,7 +20,7 @@
           <ul class="profile_detail">
             <li class="first_name" ng-bind='student.firstName'></li>
             <li class="last_name" ng-bind='student.lastName'></li>
-            <li class="course" ng-bind='student.course'></li>
+            <li class="course" ng-bind="student.department + ' ' + student.course + ' курс'"></li>
             <li>
               <button class="btn_profile_link" ui-sref='profile'>Профиль</button>
             </li>

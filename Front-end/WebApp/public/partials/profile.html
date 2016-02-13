@@ -26,10 +26,10 @@
         <div class="achivments_list">
           <ul class="small-12">
             <li ng-repeat='ach in userDetail.achivments'>
-              <a href="#hey">
+              <a ui-sref="achivment_detail(ach.id)">
               <div class="ach">
                 <div class="ach_icon {{ach.type}}"></div>
-                <div class="ach_title" ng-bind="ach.name"></div>
+                <div class="ach_title" ng-bind="ach.name + ach.id"></div>
               </div>
               </a>
             </li>

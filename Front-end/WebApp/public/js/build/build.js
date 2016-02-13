@@ -36,6 +36,24 @@ angular.module('ActivityAggregator',
            }
          }
        })
+
+       .state('achivment_detail', {
+          url: '/achivment_detail/:id',
+          views: {
+           'page_content': {
+             templateUrl: 'partials/achivment.html',
+             controller: 'achCtrl'
+             }
+          },
+          resolve: {
+            achToShow: function($http, $stateParams) {
+              var reqUrl = '/api/achivments/' + $stateParams.id;
+              return $http.get(reqUrl);
+            }
+          }
+           
+       })
+
        .state('auth', {
           url: '/auth',
            views: {
@@ -145,13 +163,12 @@ angular.module('app.controllers.partials',
 
       $scope.getStudentsList = function(searchParams) {
         var reqUrl = 'api/students/' + ((searchParams.name == '') ? 'search_by_category/' + searchParams.category : 'search_by_name/' + searchParams.name);
-        console.log(requestUrl);
+        console.log(reqUrl);
+          $http.get(reqUrl).success(function(result) {
+            console.log(result);
+            $scope.searchResults = result;
+          })
       };
-      $http.get(reqUrl).sucess(function(result) {
-        console.log(result);
-        $scope.searchResults = result.data;
-
-      })
     }
   ])
 
@@ -184,6 +201,25 @@ angular.module('app.controllers.partials',
 
     }
   ])
+
+  .controller('achCtrl', 
+    ['$scope', 
+      '$state', 
+      '$http',
+      'achToShow',
+      function($scope, $state, $http, achToShow){
+
+        $scope.achivment = {
+          owner: {
+            id: '1',
+            name: 'Жамбыл Ермагамбет'
+          },
+          title: 'Победа в квн',
+          photo: [],
+          description: 'тцтвц ЛОТВЦЛтвоцтв оцтвоцтв цовтйлтцво оцвтйо оцтаоцта овтцо отвоц отвцот'
+        }
+    
+       }])
 
   .controller('authCtrl', ['$scope', function($scope){
     $scope.login = {};

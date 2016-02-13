@@ -1,7 +1,6 @@
 <section class="achivment_detail page_content">
   <div class="achivment_detail_card">
-    <a class="achivment_owner" ui-sref="profile(id={{owner.id}})" ng-bind="owner.name"></a>
-    <a ui-sref="{{backState.sref}}" ng-bind="{{backState.name}}"></a>
+    <a class="achivment_owner" ui-sref="profile(id={{achivment.owner.id}})" ng-bind="achivment.owner.name"></a>
     <span class="achivment_title" ng-bind="achivment.title"></span>
     <ul class="achivment_detail_photo" ng-if="achivment.photo.length > 0">
       <li ng-repeat="photoUri in achivment.photo"><img ng-src="photoUri" alt="{{achivment.name}}"></li>
