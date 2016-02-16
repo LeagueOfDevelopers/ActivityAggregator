@@ -119,6 +119,7 @@ angular.module('app.controllers.main',
    '$http',
    'UserManager',
     function ($scope, $state, $http, UserManager) {
+      $scope.showMobileMenu = false;
 
       $scope.profileLink = {
         sref: 'auth',
@@ -162,6 +163,7 @@ angular.module('app.controllers.partials',
     '$http',
     function ($scope, $http) {
       $scope.showPopup = false;
+      $scope.popup = angular.element(document.querySelector('#achivments_popup'));
       $scope.searchParams = {
         name: '',
         category: 'Наука'
@@ -182,12 +184,20 @@ angular.module('app.controllers.partials',
           })
       };
 
-      $scope.viewAchList = function(achivments) {
+      $scope.viewAchList = function(achivments, $event) {
         $scope.listToShow = achivments;
+        console.log($event);
+        var position = $event;
+        var x = position.pageX;
+        var y = position.pageY;
+        console.log($scope.popup);
+        $scope.popup.offsetTop = y;
+        $scope.popup.offsetLeft = x;
+        console.log($scope.popup);
         $scope.showPopup = !$scope.showPopup;
       };
     }
-  ])
+  ]) 
 
   .controller('profileCtrl',
   [
@@ -238,12 +248,15 @@ angular.module('app.controllers.partials',
     
        }])
 
-  .controller('newAchCtrl', ['$scope', function($scope){
+  .controller('newAchCtrl',['$scope', function($scope){
     $scope.submit = function() {};
   }])
 
   .controller('authCtrl', ['$scope', function($scope){
-    $scope.submit = function() {};
+    $scope.submit = function() {
+      data = $scope.newAchivment;
+      $http.post('/api/achivments', data);
+    };
   }])
 
   .controller('registryCtrl', ['$scope', function($scope){

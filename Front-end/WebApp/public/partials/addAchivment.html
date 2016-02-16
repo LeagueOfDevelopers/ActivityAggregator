@@ -15,13 +15,17 @@
           <label>Результаты</label>
           <input type="text" placeholder="Призер 2 место" required='true' ng-model='newAch.result'>
           <label>Организация</label>
-          <input type="text" placeholder="mail.ru" required='true'>
+          <input type="text" placeholder="mail.ru" required='true' ng-model='newAch.company'>
            <label>Подробнее (не обязательно)</label>
           <textarea name="name" rows="5" cols="50" ng-model="newAch.descrption"></textarea>
           <label>Фотографии</label>
-          <input type="file" class='fa fa-file' value=''>
+          <div class='file_field'>
+         <button class="add_file"><input type="file" ng-model=''>Добавить</button>
+          </div>
            <label>Сканы документов</label>
-          <input type="file" class='fa fa-file' required='true'>
+          <div class='file_field'>
+          <button class="add_file"><input type="file" ng-model=''>Добавить</button>
+          </div>
 					<input type="submit" class="submit_form" value="Отправить">
       </div>
     </form>

@@ -31,8 +31,8 @@
             <li class="achivment_link" ng-if='student.achivments[2]'><a ui-sref='achivment_detail({{student.achivments[2].id}})' ng-bind='student.achivments[2].name'></a></li>
             <li class="achivment_link" ng-if='student.achivments[3]'><a  ui-sref='achivment_detail({{student.achivments[3].id}})' ng-bind='student.achivments[3].name'></a></li>
 
-            <button class="achivments_count" ng-click='viewAchList(student.achivments)'> <span ng-bind='student.achivments.length'></span><i class="fa fa-trophy"> </i></button>
           </ul>
+            <button class="achivments_count" ng-click='viewAchList(student.achivments, $event)'> <span ng-bind='student.achivments.length'></span><i class="fa fa-trophy"></i></button>
         </li>
       </ul>
       <section id="achivments_popup" ng-if='showPopup'>
