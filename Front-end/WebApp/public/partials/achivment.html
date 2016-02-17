@@ -1,28 +1,27 @@
 <section class="page_content">
 <div class="row">
-  <div class="form_card small-12 medium-6 medium-centered columns">
-  <div class="row">
-    <a class="achivment_owner small-12 columns" ui-sref="profile({{achivment.owner.id}})" ng-bind="achivment.owner.name"></a> </div>
+  <div class="achivment_detail_card small-12 medium-6 medium-centered columns">
     <div class="row">
     <span class="achivment_title small-12 columns" ng-bind="achivment.title"></span>
-  	</div>
-  	<div class="row">
+    </div>
+    <div class="row">
     <div class="achivment_detail small-12-columns">
     <div class="achivment_icon science"></div>
     <span class="detail_label small-3 columns">Результат:</span>
     <span class="achivment_result small-9 columns">Призер 1 место</span>
-    <span class="detail_label small-3 columns" >Организация:</span>
-    <span class="achivment_organization small-9 columns" >Mail.ru</span>
+    <span class="detail_label small-3 columns">Организация:</span>
+    <span class="achivment_result small-9 columns">Mail.ru</span>
     </div>
     </div>
     <div class="row">
     <ul class="achivment_detail_photo small-12 columns" ng-if="achivment.photo.length > 0">
       <li ng-repeat="photoUri in achivment.photo"><img ng-src="photoUri" alt="{{achivment.name}}"></li>
     </ul>
-	</div>
-	<div class="row">
+  </div>
+  <div class="row">
     <p class="achivment_detail_description small-12 columns" ng-if='achivment.description' ng-bind="achivment.description"></p>
     </div>
+    <a class="achivment_owner" ui-sref="profile({{achivment.owner.id}})" ng-bind="achivment.owner.name"></a>
    </div>
 
 </section>

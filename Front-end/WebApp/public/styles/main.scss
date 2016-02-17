@@ -709,11 +709,9 @@ ul {
 }
 
 
- achivment_detail
  .achivment_detail_card {
-   margin: 0 auto;
    margin-top: 100px;
-   width: 500px;
+   width: 300px;
    @include cardShadow();
  }
  
@@ -776,6 +774,7 @@ input .ng-invalid {
   color: $mainColor;
   font-size: 18px;
   text-decoration: underline;
+  text-align: right;
 
 }
 
@@ -789,9 +788,15 @@ input .ng-invalid {
 
 .achivment_detail {
   font-size: 16px;
+  color: $fontColor;
 }
 .achivment_detail span {
   display: block;
+}
+.achivment_detail_description {
+  font-size: 18px;
+  color: $fontColor;
+  margin-top: 10px;
 }
 
 .achivment_detail {
