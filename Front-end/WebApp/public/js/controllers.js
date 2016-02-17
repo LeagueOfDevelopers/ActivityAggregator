@@ -77,7 +77,6 @@ angular.module('app.controllers.partials',
     '$scope',
     '$http',
     function ($scope, $http) {
-      $scope.showPopup = false;
       $scope.popup = angular.element(document.querySelector('#achivments_popup'));
       $scope.searchParams = {
         name: '',
@@ -99,18 +98,6 @@ angular.module('app.controllers.partials',
           })
       };
 
-      $scope.viewAchList = function(achivments, $event) {
-        $scope.listToShow = achivments;
-        console.log($event);
-        var position = $event;
-        var x = position.pageX;
-        var y = position.pageY;
-        console.log($scope.popup);
-        $scope.popup.offsetTop = y;
-        $scope.popup.offsetLeft = x;
-        console.log($scope.popup);
-        $scope.showPopup = !$scope.showPopup;
-      };
     }
   ]) 
 

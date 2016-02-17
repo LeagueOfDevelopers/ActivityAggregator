@@ -18,7 +18,7 @@ function testBD(req, res, next) {
             return res.send({ error: 'Server error' });
         }
     }
-  }
+  };
 
 function getStudentDetail(req, res, next) {
   var data = JSON.stringify({
