@@ -12,7 +12,8 @@ html {
 body {
   font-family: Calibri, Helvetica, sans-serif;
   height: 100%  !important;
-  background: #fafafa; }
+  background: #fafafa;
+  overflow-x: hidden; }
 
 a {
   text-decoration: none; }
@@ -572,7 +573,9 @@ ul {
 #achivments_popup {
   background: #fff;
   padding: 5px 15px;
-  position: absolute;
+  position: fixed;
+  top: 300px;
+  left: 700px;
   height: 300px;
   width: auto;
   border-top: 10px solid #009fdf;
@@ -690,7 +693,7 @@ input .ng-invalid {
 .grad {
   top: 50%;
   height: 50%;
-  width: 97%;
+  width: 96%;
   position: absolute;
   background: #f6f6f6;
   opacity: .5;

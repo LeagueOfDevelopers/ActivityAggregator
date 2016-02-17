@@ -2,7 +2,7 @@ var router = require('express').Router();
 var user = require('../api/user');
 var students = require('../api/students');
 var achivments = require('../api/achivments')
-
+router.get('/testdb', students.testDB)
 router.get('/students/:id', students.getStudentDetail);
 router.get('/students/search_by_category/:searchParams', students.getStudentsList);
 router.get('/students/search_by_name/:searchParams', students.getStudentsList);

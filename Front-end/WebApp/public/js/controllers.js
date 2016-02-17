@@ -122,8 +122,15 @@ angular.module('app.controllers.partials',
     function ($scope, $http, UserManager) {
       $scope.showEditField= false;
       UserManager.getUserDetail().then(function (result) {
-        console.log(result);
-        $scope.userDetail = result;
+        $scope.userDetail = {
+            firstName: 'Жамбыл',
+            lastName: 'Ермагамбет',
+            department: 'ИТАСУ',
+            course: '2',
+            about: 'Все канавы есть шрамы ночи, что прошиты костями младенцев, зараженными спицами звездного склепа. Сернистая планета испускает благословения, мертвым известны мечты. С мясного крюка я пою песнь о жизни, облетаемой темными метеорами, принесенный в жертву во имя уничтожения человечьей семьи. Песни из воющей головы, кишащей рептильными куклами.',
+            photoUri: '../img/jambul.jpg',
+            achivments: [{name:'Победа в квн', id: '12', type: 'sport'}, {name:'Победаdwd в квн', id: '12', type: 'sport'}, {name:'Победаqwdq в квн', id: '12', type: 'sport'}, {name:'Побеdwdда в квн', id: '12', type: 'sport'}]
+          };
           console.log(result);
         });
       $scope.editUserDetail = function () {
