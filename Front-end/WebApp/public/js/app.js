@@ -12,7 +12,7 @@ angular.module('ActivityAggregator',
     '$urlRouterProvider',
     '$stateProvider',
      function ($urlRouterProvider, $stateProvider) {
-       $urlRouterProvider.otherwise("/studentsBase");
+       $urlRouterProvider.otherwise("/");
 
        $stateProvider.state('studentsBase', {
          url: '/studentsBase',
@@ -24,8 +24,17 @@ angular.module('ActivityAggregator',
          }
        })
 
-       .state('profile', {
-         url: '/profile',
+        .state('mainPage', {
+         url: '/',
+         views: {
+           'page_content': {
+             templateUrl: 'partials/main.html',
+           }
+         }
+       })
+
+       .state('account', {
+         url: '/account/:user_id',
          views: {
            'page_content': {
              templateUrl: 'partials/profile.html',
@@ -37,8 +46,21 @@ angular.module('ActivityAggregator',
          }
        })
 
+       .state('profile', {
+         url: '/profile/:student_id',
+         views: {
+           'page_content': {
+             templateUrl: 'partials/profile_another.html',
+             controller: 'profileCtrl'
+           },
+           'footer': {
+             templateUrl: 'partials/footer.html',
+           }
+         }
+       })
+
        .state('add_achivment', {
-        url: '/profile/new_achivment',
+        url: '/account/new_achivment',
         views: {
           'page_content': {
            templateUrl: 'partials/addAchivment.html',

@@ -698,9 +698,16 @@ ul {
  .form_card {
    margin: 0 auto;
    margin-top: 100px;
-   width: 400px;
+   max-width: 400px;
    @include cardShadow();
  }
+
+@media only screen and (min-width: 670px) {
+  .form_card {
+    width: 600px;
+  }
+}
+
 
  achivment_detail
  .achivment_detail_card {
@@ -788,13 +795,90 @@ input .ng-invalid {
 }
 
 .achivment_detail {
-  height: 120px;
+  height: 60px;
   position: relative;
   font-size: 18px;
+  border-bottom: 1px solid $softBlue;
 }
 
+.main_page_header {
+  height: 100%;
+}
 
+.main_page_header div.columns {
+  height: 600px;
+}
+.grad {
+top: 50%;
+height: 50%;
+width: 97%;
+position: absolute;
+background: rgba(246,246,246,1);
+opacity: .5;
+background: rgba(255,255,255,0.03);
+background: -moz-linear-gradient(top, rgba(255,255,255,0.03) 20%, rgba(255,255,255,0.03) 33%, rgba(255,255,255,0.19) 41%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(20%, rgba(255,255,255,0.03)), color-stop(33%, rgba(255,255,255,0.03)), color-stop(41%, rgba(255,255,255,0.19)), color-stop(81%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)));
+background: -webkit-linear-gradient(top, rgba(255,255,255,0.03) 20%, rgba(255,255,255,0.03) 33%, rgba(255,255,255,0.19) 41%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 100%);
+background: -o-linear-gradient(top, rgba(255,255,255,0.03) 20%, rgba(255,255,255,0.03) 33%, rgba(255,255,255,0.19) 41%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 100%);
+background: -ms-linear-gradient(top, rgba(255,255,255,0.03) 20%, rgba(255,255,255,0.03) 33%, rgba(255,255,255,0.19) 41%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 100%);
+background: linear-gradient(to bottom, rgba(255,255,255,0.03) 20%, rgba(255,255,255,0.03) 33%, rgba(255,255,255,0.19) 41%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 );
+}
+.project_name {
+  background-image: url(../img/main_bg.png);
+  background-size: cover;
+  position: relative;
+  }
 
+.project_name p {
+  padding: 5px;
+  color: $fontColor;
+  font-family: DaysSans;
+  display: block;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 50px;
+  margin-top: 80px;
+  background: rgb(255,255,255);
+}
 
+@media only screen and (min-width: 670px) {
 
+.project_name p {
+  float: right;
+  margin-right: -15px;
+}
 
+  }
+
+.short_info {
+  background: $mainColor;
+  color: #fff;
+  position: relative;
+
+}
+
+.short_info button {
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 0;
+  margin-left: 10px;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+}
+
+.short_info button:hover {
+  cursor: pointer;
+  color: $mainColor;
+  background: #fff;
+  @include cardShadow();
+
+}
+
+.short_info p {
+  font-size: 18px;
+  margin-top: 20px;
+}

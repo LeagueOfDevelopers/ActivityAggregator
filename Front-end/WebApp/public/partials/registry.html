@@ -7,13 +7,42 @@
         <span class="form_title">Регистрация на платформе</span>
         <label>Электронная почта</label>
             <input type="text" placeholder="jambul@example.com">
-				<label>ФИО</label>
-						<input type="text" placeholder="Иванов Иван Иванович">
-				<label>Институт</label>
-						<input type="text" placeholder="экотех">
-				<label>Номер студенческого билета</label>
-						<input type="number" placeholder="142062">
+        <div class="row">
+        <div class="small-12 medium-4 columns">
+        <label>Фамилия</label>
+						<input type="text" placeholder="Иванов">
+            </div>
+            <div class="small-12 medium-4 columns">
+            <label>Имя</label>
+            <input type="text" placeholder="Иван">
+            </div>
+            <div class="small-12 medium-4 columns">
+            <label>Отчество</label>
+            <input type="text" placeholder="Иванович">
+            </div>
+        </div>
+        <div class="row">
+				<div class="small-12 medium-4 columns">
+        <label>Институт</label>
+            <input type="text" placeholder="ИТАСУ">
+            </div>
+            <div class="small-12 medium-4 columns">
+            <label>Курс</label>
+            <input type="text" placeholder="4">
+            </div>
+            <div class="small-12 medium-4 columns">
+            <label>Группа</label>
+            <input type="text" placeholder="САПР">
+            </div>
+            </div>
+        
+            <label>Номер студенческого билета</label>
+						<input type="text" placeholder="142062">
+        <label>Расскажите о себе (биография, увлечения)</label>
+          <textarea name="name" rows="5" cols="50"></textarea>
         <label>Пароль</label>
+          <input type="password" placeholder="********">
+          <label>Пароль еще раз</label>
           <input type="password" placeholder="********">
 					<input type="submit" class="submit_form" value="Регистрация">
 					<a ui-sref="auth">Вход</a>
