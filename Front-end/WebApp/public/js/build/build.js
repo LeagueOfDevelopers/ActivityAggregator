@@ -215,8 +215,8 @@ angular.module('app.controllers.partials',
         $scope.showEditField= true;
       }
       $scope.applyChanges = function () {
+        $scope.showEditField = false;
         if($scope.newUserDetail) {
-          $scope.showEditField = false;
              $scope.userDetail = UserManager.updatdeUserDetail($scope.newUserDetail);
         }
       }

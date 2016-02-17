@@ -277,13 +277,13 @@ ul {
   z-index: 299;
 }
 
-input[type="file"]{
+.avatar_file_input {
     position: absolute;
     width: 100%;
     height: 100%;
     opacity: 0;
     cursor: pointer;
-    z-index: 300;
+    z-index: 500;
   }
 
 .user_avatar_profile:hover:after  {
@@ -343,7 +343,7 @@ input[type="file"]{
 
 .btn_add_achivment {
   margin-left: 10px;
-  border-radius: 50%;
+  border-radius: 0;
   background: transparent;
   width: 34px;
   height: 33px;
@@ -734,7 +734,6 @@ input[type="file"]{
 .login_form input {
   width: 100%;
   padding: 8px;
-  border: 1px solid $medium-gray;
   margin: 5px auto;
 }
 .login_form a {
@@ -756,18 +755,46 @@ input[type="file"]{
 }
 
 input .ng-invalid {
-  border: 1px solid red;
-}
-.file_field {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  font-size: 25px;
-  color: $mainColor;
+  border: 1px solid #f00 !important;
 }
 
-.add_file {
-  width: 80px;
-  height: 40px;
+.file_field {
+  height: 50px;
+  position: relative;
   color: $mainColor;
+  background: #fafafa;
 }
+
+.achivment_owner {
+  color: $mainColor;
+  font-size: 18px;
+  text-decoration: underline;
+
+}
+
+.achivment_title {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  background-color: $softBlue;
+}
+
+.achivment_detail {
+  font-size: 16px;
+}
+.achivment_detail span {
+  display: block;
+}
+
+.achivment_detail {
+  height: 120px;
+  position: relative;
+  font-size: 18px;
+}
+
+
+
+
+
+
