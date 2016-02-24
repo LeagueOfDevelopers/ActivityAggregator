@@ -14,9 +14,72 @@ db.once('open', function callback () {
 
 
 
-var testModel = mongoose.model('test', {
-	id: Number,
-	name: String
+var achivment = new schema({
+	name: {
+		type: String,
+		required: true
+	},
+	type: {
+		type: String,
+		required: true
+	},
+	organization: {
+		type: String,
+		required: true
+	},
+	results: {
+		type: String,
+		required: true
+	},
+	description: {
+		type: String
+	},
+	photos: [{type: String}],
+	checked: {
+		type: Boolean,
+	}
 });
 
-module.exports = testModel;
+var student = new schema({
+	firstName: {
+		type: String,
+		required: true
+	},
+	secondName: {
+		type: String,
+		required: true
+	},
+	middleName: {
+		type: String,
+		required: true
+	},
+	email: {
+		type: String,
+		required: true,
+		unique: true
+	},
+	hashPassword: {
+		type: String,
+		required: true
+	},
+	department: {
+		type: String,
+		required: true
+	},
+	course: {
+		type: String,
+		required: true
+	},
+	about: {
+		type: String,
+	},
+	photoUri: {
+		type: String
+	},
+	achivments: [achivment]
+
+});
+
+var Student = mongoose.model('Student', student)
+
+module.exports = Student;

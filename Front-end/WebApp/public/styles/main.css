@@ -279,11 +279,10 @@ ul {
   margin-left: 10px;
   border-radius: 0;
   background: transparent;
-  width: 34px;
-  height: 33px;
+  padding: 5px;
   border: 1px solid #009fdf;
   color: #009fdf;
-  font-size: 23px;
+  font-size: 16px;
   line-height: normal !important;
   -webkit-transition: all .2s;
   -o-transition: all .2s;
