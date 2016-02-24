@@ -51,20 +51,12 @@ function addStudent(req, res, next) {
   };
 
 function getStudentDetail(req, res, next) {
-  var data = JSON.stringify({
-    data: {
-            firstName: 'Жамбыл',
-            lastName: 'Ермагамбет',
-            department: 'ИТАСУ',
-            course: '2',
-            about: 'Все канавы есть шрамы ночи, что прошиты костями младенцев, зараженными спицами звездного склепа. Сернистая планета испускает благословения, мертвым известны мечты. С мясного крюка я пою песнь о жизни, облетаемой темными метеорами, принесенный в жертву во имя уничтожения человечьей семьи. Песни из воющей головы, кишащей рептильными куклами.',
-            photoUri: '../img/jambul.jpg',
-            achivments: [{name:'Победа в квн', id: '12', type: 'sport'}, {name:'Победаdwd в квн', id: '12', type: 'sport'}, {name:'Победаqwdq в квн', id: '12', type: 'sport'}, {name:'Побеdwdда в квн', id: '12', type: 'sport'}]
-          },
-    status: 200
-
-  });
-  res.end(data);
+    Student.findById(req.params.id, function(err, data) {
+      if(!err) {
+        res.send(data)
+      } else {
+      }
+    })
 };
 
 function getStudentsList(req, res, next) {
