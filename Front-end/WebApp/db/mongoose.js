@@ -3,7 +3,7 @@ var config = require('../config');
 var schema = mongoose.Schema;
 
 mongoose.connect(config.mongooseString);
-var db = mongoose.connection();
+var db = mongoose.connection;
 
 db.on('error', function (err) {
     console.log('connection error:', err.message);
@@ -15,8 +15,8 @@ db.once('open', function callback () {
 
 
 var testModel = mongoose.model('test', {
-	name: String,
-	description: String
+	id: Number,
+	name: String
 });
 
 module.exports = testModel;

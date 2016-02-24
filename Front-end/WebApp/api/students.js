@@ -2,22 +2,21 @@ var test = require('../db/mongoose');
 module.exports = {
 	getStudentDetail: getStudentDetail,
 	getStudentsList: getStudentsList,
-  testBD: testBD
-
+  testDB: testDB
 };
 
 
 
-function testBD(req, res, next) {
-    return test.find(function (err, data) {
+function testDB(req, res, next) {
+    test.find(function (err, data) {
         if (!err) {
-            return console.log(data);
+             console.log(data);
         } else {
             res.statusCode = 500;
-            nsole.log('Internal error(%d): %s',res.statusCode,err.message);
-            return res.send({ error: 'Server error' });
+            console.log('Internal error(%d): %s',res.statusCode,err.message);
+             res.send({ error: 'Server error' });
         }
-    }
+    });
   };
 
 function getStudentDetail(req, res, next) {

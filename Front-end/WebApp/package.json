@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www && DEBUG=WebApp:*"
+    "start": "nodemon ./bin/www && DEBUG=WebApp:*"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
@@ -16,5 +16,8 @@
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
   }
 }
