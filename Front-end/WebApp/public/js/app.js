@@ -4,7 +4,8 @@ angular.module('ActivityAggregator',
    'app.controllers',
    'app.services',
    'app.directives',
-   'ngSanitize'
+   'ngSanitize',
+   'lr.upload'
  ])
 
   .config(

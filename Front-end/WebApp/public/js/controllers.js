@@ -107,7 +107,13 @@ angular.module('app.controllers.partials',
     '$http',
     'UserManager',
     function ($scope, $http, UserManager) {
-      $scope.showEditField= false;
+      $scope.avatar = {
+        check: 'avatar uploading'
+      };
+     $scope.checkUpload = function(files) {
+      console.log(files);
+     };
+     $scope.showEditField= false;
       UserManager.getUserDetail().then(function (result) {
         $scope.userDetail = {
             firstName: 'Жамбыл',
@@ -122,12 +128,12 @@ angular.module('app.controllers.partials',
         });
       $scope.editUserDetail = function () {
         $scope.showEditField= true;
+        $scope.newUserDetail = $scope.userDetail.about;
+        $scope.userDetail.about = '';
       }
       $scope.applyChanges = function () {
-        $scope.showEditField = false;
-        if($scope.newUserDetail) {
-             $scope.userDetail = UserManager.updatdeUserDetail($scope.newUserDetail);
-        }
+        $scope.showEditField = false;         
+        $scope.userDetail.about = $scope.newUserDetail;
       }
       $scope.notApplyChanges = function () {
           $scope.showEditField = false;
@@ -157,15 +163,25 @@ angular.module('app.controllers.partials',
     
        }])
 
-  .controller('newAchCtrl',['$scope', function($scope){
-    $scope.submit = function() {};
+  .controller('newAchCtrl',
+    [
+    '$scope',
+    '$http',
+     function($scope, $http) {
+    $scope.newAch = {};
+    $scope.newAch.id = 1;
+    $scope.newAch.owner_id = $scope.currentUser.id;
+        // Valid mimetypes
+    $scope.acceptTypes = 'image/*';
+      // Data to be sent to the server with the upload request
+      $scope.onUpload = function (files) {
+        console.log('AdvancedMarkupCtrl.onUpload', files);
+      };
+
+    $scope.submitForm = function() {};
   }])
 
   .controller('authCtrl', ['$scope', function($scope){
-    $scope.submit = function() {
-      data = $scope.newAchivment;
-      $http.post('/api/achivments', data);
-    };
   }])
 
   .controller('registryCtrl', ['$scope', function($scope){

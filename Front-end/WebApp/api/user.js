@@ -1,3 +1,5 @@
+var fs = require('fs');
+var path = require('path');
 module.exports = {
   getUserDetail: getUserDetail,
   updateUserDetail: updateUserDetail,
@@ -47,5 +49,10 @@ function getAchivmentsList(req, res, next) {
 
 function getAchivmentDetail(req, res, next) {
   res.end('getAchivmentDetail' + req.params.id)
+
+};
+
+function changeAvatar(req, res, next) {
+  console.log(req);
 
 };
