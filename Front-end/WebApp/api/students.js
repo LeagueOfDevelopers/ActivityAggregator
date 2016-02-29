@@ -1,4 +1,6 @@
-var Student = require('../db/mongoose'),
+var Student = require('../db/mongoose').models.Student,
+studentSchema = require('../db/mongoose').schemas.student,
+ parser = require('./reqParser'),
 fs = require("fs"),
 path = require("path"),
 util = require('util'),
@@ -14,10 +16,13 @@ module.exports = {
 
 
 function addStudent(req, res, next) {
+
   form = new multiparty.Form();
+
   form.parse(req, function(err, fields) {
+
     console.log(fields);
-  var student = new Student ({
+    var student = new Student ({
     firstName: fields.firstName,
     secondName: fields.secondName,
     middleName: fields.middleName,
@@ -35,16 +40,6 @@ function addStudent(req, res, next) {
     }
   })
 
-  var jambul = new Student ({
-          firstName: 'Жамбыл',
-          secondName: 'Ермагамбет',
-          middleName: 'sdwdwd',
-          department: 'ИТАСУ',
-          course: '2',
-          email: 'jambul@mail.ru',
-          hashPassword: 'xxxxxx',
-        });
-
 
     });
     
@@ -55,6 +50,7 @@ function getStudentDetail(req, res, next) {
       if(!err) {
         res.send(data)
       } else {
+        res.send(err)
       }
     })
 };
@@ -131,6 +127,7 @@ function getStudentsList(req, res, next) {
 
 
 function changeAvatar(req, res, next) {
+  
     var savePath = './storage/students/' + req.params.id;
 
         if(!fs.existsSync(savePath)) {

@@ -52,7 +52,4 @@ function getAchivmentDetail(req, res, next) {
 
 };
 
-function changeAvatar(req, res, next) {
-  console.log(req);
 
-};

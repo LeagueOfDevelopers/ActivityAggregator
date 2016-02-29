@@ -82,4 +82,13 @@ var student = new schema({
 
 var Student = mongoose.model('Student', student)
 
-module.exports = Student;
+module.exports = {
+	models: {
+		Student: Student
+	},
+	schemas: {
+		student: student,
+		achivment: achivment
+	}
+
+}

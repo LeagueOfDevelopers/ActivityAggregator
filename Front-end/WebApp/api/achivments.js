@@ -1,5 +1,5 @@
 
-var Student = require('../db/mongoose'),
+var Student = require('../db/mongoose').models.Student,
 multiparty = require('multiparty'),
 util = require('util'),
 fs = require("fs");
@@ -32,36 +32,13 @@ function newAchivment(req, res, next) {
 
 
   var form = new multiparty.Form();
-  form.parse(req, function(err, fields) {
-    console.log(fields);
-    Student.findByIdAndUpdate(req.params.id, {
-    	$push: {
-    		achivments: {
-    			name: fields.name,
-				type: fields.type,
-				organization: fields.organization,
-				results: fields.results,
-				description: fields.description,
-				checked: false
-    		}
-    	}
-    }, function(err) {
-    	if(err) {
-    		res.send(err);
-    	} else {
-    		res.send('ok')
-    	}
-    })
-});
 
-	function bindFiles(req, achivment) {
+	
 
-
-   
-    var uploadFile = {uploadPath: '', type: '', size: 0};
-    var maxSize = 2 * 1024 * 1024; //2MB
-    var supportMimeTypes = ['image/jpg', 'image/jpeg', 'image/png'];
-    var errors = [];
+    var uploadFile = {uploadPath: '', type: '', size: 0},
+     maxSize = 2 * 1024 * 1024,
+     supportMimeTypes = ['image/jpg', 'image/jpeg', 'image/png'],
+     errors = [];
 
     form.on('error', function(err){
         if(fs.existsSync(uploadFile.path)) {
@@ -83,6 +60,7 @@ function newAchivment(req, res, next) {
     });
 
     form.on('part', function(part) {
+
         uploadFile.size = part.byteCount;
         uploadFile.type = 'image/png';
         uploadFile.path = './storage/students/' + req.params.id + '/' + achivment.name + '.png';
@@ -111,9 +89,31 @@ function newAchivment(req, res, next) {
             part.resume();
         }
     });
+  form.parse(req, function(err, fields, files) {
+    console.log(files);
+    console.log(fields);
+    Student.findByIdAndUpdate(req.params.id, {
+    	$push: {
+    		achivments: {
+    			name: fields.name,
+				type: fields.type,
+				organization: fields.organization,
+				results: fields.results,
+				description: fields.description,
+				checked: false
+    		}
+    	}
+    }, function(err) {
+    	if(err) {
+    		res.send(err);
+    	} else {
+    		res.send('ok')
+    	}
+    })
+});
+	
+	
 
-	form.parse(req);
 
-};
 
 };
