@@ -14,22 +14,23 @@
             </select>
         </div>
       </div>
-      <ul class="students_list students_base_container">
-        <li class="student_card" ng-repeat='student in searchResults'>
+      <div class='not_found_msg small-12 columns' ng-if="searchResults.length == 0">По данному запросу не найдено студентов</div>
+      <ul class="students_list students_base_container" ng-if="searchResults.length != 0" ng-cloak>
+        <li class="student_card ng-cloak" ng-repeat='student in searchResults' ng-cloak>
           <div class="avatar"></div>
           <ul class="profile_detail">
             <li class="first_name" ng-bind='student.firstName'></li>
             <li class="last_name" ng-bind='student.lastName'></li>
             <li class="course" ng-bind="student.department + ' ' + student.course + ' курс'"></li>
             <li>
-              <button class="btn_profile_link" ui-sref='profile({{student.id}})'>Профиль</button>
+              <button class="btn_profile_link" ui-sref='profile(student._id)'>Профиль</button>
             </li>
           </ul>
           <ul class="short_achivments_list">
-            <li class="achivment_link" ng-if='student.achivments[0]'><a ui-sref='achivment_detail({{student.achivments[0].id}})' ng-bind='student.achivments[0].name'></a></li>
-            <li class="achivment_link" ng-if='student.achivments[1]'><a ui-sref='achivment_detail({{student.achivments[1].id}})' ng-bind='student.achivments[1].name'></a></li>
-            <li class="achivment_link" ng-if='student.achivments[2]'><a ui-sref='achivment_detail({{student.achivments[2].id}})' ng-bind='student.achivments[2].name'></a></li>
-            <li class="achivment_link" ng-if='student.achivments[3]'><a  ui-sref='achivment_detail({{student.achivments[3].id}})' ng-bind='student.achivments[3].name'></a></li>
+            <li class="achivment_link" ng-if='student.achivments[0]'><a ui-sref='achivment_detail({achToShow: student.achivments[0]})' ng-bind='student.achivments[0].name'></a></li>
+            <li class="achivment_link" ng-if='student.achivments[1]'><a ui-sref='achivment_detail({achToShow: student.achivments[1]})' ng-bind='student.achivments[1].name'></a></li>
+            <li class="achivment_link" ng-if='student.achivments[2]'><a ui-sref='achivment_detail({achToShow: student.achivments[2]})' ng-bind='student.achivments[2].name'></a></li>
+            <li class="achivment_link" ng-if='student.achivments[3]'><a  ui-sref='achivment_detail({achToShow: student.achivments[3]})' ng-bind='student.achivments[3].name'></a></li>
 
           </ul>
             

@@ -1,5 +1,42 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
+doctype html
+html(lang='en', ng-app='ActivityAggregator', ng-controller='appCtrl')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title(ng-bind='title')
+    link(rel='stylesheet', href='../styles/main.css')
+    link(rel='stylesheet', href='../styles/lib/font-awesome/css/font-awesome.min.css')
+    link(rel='stylesheet', href='../styles/lib/foundation.min.css')
+    link(rel='stylesheet', href='../styles/lib/angular-upload/src/directives/btnUpload.min.css')
+  body(ng-controller='pageCtrl', ng-cloak='')
+    .wrapper(ng-cloak='')
+      section.header.small-12.columns
+        a.logo(href='#')
+        a.burger(ng-cloak='', ng-click='showMobileMenu = !showMobileMenu')
+          i.fa.fa-bars
+        nav.nav_bar(ng-cloak='')
+          ul
+            li
+              a(ui-sref='mainPage') Информация
+            li
+              a(ui-sref='studentsBase') База активистов
+            li
+              a(ui-sref='auth', ng-if='!(currentUser.id && currentUser.name)') Рассказать о себе
+              a#profile_link(ui-sref='account(currentUser.id)', ng-if='(currentUser.id && currentUser.name)', ng-bind='currentUser.name')
+      section.mobile_nav_bar_background.small-12.columns(ng-if='showMobileMenu', ng-cloak='', style="{visibility: hidden}")
+        nav.mobile_nav_bar
+          ul.small-12.columns
+            li.small-12.columns
+              a(ui-sref='mainPage', ng-click='showMobileMenu = false') Информация
+            li.small-12.columns
+              a(ui-sref='studentsBase', ng-click='showMobileMenu = false') База активистов
+            li.small-12.columns
+              a(ui-sref='auth', ng-if='!(currentUser.id && currentUser.name)', ng-click='showMobileMenu = false') Рассказать о себе
+              a#profile_link(ui-sref='account(id=currentUser.id)', ng-if='currentUser', ng-bind='currentUser.name', ng-click='showMobileMenu = false')
+      section(ui-view='page_content')
+      section(ui-view='footer')
+    script(type='text/javascript', src='../js/lib/angular.min.js')
+    script(type='text/javascript', src='../js/lib/angular-sanitize.min.js')
+    script(type='text/javascript', src='../js/lib/angular-ui-router.min.js')
+    script(type='text/javascript', src='../js/lib/angular-upload/angular-upload.min.js')
+    script(type='text/javascript', src='../js/build/build.js')

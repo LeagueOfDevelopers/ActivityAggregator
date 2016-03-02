@@ -3,21 +3,20 @@ angular.module('app.services', [])
   .service('ApiService', ['$rootScope', function($rootScope){
     return {
       apiUrl: {
-      rootApi: 'api/',
       students: {
 
-        add: rootApi + '/students/', //post
+        add: '/api' + '/students/', //post
 
         getDetail: function(id) {    // get
-          return rootApi + '/students/' + id;
+          return '/api'  + '/students/' + id;
         },
 
         updateDetail: function(id) {    // post
-          return rootApi + '/students/' + id;
+          return '/api'  + '/students/' + id;
         },
 
         search: function(searchParams) {   //get
-          return rootApi + '/students/' + ((searchParams.name == '') ? 
+          return '/api'  + '/students/' + ((searchParams.name == '') ? 
                                           'search_by_category/' + searchParams.category : 
                                           'search_by_name/' + searchParams.name);
         },

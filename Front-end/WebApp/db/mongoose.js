@@ -27,7 +27,7 @@ var achivment = new schema({
 		type: String,
 		required: true
 	},
-	results: {
+	result: {
 		type: String,
 		required: true
 	},
@@ -45,7 +45,7 @@ var student = new schema({
 		type: String,
 		required: true
 	},
-	secondName: {
+	lastName: {
 		type: String,
 		required: true
 	},
@@ -63,6 +63,10 @@ var student = new schema({
 		required: true
 	},
 	department: {
+		type: String,
+		required: true
+	},
+	group: {
 		type: String,
 		required: true
 	},

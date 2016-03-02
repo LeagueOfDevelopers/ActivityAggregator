@@ -15,8 +15,6 @@ angular.module('ActivityAggregator',
     '$locationProvider',
      function ($urlRouterProvider, $stateProvider, $locationProvider) {
        $urlRouterProvider.otherwise("/");
-        $locationProvider.hashPrefix('!');
-        $locationProvider.html5Mode(true);
 
        $stateProvider.state('studentsBase', {
          url: '/studentsBase',
@@ -42,7 +40,7 @@ angular.module('ActivityAggregator',
          views: {
            'page_content': {
              templateUrl: 'partials/profile.html',
-             controller: 'profileCtrl'
+             controller: 'accountCtrl'
            },
            'footer': {
              templateUrl: 'partials/footer.html',
@@ -51,7 +49,7 @@ angular.module('ActivityAggregator',
        })
 
        .state('profile', {
-         url: '/profile/:student_id',
+         url: '/profile/:id',
          views: {
            'page_content': {
              templateUrl: 'partials/profile_another.html',
@@ -60,7 +58,7 @@ angular.module('ActivityAggregator',
            'footer': {
              templateUrl: 'partials/footer.html',
            }
-         }
+         },
        })
 
        .state('add_achivment', {
@@ -127,15 +125,12 @@ angular.module('app.controllers.main',
    '$state',
     function ($scope, $state) {
 
-      var stateName = $state.current.name;
-      switch (stateName) {
-        case 'studentsBase': $scope.title = 'База активистов НИТУ МИСиС';
-          break;
-        case 'profile': $scope.title = 'Профиль студента';
-          break;
-        default: $scope.title = "Онлайн портфолио активных студентов НИТУ МИСиС";
+     $scope.title = 'Онлайн портфолио активных студентов НИТУ МИСиС';
+     $scope.$on('changeTitle', function(e, args) {
+      $scope.title = args.title;
+     })
 
-      }
+      
 
     }])
 
@@ -147,7 +142,7 @@ angular.module('app.controllers.main',
     function ($scope, $state, $http, UserManager) {
 
       $scope.showMobileMenu = false;
-
+      angular.element(document.querySelector('.mobile_nav_bar_background')).css('visibility', 'visible');
 
       $scope.currentUser = {};
       updateUserData();
@@ -180,8 +175,9 @@ angular.module('app.controllers.partials',
   [
     '$scope',
     '$http',
-    function ($scope, $http) {
-      $scope.popup = angular.element(document.querySelector('#achivments_popup'));
+    'ApiService',
+    function ($scope, $http, ApiService) {
+      $scope.$emit('changeTitle', {title: 'База активистов НИТУ МИСиС'});
       $scope.searchParams = {
         name: '',
         category: 'Наука'
@@ -193,24 +189,26 @@ angular.module('app.controllers.partials',
       })
 
       $scope.getStudentsList = function(searchParams) {
+        $scope.searchResults = {}
         $scope.$emit('result loading');
-        var reqUrl = 'api/students/' + ((searchParams.name == '') ? 'search_by_category/' + searchParams.category : 'search_by_name/' + searchParams.name);
+        var reqUrl = ApiService.apiUrl.students.search(searchParams);
         console.log(reqUrl);
           $http.get(reqUrl).success(function(result) {
             $scope.searchResults = result;
+            console.log(result);
           })
       };
 
     }
   ]) 
 
-  .controller('profileCtrl',
+  .controller('accontCtrl',
   [
     '$scope',
     '$http',
     'UserManager',
     function ($scope, $http, UserManager) {
-      
+    $scope.$emit('changeTitle', {title: 'Профиль студента'});    
   
      $scope.showEditField= false;
       UserManager.getUserDetail().then(function (result) {
@@ -244,6 +242,16 @@ angular.module('app.controllers.partials',
 
     }
   ])
+  
+  .controller('profileCtrl',
+   [
+    '$scope',
+    '$http',
+    '$stateParams',
+    function($scope, $http, $stateParams){
+     console.log($stateParams);
+
+  }])
 
   .controller('achCtrl', 
     ['$scope', 
@@ -251,14 +259,20 @@ angular.module('app.controllers.partials',
       '$http',
       '$stateParams',
       function($scope, $state, $http, $stateParams){
-        console.log($stateParams.achToShow);
+         $scope.$emit('changeTitle', {title: $stateParams.achToShow.name}); 
+         console.log($stateParams)
+        var ach = $stateParams.achToShow;
         $scope.achivment = {
           owner: {
-            id: '1',
+            id: $scope.currentUser.Id,
             name: $scope.currentUser.name
           },
-          title: $stateParams.achToShow.name,
+          title: ach.name,
+          organization: 'Mail.ru',
+          type: 'Наука',
+          result: 'Призер 1 место',
           photo: [],
+          checked: ach.checked,
           description: 'Мое зерцало разделено на бездонные, экстатические квадранты. В первом — ода сосанию юных дев, сокрывших Червя-Победителя внутри своей розы. Второй вещает веления королей, вбитых в вазы, затопленные псалмы, что лижут кал дьявола, дравшего драгой мой разум. В третьем — сквозные скукоженные проекции, полные страха сношающихся детей, что ищут убежища от размахов маятника. '
         }
     
@@ -307,21 +321,20 @@ angular.module('app.services', [])
   .service('ApiService', ['$rootScope', function($rootScope){
     return {
       apiUrl: {
-      rootApi: 'api/',
       students: {
 
-        add: rootApi + '/students/', //post
+        add: '/api' + '/students/', //post
 
         getDetail: function(id) {    // get
-          return rootApi + '/students/' + id;
+          return '/api'  + '/students/' + id;
         },
 
         updateDetail: function(id) {    // post
-          return rootApi + '/students/' + id;
+          return '/api'  + '/students/' + id;
         },
 
         search: function(searchParams) {   //get
-          return rootApi + '/students/' + ((searchParams.name == '') ? 
+          return '/api'  + '/students/' + ((searchParams.name == '') ? 
                                           'search_by_category/' + searchParams.category : 
                                           'search_by_name/' + searchParams.name);
         },

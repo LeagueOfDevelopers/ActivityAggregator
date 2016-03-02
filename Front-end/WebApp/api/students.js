@@ -24,12 +24,13 @@ function addStudent(req, res, next) {
     console.log(fields);
     var student = new Student ({
     firstName: fields.firstName,
-    secondName: fields.secondName,
+    lastName: fields.lastName,
     middleName: fields.middleName,
     email: fields.email,
     hashPassword: fields.password,
     department: fields.department,
     course: fields.course,
+    group: fields.group
   });
   
   student.save(function(err) {
@@ -136,5 +137,6 @@ function changeAvatar(req, res, next) {
 
     var file = fs.createWriteStream(savePath + '/avatar.png');
     req.pipe(file);
+    Stude
     res.send("avatar changed");
 };

@@ -3,13 +3,13 @@
         <div class="row profile_info">
           <div class="profile_info_card small-12 medium-7 medium-centered columns">
             <div class="user_main_info">
-              <div class="user_avatar_profile" style="background-image: url({{userDetail.photoUri}})">
+              <div class="user_avatar_profile" style="background-image: url({{student.photoUri}})">
               <input class='avatar_file_input'type="file">
-              </div><span class="user_name_profile" ng-bind="userDetail.firstName + ' ' + userDetail.lastName"></span>
-              <span class="user_course_profile" ng-bind="userDetail.department +' '+ userDetail.course + ' курс'"></span>
+              </div><span class="user_name_profile" ng-bind="student.firstName + ' ' + student.lastName"></span>
+              <span class="user_course_profile" ng-bind="student.department +' '+ student.course + ' курс'"></span>
             </div>
             <div class="user_detail"><span>O ceбе</span>
-              <p ng-bind="userDetail.about"></p>
+              <p ng-bind="student.about"></p>
             </div>
           </div>
         </div>
@@ -18,11 +18,11 @@
           </div>
         <div class="achivments_list">
           <ul class="small-12">
-            <li ng-repeat='ach in userDetail.achivments'>
-              <a ui-sref="achivment_detail(ach.id)">
+            <li ng-repeat='ach in student.achivments'>
+              <a ui-sref="achivment_detail({achToShow : ach, owner: student})">
               <div class="ach">
                 <div class="ach_icon {{ach.type}}"></div>
-                <div class="ach_title" ng-bind="ach.name + ach.id"></div>
+                <div class="ach_title" ng-bind="ach.name"></div>
               </div>
               </a>
             </li>

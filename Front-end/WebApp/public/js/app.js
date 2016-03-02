@@ -15,8 +15,6 @@ angular.module('ActivityAggregator',
     '$locationProvider',
      function ($urlRouterProvider, $stateProvider, $locationProvider) {
        $urlRouterProvider.otherwise("/");
-        $locationProvider.hashPrefix('!');
-        $locationProvider.html5Mode(true);
 
        $stateProvider.state('studentsBase', {
          url: '/studentsBase',
@@ -42,7 +40,7 @@ angular.module('ActivityAggregator',
          views: {
            'page_content': {
              templateUrl: 'partials/profile.html',
-             controller: 'profileCtrl'
+             controller: 'accountCtrl'
            },
            'footer': {
              templateUrl: 'partials/footer.html',
@@ -51,7 +49,7 @@ angular.module('ActivityAggregator',
        })
 
        .state('profile', {
-         url: '/profile/:student_id',
+         url: '/profile/:id',
          views: {
            'page_content': {
              templateUrl: 'partials/profile_another.html',
@@ -60,7 +58,7 @@ angular.module('ActivityAggregator',
            'footer': {
              templateUrl: 'partials/footer.html',
            }
-         }
+         },
        })
 
        .state('add_achivment', {

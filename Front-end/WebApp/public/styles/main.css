@@ -3,6 +3,9 @@
   margin: 0;
   padding: 0; }
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important; }
+
 button:active :after :before {
   display: none; }
 
@@ -187,7 +190,13 @@ ul {
   -moz-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
   box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
   padding: 20px;
-  color: #59595b; }
+  color: #59595b;
+  overflow: hidden; }
+
+.about_edit_field {
+  height: 100%;
+  width: 100%;
+  display: block; }
 
 .user_main_info {
   position: relative;
@@ -282,14 +291,11 @@ ul {
   background: transparent;
   border: 1px solid #009fdf;
   color: #009fdf;
-  font-size: 25px;
+  font-size: 24px;
   line-height: normal !important;
   -webkit-transition: all .2s;
   -o-transition: all .2s;
-  transition: all .2s; 
-  text-align: center;
-}
-
+  transition: all .2s; }
 
 .btn_add_achivment:hover {
   cursor: pointer;
@@ -653,15 +659,13 @@ ul {
   color: #fff; }
 
 input .ng-invalid {
-  border: 1px solid #f00 !important; 
-}
+  border: 1px solid #f00 !important; }
 
 .file_field {
   height: 50px;
   position: relative;
   color: #009fdf;
-  background: #fafafa; 
-}
+  background: #fafafa; }
 
 .achivment_owner {
   color: #009fdf;
@@ -674,21 +678,17 @@ input .ng-invalid {
   font-size: 20px;
   font-weight: bold;
   text-align: center;
-  background-color: #87b1cd; 
-}
-.achivment_title.unchecked {
-  background-color: #ddd; 
-}
+  background-color: #87b1cd; }
 
+.achivment_title.unchecked {
+  background-color: #ddd !important; }
 
 .achivment_detail {
   font-size: 16px;
-  color: #59595b; 
-}
+  color: #59595b; }
 
 .achivment_detail span {
-  display: block; 
-}
+  display: block; }
 
 .achivment_detail_description {
   font-size: 18px;
@@ -696,7 +696,7 @@ input .ng-invalid {
   margin-top: 10px; }
 
 .achivment_detail {
-  height: 85px;
+  height: 115px;
   position: relative;
   font-size: 18px;
   border-bottom: 1px solid #87b1cd; }
@@ -710,7 +710,7 @@ input .ng-invalid {
 .grad {
   top: 50%;
   height: 50%;
-  width: 98%;
+  width: 96%;
   position: absolute;
   background: #f6f6f6;
   opacity: .5;
@@ -771,3 +771,10 @@ input .ng-invalid {
 .short_info p {
   font-size: 18px;
   margin-top: 20px; }
+
+.not_found_msg {
+  position: absolute;
+  color: #59595b;
+  font-size: 24px;
+  top: 200px;
+  text-align: center; }
