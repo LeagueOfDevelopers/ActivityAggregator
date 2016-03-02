@@ -30,7 +30,8 @@ function addStudent(req, res, next) {
     hashPassword: fields.password,
     department: fields.department,
     course: fields.course,
-    group: fields.group
+    group: fields.group,
+    about: fields.about
   });
   
   student.save(function(err) {

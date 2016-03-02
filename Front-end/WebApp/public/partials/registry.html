@@ -2,48 +2,48 @@
 	<div class="row">
   <div class=" form_card medium-6 medium-centered large-5 large-centered columns">
 
-    <form>
+    <form method='post'>
       <div class="row column login_form">
         <span class="form_title">Регистрация на платформе</span>
         <label>Электронная почта</label>
-            <input type="text" placeholder="jambul@example.com">
+            <input type="text" placeholder="jambul@example.com" ng-model="newStudent.email">
         <div class="row">
         <div class="small-12 medium-4 columns">
         <label>Фамилия</label>
-						<input type="text" placeholder="Иванов">
+						<input type="text" placeholder="Иванов" ng-model="newStudent.lastName">
             </div>
             <div class="small-12 medium-4 columns">
             <label>Имя</label>
-            <input type="text" placeholder="Иван">
+            <input type="text" placeholder="Иван" ng-model="newStudent.firstName">
             </div>
             <div class="small-12 medium-4 columns">
             <label>Отчество</label>
-            <input type="text" placeholder="Иванович">
+            <input type="text" placeholder="Иванович" ng-model="newStudent.middleName">
             </div>
         </div>
         <div class="row">
 				<div class="small-12 medium-4 columns">
         <label>Институт</label>
-            <input type="text" placeholder="ИТАСУ">
+            <input type="text" placeholder="ИТАСУ" ng-model="newStudent.department">
             </div>
             <div class="small-12 medium-4 columns">
             <label>Курс</label>
-            <input type="text" placeholder="4">
+            <input type="text" placeholder="4" ng-model="newStudent.course">
             </div>
             <div class="small-12 medium-4 columns">
             <label>Группа</label>
-            <input type="text" placeholder="САПР">
+            <input type="text" placeholder="САПР" ng-model="newStudent.group">
             </div>
             </div>
             <label>Номер студенческого билета</label>
 						<input type="text" placeholder="142062">
         <label>Расскажите о себе (биография, увлечения)</label>
-          <textarea name="name" rows="5" cols="50"></textarea>
+          <textarea name="name" rows="5" cols="50" ng-model="newStudent.about"></textarea>
         <label>Пароль</label>
           <input type="password" placeholder="********">
           <label>Пароль еще раз</label>
-          <input type="password" placeholder="********">
-					<input type="submit" class="submit_form" value="Регистрация">
+          <input type="password" placeholder="********" ng-model='newStudent.password'>
+					<input type="submit" class="submit_form" ng-click='submit()' value="Регистрация">
 					<a ui-sref="auth">Вход</a>
       </div>
     </form>

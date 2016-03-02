@@ -299,8 +299,19 @@ angular.module('app.controllers.partials',
   .controller('authCtrl', ['$scope', function($scope){
   }])
 
-  .controller('registryCtrl', ['$scope', function($scope){
-    $scope.submit = function() {};
+  .controller('registryCtrl', ['$scope', '$state', '$http', function($scope, $state, $http){
+    $scope.newStudent = {};
+    $scope.submit = function() {
+      console.log($scope.newStudent);
+       $http({
+          method  : 'POST',
+          url     : '/api/students/',
+          data    : $scope.newStudent,
+          headers : {'Content-Type': 'multipart/form-data'} 
+         }).success(function(res) {
+          console.log(res);
+         })
+    };
   }])
 
 angular.module('app.directives', [])
