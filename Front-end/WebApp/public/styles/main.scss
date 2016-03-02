@@ -624,8 +624,15 @@ ul {
   padding: 15px;
   line-height: normal;
   @include cardShadow();
+  -webkit-animation: fadeIn .2s ease-out;
+  -o-animation: fadeIn .2s ease-out;
+  animation: fadeIn .2s ease-out;
 }
 
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity:1; transform: translateY(0px)}
+}
 
 .avatar {
   background-image: url(../img/default-avatar.gif);
