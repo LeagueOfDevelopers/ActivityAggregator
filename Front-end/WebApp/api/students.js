@@ -10,18 +10,17 @@ module.exports = {
 	getStudentDetail: getStudentDetail,
 	getStudentsList: getStudentsList,
   addStudent: addStudent,
-  changeAvatar: changeAvatar
+  changeAvatar: changeAvatar,
+  updateStudentDetail: updateStudentDetail
 };
 
 
 
 function addStudent(req, res, next) {
 
-  form = new multiparty.Form();
-
-  form.parse(req, function(err, fields) {
-
+    var fields = req.body;
     console.log(fields);
+
     var student = new Student ({
     firstName: fields.firstName,
     lastName: fields.lastName,
@@ -33,19 +32,21 @@ function addStudent(req, res, next) {
     group: fields.group,
     about: fields.about
   });
+
+    console.log(student);
   
   student.save(function(err) {
     if(!err) {
-      res.send('student added')
+      res.end('student added')
     } else {
       res.send(err);
     }
   })
 
 
-    });
+    };
     
-  };
+  
 
 function getStudentDetail(req, res, next) {
     Student.findById(req.params.id, function(err, data) {
@@ -126,7 +127,18 @@ function getStudentsList(req, res, next) {
 
 };
 
-
+function updateStudentDetail(req, res, next) {
+  Student.findOne({_id: req.params.id}, function(student) {
+    var student = student;
+    form = new multiparty.Form();
+    form.parse(req, function(err, fields) {
+      student.about = fields.about;
+      student.save(function(data) {
+        res.end(data);
+      })
+    })
+  })
+};
 
 function changeAvatar(req, res, next) {
   

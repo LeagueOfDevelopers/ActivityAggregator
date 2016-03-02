@@ -286,30 +286,36 @@ angular.module('app.controllers.partials',
     $scope.newAch = {};
     $scope.newAch.id = 1;
     $scope.newAch.owner_id = $scope.currentUser.id;
-        // Valid mimetypes
-    $scope.acceptTypes = 'image/*';
-      // Data to be sent to the server with the upload request
-      $scope.onUpload = function (files) {
-        console.log('AdvancedMarkupCtrl.onUpload', files);
-      };
+      
 
-    $scope.submitForm = function() {};
+    $scope.submit = function() {}
   }])
 
   .controller('authCtrl', ['$scope', function($scope){
   }])
 
   .controller('registryCtrl', ['$scope', '$state', '$http', function($scope, $state, $http){
-    $scope.newStudent = {};
+    $scope.newStudent = {
+        about: "Пенпнр рниг ошрошгг",
+        course: "3",
+        department: "ММ",
+        email: "GGG@GGG",
+        firstName: "Иван",
+        group: "ММ",
+        lastName: "Иванов",
+        middleName: "ванович",
+        password: "6666"
+    };
     $scope.submit = function() {
       console.log($scope.newStudent);
        $http({
           method  : 'POST',
           url     : '/api/students/',
-          data    : $scope.newStudent,
-          headers : {'Content-Type': 'multipart/form-data'} 
+          data    : $scope.newStudent
+          
          }).success(function(res) {
           console.log(res);
+          $state.go('studentsBase')
          })
     };
   }])

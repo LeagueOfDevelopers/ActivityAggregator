@@ -7,12 +7,12 @@
               </div><span class="user_name_profile" ng-bind="student.firstName + ' ' + student.lastName"></span>
               <span class="user_course_profile" ng-bind="student.department +' '+ student.course + ' курс'"></span>
             </div>
-            <div class="user_detail" ng-if="student.about"><span>O ceбе</span>
+            <div class="user_detail" ng-if="student.about" ng-cloak><span>O ceбе</span>
               <p ng-bind="student.about"></p>
             </div>
           </div>
         </div>
-          <div class="row achivments_profile" ng-if='student.achivments.length != 0'>
+          <div class="row achivments_profile" ng-if='student.achivments.length != 0' ng-cloak>
             <span>Достижения</span>
           </div>
         <div class="achivments_list">
