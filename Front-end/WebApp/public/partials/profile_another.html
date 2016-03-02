@@ -3,17 +3,16 @@
         <div class="row profile_info">
           <div class="profile_info_card small-12 medium-7 medium-centered columns">
             <div class="user_main_info">
-              <div class="user_avatar_profile" style="background-image: url({{student.photoUri}})">
-              <input class='avatar_file_input'type="file">
+              <div class="avatar_profile">
               </div><span class="user_name_profile" ng-bind="student.firstName + ' ' + student.lastName"></span>
               <span class="user_course_profile" ng-bind="student.department +' '+ student.course + ' курс'"></span>
             </div>
-            <div class="user_detail"><span>O ceбе</span>
+            <div class="user_detail" ng-if="student.about"><span>O ceбе</span>
               <p ng-bind="student.about"></p>
             </div>
           </div>
         </div>
-          <div class="row achivments_profile">
+          <div class="row achivments_profile" ng-if='student.achivments.length != 0'>
             <span>Достижения</span>
           </div>
         <div class="achivments_list">

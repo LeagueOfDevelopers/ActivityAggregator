@@ -24,6 +24,9 @@ $achivmentsIcons: url(../icons/achivments_icons.png);
   padding: 0;
 }
 
+textaria {
+  font-size: 18px;
+}
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
@@ -258,6 +261,17 @@ ul {
 .user_main_info {
   position: relative;
   height: 120px;
+
+}
+
+.avatar_profile {
+  display: inline-block;
+  position: relative;
+  width: 120px;
+  height: 120px;
+  background-color: #8c9397;
+  background-size: cover;
+  background-image: url(../img/default-avatar.gif)
 
 }
 
@@ -843,7 +857,7 @@ input .ng-invalid {
 .grad {
 top: 50%;
 height: 50%;
-width: 96%;
+width: 98%;
 position: absolute;
 background: rgba(246,246,246,1);
 opacity: .5;

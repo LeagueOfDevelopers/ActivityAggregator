@@ -23,15 +23,9 @@
             <input type="file" class='form_file_input'>
           </div>
            <label>Сканы документов</label>
-           <upload-button  class="btn btn-primary btn-upload"
-
-                                    url="/api/students/1/achivments/"
-                                    param="file"
-                                    accept="acceptTypes"
-                                    multiple="allowMultiple"                                 
-                                    on-upload="onUpload(files)"
-                                    required="true">Fileupload</upload-button>
-           
+            <div class='file_field'>
+            <input type="file" class='form_file_input'>
+          </div>
 					<input type="submit" class="submit_form" value="Отправить" ng-click="submitForm()">
       </div>
     </form>

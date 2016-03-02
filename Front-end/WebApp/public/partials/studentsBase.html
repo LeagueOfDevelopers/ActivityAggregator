@@ -23,7 +23,7 @@
             <li class="last_name" ng-bind='student.lastName'></li>
             <li class="course" ng-bind="student.department + ' ' + student.course + ' курс'"></li>
             <li>
-              <button class="btn_profile_link" ui-sref='profile(student._id)'>Профиль</button>
+              <button class="btn_profile_link" ui-sref='profile({id : student._id})'>Профиль</button>
             </li>
           </ul>
           <ul class="short_achivments_list">

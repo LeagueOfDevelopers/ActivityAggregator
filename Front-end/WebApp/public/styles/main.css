@@ -3,6 +3,9 @@
   margin: 0;
   padding: 0; }
 
+textaria {
+  font-size: 18px; }
+
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important; }
 
@@ -201,6 +204,15 @@ ul {
 .user_main_info {
   position: relative;
   height: 120px; }
+
+.avatar_profile {
+  display: inline-block;
+  position: relative;
+  width: 120px;
+  height: 120px;
+  background-color: #8c9397;
+  background-size: cover;
+  background-image: url(../img/default-avatar.gif); }
 
 .user_avatar_profile {
   display: inline-block;
@@ -710,7 +722,7 @@ input .ng-invalid {
 .grad {
   top: 50%;
   height: 50%;
-  width: 96%;
+  width: 98%;
   position: absolute;
   background: #f6f6f6;
   opacity: .5;

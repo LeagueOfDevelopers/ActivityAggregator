@@ -42,9 +42,6 @@ angular.module('ActivityAggregator',
              templateUrl: 'partials/profile.html',
              controller: 'accountCtrl'
            },
-           'footer': {
-             templateUrl: 'partials/footer.html',
-           }
          }
        })
 
@@ -54,9 +51,6 @@ angular.module('ActivityAggregator',
            'page_content': {
              templateUrl: 'partials/profile_another.html',
              controller: 'profileCtrl'
-           },
-           'footer': {
-             templateUrl: 'partials/footer.html',
            }
          },
        })

@@ -15,7 +15,7 @@ router.get('/achivments/:id', achivments.getAchivmentDetail);
 
 router.post('/students/', students.addStudent);
 router.post('/students/:id/avatar', students.changeAvatar);
-router.post('/user/:id', user.updateUserDetail);
+router.post('/students/:id', user.updateUserDetail);
 router.post('/students/:id/achivments', achivments.newAchivment);
 router.post('/user/:id/achivments/:ach_id', user.updateAchivmentDetail);
 

@@ -42,9 +42,6 @@ angular.module('ActivityAggregator',
              templateUrl: 'partials/profile.html',
              controller: 'accountCtrl'
            },
-           'footer': {
-             templateUrl: 'partials/footer.html',
-           }
          }
        })
 
@@ -54,9 +51,6 @@ angular.module('ActivityAggregator',
            'page_content': {
              templateUrl: 'partials/profile_another.html',
              controller: 'profileCtrl'
-           },
-           'footer': {
-             templateUrl: 'partials/footer.html',
            }
          },
        })
@@ -202,7 +196,7 @@ angular.module('app.controllers.partials',
     }
   ]) 
 
-  .controller('accontCtrl',
+  .controller('accountCtrl',
   [
     '$scope',
     '$http',
@@ -213,13 +207,13 @@ angular.module('app.controllers.partials',
      $scope.showEditField= false;
       UserManager.getUserDetail().then(function (result) {
         $scope.userDetail = {
-            firstName: 'Жамбыл',
-            lastName: 'Ермагамбет',
-            department: 'ИТАСУ',
+            firstName: 'Сергей',
+            lastName: 'Сергеев',
+            department: 'ИНМиН',
             course: '2',
             about: 'Все канавы есть шрамы ночи, что прошиты костями младенцев, зараженными спицами звездного склепа. Сернистая планета испускает благословения, мертвым известны мечты. С мясного крюка я пою песнь о жизни, облетаемой темными метеорами, принесенный в жертву во имя уничтожения человечьей семьи. Песни из воющей головы, кишащей рептильными куклами.',
             photoUri: '../img/jambul.jpg',
-            achivments: [{name:'Непроверенное достижение', id: '12', type: 'sport', checked: false}, {name:'олимпиада по материаловедению', id: '12', type: 'social', checked: true}, {name:'Победаqwdq в квн', id: '12', type: 'science', checked: true}, {name:'Побеdwdда в квн', id: '12', type: 'sport', checked: true}]
+            achivments: [{name:'Непроверенное достижение', id: '12', type: 'sport', checked: false}, {name:'Олимпиада по материаловедению', id: '12', type: 'social', checked: true}, {name:'Победа в квн', id: '12', type: 'cultural', checked: true}, {name:'Победа в квн', id: '12', type: 'sport', checked: true}]
           };
         });
       $scope.oldAbout = '';
@@ -230,7 +224,8 @@ angular.module('app.controllers.partials',
         $scope.userDetail.about = '';
       }
       $scope.applyChanges = function () {
-        $scope.showEditField = false;         
+        $scope.showEditField = false;    
+        console.log($scope.newUserDetail);     
         $scope.userDetail.about = $scope.newUserDetail;
       }
       $scope.notApplyChanges = function () {
@@ -249,7 +244,12 @@ angular.module('app.controllers.partials',
     '$http',
     '$stateParams',
     function($scope, $http, $stateParams){
-     console.log($stateParams);
+      console.log($stateParams.id);
+     $scope.student = {};
+     $http.get('/api/students/' + $stateParams.id).success(function(data) {
+      console.log(data);
+      $scope.student = data;
+     })
 
   }])
 
