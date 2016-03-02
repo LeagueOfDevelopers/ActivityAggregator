@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www && DEBUG=WebApp:*"
+    "start": "node ./bin/www && DEBUG=WebApp:*"
   },
   "dependencies": {
     "body-parser": "~1.13.2",

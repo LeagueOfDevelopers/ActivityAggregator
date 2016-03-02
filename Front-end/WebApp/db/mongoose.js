@@ -1,8 +1,7 @@
 var mongoose = require('mongoose');
-var config = require('../config');
 var schema = mongoose.Schema;
 
-mongoose.connect(config.mongooseString);
+mongoose.connect('mongodb://localhost/aggregator');
 var db = mongoose.connection;
 
 db.on('error', function (err) {
