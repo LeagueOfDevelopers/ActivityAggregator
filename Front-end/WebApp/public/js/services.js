@@ -2,6 +2,7 @@ angular.module('app.services', [])
 
   .service('ApiService', ['$rootScope', function($rootScope){
     return {
+      apiUrl: {
       rootApi: 'api/',
       students: {
 
@@ -33,6 +34,7 @@ angular.module('app.services', [])
 
       }
     }
+  }
   }])
 
   .service('UserManager',
@@ -43,8 +45,8 @@ angular.module('app.services', [])
 
         var apiUrl = '/api';
         var curUser = {
-          id: '1',
-          name: 'Здрасте Здрасте'
+          name: 'Жамбыл Ермагамбет',
+          id: 3
         };
         var userDetail = null;
 

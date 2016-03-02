@@ -1,6 +1,6 @@
 <div class="page_content">
 	<div class="row">
-  <div class=" form_card medium-6 medium-centered large-5 large-centered columns">
+  <div class="form_card medium-6 medium-centered large-5 large-centered columns">
     <form method="post" enctype="multipart/form-data">
       <div class="row column login_form">
         <span class="form_title">Ваши успехи</span>
@@ -23,16 +23,15 @@
             <input type="file" class='form_file_input'>
           </div>
            <label>Сканы документов</label>
-           <div class="file_field"><upload-button  class="btn btn-primary btn-upload"
+           <upload-button  class="btn btn-primary btn-upload"
 
-                                    url="/api/students/achivments/files"
+                                    url="/api/students/1/achivments/"
                                     param="file"
                                     accept="acceptTypes"
                                     multiple="allowMultiple"                                 
-                                    multiple="true"
                                     on-upload="onUpload(files)"
                                     required="true">Fileupload</upload-button>
-           </div>
+           
 					<input type="submit" class="submit_form" value="Отправить" ng-click="submitForm()">
       </div>
     </form>

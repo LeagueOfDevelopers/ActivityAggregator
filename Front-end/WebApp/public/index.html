@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="ActivityAggregator"   ng-controller='appCtrl'></html>
 <head>
+ 
+  <base href="/">
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title ng-bind='title'></title>
@@ -9,28 +11,28 @@
   <link rel="stylesheet" href="../styles/lib/foundation.min.css"/>
   <link rel="stylesheet" href="../styles/lib/angular-upload/src/directives/btnUpload.min.css" />
 </head>
-<body ng-controller='pageCtrl'>
-  <div class="wrapper">
+<body ng-controller='pageCtrl' ng-cloak>
+  <div class="wrapper" ng-cloak>
     <section class="header small-12 columns">
     <a href="#" class="logo"></a>
-      <a  class='burger' ng-click='showMobileMenu=!showMobileMenu'><i class='fa fa-bars'></i></a>
+      <a ng-cloak class='burger' ng-click='showMobileMenu = !showMobileMenu'><i class='fa fa-bars'></i></a>
       <nav class="nav_bar" ng-cloak>
         <ul>
           <li><a ui-sref='mainPage'>Информация</a></li>
           <li><a ui-sref="studentsBase">База активистов</a></li>
           <li><a ui-sref="auth" ng-if="!(currentUser.id && currentUser.name)">Рассказать о себе</a>
-              <a  id='profile_link' ui-sref="account(currentUser.id)" ng-if="currentUser" ng-bind='currentUser.name'></a>
+              <a  id='profile_link' ui-sref="account(currentUser.id)" ng-if="(currentUser.id && currentUser.name)" ng-bind='currentUser.name'></a>
           </li>
         </ul>
       </nav>
           </section>
-      <section class='mobile_nav_bar_background small-12 columns' ng-if='showMobileMenu'>
-     <nav class="mobile_nav_bar" ng-cloak>
+      <section class='mobile_nav_bar_background small-12 columns' ng-if='showMobileMenu' ng-cloak>
+     <nav class="mobile_nav_bar">
         <ul class="small-12 columns">
-          <li class="small-12 columns"><a href="#/">Информация</a></li>
-          <li class="small-12 columns"><a ui-sref="studentsBase">База активистов</a></li>
-          <li class="small-12 columns"><a ui-sref="auth" ng-if="!(currentUser.id && currentUser.name)">Рассказать о себе</a>
-              <a  id='profile_link' ui-sref="profile(id=currentUser.id)" ng-if="currentUser" ng-bind='currentUser.name'></a>
+          <li class="small-12 columns"><a ui-sref="mainPage" ng-click="showMobileMenu = false">Информация</a></li>
+          <li class="small-12 columns"><a ui-sref="studentsBase" ng-click="showMobileMenu = false">База активистов</a></li>
+          <li class="small-12 columns"><a ui-sref="auth" ng-if="!(currentUser.id && currentUser.name)" ng-click="showMobileMenu = false" >Рассказать о себе</a>
+              <a  id='profile_link' ui-sref="account(id=currentUser.id)" ng-if="currentUser" ng-bind='currentUser.name' ng-click="showMobileMenu = false"></a>
           </li>
         </ul>
       </nav>

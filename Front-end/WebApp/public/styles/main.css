@@ -277,16 +277,19 @@ ul {
 
 .btn_add_achivment {
   margin-left: 10px;
-  border-radius: 0;
+  padding: 3px 12px;
+  border-radius: 50%;
   background: transparent;
-  padding: 5px;
   border: 1px solid #009fdf;
   color: #009fdf;
-  font-size: 16px;
+  font-size: 25px;
   line-height: normal !important;
   -webkit-transition: all .2s;
   -o-transition: all .2s;
-  transition: all .2s; }
+  transition: all .2s; 
+  text-align: center;
+}
+
 
 .btn_add_achivment:hover {
   cursor: pointer;
@@ -346,6 +349,12 @@ ul {
   -moz-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
   box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5); }
 
+.ach.unchecked {
+  background-color: #ccc !important;
+  color: #fafafa; }
+  .ach.unchecked .ach_icon:after {
+    visibility: hidden; }
+
 .ach:hover {
   opacity: 1;
   cursor: pointer;
@@ -390,7 +399,7 @@ ul {
 .ach_title {
   position: absolute;
   top: 7px;
-  left: 75px;
+  left: 80px;
   color: #fff;
   font-family: Calibri;
   line-height: normal;
@@ -644,13 +653,15 @@ ul {
   color: #fff; }
 
 input .ng-invalid {
-  border: 1px solid #f00 !important; }
+  border: 1px solid #f00 !important; 
+}
 
 .file_field {
   height: 50px;
   position: relative;
   color: #009fdf;
-  background: #fafafa; }
+  background: #fafafa; 
+}
 
 .achivment_owner {
   color: #009fdf;
@@ -663,14 +674,21 @@ input .ng-invalid {
   font-size: 20px;
   font-weight: bold;
   text-align: center;
-  background-color: #87b1cd; }
+  background-color: #87b1cd; 
+}
+.achivment_title.unchecked {
+  background-color: #ddd; 
+}
+
 
 .achivment_detail {
   font-size: 16px;
-  color: #59595b; }
+  color: #59595b; 
+}
 
 .achivment_detail span {
-  display: block; }
+  display: block; 
+}
 
 .achivment_detail_description {
   font-size: 18px;
@@ -678,7 +696,7 @@ input .ng-invalid {
   margin-top: 10px; }
 
 .achivment_detail {
-  height: 60px;
+  height: 85px;
   position: relative;
   font-size: 18px;
   border-bottom: 1px solid #87b1cd; }
@@ -692,7 +710,7 @@ input .ng-invalid {
 .grad {
   top: 50%;
   height: 50%;
-  width: 96%;
+  width: 98%;
   position: absolute;
   background: #f6f6f6;
   opacity: .5;

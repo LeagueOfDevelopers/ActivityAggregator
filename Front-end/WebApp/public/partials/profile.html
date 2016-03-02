@@ -10,27 +10,29 @@
             </div>
             <div class="user_detail"><span>O ceбе</span>
               <p ng-bind="userDetail.about"></p>
-              <textarea name="name" rows="5" cols="70" ng-if="showEditField" ng-model="newUserDetail"></textarea>
+              <div class="row">
+              <textarea name="name" class="small-12 columns" rows="8"  ng-if="showEditField" ng-model="newUserDetail"></textarea>
+              </div>
             </div>
             <button  class="btn_edit_user_detail" ng-click="applyChanges()" ng-if="showEditField">Применить</button>
             <button class="btn_edit_user_detail" ng-click="showEditField ? notApplyChanges() : editUserDetail()" ng-bind="showEditField ? 'Отмена' : 'Редактировать'"></button>
           </div>
           <div class="help small-12 medium-5 columns">
             <span class="help_title small-12">Это ваш профиль студента</span>
-            <p class="help_content small-12">Здесь вы можете добавить свои достижения, которые отобразятся после подтверждения администрацией вуза        </p>
+            <p class="help_content small-12">Здесь вы можете добавить свои достижения, которые отобразятся после подтверждения администрацией вуза </p>
           </div>
         </div>
           <div class="row achivments_profile">
             <span>Достижения</span>
-            <button class="btn_add_achivment" ui-sref='add_achivment'>Добавить</button>
+            <button class="btn_add_achivment" ui-sref="add_achivment(currentUser.id)">+</button>
           </div>
         <div class="achivments_list">
           <ul class="small-12">
             <li ng-repeat='ach in userDetail.achivments'>
-              <a ui-sref="achivment_detail(ach.id)">
-              <div class="ach">
+              <a ui-sref="achivment_detail({achToShow : ach})">
+              <div class="ach" ng-class='{unchecked: !ach.checked}'>
                 <div class="ach_icon {{ach.type}}"></div>
-                <div class="ach_title" ng-bind="ach.name + ach.id"></div>
+                <div class="ach_title" ng-bind="ach.name"></div>
               </div>
               </a>
             </li>

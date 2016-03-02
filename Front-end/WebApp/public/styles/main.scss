@@ -345,12 +345,13 @@ ul {
 
 .btn_add_achivment {
   margin-left: 10px;
+  padding: 2px 12px;
   border-radius: 0;
   background: transparent;
-  padding: 5px;
   border: 1px solid $mainColor;
   color: $mainColor;
-  font-size: 16px;
+  font-size: 30px;
+
   line-height: normal !important;
   -webkit-transition: all .2s;
   -o-transition: all .2s;
@@ -420,6 +421,16 @@ ul {
 	box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
 }
 
+.ach.unchecked {
+  background-color: #ccc !important;
+  color: #fafafa;
+
+.ach_icon:after {
+  visibility:  hidden;
+}
+
+}
+
 
 .ach:hover {
 	opacity: 1;
@@ -480,7 +491,7 @@ ul {
 .ach_title {
 	position: absolute;
 	top: 7px;
-	left: 75px;
+	left: 80px;
 	color: #fff;
 	font-family: Calibri;
   line-height: normal;

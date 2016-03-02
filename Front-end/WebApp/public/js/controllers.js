@@ -16,6 +16,7 @@ angular.module('app.controllers.main',
   ['$scope',
    '$state',
     function ($scope, $state) {
+
       var stateName = $state.current.name;
       switch (stateName) {
         case 'studentsBase': $scope.title = 'База активистов НИТУ МИСиС';
@@ -34,24 +35,17 @@ angular.module('app.controllers.main',
    '$http',
    'UserManager',
     function ($scope, $state, $http, UserManager) {
+
       $scope.showMobileMenu = false;
 
-      $scope.profileLink = {
-        sref: 'auth',
-        title: 'Рассказать о себе'
-      }
+
       $scope.currentUser = {};
       updateUserData();
 
       function updateUserData() {
+
         UserManager.getCurrentUser().then(function (result) {
           $scope.currentUser = result;
-          if($scope.currentUser.name && $scope.currentUser.id) {
-            $scope.profileLink.sref = 'profile';
-            $scope.profileLink.title = $scope.currentUser.name;
-          } else {
-            $state.go('auth');
-          }
           console.log(result);
         })
       };
@@ -59,10 +53,10 @@ angular.module('app.controllers.main',
 
 
       $scope.$on('needAuth', function (e, args) {
-        if(!($scope.currentUser.name && $scope.currentUser.id)) {
           updateUserData();
+        if(!($scope.currentUser.name && $scope.currentUser.id)) {
+          $state.go('auth');
         }
-        console.log($scope.currentUser + 'auth');
       })
 
 }]);
@@ -93,7 +87,6 @@ angular.module('app.controllers.partials',
         var reqUrl = 'api/students/' + ((searchParams.name == '') ? 'search_by_category/' + searchParams.category : 'search_by_name/' + searchParams.name);
         console.log(reqUrl);
           $http.get(reqUrl).success(function(result) {
-            console.log(result);
             $scope.searchResults = result;
           })
       };
@@ -107,12 +100,8 @@ angular.module('app.controllers.partials',
     '$http',
     'UserManager',
     function ($scope, $http, UserManager) {
-      $scope.avatar = {
-        check: 'avatar uploading'
-      };
-     $scope.checkUpload = function(files) {
-      console.log(files);
-     };
+      
+  
      $scope.showEditField= false;
       UserManager.getUserDetail().then(function (result) {
         $scope.userDetail = {
@@ -122,13 +111,14 @@ angular.module('app.controllers.partials',
             course: '2',
             about: 'Все канавы есть шрамы ночи, что прошиты костями младенцев, зараженными спицами звездного склепа. Сернистая планета испускает благословения, мертвым известны мечты. С мясного крюка я пою песнь о жизни, облетаемой темными метеорами, принесенный в жертву во имя уничтожения человечьей семьи. Песни из воющей головы, кишащей рептильными куклами.',
             photoUri: '../img/jambul.jpg',
-            achivments: [{name:'Победа в квн', id: '12', type: 'sport'}, {name:'Победаdwd в квн', id: '12', type: 'sport'}, {name:'Победаqwdq в квн', id: '12', type: 'sport'}, {name:'Побеdwdда в квн', id: '12', type: 'sport'}]
+            achivments: [{name:'Непроверенное достижение', id: '12', type: 'sport', checked: false}, {name:'олимпиада по материаловедению', id: '12', type: 'social', checked: true}, {name:'Победаqwdq в квн', id: '12', type: 'science', checked: true}, {name:'Побеdwdда в квн', id: '12', type: 'sport', checked: true}]
           };
-          console.log(result);
         });
+      $scope.oldAbout = '';
       $scope.editUserDetail = function () {
         $scope.showEditField= true;
         $scope.newUserDetail = $scope.userDetail.about;
+        $scope.oldAbout = $scope.userDetail.about;
         $scope.userDetail.about = '';
       }
       $scope.applyChanges = function () {
@@ -138,6 +128,7 @@ angular.module('app.controllers.partials',
       $scope.notApplyChanges = function () {
           $scope.showEditField = false;
           $scope.newUserDetail = null;
+          $scope.userDetail.about = $scope.oldAbout;
       }
 
 
@@ -148,15 +139,15 @@ angular.module('app.controllers.partials',
     ['$scope', 
       '$state', 
       '$http',
-      'achToShow',
-      function($scope, $state, $http, achToShow){
-
+      '$stateParams',
+      function($scope, $state, $http, $stateParams){
+        console.log($stateParams.achToShow);
         $scope.achivment = {
           owner: {
             id: '1',
-            name: 'Жамбыл Ермагамбет'
+            name: $scope.currentUser.name
           },
-          title: 'Победа в квн',
+          title: $stateParams.achToShow.name,
           photo: [],
           description: 'Мое зерцало разделено на бездонные, экстатические квадранты. В первом — ода сосанию юных дев, сокрывших Червя-Победителя внутри своей розы. Второй вещает веления королей, вбитых в вазы, затопленные псалмы, что лижут кал дьявола, дравшего драгой мой разум. В третьем — сквозные скукоженные проекции, полные страха сношающихся детей, что ищут убежища от размахов маятника. '
         }

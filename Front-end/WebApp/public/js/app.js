@@ -12,8 +12,11 @@ angular.module('ActivityAggregator',
     [
     '$urlRouterProvider',
     '$stateProvider',
-     function ($urlRouterProvider, $stateProvider) {
+    '$locationProvider',
+     function ($urlRouterProvider, $stateProvider, $locationProvider) {
        $urlRouterProvider.otherwise("/");
+        $locationProvider.hashPrefix('!');
+        $locationProvider.html5Mode(true);
 
        $stateProvider.state('studentsBase', {
          url: '/studentsBase',
@@ -61,7 +64,7 @@ angular.module('ActivityAggregator',
        })
 
        .state('add_achivment', {
-        url: '/account/new_achivment',
+        url: '/account/:user_id/new_achivment',
         views: {
           'page_content': {
            templateUrl: 'partials/addAchivment.html',
@@ -71,18 +74,17 @@ angular.module('ActivityAggregator',
        })
 
        .state('achivment_detail', {
-          url: '/achivment_detail/:id',
+          url: '/achivment_detail',
+          params: {
+            'achToShow': null
+          },
           views: {
            'page_content': {
              templateUrl: 'partials/achivment.html',
              controller: 'achCtrl'
              }
           },
-          resolve: {
-            achToShow: function($http, $stateParams) {
-              return true;
-            }
-          }
+                   
            
        })
 
