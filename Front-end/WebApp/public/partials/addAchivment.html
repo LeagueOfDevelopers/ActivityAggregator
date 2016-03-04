@@ -1,12 +1,12 @@
 <div class="page_content">
 	<div class="row">
-  <div class="form_card medium-6 medium-centered large-5 large-centered columns">
+  <div class="form_card small-12 medium-6 medium-centered large-5 large-centered columns">
     <form method="post" enctype="multipart/form-data">
       <div class="row column login_form">
         <span class="form_title">Ваши успехи</span>
         <label>Название достижения</label>
           <input type="text" placeholder='Олимпиада по программирванию' required='true' ng-model='newAch.name'>
-        <select name="category" class="select_category" ng-model='newAch.type' required='true'>
+        <select name="category" class="select_category" ng-model='type' required='true'>
               <option>Спорт</option>
               <option>Культура</option>
               <option>Наука</option>
@@ -15,18 +15,14 @@
           <label>Результаты</label>
           <input type="text" placeholder="Призер 2 место" required='true' ng-model='newAch.result'>
           <label>Организация</label>
-          <input type="text" placeholder="mail.ru" required='true' ng-model='newAch.company'>
+          <input type="text" placeholder="mail.ru" required='true' ng-model='newAch.organization'>
            <label>Подробнее (не обязательно)</label>
-          <textarea name="name" rows="5" cols="50" ng-model="newAch.descrption"></textarea>
-          <label>Фотографии</label>
-          <div class='file_field'>
-            <input type="file" class='form_file_input'>
-          </div>
+          <textarea name="name" rows="5" class="small-12 columns" ng-model="newAch.descrption"></textarea>
            <label>Сканы документов</label>
-            <div class='file_field'>
-            <input type="file" class='form_file_input'>
-          </div>
-					<input type="submit" class="submit_form" value="Отправить" ng-click="submitForm()">
+            <div class="button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+            ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100" 
+            ngf-resize="{width: 100, height: 100}">Select</div>
+					<input type="submit"   class="submit_form" value="Отправить" ng-click="submitForm()">
       </div>
     </form>
 

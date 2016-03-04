@@ -70,6 +70,7 @@ angular.module('app.controllers.partials',
     'ApiService',
     function ($scope, $http, ApiService) {
       $scope.$emit('changeTitle', {title: 'База активистов НИТУ МИСиС'});
+
       $scope.searchParams = {
         name: '',
         category: 'Наука'
@@ -77,7 +78,18 @@ angular.module('app.controllers.partials',
 
       $scope.$watch('searchParams.category', function() {
         $scope.searchParams.name = '';
-        $scope.getStudentsList($scope.searchParams);
+        var category = '';
+        switch($scope.searchParams.category) {
+          case 'Наука' : category = 'science';  break;
+          case 'Общественная деятельность' : category = 'social'; break;
+          case 'Культура' : category = 'cultural'; break;
+          case 'Спорт' : category = 'sport'; break;
+          case 'Учеба' : category = 'study'; break;
+        }
+         
+
+        $scope.getStudentsList({name: '', category: category});
+        
       })
 
       $scope.getStudentsList = function(searchParams) {
@@ -115,6 +127,7 @@ angular.module('app.controllers.partials',
           };
         });
       $scope.oldAbout = '';
+
       $scope.editUserDetail = function () {
         $scope.showEditField= true;
         $scope.newUserDetail = $scope.userDetail.about;
@@ -180,13 +193,40 @@ angular.module('app.controllers.partials',
     [
     '$scope',
     '$http',
-     function($scope, $http) {
-    $scope.newAch = {};
-    $scope.newAch.id = 1;
-    $scope.newAch.owner_id = $scope.currentUser.id;
-      
+    '$timeout',
+     function($scope, $http, $timeout) {
 
-    $scope.submit = function() {}
+    $scope.newAch = {};
+    $scope.newAch.owner_id = $scope.currentUser.id;
+    $scope.type = 'Наука';
+    $scope.$watch('type', function() {
+      var category = '';
+        switch($scope.type) {
+          case 'Наука' : category = 'science';  break;
+          case 'Общественная деятельность' : category = 'social'; break;
+          case 'Культура' : category = 'cultural'; break;
+          case 'Спорт' : category = 'sport'; break;
+          case 'Учеба' : category = 'study'; break;
+        }
+        $scope.newAch.type = category;
+    });
+
+    $scope.addDocument = function() {
+      $timeout(function() {angular.element(document.querySelector('#documents')).triggerHandler('click')}, 100);
+    };  
+
+    $scope.submit = function() {
+      console.log($scope.newAch);
+       $http({
+          method  : 'POST',
+          url     : '/api/students/' + $scope.currentUser.id + '/achivments/',
+          data    : $scope.newAch
+          
+         }).success(function(res) {
+          console.log(res);
+          $state.go('account');
+         })
+    }
   }])
 
   .controller('authCtrl', ['$scope', function($scope){
@@ -194,16 +234,8 @@ angular.module('app.controllers.partials',
 
   .controller('registryCtrl', ['$scope', '$state', '$http', function($scope, $state, $http){
     $scope.newStudent = {
-        about: "Пенпнр рниг ошрошгг",
-        course: "3",
-        department: "ММ",
-        email: "GGG@GGG",
-        firstName: "Иван",
-        group: "ММ",
-        lastName: "Иванов",
-        middleName: "ванович",
-        password: "6666"
     };
+
     $scope.submit = function() {
       console.log($scope.newStudent);
        $http({
