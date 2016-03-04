@@ -20,25 +20,19 @@ function getAchivmentDetail(req, res, next) {
 };
 
 function newAchivment(req, res, next) {
-	var student = {};
-
-	var achivment = {
-		name: 'djwdw',
-		results: 'mwdlqmd',
-		organization: 'dqdw',
-		type: 'dmkqmd',
-		checked: 'false'
-	};
-
-
-  var form = new multiparty.Form();
-
 	
+ 
+  var form = new multiparty.Form();
 
     var uploadFile = {uploadPath: '', type: '', size: 0},
      maxSize = 2 * 1024 * 1024,
      supportMimeTypes = ['image/jpg', 'image/jpeg', 'image/png'],
      errors = [];
+
+    var achivment = {
+        checked: false,
+        files: []
+    }
 
     form.on('error', function(err){
         if(fs.existsSync(uploadFile.path)) {
@@ -49,21 +43,33 @@ function newAchivment(req, res, next) {
 
     form.on('close', function() {
         if(errors.length == 0) {
-            //res.send({status: 'ok', text: 'Success'});
+            console.log(achivment);
+            Student.findById(req.params.id, function(err, doc) {
+                console.log(doc);
+                doc.achivments.push(achivment);
+                console.log(doc);
+                doc.save(function(err) {
+                    if(err) {
+                        res.send(err);
+                    } else {
+                        res.send({status: 200});
+                    }
+                })
+            })
         }
         else {
             if(fs.existsSync(uploadFile.path)) {
                 fs.unlinkSync(uploadFile.path);
             }
-            //res.send({status: 'bad', errors: errors});
+            res.send({status: 'bad', errors: errors});
         }
     });
 
     form.on('part', function(part) {
-
+        if(part.name == 'file') {
         uploadFile.size = part.byteCount;
-        uploadFile.type = 'image/png';
-        uploadFile.path = './storage/students/' + req.params.id + '/' + achivment.name + '.png';
+        uploadFile.type = part.headers['content-type'];
+        uploadFile.path = './storage/students/' + req.params.id + '/' + part.filename;
 
         //проверяем размер файла, он не должен быть больше максимального размера
         if(uploadFile.size > maxSize) {
@@ -77,43 +83,26 @@ function newAchivment(req, res, next) {
 
         //если нет ошибок то создаем поток для записи файла
         if(errors.length == 0) {
-        	if (!fs.existsSync('storage/students/' + req.params.id)) {
-        		fs.mkdirSync('storage/students/' + req.params.id);
-        	}
+            if (!fs.existsSync('./storage/students/' + req.params.id)) {
+                fs.mkdirSync('./storage/students/' + req.params.id);
+            }
             var out = fs.createWriteStream(uploadFile.path);
-            part.pipe(res);
+            part.pipe(out);
+            achivment.files.push(uploadFile.path);
         }
         else {
             //пропускаем
             //вообще здесь нужно как-то остановить загрузку и перейти к onclose
             part.resume();
         }
+           }
     });
-  form.parse(req, function(err, fields, files) {
-    console.log(files);
-    console.log(fields);
-    Student.findByIdAndUpdate(req.params.id, {
-    	$push: {
-    		achivments: {
-    			name: fields.name,
-				type: fields.type,
-				organization: fields.organization,
-				results: fields.results,
-				description: fields.description,
-				checked: false
-    		}
-    	}
-    }, function(err) {
-    	if(err) {
-    		res.send(err);
-    	} else {
-    		res.send('ok')
-    	}
-    })
-});
-	
-	
-
-
-
+  form.on('field', function(name, value) {
+    achivment[name] = value;
+  });
+  form.parse(req);
 };
+    
+    
+
+

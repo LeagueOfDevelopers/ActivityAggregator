@@ -41,11 +41,11 @@ angular.module('app.services', [])
     '$q',
     '$http',
      function ($rootScope, $q, $http) {
-
+        
         var apiUrl = '/api';
         var curUser = {
           name: 'Жамбыл Ермагамбет',
-          id: 3
+          id: "56d6bf1d4225b654046a6b57"
         };
         var userDetail = null;
 

@@ -19,10 +19,10 @@
            <label>Подробнее (не обязательно)</label>
           <textarea name="name" rows="5" class="small-12 columns" ng-model="newAch.descrption"></textarea>
            <label>Сканы документов</label>
-            <div class="button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
-            ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100" 
-            ngf-resize="{width: 100, height: 100}">Select</div>
-					<input type="submit"   class="submit_form" value="Отправить" ng-click="submitForm()">
+            <div class="file_field" ngf-select ng-model="files" name="documents" ngf-pattern="'image/*'"
+            ngf-accept="'image/*'"  
+             ngd-multiple='true'>Select</div>
+					<input type="submit"   class="submit_form" value="Отправить" ng-click="submit()">
       </div>
     </form>
 

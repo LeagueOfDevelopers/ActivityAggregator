@@ -91,9 +91,7 @@ ul {
 
 }
 
-input.ng-invalid {
-  border: 1px solid red;
-}
+
 .footer {
   width: 100%; 
   height: 60px;
@@ -807,8 +805,8 @@ input.ng-invalid {
   color: #fff;
 }
 
-input .ng-invalid {
-  border: 1px solid #f00 !important;
+input.ng-invalid.ng-dirty {
+  border: 1px solid red;
 }
 
 .file_field {

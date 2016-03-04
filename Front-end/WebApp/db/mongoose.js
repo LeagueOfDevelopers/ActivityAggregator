@@ -22,6 +22,10 @@ var achivment = new schema({
 		type: String,
 		required: true
 	},
+	owner_id: {
+		type: String,
+		required: true
+	},
 	organization: {
 		type: String,
 		required: true
@@ -34,8 +38,10 @@ var achivment = new schema({
 		type: String
 	},
 	photos: [{type: String}],
+	files: [{type: String, required: true}],
 	checked: {
 		type: Boolean,
+		required: true
 	}
 });
 

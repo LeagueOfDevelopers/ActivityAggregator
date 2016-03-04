@@ -194,10 +194,12 @@ angular.module('app.controllers.partials',
     '$scope',
     '$http',
     '$timeout',
-     function($scope, $http, $timeout) {
+    'Upload',
+     function($scope, $http, $timeout, Upload) {
 
-    $scope.newAch = {};
-    $scope.newAch.owner_id = $scope.currentUser.id;
+    $scope.newAch = {
+      owner_id: $scope.currentUser.id
+    };
     $scope.type = 'Наука';
     $scope.$watch('type', function() {
       var category = '';
@@ -211,21 +213,34 @@ angular.module('app.controllers.partials',
         $scope.newAch.type = category;
     });
 
-    $scope.addDocument = function() {
-      $timeout(function() {angular.element(document.querySelector('#documents')).triggerHandler('click')}, 100);
-    };  
-
+  
     $scope.submit = function() {
+
+      if (
+          $scope.files) {
+        $scope.newAch.file = $scope.files;
+        console.log($scope.files);
+          Upload.upload({
+            url: '/api/students/' + $scope.currentUser.id + '/achivments/',
+            data: $scope.newAch
+          }).then(function(res) {
+            console.log(res);
+          })
       console.log($scope.newAch);
-       $http({
+      }
+
+       /*$http({
           method  : 'POST',
+          headers : {
+            'Content-Type': undefined
+          },
           url     : '/api/students/' + $scope.currentUser.id + '/achivments/',
           data    : $scope.newAch
           
          }).success(function(res) {
           console.log(res);
           $state.go('account');
-         })
+         })*/
     }
   }])
 
