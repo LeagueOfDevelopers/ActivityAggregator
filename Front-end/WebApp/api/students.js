@@ -9,6 +9,8 @@ multiparty = require('multiparty');
 module.exports = {
 	getStudentDetail: getStudentDetail,
 	getStudentsList: getStudentsList,
+  getStudentsListByCategory: getStudentsListByCategory,
+  getStudentsListByName: getStudentsListByName,
   addStudent: addStudent,
   changeAvatar: changeAvatar,
   updateStudentDetail: updateStudentDetail
@@ -71,58 +73,42 @@ function getStudentsList(req, res, next) {
     });
 	console.log(req.params.searchParams);
 
-	var data = JSON.stringify([
-        {
-          firstName: 'Жамбыл',
-          lastName: 'Ермагамбет',
-          middleName: 'sdwdwd',
-          department: 'ИТАСУ',
-          course: '2',
-          email: 'jambul@mail.ru',
-          hashPassword: 'xxxxxx',
-        },
 
-        {
-          firstName: 'Жамбыл',
-          lastName: 'Ермагамбет',
-          department: 'ИТАСУ',
-          course: '2',
-          achivments: [{name:'Победа в квн', id: '12', type: 'science'}, 
-          {name:'Победаdwd в квн', id: '12', type: 'science'}, 
-          {name:'Победаqwdq в квн', id: '12', type: 'science'}, 
-          {name:'Побеdwdда в квн', id: '12', type: 'science'}]
-        },
-        {
-          firstName: 'Жамбыл',
-          lastName: 'Ермагамбет',
-          department: 'ИТАСУ',
-          course: '2',
-          achivments: [{name:'Победа в квн', id: '12', type: 'science'}, 
-          {name:'Победаdwd в квн', id: '12', type: 'science'}, 
-          {name:'Победаqwdq в квн', id: '12', type: 'science'}, 
-          {name:'Побеdwdда в квн', id: '12', type: 'science'}]
-        },
-        {
-          firstName: 'Жамбыл',
-          lastName: 'Ермагамбет',
-          department: 'ИТАСУ',
-          course: '2',
-          achivments: [{name:'Победа в квн', id: '12', type: 'science'}, 
-          {name:'Победаdwd в квн', id: '12', type: 'science'}, 
-          {name:'Победаqwdq в квн', id: '12', type: 'science'}, 
-          {name:'Побеdwdда в квн', id: '12', type: 'science'}]
-        },
-        {
-          firstName: 'Жамбыл',
-          lastName: 'Ермагамбет',
-          department: 'ИТАСУ',
-          course: '2',
-          achivments: [{name:'Победа в квн', id: '12', type: 'science'}, 
-          {name:'Победаdwd в квн', id: '12', type: 'science'}, 
-          {name:'Победаqwdq в квн', id: '12', type: 'science'}, 
-          {name:'Побеdwdда в квн', id: '12', type: 'science'}]
-        },
-        ]);
+};
+function getStudentsListByCategory(req, res, next) {
+  console.log(req.params);
+  Student.find({'achivments.type' : req.params.searchParams}, function (err, data) {
+        if (!err) {
+             res.send(data);
+        } else {
+            res.statusCode = 500;
+            console.log('Internal error(%d): %s',res.statusCode,err.message);
+             res.send({ error: 'Server error' });
+        }
+    });
+  console.log(req.params.searchParams);
+
+
+};
+function getStudentsListByName(req, res, next) {
+  var q = new RegExp(req.params.searchParams, 'i');
+  Student.find({$or : [
+                        {'firstName' : q},
+                        {'lastName' : q},   
+                        {'department' : q},
+                        {'group' : q}
+                    ]
+                },
+                      function (err, data) {
+                      if (!err) {
+                           res.send(data);
+                      } else {
+                          res.statusCode = 500;
+                          console.log('Internal error(%d): %s',res.statusCode,err.message);
+                           res.send({ error: 'Server error' });
+                      }
+    });
+  console.log(req.params.searchParams);
 
 
 };

@@ -8,8 +8,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/students/:id', students.getStudentDetail);
-router.get('/students/search_by_category/:searchParams', students.getStudentsList);
-router.get('/students/search_by_name/:searchParams', students.getStudentsList);
+router.get('/students/search_by_category/:searchParams', students.getStudentsListByCategory);
+router.get('/students/search_by_name/:searchParams', students.getStudentsListByName);
 router.get('/students/:student_id/achivments', achivments.getAchivmentsList);
 router.get('/achivments/:id', achivments.getAchivmentDetail);
 
