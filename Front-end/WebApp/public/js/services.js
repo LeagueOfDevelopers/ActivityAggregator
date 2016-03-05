@@ -45,8 +45,9 @@ angular.module('app.services', [])
         var apiUrl = '/api';
         var curUser = {
           name: 'Жамбыл Ермагамбет',
-          id: "56d6bf1d4225b654046a6b57"
+          id: "56d6bfc451da21485e4fad8e"
         };
+
         var userDetail = null;
 
         function getCurrentUser(params) {
@@ -69,8 +70,8 @@ angular.module('app.services', [])
         }
 
         function getUserDetail() {
-        return $q.when(userDetail ? userDetail : getDetail()).then(function (result) {
-          return result.data.info;
+        return $q.when(getDetail()).then(function (result) {
+          return result.data;
         })
 
           function getDetail() {

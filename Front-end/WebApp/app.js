@@ -9,7 +9,8 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var api = require('./routes/api');
-
+var mongoStore = require('connect-mongo')(session);
+var mongoose = require('./db/mongoose');
 var app = express();
 
 // view engine setup
@@ -25,18 +26,22 @@ app.use(cookieParser());
 
 app.use(session({
   secret: 'jambuljambul',
-  genid: function(req) {
-   return new Date();
-  },
-  resave: false,
+  store: new mongoStore({mongooseConnection : mongoose.connection}),
+  resave: true,
   saveUninitialized: true,
-  cookie: { maxAge: 60000 }
+  key: 'sid',
+  cookie: { maxAge: 60000, httpOnly: false}
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.all('/*', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+ });
+app.use(function(req, res, next) {
+  console.log(req.session);
   next();
  });
 app.use('/', routes);

@@ -114,14 +114,13 @@ function getStudentsListByName(req, res, next) {
 };
 
 function updateStudentDetail(req, res, next) {
-  Student.findOne({_id: req.params.id}, function(student) {
-    var student = student;
-    form = new multiparty.Form();
-    form.parse(req, function(err, fields) {
-      student.about = fields.about;
-      student.save(function(data) {
-        res.end(data);
-      })
+  console.log(req.params.id);
+  Student.findById(req.params.id, function(err, student) {
+    console.log(req.body)
+    student.about = req.body.about;
+    console.log(student);
+    student.save(function(data) {
+      res.send(data);
     })
   })
 };

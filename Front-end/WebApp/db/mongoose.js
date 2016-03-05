@@ -92,6 +92,7 @@ var student = new schema({
 var Student = mongoose.model('Student', student)
 
 module.exports = {
+	connection: db,
 	models: {
 		Student: Student
 	},

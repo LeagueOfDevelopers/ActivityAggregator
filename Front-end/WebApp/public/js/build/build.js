@@ -134,7 +134,6 @@ angular.module('app.controllers.main',
    '$http',
    'UserManager',
     function ($scope, $state, $http, UserManager) {
-
       $scope.showMobileMenu = false;
       angular.element(document.querySelector('.mobile_nav_bar_background')).css('visibility', 'visible');
 
@@ -179,6 +178,7 @@ angular.module('app.controllers.partials',
       }
 
       $scope.$watch('searchParams.category', function() {
+        console.log(document.cookie);
         $scope.searchParams.name = '';
         var category = '';
         switch($scope.searchParams.category) {
@@ -218,7 +218,8 @@ angular.module('app.controllers.partials',
   
      $scope.showEditField= false;
       UserManager.getUserDetail().then(function (result) {
-        $scope.userDetail = {
+        console.log(result);
+      /*  $scope.userDetail = {
             firstName: 'Сергей',
             lastName: 'Сергеев',
             department: 'ИНМиН',
@@ -226,7 +227,9 @@ angular.module('app.controllers.partials',
             about: 'Все канавы есть шрамы ночи, что прошиты костями младенцев, зараженными спицами звездного склепа. Сернистая планета испускает благословения, мертвым известны мечты. С мясного крюка я пою песнь о жизни, облетаемой темными метеорами, принесенный в жертву во имя уничтожения человечьей семьи. Песни из воющей головы, кишащей рептильными куклами.',
             photoUri: '../img/jambul.jpg',
             achivments: [{name:'Непроверенное достижение', id: '12', type: 'sport', checked: false}, {name:'Олимпиада по материаловедению', id: '12', type: 'social', checked: true}, {name:'Победа в квн', id: '12', type: 'cultural', checked: true}, {name:'Победа в квн', id: '12', type: 'sport', checked: true}]
-          };
+          };*/
+          $scope.userDetail = result;
+
         });
       $scope.oldAbout = '';
 
@@ -240,6 +243,14 @@ angular.module('app.controllers.partials',
         $scope.showEditField = false;    
         console.log($scope.newUserDetail);     
         $scope.userDetail.about = $scope.newUserDetail;
+
+        $http.post('/api/students/' + $scope.currentUser.id, {about : $scope.newUserDetail}).success(function(data) {
+          console.log(data);
+          UserManager.getUserDetail().then(function(result) {
+            $scope.userDetail = result;
+
+          })
+        })
       }
       $scope.notApplyChanges = function () {
           $scope.showEditField = false;
@@ -281,12 +292,12 @@ angular.module('app.controllers.partials',
             name: $scope.currentUser.name
           },
           title: ach.name,
-          organization: 'Mail.ru',
-          type: 'Наука',
-          result: 'Призер 1 место',
+          organization: ach.organization,
+          type: ach.type,
+          result: ach.result,
           photo: [],
           checked: ach.checked,
-          description: 'Мое зерцало разделено на бездонные, экстатические квадранты. В первом — ода сосанию юных дев, сокрывших Червя-Победителя внутри своей розы. Второй вещает веления королей, вбитых в вазы, затопленные псалмы, что лижут кал дьявола, дравшего драгой мой разум. В третьем — сквозные скукоженные проекции, полные страха сношающихся детей, что ищут убежища от размахов маятника. '
+          description: ach.description 
         }
     
        }])
@@ -427,8 +438,9 @@ angular.module('app.services', [])
         var apiUrl = '/api';
         var curUser = {
           name: 'Жамбыл Ермагамбет',
-          id: "56d6bf1d4225b654046a6b57"
+          id: "56d6bfc451da21485e4fad8e"
         };
+
         var userDetail = null;
 
         function getCurrentUser(params) {
@@ -451,8 +463,8 @@ angular.module('app.services', [])
         }
 
         function getUserDetail() {
-        return $q.when(userDetail ? userDetail : getDetail()).then(function (result) {
-          return result.data.info;
+        return $q.when(getDetail()).then(function (result) {
+          return result.data;
         })
 
           function getDetail() {
