@@ -43,27 +43,21 @@ angular.module('app.services', [])
      function ($rootScope, $q, $http) {
         
         var apiUrl = '/api';
-        var curUser = { };
+        var curUser = {};
 
         var userDetail = null;
-        function setCurrentUser(data) {
-          curUser = data;
-         // $http.post(apiUrl + '/auth/isAuth', data);
-          };
         function getCurrentUser(params) {
             params = params || { cache: true };
-            return $q.when(curUser && params.cache ? curUser : getUser()).then(function (result) {
+            return $q.when(curUser._id && params.cache ? curUser : getUser()).then(function (result) {
                 return result.status ? result.data.user : result;
             });
 
             function getUser() {
               var reqUrl = apiUrl + '/auth/isAuth';
-                return $http.get(reqUrl).success(function (data) {
-                    if (!data.result) {
-                        return false;
-                    } else if (data.user) {
+                return $http.post(reqUrl).success(function (data) {
+                        console.log(data)
                         curUser = data.user;
-                    }
+                    
                     return curUser;
                 });
             }
@@ -93,12 +87,8 @@ angular.module('app.services', [])
         return $q.when(updateData(data)).then(function () {
           return getUserDetail();
         })
-
-        function updateData(data) {
-          userInfo[about] = data;
-
-        }
       }
+
 
         function logout() {
             return $http.post('/api/auth/logout').success(function (data) {
@@ -113,7 +103,6 @@ angular.module('app.services', [])
             getCurrentUser: getCurrentUser,
             logout: logout,
             getUserDetail: getUserDetail,
-            setCurrentUser: setCurrentUser
         }
     }])
 

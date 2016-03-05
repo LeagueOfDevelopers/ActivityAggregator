@@ -3,7 +3,7 @@
         <div class="row profile_info">
           <div class="profile_info_card small-12 medium-7 columns">
             <div class="user_main_info">
-              <div class="user_avatar_profile" style="background-image: url({{userDetail.photoUri}})">
+              <div class="user_avatar_profile" style="{{photo}}">
               <input type="file" class="avatar_file_input"></input>
             </div><span class="user_name_profile" ng-bind="userDetail.firstName + ' ' + userDetail.lastName"></span>
               <span class="user_course_profile" ng-bind="userDetail.department +' '+ userDetail.course + ' курс'"></span>
@@ -22,7 +22,7 @@
             <p class="help_content small-12">Здесь вы можете добавить свои достижения, которые отобразятся после подтверждения администрацией вуза </p>
           </div>
         </div>
-          <div class="row achivments_profile">
+          <div class="row achivments_profile" ng-cloak>
             <span>Достижения</span>
             <button class="btn_add_achivment" ui-sref="add_achivment(currentUser.id)">+</button>
           </div>

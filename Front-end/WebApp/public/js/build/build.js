@@ -150,10 +150,16 @@ angular.module('app.controllers.main',
 
 
       $scope.$on('auth', function (e, args) {
-        if(!$scope.currentUser._id) {
            updateUserData();
-        }
       })
+
+
+      $scope.$on('needAuth', function (e, args) {
+           if(!$scope.currentUser) {
+            $state.go('auth');
+           }
+      })
+
 
 }]);
 
@@ -176,7 +182,6 @@ angular.module('app.controllers.partials',
       }
 
       console.log($scope.currentUser);
-      console.log('hey');
       $scope.$watch('searchParams.category', function() {
         console.log(document.cookie);
         $scope.searchParams.name = '';
@@ -215,22 +220,10 @@ angular.module('app.controllers.partials',
     'UserManager',
     function ($scope, $http, UserManager) {
     $scope.$emit('changeTitle', {title: 'Профиль студента'});    
-  
-     $scope.showEditField= false;
-      UserManager.getUserDetail().then(function (result) {
-        console.log(result);
-      /*  $scope.userDetail = {
-            firstName: 'Сергей',
-            lastName: 'Сергеев',
-            department: 'ИНМиН',
-            course: '2',
-            about: 'Все канавы есть шрамы ночи, что прошиты костями младенцев, зараженными спицами звездного склепа. Сернистая планета испускает благословения, мертвым известны мечты. С мясного крюка я пою песнь о жизни, облетаемой темными метеорами, принесенный в жертву во имя уничтожения человечьей семьи. Песни из воющей головы, кишащей рептильными куклами.',
-            photoUri: '../img/jambul.jpg',
-            achivments: [{name:'Непроверенное достижение', id: '12', type: 'sport', checked: false}, {name:'Олимпиада по материаловедению', id: '12', type: 'social', checked: true}, {name:'Победа в квн', id: '12', type: 'cultural', checked: true}, {name:'Победа в квн', id: '12', type: 'sport', checked: true}]
-          };*/
-          $scope.userDetail = result;
-
-        });
+    $scope.$emit('needAuth');
+      $scope.showEditField= false;
+      $scope.userDetail = $scope.currentUser;
+      $scope.photo = $scope.userDetail.photoUri ? 'background-image: url({{userDetail.photoUri}}' : ''; 
       $scope.oldAbout = '';
 
       $scope.editUserDetail = function () {
@@ -362,9 +355,8 @@ angular.module('app.controllers.partials',
     $scope.submit = function() {
       $http.post('/api/login', $scope.auth).success(function(res) {
         if(res.data) {
-          $state.go('studentsBase');
-          UserManager.setCurrentUser(res.data);
           $scope.$emit('auth');
+          $state.go('studentsBase');
         }
       })
     };
@@ -445,27 +437,21 @@ angular.module('app.services', [])
      function ($rootScope, $q, $http) {
         
         var apiUrl = '/api';
-        var curUser = { };
+        var curUser = {};
 
         var userDetail = null;
-        function setCurrentUser(data) {
-          curUser = data;
-         // $http.post(apiUrl + '/auth/isAuth', data);
-          };
         function getCurrentUser(params) {
             params = params || { cache: true };
-            return $q.when(curUser && params.cache ? curUser : getUser()).then(function (result) {
+            return $q.when(curUser._id && params.cache ? curUser : getUser()).then(function (result) {
                 return result.status ? result.data.user : result;
             });
 
             function getUser() {
               var reqUrl = apiUrl + '/auth/isAuth';
-                return $http.get(reqUrl).success(function (data) {
-                    if (!data.result) {
-                        return false;
-                    } else if (data.user) {
+                return $http.post(reqUrl).success(function (data) {
+                        console.log(data)
                         curUser = data.user;
-                    }
+                    
                     return curUser;
                 });
             }
@@ -495,12 +481,8 @@ angular.module('app.services', [])
         return $q.when(updateData(data)).then(function () {
           return getUserDetail();
         })
-
-        function updateData(data) {
-          userInfo[about] = data;
-
-        }
       }
+
 
         function logout() {
             return $http.post('/api/auth/logout').success(function (data) {
@@ -515,7 +497,6 @@ angular.module('app.services', [])
             getCurrentUser: getCurrentUser,
             logout: logout,
             getUserDetail: getUserDetail,
-            setCurrentUser: setCurrentUser
         }
     }])
 

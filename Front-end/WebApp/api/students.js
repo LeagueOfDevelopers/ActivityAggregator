@@ -7,7 +7,9 @@ util = require('util'),
 multiparty = require('multiparty');
 
 module.exports = {
+  isAuth: isAuth,
   login: login,
+  logout: logout,
 	getStudentDetail: getStudentDetail,
 	getStudentsList: getStudentsList,
   getStudentsListByCategory: getStudentsListByCategory,
@@ -18,13 +20,12 @@ module.exports = {
 };
 
 function login(req, res, next) {
-  console.log(req.body);
   Student.findOne({email: req.body.email}, function(err, student) {
     if(err) {
       console.log(err)
     } else {
       if (student) {
-      console.log(student);
+      req.session.user = student;
       res.send({
                 status: student.hashPassword == req.body.password ? 'ok' : 'not ok',
                 data: student
@@ -34,6 +35,15 @@ function login(req, res, next) {
       }
     }
   })
+};
+
+function isAuth(req, res, next) {
+  console.log(req.session.user);
+  res.send(req.session);
+};
+
+function logout(req, res, next) {
+  req.session.destroy();
 };
 
 function addStudent(req, res, next) {
@@ -145,7 +155,7 @@ function updateStudentDetail(req, res, next) {
 
 function changeAvatar(req, res, next) {
   
-    var savePath = './storage/students/' + req.params.id;
+    var savePath = './public/storage/students/' + req.params.id;
 
         if(!fs.existsSync(savePath)) {
             fs.mkdir(savePath);
@@ -153,6 +163,14 @@ function changeAvatar(req, res, next) {
 
     var file = fs.createWriteStream(savePath + '/avatar.png');
     req.pipe(file);
-    Stude
-    res.send("avatar changed");
+    Student.findById(req.params.id, function(err, data) {
+      if(err) {
+        res.send(err);
+      } else {
+        data.photoUri = savePath;
+        data.save(function(result) {
+          res.send('avatar changed');
+        })
+      }
+    })
 };

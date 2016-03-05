@@ -11,6 +11,8 @@ router.get('/students/search_by_name/:searchParams', students.getStudentsListByN
 router.get('/students/:student_id/achivments', achivments.getAchivmentsList);
 router.get('/achivments/:id', achivments.getAchivmentDetail);
 
+router.post('/auth/isAuth', students.isAuth);
+router.post('/auth/logout', students.logout);
 router.post('/login', students.login);
 router.post('/students/', students.addStudent);
 router.post('/students/:id/avatar', students.changeAvatar);
