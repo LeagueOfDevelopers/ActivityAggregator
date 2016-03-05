@@ -35,7 +35,11 @@ angular.module('app.services', [])
     }
   }
   }])
-
+  .service('avatar',[ function() {
+    return  function(student) {
+       return student.photoUri ? 'background-image: url(' + student.photoUri + ')' : ''; 
+      }
+  }] )
   .service('UserManager',
    ['$rootScope',
     '$q',

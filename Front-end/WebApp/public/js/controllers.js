@@ -73,9 +73,10 @@ angular.module('app.controllers.partials',
     '$scope',
     '$http',
     'ApiService',
-    function ($scope, $http, ApiService) {
+    'avatar',
+    function ($scope, $http, ApiService, avatar) {
       $scope.$emit('changeTitle', {title: 'База активистов НИТУ МИСиС'});
-
+      $scope.avatar = avatar;
       $scope.searchParams = {
         name: '',
         category: 'Наука'
@@ -118,12 +119,14 @@ angular.module('app.controllers.partials',
     '$http',
     'UserManager',
     'Upload',
-    function ($scope, $http, UserManager, Upload) {
+    'avatar',
+    function ($scope, $http, UserManager, Upload, avatar) {
     $scope.$emit('changeTitle', {title: 'Профиль студента'});    
     $scope.$emit('needAuth');
+    $scope.avatar = avatar;
       $scope.showEditField= false;
       $scope.userDetail = $scope.currentUser;
-      $scope.photo = $scope.userDetail.photoUri ? 'background-image: url({{userDetail.photoUri}})' : ''; 
+      $scope.photo = $scope.userDetail.photoUri ? 'background-image: url(' + $scope.userDetail.photoUri + ')' : ''; 
       $scope.oldAbout = '';
 
       $scope.editUserDetail = function () {
@@ -148,13 +151,12 @@ angular.module('app.controllers.partials',
       }
 
       $scope.uploadAvatar = function(avatar) {
-
+        console.log(avatar);
         Upload.upload({
             url: '/api/students/' + $scope.currentUser._id + '/avatar',
-            data: avatar
+            data: {avatar : avatar}
           }).then(function(res) {
             console.log(res);
-            $scope.$emit('userUpdate');
           })
 
       };
@@ -166,13 +168,17 @@ angular.module('app.controllers.partials',
     '$scope',
     '$http',
     '$stateParams',
-    function($scope, $http, $stateParams){
+    'avatar',
+    function($scope, $http, $stateParams, avatar){
+      $scope.avatar = avatar;
       console.log($stateParams.id);
      $scope.student = {};
      $http.get('/api/students/' + $stateParams.id).success(function(data) {
       console.log(data);
-      $scope.photo = data.photoUri ? 'background-image: url({{$scope.student.photoUri}}' : '';
-      $scope.student = data;
+     $scope.student = data;
+     $scope.photo = function(student) {
+       return student.photoUri ? 'background-image: url(' + student.photoUri + ')' : ''; 
+      };
      })
 
   }])

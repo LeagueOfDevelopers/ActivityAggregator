@@ -3,7 +3,7 @@
         <div class="row profile_info">
           <div class="profile_info_card small-12 medium-7 columns">
             <div class="user_main_info">
-              <div class="user_avatar_profile" style="{{photo}}">
+              <div class="user_avatar_profile" style="{{avatar(userDetail)}}">
               <div type="file" ngf-select="uploadAvatar($file)" ngf-pattern="'image/*'"  ngf-accept="'image/*'"  class="avatar_file_input"></div>
             </div><span class="user_name_profile" ng-bind="userDetail.firstName + ' ' + userDetail.lastName"></span>
               <span class="user_course_profile" ng-bind="userDetail.department +' '+ userDetail.course + ' курс'"></span>

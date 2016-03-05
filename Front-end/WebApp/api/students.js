@@ -62,7 +62,7 @@ function addStudent(req, res, next) {
     about: fields.about
   });
 
-    console.log(student);
+    
   
   student.save(function(err) {
     if(!err) {
@@ -98,7 +98,7 @@ function getStudentsList(req, res, next) {
              res.send({ error: 'Server error' });
         }
     });
-	console.log(req.params.searchParams);
+
 
 
 };
@@ -113,7 +113,6 @@ function getStudentsListByCategory(req, res, next) {
              res.send({ error: 'Server error' });
         }
     });
-  console.log(req.params.searchParams);
 
 
 };
@@ -135,7 +134,6 @@ function getStudentsListByName(req, res, next) {
                            res.send({ error: 'Server error' });
                       }
     });
-  console.log(req.params.searchParams);
 
 
 };
@@ -153,8 +151,37 @@ function updateStudentDetail(req, res, next) {
 };
 
 function changeAvatar(req, res, next) {
-  
-    var savePath = './public/storage/students/' + req.params.id;
+    console.log(req.body);
+    var savePath, filePath;
+    var form = new multiparty.Form();
+    var supportedTypes = ['image/png', 'image/jpg', 'image/jpeg'];
+    form.on('close', function() {
+
+      Student.findById(req.params.id, function(err, student) {
+        console.log(filePath);
+        student.photoUri = './storage/students/' + req.params.id + filePath;
+        student.save(function(resp) {
+          res.send(resp);
+        });
+      })
+    })
+    form.on('part', function(part) {
+      if(false) {
+        res.send('unsopported format');
+      } else {
+         savePath = './public/storage/students/' + req.params.id;
+        if(!fs.existsSync(savePath)) {
+            fs.mkdir(savePath);
+          };
+         filePath = '/' + part.filename;
+        var out = fs.createWriteStream(savePath + filePath);
+        console.log(filePath);
+        part.pipe(out);
+      } 
+    })
+    form.parse(req);
+
+    /*var savePath = './public/storage/students/' + req.params.id;
 
         if(!fs.existsSync(savePath)) {
             fs.mkdir(savePath);
@@ -171,5 +198,5 @@ function changeAvatar(req, res, next) {
           res.send('avatar changed');
         })
       }
-    })
+    })*/
 };
