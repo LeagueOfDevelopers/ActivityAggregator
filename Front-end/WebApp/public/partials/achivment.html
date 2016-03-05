@@ -25,7 +25,7 @@
   <div class="row">
     <p class="achivment_detail_description small-12 columns" ng-if='achivment.description' ng-bind="achivment.description"></p>
     </div>
-    <a class="achivment_owner" ui-sref="account" ng-bind="achivment.owner.name"></a>
+    <a class="achivment_owner" ui-sref="profile({id :achivment.owner._id})" ng-bind="achivment.owner.name"></a>
    </div>
 
 </section>

@@ -5,10 +5,10 @@
       <div class="row column login_form">
         <span class="form_title">Вход на платформу</span>
         <label>Электронная почта</label>
-          <input type="text" placeholder="jambul@example.com" ng-pattern='/.+@.+\..+/i3d2'>
+          <input type="email" placeholder="jambul@example.com" ng-model='auth.email'>
         <label>Пароль</label>
-          <input type="password" placeholder="********">
-					<input type="submit" class="submit_form" value="Войти">
+          <input type="password" placeholder="********" ng-model="auth.password">
+					<input type="submit" class="submit_form" value="Войти" ng-click="submit()">
 					<a ui-sref="registry">Регистрация</a>
       </div>
     </form>

@@ -7,6 +7,7 @@ util = require('util'),
 multiparty = require('multiparty');
 
 module.exports = {
+  login: login,
 	getStudentDetail: getStudentDetail,
 	getStudentsList: getStudentsList,
   getStudentsListByCategory: getStudentsListByCategory,
@@ -16,7 +17,24 @@ module.exports = {
   updateStudentDetail: updateStudentDetail
 };
 
-
+function login(req, res, next) {
+  console.log(req.body);
+  Student.findOne({email: req.body.email}, function(err, student) {
+    if(err) {
+      console.log(err)
+    } else {
+      if (student) {
+      console.log(student);
+      res.send({
+                status: student.hashPassword == req.body.password ? 'ok' : 'not ok',
+                data: student
+              });
+      } else {
+        res.send("student not found")
+      }
+    }
+  })
+};
 
 function addStudent(req, res, next) {
 

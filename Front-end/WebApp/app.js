@@ -30,7 +30,7 @@ app.use(session({
   resave: true,
   saveUninitialized: true,
   key: 'sid',
-  cookie: { maxAge: 60000, httpOnly: false}
+  cookie: { maxAge: 60000}
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));

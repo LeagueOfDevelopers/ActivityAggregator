@@ -139,7 +139,6 @@ angular.module('app.controllers.main',
 
       $scope.currentUser = {};
       updateUserData();
-
       function updateUserData() {
 
         UserManager.getCurrentUser().then(function (result) {
@@ -150,10 +149,9 @@ angular.module('app.controllers.main',
 
 
 
-      $scope.$on('needAuth', function (e, args) {
-          updateUserData();
-        if(!($scope.currentUser.name && $scope.currentUser.id)) {
-          $state.go('auth');
+      $scope.$on('auth', function (e, args) {
+        if(!$scope.currentUser._id) {
+           updateUserData();
         }
       })
 
@@ -177,6 +175,8 @@ angular.module('app.controllers.partials',
         category: 'Наука'
       }
 
+      console.log($scope.currentUser);
+      console.log('hey');
       $scope.$watch('searchParams.category', function() {
         console.log(document.cookie);
         $scope.searchParams.name = '';
@@ -244,7 +244,7 @@ angular.module('app.controllers.partials',
         console.log($scope.newUserDetail);     
         $scope.userDetail.about = $scope.newUserDetail;
 
-        $http.post('/api/students/' + $scope.currentUser.id, {about : $scope.newUserDetail}).success(function(data) {
+        $http.post('/api/students/' + $scope.currentUser._id, {about : $scope.newUserDetail}).success(function(data) {
           console.log(data);
           UserManager.getUserDetail().then(function(result) {
             $scope.userDetail = result;
@@ -288,7 +288,7 @@ angular.module('app.controllers.partials',
         var ach = $stateParams.achToShow;
         $scope.achivment = {
           owner: {
-            id: $scope.currentUser.Id,
+            id: $scope.currentUser._Id,
             name: $scope.currentUser.name
           },
           title: ach.name,
@@ -311,7 +311,7 @@ angular.module('app.controllers.partials',
      function($scope, $http, $timeout, Upload) {
 
     $scope.newAch = {
-      owner_id: $scope.currentUser.id
+      owner_id: $scope.currentUser._id
     };
     $scope.type = 'Наука';
     $scope.$watch('type', function() {
@@ -334,7 +334,7 @@ angular.module('app.controllers.partials',
         $scope.newAch.file = $scope.files;
         console.log($scope.files);
           Upload.upload({
-            url: '/api/students/' + $scope.currentUser.id + '/achivments/',
+            url: '/api/students/' + $scope.currentUser._id + '/achivments/',
             data: $scope.newAch
           }).then(function(res) {
             console.log(res);
@@ -357,12 +357,21 @@ angular.module('app.controllers.partials',
     }
   }])
 
-  .controller('authCtrl', ['$scope', function($scope){
+  .controller('authCtrl', ['$scope', '$http', 'UserManager', '$state', function($scope, $http, UserManager, $state){
+    $scope.auth = {};
+    $scope.submit = function() {
+      $http.post('/api/login', $scope.auth).success(function(res) {
+        if(res.data) {
+          $state.go('studentsBase');
+          UserManager.setCurrentUser(res.data);
+          $scope.$emit('auth');
+        }
+      })
+    };
   }])
 
   .controller('registryCtrl', ['$scope', '$state', '$http', function($scope, $state, $http){
-    $scope.newStudent = {
-    };
+    $scope.newStudent = {};
 
     $scope.submit = function() {
       console.log($scope.newStudent);
@@ -436,13 +445,13 @@ angular.module('app.services', [])
      function ($rootScope, $q, $http) {
         
         var apiUrl = '/api';
-        var curUser = {
-          name: 'Жамбыл Ермагамбет',
-          id: "56d6bfc451da21485e4fad8e"
-        };
+        var curUser = { };
 
         var userDetail = null;
-
+        function setCurrentUser(data) {
+          curUser = data;
+         // $http.post(apiUrl + '/auth/isAuth', data);
+          };
         function getCurrentUser(params) {
             params = params || { cache: true };
             return $q.when(curUser && params.cache ? curUser : getUser()).then(function (result) {
@@ -505,7 +514,8 @@ angular.module('app.services', [])
         return {
             getCurrentUser: getCurrentUser,
             logout: logout,
-            getUserDetail: getUserDetail
+            getUserDetail: getUserDetail,
+            setCurrentUser: setCurrentUser
         }
     }])
 

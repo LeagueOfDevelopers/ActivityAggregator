@@ -43,13 +43,13 @@ angular.module('app.services', [])
      function ($rootScope, $q, $http) {
         
         var apiUrl = '/api';
-        var curUser = {
-          name: 'Жамбыл Ермагамбет',
-          id: "56d6bfc451da21485e4fad8e"
-        };
+        var curUser = { };
 
         var userDetail = null;
-
+        function setCurrentUser(data) {
+          curUser = data;
+         // $http.post(apiUrl + '/auth/isAuth', data);
+          };
         function getCurrentUser(params) {
             params = params || { cache: true };
             return $q.when(curUser && params.cache ? curUser : getUser()).then(function (result) {
@@ -112,7 +112,8 @@ angular.module('app.services', [])
         return {
             getCurrentUser: getCurrentUser,
             logout: logout,
-            getUserDetail: getUserDetail
+            getUserDetail: getUserDetail,
+            setCurrentUser: setCurrentUser
         }
     }])
 

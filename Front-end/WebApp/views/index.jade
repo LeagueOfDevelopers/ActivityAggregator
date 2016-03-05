@@ -21,8 +21,8 @@ html(lang='en', ng-app='ActivityAggregator', ng-controller='appCtrl')
             li
               a(ui-sref='studentsBase') База активистов
             li
-              a(ui-sref='auth', ng-if='!(currentUser.id && currentUser.name)') Рассказать о себе
-              a#profile_link(ui-sref='account(currentUser.id)', ng-if='(currentUser.id && currentUser.name)', ng-bind='currentUser.name')
+              a(ui-sref='auth', ng-if='!(currentUser._id)') Рассказать о себе
+              a#profile_link(ui-sref='account(currentUser._id)', ng-if='(currentUser._id)', ng-bind="currentUser.firstName + ' ' + currentUser.lastName")
       section.mobile_nav_bar_background.small-12.columns(ng-if='showMobileMenu', ng-cloak='', style="{visibility: hidden}")
         nav.mobile_nav_bar
           ul.small-12.columns
