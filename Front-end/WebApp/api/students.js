@@ -1,6 +1,5 @@
 var Student = require('../db/mongoose').models.Student,
 studentSchema = require('../db/mongoose').schemas.student,
- parser = require('./reqParser'),
 fs = require("fs"),
 path = require("path"),
 util = require('util'),
