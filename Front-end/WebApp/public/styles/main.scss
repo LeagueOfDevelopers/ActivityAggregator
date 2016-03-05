@@ -742,7 +742,6 @@ ul {
   margin-bottom: 3px;
 }
  .form_card {
-   margin: 0 auto;
    margin-top: 50px;
    max-width: 400px;
    @include cardShadow();
@@ -753,14 +752,18 @@ ul {
     width: 600px;
   }
 }
-
+ 
 
  .achivment_detail_card {
    margin-top: 100px;
    width: 300px;
    @include cardShadow
    }
- 
+
+
+ .detail_label {
+  font-weight: bold !important;
+ }
 
 .form_title {
  font-size: 18px;

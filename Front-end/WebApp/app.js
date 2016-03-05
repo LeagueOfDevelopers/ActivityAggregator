@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var api = require('./routes/api');
-var mongoStore = require('connect-mongo')(session);
+var MongoStore = require('connect-mongo')(session);
 var mongoose = require('./db/mongoose');
 var app = express();
 
@@ -23,10 +23,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(favicon(__dirname + '/public/icons/favicon.png'));
 
 app.use(session({
   secret: 'jambuljambul',
-  store: new mongoStore({mongooseConnection : mongoose.connection}),
+  store: new MongoStore({mongooseConnection : mongoose.connection}),
   resave: true,
   saveUninitialized: true,
   key: 'sid',

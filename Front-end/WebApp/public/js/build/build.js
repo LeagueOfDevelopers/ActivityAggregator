@@ -289,16 +289,36 @@ angular.module('app.controllers.partials',
          $scope.$emit('changeTitle', {title: $stateParams.achToShow.name}); 
          console.log($stateParams)
         var ach = $stateParams.achToShow;
+        var type = '';
+        switch(ach.type) {
+          case 'science' : type = 'Наука';  break;
+          case 'social' : type = 'Общественная деятельность'; break;
+          case 'cultural' : type = 'Культура'; break;
+          case 'sport' : type = 'Спорт'; break;
+          case 'study' : type = 'Учеба'; break;
+        }
+
         $scope.achivment = {
           owner: $stateParams.owner,
+          type: type,
           title: ach.name,
           organization: ach.organization,
-          type: ach.type,
           result: ach.result,
           photo: [],
           checked: ach.checked,
           description: ach.description 
         }
+
+        $scope.type = '';
+
+         switch(ach.type) {
+          case 'science' : category = 'Наука';  break;
+          case 'social' : category = 'Общественная деятельность'; break;
+          case 'cultural' : category = 'Культура'; break;
+          case 'sport' : category = 'Спорт'; break;
+          case 'study' : category = 'Учеба'; break;
+        }
+         
     
        }])
 
