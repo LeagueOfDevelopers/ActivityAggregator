@@ -46,6 +46,9 @@ function newAchivment(req, res, next) {
             console.log(achivment);
             Student.findById(req.params.id, function(err, doc) {
                 console.log(doc);
+                if(achivment.organization == 'МИСиС') {
+                    achivment.checked = true;
+                };
                 doc.achivments.push(achivment);
                 console.log(doc);
                 doc.save(function(err) {
@@ -69,7 +72,7 @@ function newAchivment(req, res, next) {
         if(part.name == 'file') {
         uploadFile.size = part.byteCount;
         uploadFile.type = part.headers['content-type'];
-        uploadFile.path = './storage/students/' + req.params.id + '/' + part.filename;
+        uploadFile.path = './public/storage/students/' + req.params.id + '/' + part.filename;
 
         //проверяем размер файла, он не должен быть больше максимального размера
         if(uploadFile.size > maxSize) {

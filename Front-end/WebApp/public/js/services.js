@@ -43,12 +43,12 @@ angular.module('app.services', [])
      function ($rootScope, $q, $http) {
         
         var apiUrl = '/api';
-        var curUser = {};
+        var curUser = null;
 
         var userDetail = null;
         function getCurrentUser(params) {
             params = params || { cache: true };
-            return $q.when(curUser._id && params.cache ? curUser : getUser()).then(function (result) {
+            return $q.when(curUser && params.cache ? curUser : getUser()).then(function (result) {
                 return result.status ? result.data.user : result;
             });
 

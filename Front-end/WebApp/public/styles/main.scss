@@ -1,4 +1,4 @@
-$mainColor: #009fdf;
+Р$mainColor: #009fdf;
 $softBlue: #87b1cd;
 $fontColor: #59595b;
 $achivmentsIcons: url(../icons/achivments_icons.png);
@@ -758,8 +758,8 @@ ul {
  .achivment_detail_card {
    margin-top: 100px;
    width: 300px;
-   @include cardShadow();
- }
+   @include cardShadow
+   }
  
 
 .form_title {

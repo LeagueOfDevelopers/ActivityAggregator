@@ -159,7 +159,7 @@ function changeAvatar(req, res, next) {
         if(!fs.existsSync(savePath)) {
             fs.mkdir(savePath);
           }
-
+          
     var file = fs.createWriteStream(savePath + '/avatar.png');
     req.pipe(file);
     Student.findById(req.params.id, function(err, data) {

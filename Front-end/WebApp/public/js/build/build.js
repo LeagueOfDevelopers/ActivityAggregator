@@ -68,7 +68,8 @@ angular.module('ActivityAggregator',
        .state('achivment_detail', {
           url: '/achivment_detail',
           params: {
-            'achToShow': null
+            'achToShow': null,
+            'owner': null
           },
           views: {
            'page_content': {
@@ -117,14 +118,30 @@ angular.module('app.controllers.main',
 .controller('appCtrl',
   ['$scope',
    '$state',
-    function ($scope, $state) {
+   'UserManager',
+    function ($scope, $state, UserManager) {
 
      $scope.title = 'Онлайн портфолио активных студентов НИТУ МИСиС';
      $scope.$on('changeTitle', function(e, args) {
       $scope.title = args.title;
      })
 
-      
+     $scope.currentUser = {};
+      updateUserData();
+      function updateUserData() {
+
+        UserManager.getCurrentUser().then(function (result) {
+          $scope.currentUser = result;
+          console.log(result);
+        })
+      };
+
+
+
+      $scope.$on('userUpdate', function (e, args) {
+           updateUserData();
+           console.log('auth!');
+      })      
 
     }])
 
@@ -137,21 +154,7 @@ angular.module('app.controllers.main',
       $scope.showMobileMenu = false;
       angular.element(document.querySelector('.mobile_nav_bar_background')).css('visibility', 'visible');
 
-      $scope.currentUser = {};
-      updateUserData();
-      function updateUserData() {
-
-        UserManager.getCurrentUser().then(function (result) {
-          $scope.currentUser = result;
-          console.log(result);
-        })
-      };
-
-
-
-      $scope.$on('auth', function (e, args) {
-           updateUserData();
-      })
+      
 
 
       $scope.$on('needAuth', function (e, args) {
@@ -181,7 +184,6 @@ angular.module('app.controllers.partials',
         category: 'Наука'
       }
 
-      console.log($scope.currentUser);
       $scope.$watch('searchParams.category', function() {
         console.log(document.cookie);
         $scope.searchParams.name = '';
@@ -218,12 +220,13 @@ angular.module('app.controllers.partials',
     '$scope',
     '$http',
     'UserManager',
-    function ($scope, $http, UserManager) {
+    'Upload',
+    function ($scope, $http, UserManager, Upload) {
     $scope.$emit('changeTitle', {title: 'Профиль студента'});    
     $scope.$emit('needAuth');
       $scope.showEditField= false;
       $scope.userDetail = $scope.currentUser;
-      $scope.photo = $scope.userDetail.photoUri ? 'background-image: url({{userDetail.photoUri}}' : ''; 
+      $scope.photo = $scope.userDetail.photoUri ? 'background-image: url({{userDetail.photoUri}})' : ''; 
       $scope.oldAbout = '';
 
       $scope.editUserDetail = function () {
@@ -236,13 +239,9 @@ angular.module('app.controllers.partials',
         $scope.showEditField = false;    
         console.log($scope.newUserDetail);     
         $scope.userDetail.about = $scope.newUserDetail;
-
         $http.post('/api/students/' + $scope.currentUser._id, {about : $scope.newUserDetail}).success(function(data) {
           console.log(data);
-          UserManager.getUserDetail().then(function(result) {
-            $scope.userDetail = result;
-
-          })
+          $scope.$emit('userUpdate');
         })
       }
       $scope.notApplyChanges = function () {
@@ -251,7 +250,17 @@ angular.module('app.controllers.partials',
           $scope.userDetail.about = $scope.oldAbout;
       }
 
+      $scope.uploadAvatar = function(avatar) {
 
+        Upload.upload({
+            url: '/api/students/' + $scope.currentUser._id + '/avatar',
+            data: avatar
+          }).then(function(res) {
+            console.log(res);
+            $scope.$emit('userUpdate');
+          })
+
+      };
     }
   ])
   
@@ -265,6 +274,7 @@ angular.module('app.controllers.partials',
      $scope.student = {};
      $http.get('/api/students/' + $stateParams.id).success(function(data) {
       console.log(data);
+      $scope.photo = data.photoUri ? 'background-image: url({{$scope.student.photoUri}}' : '';
       $scope.student = data;
      })
 
@@ -280,8 +290,7 @@ angular.module('app.controllers.partials',
          console.log($stateParams)
         var ach = $stateParams.achToShow;
         $scope.achivment = {
-          owner: {
-          },
+          owner: $stateParams.owner,
           title: ach.name,
           organization: ach.organization,
           type: ach.type,
@@ -321,8 +330,7 @@ angular.module('app.controllers.partials',
   
     $scope.submit = function() {
 
-      if (
-          $scope.files) {
+      if ($scope.files) {
         $scope.newAch.file = $scope.files;
         console.log($scope.files);
         console.log($scope.newAch);
@@ -330,7 +338,8 @@ angular.module('app.controllers.partials',
             url: '/api/students/' + $scope.currentUser._id + '/achivments/',
             data: $scope.newAch
           }).then(function(res) {
-            console.log(res);
+            $scope.$emit('userUpdate');
+            $state.go('studentsBase');
           })
       console.log($scope.newAch);
       }
@@ -353,10 +362,14 @@ angular.module('app.controllers.partials',
   .controller('authCtrl', ['$scope', '$http', 'UserManager', '$state', function($scope, $http, UserManager, $state){
     $scope.auth = {};
     $scope.submit = function() {
+      console.log($scope.auth);
       $http.post('/api/login', $scope.auth).success(function(res) {
+        console.log(res);
         if(res.data) {
-          $scope.$emit('auth');
+          $scope.$emit('userUpdate');
           $state.go('studentsBase');
+        } else {
+          $scope.auth.email = res;
         }
       })
     };
@@ -374,7 +387,7 @@ angular.module('app.controllers.partials',
           
          }).success(function(res) {
           console.log(res);
-          $state.go('studentsBase')
+          $state.go('auth')
          })
     };
   }])
@@ -437,12 +450,12 @@ angular.module('app.services', [])
      function ($rootScope, $q, $http) {
         
         var apiUrl = '/api';
-        var curUser = {};
+        var curUser = null;
 
         var userDetail = null;
         function getCurrentUser(params) {
             params = params || { cache: true };
-            return $q.when(curUser._id && params.cache ? curUser : getUser()).then(function (result) {
+            return $q.when(curUser && params.cache ? curUser : getUser()).then(function (result) {
                 return result.status ? result.data.user : result;
             });
 

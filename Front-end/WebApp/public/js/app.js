@@ -68,7 +68,8 @@ angular.module('ActivityAggregator',
        .state('achivment_detail', {
           url: '/achivment_detail',
           params: {
-            'achToShow': null
+            'achToShow': null,
+            'owner': null
           },
           views: {
            'page_content': {

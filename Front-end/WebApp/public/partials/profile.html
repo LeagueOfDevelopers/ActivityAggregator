@@ -4,14 +4,14 @@
           <div class="profile_info_card small-12 medium-7 columns">
             <div class="user_main_info">
               <div class="user_avatar_profile" style="{{photo}}">
-              <div type="file" ngf-select ngf-pattern="'image/*'"  ngf-accept="'image/*'"  class="avatar_file_input"></div>
+              <div type="file" ngf-select="uploadAvatar($file)" ngf-pattern="'image/*'"  ngf-accept="'image/*'"  class="avatar_file_input"></div>
             </div><span class="user_name_profile" ng-bind="userDetail.firstName + ' ' + userDetail.lastName"></span>
               <span class="user_course_profile" ng-bind="userDetail.department +' '+ userDetail.course + ' курс'"></span>
             </div>
             <div class="user_detail"><span>O ceбе</span>
               <p ng-bind="userDetail.about"></p>
               <div class="row">
-              <textarea name="name" class="about_edit_field" rows="8"  ng-if="showEditField" ng-model="newUserDetail"></textarea>
+              <textarea name="name" class="about_edit_field" rows="8"  ng-if="showEditField" ng-bind="newUserDetail"></textarea>
               </div>
             </div>
             <button  class="btn_edit_user_detail" ng-click="applyChanges()" ng-if="showEditField">Применить</button>
@@ -29,7 +29,7 @@
         <div class="achivments_list">
           <ul class="small-12">
             <li ng-repeat='ach in userDetail.achivments'>
-              <a ui-sref="achivment_detail({achToShow : ach})">
+              <a ui-sref="achivment_detail({achToShow : ach, owner: currentUser})">
               <div class="ach" ng-class='{unchecked: !ach.checked}'>
                 <div class="ach_icon {{ach.type}}"></div>
                 <div class="ach_title" ng-bind="ach.name"></div>
