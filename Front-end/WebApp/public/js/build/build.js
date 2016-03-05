@@ -281,8 +281,6 @@ angular.module('app.controllers.partials',
         var ach = $stateParams.achToShow;
         $scope.achivment = {
           owner: {
-            id: $scope.currentUser._Id,
-            name: $scope.currentUser.name
           },
           title: ach.name,
           organization: ach.organization,
@@ -301,7 +299,8 @@ angular.module('app.controllers.partials',
     '$http',
     '$timeout',
     'Upload',
-     function($scope, $http, $timeout, Upload) {
+    '$state',
+     function($scope, $http, $timeout, Upload, $state) {
 
     $scope.newAch = {
       owner_id: $scope.currentUser._id
@@ -326,6 +325,7 @@ angular.module('app.controllers.partials',
           $scope.files) {
         $scope.newAch.file = $scope.files;
         console.log($scope.files);
+        console.log($scope.newAch);
           Upload.upload({
             url: '/api/students/' + $scope.currentUser._id + '/achivments/',
             data: $scope.newAch
