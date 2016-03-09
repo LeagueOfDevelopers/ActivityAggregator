@@ -223,9 +223,10 @@ angular.module('app.controllers.partials',
     $scope.$emit('changeTitle', {title: 'Профиль студента'});    
     $scope.$emit('needAuth');
     $scope.avatar = avatar;
-    $scope.showEditField= false;
+    $scope.showEditField = false;
     $scope.userDetail = $scope.currentUser; 
     $scope.oldAbout = '';
+    $scope.newUserDetail = '';
 
       $scope.editUserDetail = function () {
         $scope.showEditField= true;
@@ -233,13 +234,13 @@ angular.module('app.controllers.partials',
         $scope.oldAbout = $scope.userDetail.about;
         $scope.userDetail.about = '';
       }
-      $scope.applyChanges = function () {
-        console.log($scope.newUserDetail);     
+
+      $scope.applyChanges = function () {    
         $scope.userDetail.about = $scope.newUserDetail;
         $http.post('/api/students/' + $scope.currentUser._id, {about : $scope.newUserDetail}).success(function(data) {
           console.log(data);
           $scope.$emit('userUpdate');
-        })
+        });
         $scope.showEditField = false;    
       }
       $scope.notApplyChanges = function () {
@@ -365,18 +366,6 @@ angular.module('app.controllers.partials',
       console.log($scope.newAch);
       }
 
-       /*$http({
-          method  : 'POST',
-          headers : {
-            'Content-Type': undefined
-          },
-          url     : '/api/students/' + $scope.currentUser.id + '/achivments/',
-          data    : $scope.newAch
-          
-         }).success(function(res) {
-          console.log(res);
-          $state.go('account');
-         })*/
     }
   }])
 
@@ -415,16 +404,8 @@ angular.module('app.controllers.partials',
 
 angular.module('app.directives', [])
 
-.directive('popup.achivments', {
-	restrict: 'E',
-	scope: {
-		achivmentsList: '='
-	},
-	templateUrl: 'achivment_popup.html',
-	link: function(scope, elem, attr) {
 
-	}
-});
+
 
 angular.module('app.services', [])
 
@@ -499,11 +480,16 @@ angular.module('app.services', [])
           if(obj[item]) {
             obj = obj[item]
           } else {
-            return
+            console.log('path invalid');
+            return;
           }
         } 
         return obj;
       } else {
+        if(!obj[path]) {
+          console.log('path invalid');
+          return;
+        }
         return obj[path];
       }
     };

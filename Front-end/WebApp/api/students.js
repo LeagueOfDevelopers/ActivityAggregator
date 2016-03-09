@@ -173,7 +173,10 @@ function changeAvatar(req, res, next) {
         if(!fs.existsSync(savePath)) {
             fs.mkdir(savePath);
           };
-         filePath = '/' + part.filename;
+         filePath = '/avatar.jpg';
+         if(fs.existsSync(savePath + filePath)) {
+        fs.unlinkSync(savePath + filePath);
+       }
         var out = fs.createWriteStream(savePath + filePath);
         console.log(filePath);
         part.pipe(out);

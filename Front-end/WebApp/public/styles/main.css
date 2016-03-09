@@ -461,6 +461,7 @@ ul {
 
 .search_student_input {
   padding: 7px;
+  max-height: 35px;
   border: 1px solid #009fdf;
   font-size: 16px; }
 
@@ -521,10 +522,8 @@ ul {
 
 @keyframes fadeIn {
   from {
-    opacity: 0;
     transform: translateY(20px); }
   to {
-    opacity: 1;
     transform: translateY(0px); } }
 
 .avatar {
@@ -625,7 +624,6 @@ ul {
   margin-bottom: 3px; }
 
 .form_card {
-  margin: 0 auto;
   margin-top: 50px;
   max-width: 400px;
   -webkit-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
@@ -642,6 +640,9 @@ ul {
   -webkit-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
   box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5); }
+
+.detail_label {
+  font-weight: bold !important; }
 
 .form_title {
   font-size: 18px;

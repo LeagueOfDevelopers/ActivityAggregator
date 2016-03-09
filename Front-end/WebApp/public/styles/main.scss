@@ -1,4 +1,4 @@
-Р$mainColor: #009fdf;
+$mainColor: #009fdf;
 $softBlue: #87b1cd;
 $fontColor: #59595b;
 $achivmentsIcons: url(../icons/achivments_icons.png);
@@ -524,6 +524,7 @@ ul {
   width: 190px;
 }
 
+
 .students_base {
   font-family: Calibri;
 }
@@ -539,7 +540,7 @@ ul {
   top: 60px;
   background: #fff;
   z-index: 200;
-
+  
   @include cardShadow();
 }
 
@@ -554,6 +555,7 @@ ul {
   color: $fontColor;
   font-size: 22px;
   font-weight: bold;
+
 }
 
 .search_params  {
@@ -564,6 +566,7 @@ ul {
 
 .search_student_input {
   padding: 7px;
+  max-height: 35px;
   border: 1px solid $mainColor;
   font-size: 16px;
 }
@@ -631,9 +634,11 @@ ul {
 }
 
 @keyframes fadeIn {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity:1; transform: translateY(0px)}
+  from {transform: translateY(20px);}
+  to {transform: translateY(0px)}
 }
+
+
 
 .avatar {
   background-image: url(../img/default-avatar.gif);
