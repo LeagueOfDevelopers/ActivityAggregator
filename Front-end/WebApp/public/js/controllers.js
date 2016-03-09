@@ -72,9 +72,9 @@ angular.module('app.controllers.partials',
   [
     '$scope',
     '$http',
-    'ApiService',
+    'API',
     'avatar',
-    function ($scope, $http, ApiService, avatar) {
+    function ($scope, $http, API, avatar) {
       $scope.$emit('changeTitle', {title: 'База активистов НИТУ МИСиС'});
       $scope.avatar = avatar;
       $scope.searchParams = {
@@ -83,7 +83,6 @@ angular.module('app.controllers.partials',
       }
 
       $scope.$watch('searchParams.category', function() {
-        console.log(document.cookie);
         $scope.searchParams.name = '';
         var category = '';
         switch($scope.searchParams.category) {
@@ -102,12 +101,9 @@ angular.module('app.controllers.partials',
       $scope.getStudentsList = function(searchParams) {
         $scope.searchResults = {}
         $scope.$emit('result loading');
-        var reqUrl = ApiService.apiUrl.students.search(searchParams);
-        console.log(reqUrl);
-          $http.get(reqUrl).success(function(result) {
-            $scope.searchResults = result;
-            console.log(result);
-          })
+        API.query('students.search', {searchParams: searchParams}, true).then(function(result) {
+          $scope.searchResults = result.data;
+        });
       };
 
     }
@@ -124,10 +120,9 @@ angular.module('app.controllers.partials',
     $scope.$emit('changeTitle', {title: 'Профиль студента'});    
     $scope.$emit('needAuth');
     $scope.avatar = avatar;
-      $scope.showEditField= false;
-      $scope.userDetail = $scope.currentUser;
-      $scope.photo = $scope.userDetail.photoUri ? 'background-image: url(' + $scope.userDetail.photoUri + ')' : ''; 
-      $scope.oldAbout = '';
+    $scope.showEditField= false;
+    $scope.userDetail = $scope.currentUser; 
+    $scope.oldAbout = '';
 
       $scope.editUserDetail = function () {
         $scope.showEditField= true;
@@ -136,13 +131,13 @@ angular.module('app.controllers.partials',
         $scope.userDetail.about = '';
       }
       $scope.applyChanges = function () {
-        $scope.showEditField = false;    
         console.log($scope.newUserDetail);     
         $scope.userDetail.about = $scope.newUserDetail;
         $http.post('/api/students/' + $scope.currentUser._id, {about : $scope.newUserDetail}).success(function(data) {
           console.log(data);
           $scope.$emit('userUpdate');
         })
+        $scope.showEditField = false;    
       }
       $scope.notApplyChanges = function () {
           $scope.showEditField = false;

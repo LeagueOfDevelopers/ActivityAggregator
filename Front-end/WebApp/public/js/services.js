@@ -1,45 +1,126 @@
 angular.module('app.services', [])
 
-  .service('ApiService', ['$rootScope', function($rootScope){
-    return {
-      apiUrl: {
+  .service('API', 
+    ['$rootScope',
+    '$q',
+    '$http',
+     function($rootScope, $q, $http){
+
+        
+      var config = { 
+        
+        apiUrls : {
+
       students: {
 
-        add: '/api' + '/students/', //post
+        add: {
+         method: 'POST',
+         url: function() {
+          return '/api' + '/students/';
+         }
+        }, 
 
-        getDetail: function(id) {    // get
-          return '/api'  + '/students/' + id;
-        },
+        getDetail: {
+          method: 'GET',
+          url: function(params) {    // get
+          return '/api'  + '/students/' + params.studentId;
+        }
+      },
 
-        updateDetail: function(id) {    // post
-          return '/api'  + '/students/' + id;
-        },
+        updateDetail: {
+          method: 'POST',
+          url: function(params) {    // post
+          return '/api'  + '/students/' + params.studentId;
+        }
+      },
 
-        search: function(searchParams) {   //get
-          return '/api'  + '/students/' + ((searchParams.name == '') ? 
-                                          'search_by_category/' + searchParams.category : 
-                                          'search_by_name/' + searchParams.name);
-        },
+        search: { 
+          method: 'GET',
+          url: function(params) {   //get
+          return '/api'  + '/students/' + ((params.searchParams.name == '') ? 
+                                          'search_by_category/' + params.searchParams.category : 
+                                          'search_by_name/' + params.searchParams.name);
+        }
+      },
 
         achivments: {
-          add: function(id) { //post
-            return rootApi + '/students/' + id + '/achivments';
-          },
+          add: {
+          method: 'POST',
+          url: function(params) { //post
+            return '/api' + '/students/' + params.studentId + '/achivments';
+          }
+        },
 
-          getDetail: function(id, achId) {
-            return rootApi + '/students/' + id + '/achivments/' + achId;
+          getDetail: {
+          method: 'GET',
+          url: function(params) { //get
+            return '/api' + '/students/' + params.studentId + '/achivments/' + params.achId;
           }
         }
+      }
 
       }
-    }
+    } 
   }
+
+    function parsePath(pathString, obj) {
+      var path = pathString.split('.');
+      if(Array.isArray(path)) {
+        for (var i = 0, l = path.length; i < l; i++) {
+          var item = path[i];
+          if(obj[item]) {
+            obj = obj[item]
+          } else {
+            return
+          }
+        } 
+        return obj;
+      } else {
+        return obj[path];
+      }
+    };
+
+    function query(path, params, log) {
+
+ 
+      var apiMethod = parsePath(path, this.apiUrls);
+      return $q.when(send(apiMethod, params)).then(function(result) {
+        if(log) {
+          console.log(result);
+          }
+          return result;
+
+      });
+
+      function send(apiMethod, params) {
+        if(log) {
+          console.log(apiMethod.url(params));
+        }
+        return $http({
+          method: apiMethod.method,
+          url   : apiMethod.url(params),
+          data  : params.data
+        }).success(function(res) {
+          return {
+            data: res,
+            method: apiMethod
+          };
+        });
+      };
+
+    };
+
+    return {
+      query: query.bind(config)
+    }
+
+
   }])
   .service('avatar',[ function() {
     return  function(student) {
        return student.photoUri ? 'background-image: url(' + student.photoUri + ')' : ''; 
       }
-  }] )
+  }])
   .service('UserManager',
    ['$rootScope',
     '$q',
@@ -67,32 +148,7 @@ angular.module('app.services', [])
             }
         }
 
-        function getUserDetail() {
-        return $q.when(getDetail()).then(function (result) {
-          return result.data;
-        })
-
-          function getDetail() {
-            var reqUrl = apiUrl + '/students/' + curUser.id;
-            return $http.get(reqUrl).success(function(data) {
-              if (!data.result) {
-                        return false;
-                    } else {
-                        userDetail = data;
-                    }
-                    return userDetail;
-            })
-          };
-        }
-
-      
-
-      function updateUserDetail(data) {
-        return $q.when(updateData(data)).then(function () {
-          return getUserDetail();
-        })
-      }
-
+       
 
         function logout() {
             return $http.post('/api/auth/logout').success(function (data) {
@@ -106,7 +162,6 @@ angular.module('app.services', [])
         return {
             getCurrentUser: getCurrentUser,
             logout: logout,
-            getUserDetail: getUserDetail,
         }
     }])
 
