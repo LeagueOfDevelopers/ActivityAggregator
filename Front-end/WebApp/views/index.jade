@@ -11,7 +11,7 @@ html(lang='en', ng-app='ActivityAggregator', ng-controller='appCtrl')
     .wrapper(ng-cloak='')
       section.header.small-12.columns
         a.logo(href='#')
-        a.burger(ng-cloak='', ng-click='showMobileMenu = !showMobileMenu')
+        a.burger(ng-cloak, ng-click='showMobileMenu = !showMobileMenu')
           i.fa.fa-bars
         nav.nav_bar(ng-cloak='')
           ul
@@ -22,7 +22,7 @@ html(lang='en', ng-app='ActivityAggregator', ng-controller='appCtrl')
             li
               a(ui-sref='auth', ng-if='!(currentUser._id)') Рассказать о себе
               a#profile_link(ui-sref='account(currentUser._id)', ng-if='(currentUser._id)', ng-bind="currentUser.firstName + ' ' + currentUser.lastName")
-      section.mobile_nav_bar_background.small-12.columns(ng-if='showMobileMenu', ng-cloak='', style="{visibility: hidden}")
+      section.mobile_nav_bar_background.small-12.columns(ng-if='showMobileMenu', ng-cloak, style="{visibility: hidden}")
         nav.mobile_nav_bar
           ul.small-12.columns
             li.small-12.columns
