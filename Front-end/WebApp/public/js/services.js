@@ -4,12 +4,29 @@ angular.module('app.services', [])
     ['$rootScope',
     '$q',
     '$http',
-     function($rootScope, $q, $http){
+   function($rootScope, $q, $http){
 
         
       var config = { 
         
         apiUrls : {
+
+      user: {
+
+        login: {
+          method: 'POST',
+          url: function(params) {
+            return '/api' + '/login';
+          }
+        },
+
+        logout: {
+          method: 'POST',
+          url: function(params) {
+            return '/api' + '/logout';
+          }
+        }
+      }
 
       students: {
 
@@ -116,16 +133,22 @@ angular.module('app.services', [])
 
 
   }])
-  .service('avatar',[ function() {
+
+
+  .service('avatar',
+    [ 
+    function() {
     return  function(student) {
        return student.photoUri ? 'background-image: url(' + student.photoUri + ')' : ''; 
       }
   }])
+
+
   .service('UserManager',
    ['$rootScope',
     '$q',
     '$http',
-     function ($rootScope, $q, $http) {
+   function ($rootScope, $q, $http) {
         
         var apiUrl = '/api';
         var curUser = null;

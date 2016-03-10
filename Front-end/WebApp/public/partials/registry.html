@@ -10,15 +10,15 @@
         <div class="row">
         <div class="small-12 medium-4 columns">
         <label>Фамилия</label>
-						<input type="text" placeholder="Иванов" ng-model="newStudent.lastName" required='true'>
+						<input type="text" placeholder="Иванов" size="10" ng-model="newStudent.lastName" required='true'>
             </div>
             <div class="small-12 medium-4 columns">
             <label>Имя</label>
-            <input type="text" placeholder="Иван" ng-model="newStudent.firstName" required='true'>
+            <input type="text" placeholder="Иван" ng-model="newStudent.firstName" size="10" required='true'>
             </div>
             <div class="small-12 medium-4 columns">
             <label>Отчество</label>
-            <input type="text" placeholder="Иванович" ng-model="newStudent.middleName" required='true'>
+            <input type="text" placeholder="Иванович" ng-model="newStudent.middleName" size='10' required='true'>
             </div>
         </div>
         <div class="row">
@@ -40,7 +40,7 @@
         <label>Расскажите о себе (биография, увлечения)</label>
           <textarea name="name" rows="5" cols="50" ng-model="newStudent.about"></textarea>
         <label>Пароль</label>
-          <input type="password" placeholder="********" required='true'>
+          <input type="password" placeholder="********" required='true' ng-model='checkPassword'>
           <label>Пароль еще раз</label>
           <input type="password" placeholder="********" ng-model='newStudent.password' required='true'>
 					<input type="submit" class="submit_form" ng-click='submit()' value="Регистрация">
