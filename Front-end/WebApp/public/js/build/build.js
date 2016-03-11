@@ -1,3 +1,66 @@
+angular.module('ActivityAggregator.admin',
+ [
+   'ui.router',
+   'app.services',
+   'admin.controllers',
+   'ngSanitize'
+ ])
+
+ .config(
+    [
+    '$urlRouterProvider',
+    '$stateProvider',
+    '$locationProvider',
+   function($urlRouterProvider, $stateProvider, $locationProvider) {
+
+   	 $urlRouterProvider.otherwise("/");
+
+       $stateProvider.state('inbox', {
+         url: '/',
+         views: {
+           'page_content': {
+             templateUrl: 'partials/admin_inbox.html',
+             controller: 'inboxCtrl'
+           }
+         }
+       })
+
+       .state('auth', {
+       	url: '/auth',
+       	views: {
+       		'page_content': {
+       			templateUrl: 'partials/auth.html',
+       			controller: 'adminAuthCtrl', 
+       		}
+       	}
+       });
+
+   }])
+angular.module('admin.controllers',
+[
+'ui.router',
+'app.controllers.main'
+])
+
+.controller('inboxCtrl', 
+	[
+	 '$scope', 
+	 '$state',
+	 'API',
+	 function($scope, $state, API){
+	 	$scope.$emit('changeTitle', {title: 'Кабинет администратора'});
+	 	$scope.$emit('needAuth');
+	
+}])
+
+.controller('adminAuthCtrl',
+	 [
+	 '$scope',
+	 '$state',
+	 'API',
+	function($scope, $state, API) {
+		
+	}])
 angular.module('ActivityAggregator',
  [
    'ui.router',
@@ -119,7 +182,7 @@ angular.module('app.controllers.main',
   ['$scope',
    '$state',
    'UserManager',
-    function ($scope, $state, UserManager) {
+  function ($scope, $state, UserManager) {
 
      $scope.title = 'Онлайн портфолио активных студентов НИТУ МИСиС';
      $scope.$on('changeTitle', function(e, args) {
@@ -128,12 +191,14 @@ angular.module('app.controllers.main',
 
      $scope.currentUser = {};
       updateUserData();
+
+
       function updateUserData() {
 
         UserManager.getCurrentUser().then(function (result) {
           $scope.currentUser = result;
           console.log(result);
-        })
+        });
       };
 
 
@@ -150,7 +215,8 @@ angular.module('app.controllers.main',
    '$state',
    '$http',
    'UserManager',
-    function ($scope, $state, $http, UserManager) {
+  function ($scope, $state, $http, UserManager) {
+
       $scope.showMobileMenu = false;
       angular.element(document.querySelector('.mobile_nav_bar_background')).css('visibility', 'visible');
 
@@ -172,12 +238,11 @@ angular.module('app.controllers.partials',
 ])
 
   .controller('studentsBaseCtrl',
-  [
-    '$scope',
+   ['$scope',
     '$http',
     'API',
     'avatar',
-    function ($scope, $http, API, avatar) {
+   function ($scope, $http, API, avatar) {
       $scope.$emit('changeTitle', {title: 'База активистов НИТУ МИСиС'});
       $scope.avatar = avatar;
       $scope.searchParams = {
@@ -213,13 +278,13 @@ angular.module('app.controllers.partials',
   ]) 
 
   .controller('accountCtrl',
-  [
-    '$scope',
+   ['$scope',
     '$http',
     'UserManager',
     'Upload',
     'avatar',
-    function ($scope, $http, UserManager, Upload, avatar) {
+   function ($scope, $http, UserManager, Upload, avatar) {
+
     $scope.$emit('changeTitle', {title: 'Профиль студента'});    
     $scope.$emit('needAuth');
     $scope.avatar = avatar;
@@ -256,6 +321,7 @@ angular.module('app.controllers.partials',
             data: {avatar : avatar}
           }).then(function(res) {
             console.log(res);
+            $scope.$emit('userUpdate');
           })
 
       };
@@ -263,12 +329,12 @@ angular.module('app.controllers.partials',
   ])
   
   .controller('profileCtrl',
-   [
-    '$scope',
+   ['$scope',
     '$http',
     '$stateParams',
     'avatar',
-    function($scope, $http, $stateParams, avatar){
+   function($scope, $http, $stateParams, avatar){
+
       $scope.avatar = avatar;
       console.log($stateParams.id);
      $scope.student = {};
@@ -287,7 +353,8 @@ angular.module('app.controllers.partials',
       '$state', 
       '$http',
       '$stateParams',
-      function($scope, $state, $http, $stateParams){
+     function($scope, $state, $http, $stateParams){
+
          $scope.$emit('changeTitle', {title: $stateParams.achToShow.name}); 
          console.log($stateParams)
         var ach = $stateParams.achToShow;
@@ -325,13 +392,12 @@ angular.module('app.controllers.partials',
        }])
 
   .controller('newAchCtrl',
-    [
-    '$scope',
-    '$http',
-    '$timeout',
-    'Upload',
-    '$state',
-     function($scope, $http, $timeout, Upload, $state) {
+    ['$scope',
+     '$http',
+     '$timeout',
+     'Upload',
+     '$state',
+    function($scope, $http, $timeout, Upload, $state) {
 
     $scope.newAch = {
       owner_id: $scope.currentUser._id
@@ -369,13 +435,18 @@ angular.module('app.controllers.partials',
     }
   }])
 
-  .controller('authCtrl', ['$scope', '$http', 'UserManager', '$state', function($scope, $http, UserManager, $state){
+  .controller('authCtrl',
+   ['$scope',
+    '$http',
+    'UserManager', 
+    '$state',
+   function($scope, $http, UserManager, $state){
+
     $scope.auth = {};
     $scope.submit = function() {
       console.log($scope.auth);
       $http.post('/api/login', $scope.auth).success(function(res) {
-        console.log(res);
-        if(res.data) {
+        console.log(res); if(res.data) {
           $scope.$emit('userUpdate');
           $state.go('studentsBase');
         } else {
@@ -385,11 +456,18 @@ angular.module('app.controllers.partials',
     };
   }])
 
-  .controller('registryCtrl', ['$scope', '$state', '$http', function($scope, $state, $http){
+  .controller('registryCtrl', 
+    ['$scope', 
+     '$state', 
+     '$http', 
+    function($scope, $state, $http){
+
     $scope.newStudent = {};
+
 
     $scope.submit = function() {
       console.log($scope.newStudent);
+      if(isValid($scope.newStudent)) {
        $http({
           method  : 'POST',
           url     : '/api/students/',
@@ -399,6 +477,23 @@ angular.module('app.controllers.partials',
           console.log(res);
           $state.go('auth')
          })
+      }
+    };
+
+    function isValid(formModel) {
+      var valid = true;
+      $scope.newStudent.forEach(function(item) {
+          if(!item.$valid) {
+            valid = false;
+          }
+          if(!formModel.file) {
+            valid = false;
+          }
+          if(formModel.password != $scope.checkPassword) {
+            valid = false;
+          }
+      });
+      return valid;
     };
   }])
 
@@ -413,12 +508,29 @@ angular.module('app.services', [])
     ['$rootScope',
     '$q',
     '$http',
-     function($rootScope, $q, $http){
+   function($rootScope, $q, $http){
 
         
       var config = { 
         
         apiUrls : {
+
+      user: {
+
+        login: {
+          method: 'POST',
+          url: function(params) {
+            return '/api' + '/login';
+          }
+        },
+
+        logout: {
+          method: 'POST',
+          url: function(params) {
+            return '/api' + '/logout';
+          }
+        }
+      },
 
       students: {
 
@@ -480,16 +592,11 @@ angular.module('app.services', [])
           if(obj[item]) {
             obj = obj[item]
           } else {
-            console.log('path invalid');
-            return;
+            return
           }
         } 
         return obj;
       } else {
-        if(!obj[path]) {
-          console.log('path invalid');
-          return;
-        }
         return obj[path];
       }
     };
@@ -530,16 +637,22 @@ angular.module('app.services', [])
 
 
   }])
-  .service('avatar',[ function() {
+
+
+  .service('avatar',
+    [ 
+    function() {
     return  function(student) {
        return student.photoUri ? 'background-image: url(' + student.photoUri + ')' : ''; 
       }
   }])
+
+
   .service('UserManager',
    ['$rootScope',
     '$q',
     '$http',
-     function ($rootScope, $q, $http) {
+   function ($rootScope, $q, $http) {
         
         var apiUrl = '/api';
         var curUser = null;

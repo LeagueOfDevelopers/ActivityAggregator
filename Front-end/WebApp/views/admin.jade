@@ -1,0 +1,23 @@
+doctype html
+html(lang='en', ng-app='ActivityAggregator.admin', ng-controller='appCtrl')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title(ng-bind='title')
+    link(rel='stylesheet', href='../styles/main.css')
+    link(rel='stylesheet', href='../styles/lib/font-awesome/css/font-awesome.min.css')
+    link(rel='stylesheet', href='../styles/lib/foundation.min.css')
+  body(ng-controller='pageCtrl', ng-cloak)
+    .wrapper(ng-cloak='')
+      section.header.small-12.columns
+        a.logo(href='#')
+        a.burger(ng-cloak, ng-click='showMobileMenu = !showMobileMenu')
+          i.fa.fa-bars
+      section(ui-view='page_content')
+      section(ui-view='footer')
+    script(type='text/javascript', src='../js/lib/angular.min.js')
+    script(type='text/javascript', src='../js/lib/angular-sanitize.min.js')
+    script(type='text/javascript', src='../js/lib/angular-ui-router.min.js')
+    script(type='text/javascript', src='../js/lib/ng-file-upload.js')
+    script(type='text/javascript', src='../js/lib/ng-file-upload-shim.js')
+    script(type='text/javascript', src='../js/build/build.js')

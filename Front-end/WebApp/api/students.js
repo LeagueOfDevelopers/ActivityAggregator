@@ -23,7 +23,7 @@ function login(req, res, next) {
     if(err) {
       console.log(err)
     } else {
-      if (student) {
+      if (student && student.hashPassword == req.body.password) {
       req.session.user = student;
       res.send({
                 status: student.hashPassword == req.body.password ? 'ok' : 'not ok',
@@ -32,6 +32,7 @@ function login(req, res, next) {
       } else {
         res.send("student not found")
       }
+     }
     }
   })
 };

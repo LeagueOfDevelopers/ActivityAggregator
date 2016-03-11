@@ -26,7 +26,7 @@ angular.module('app.services', [])
             return '/api' + '/logout';
           }
         }
-      }
+      },
 
       students: {
 

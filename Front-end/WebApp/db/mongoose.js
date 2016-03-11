@@ -89,12 +89,56 @@ var student = new schema({
 
 });
 
-var Student = mongoose.model('Student', student)
+var action = new schema({
+	date: {
+		type: Date,
+		required: true
+	},
+	action: {
+		type: String,
+		required: true,
+	},
+	target: {
+		type: String,
+		require: true
+	}
+
+})
+
+var admin = new schema({
+	email: {
+		type: String,
+		required: true,
+		unique: true
+	},
+	firstName: {
+		type: String,
+		required: true
+	},
+	lastName: {
+		type: String,
+		required: true
+	},
+	middleName: {
+		type: String,
+		required: true
+	},
+	actions: [action],
+	hashPassword: {
+		type: String,
+		required: true
+	}
+
+});
+var Admin = mongoose.model('Admin', admin);
+
+var Student = mongoose.model('Student', student);
 
 module.exports = {
 	connection: db,
 	models: {
-		Student: Student
+		Student: Student,
+		Admin: Admin
 	},
 	schemas: {
 		student: student,
