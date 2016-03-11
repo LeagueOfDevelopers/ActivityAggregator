@@ -1,4 +1,4 @@
-angular.module('admin.controllers.main',
+angular.module('app.controllers.main',
  [
    'ui.router'
  ])

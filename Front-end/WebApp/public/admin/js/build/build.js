@@ -163,51 +163,7 @@ angular.module('app.services', [])
       },
 
       students: {
-
-        add: {
-         method: 'POST',
-         url: function() {
-          return '/api' + '/students/';
-         }
-        }, 
-
-        getDetail: {
-          method: 'GET',
-          url: function(params) {    // get
-          return '/api'  + '/students/' + params.studentId;
-        }
-      },
-
-        updateDetail: {
-          method: 'POST',
-          url: function(params) {    // post
-          return '/api'  + '/students/' + params.studentId;
-        }
-      },
-
-        search: { 
-          method: 'GET',
-          url: function(params) {   //get
-          return '/api'  + '/students/' + ((params.searchParams.name == '') ? 
-                                          'search_by_category/' + params.searchParams.category : 
-                                          'search_by_name/' + params.searchParams.name);
-        }
-      },
-
-        achivments: {
-          add: {
-          method: 'POST',
-          url: function(params) { //post
-            return '/api' + '/students/' + params.studentId + '/achivments';
-          }
-        },
-
-          getDetail: {
-          method: 'GET',
-          url: function(params) { //get
-            return '/api' + '/students/' + params.studentId + '/achivments/' + params.achId;
-          }
-        }
+        
       }
 
       }

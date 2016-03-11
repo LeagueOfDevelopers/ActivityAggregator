@@ -685,6 +685,9 @@ ul {
 input.ng-invalid.ng-dirty {
   border: 1px solid red; }
 
+input.ng-valid {
+  border: 1px solid green; }
+
 .file_field {
   height: 50px;
   position: relative;
