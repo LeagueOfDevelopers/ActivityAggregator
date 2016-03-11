@@ -30,8 +30,8 @@ html(lang='en', ng-app='ActivityAggregator', ng-controller='appCtrl')
             li.small-12.columns
               a(ui-sref='studentsBase', ng-click='showMobileMenu = false') База активистов
             li.small-12.columns
-              a(ui-sref='auth', ng-if='!(currentUser.id && currentUser.name)', ng-click='showMobileMenu = false') Рассказать о себе
-              a#profile_link(ui-sref='account(id=currentUser.id)', ng-if='currentUser', ng-bind='currentUser.name', ng-click='showMobileMenu = false')
+              a(ui-sref='auth', ng-if='!(currentUser._id)') Рассказать о себе
+              a#profile_link(ui-sref='account(currentUser._id)', ng-if='(currentUser._id)', ng-bind="currentUser.firstName + ' ' + currentUser.lastName")
       section(ui-view='page_content')
       section(ui-view='footer')
     script(type='text/javascript', src='../js/lib/angular.min.js')

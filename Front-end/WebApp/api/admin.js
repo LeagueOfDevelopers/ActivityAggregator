@@ -9,6 +9,7 @@ module.exports = {
 function login(req, res, next) {
   console.log(req.body);
   Admin.findOne({email: req.body.email}, function(err, admin) {
+  	console.log(admin);
     if(err) {
       console.log(err)
     } else {
@@ -31,12 +32,13 @@ function newAdmin(req, res, next) {
 		firstName : 'Админ',
 		lastName: 'Админ',
 		middleName: 'Админ',
-		email: 'admin@mail.ru',
+		email: 'admin2@mail.ru',
 		hashPassword: '11111'
 	});
 
 	admin.save(function(data) {
 		res.send(data);
+		console.log(new Date());
 	})
 };
 

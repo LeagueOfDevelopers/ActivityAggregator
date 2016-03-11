@@ -22,8 +22,7 @@ function login(req, res, next) {
   Student.findOne({email: req.body.email}, function(err, student) {
     if(err) {
       console.log(err)
-    } else {
-      if (student && student.hashPassword == req.body.password) {
+    } else if (student && student.hashPassword == req.body.password) {
       req.session.user = student;
       res.send({
                 status: student.hashPassword == req.body.password ? 'ok' : 'not ok',
@@ -32,8 +31,8 @@ function login(req, res, next) {
       } else {
         res.send("student not found")
       }
-     }
-    }
+     
+    
   })
 };
 

@@ -42,6 +42,10 @@ var achivment = new schema({
 	checked: {
 		type: Boolean,
 		required: true
+	},
+	updated: {
+		type: Date,
+		default: Date.now
 	}
 });
 
@@ -85,6 +89,10 @@ var student = new schema({
 	photoUri: {
 		type: String
 	},
+	registered: {
+		type: Date,
+		default: Date.now
+	},
 	achivments: [achivment]
 
 });
@@ -92,6 +100,7 @@ var student = new schema({
 var action = new schema({
 	date: {
 		type: Date,
+		default: Date.now,
 		required: true
 	},
 	action: {
@@ -122,6 +131,10 @@ var admin = new schema({
 	middleName: {
 		type: String,
 		required: true
+	},
+	registered: {
+		type: Date,
+		default: Date.now
 	},
 	actions: [action],
 	hashPassword: {

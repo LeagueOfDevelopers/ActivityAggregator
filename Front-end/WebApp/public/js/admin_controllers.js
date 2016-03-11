@@ -1,7 +1,7 @@
 angular.module('admin.controllers',
 [
 'ui.router',
-'app.controllers.main'
+'admin.controllers.main'
 ])
 
 .controller('inboxCtrl', 
@@ -15,11 +15,17 @@ angular.module('admin.controllers',
 	
 }])
 
-.controller('adminAuthCtrl',
+.controller('authCtrl',
 	 [
 	 '$scope',
 	 '$state',
 	 'API',
 	function($scope, $state, API) {
-		
+		$scope.$emit('changeTitle', {title: 'Авторизация администратора'});
+		$scope.auth = {email: 'sadq'};
+		$scope.test = 'dqdw';
+
+		$scope.submit = function() {
+			API.query('admin.login', {data: $scope.auth}, true);
+		}
 	}])

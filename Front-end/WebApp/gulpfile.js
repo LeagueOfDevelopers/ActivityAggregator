@@ -16,8 +16,15 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('public/js/build/'));
 });
 
+gulp.task('adminScripts', function() {
+  return gulp.src('public/admin/js/*.js')
+    .pipe(concat('build.js'))
+    .pipe(gulp.dest('public/admin/js/build/'));
+});
+
 //Watch task
 gulp.task('default', function() {
     gulp.watch('public/styles/main.scss',['styles']);
     gulp.watch('public/js/*.js',['scripts']);
+    gulp.watch('public/admin/js/*.js',['adminScripts']);
 });

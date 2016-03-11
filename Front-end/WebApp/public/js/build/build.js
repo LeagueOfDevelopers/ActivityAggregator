@@ -30,7 +30,7 @@ angular.module('ActivityAggregator.admin',
        	views: {
        		'page_content': {
        			templateUrl: 'partials/auth.html',
-       			controller: 'adminAuthCtrl', 
+       			controller: 'authCtrl', 
        		}
        	}
        });
@@ -39,7 +39,7 @@ angular.module('ActivityAggregator.admin',
 angular.module('admin.controllers',
 [
 'ui.router',
-'app.controllers.main'
+'admin.controllers.main'
 ])
 
 .controller('inboxCtrl', 
@@ -53,13 +53,19 @@ angular.module('admin.controllers',
 	
 }])
 
-.controller('adminAuthCtrl',
+.controller('authCtrl',
 	 [
 	 '$scope',
 	 '$state',
 	 'API',
 	function($scope, $state, API) {
-		
+		$scope.$emit('changeTitle', {title: 'Авторизация администратора'});
+		$scope.auth = {email: 'sadq'};
+		$scope.test = 'dqdw';
+
+		$scope.submit = function() {
+			API.query('admin.login', {data: $scope.auth}, true);
+		}
 	}])
 angular.module('ActivityAggregator',
  [
@@ -497,6 +503,62 @@ angular.module('app.controllers.partials',
     };
   }])
 
+angular.module('admin.controllers.main',
+ [
+   'ui.router'
+ ])
+
+.controller('appCtrl',
+  ['$scope',
+   '$state',
+   'UserManager',
+  function ($scope, $state, UserManager) {
+
+     $scope.title = 'Онлайн портфолио активных студентов НИТУ МИСиС';
+     $scope.$on('changeTitle', function(e, args) {
+      $scope.title = args.title;
+     })
+
+     $scope.currentUser = {};
+      updateUserData();
+
+
+      function updateUserData() {
+
+        UserManager.getCurrentUser().then(function (result) {
+          $scope.currentUser = result;
+          console.log(result);
+        });
+      };
+
+
+
+      $scope.$on('userUpdate', function (e, args) {
+           updateUserData();
+           console.log('auth!');
+      })      
+
+
+    }])
+
+.controller('pageCtrl',
+  ['$scope',
+   '$state',
+   '$http',
+   'UserManager',
+  function ($scope, $state, $http) {
+
+
+      $scope.showMobileMenu = false;
+      angular.element(document.querySelector('.mobile_nav_bar_background')).css('visibility', 'visible');
+      $scope.$on('needAuth', function (e, args) {
+           if(!$scope.currentUser) {
+            $state.go('auth');
+            console.log('needAuth')
+           }
+      })
+
+}]);
 angular.module('app.directives', [])
 
 
@@ -517,10 +579,10 @@ angular.module('app.services', [])
 
       user: {
 
-        login: {
+        get: {
           method: 'POST',
           url: function(params) {
-            return '/api' + '/login';
+            return '/api' + '/isAuth';
           }
         },
 
@@ -528,6 +590,15 @@ angular.module('app.services', [])
           method: 'POST',
           url: function(params) {
             return '/api' + '/logout';
+          }
+        }
+      },
+
+      admin: {
+        login: {
+          method: 'POST',
+          url: function() {
+            return '/api/admin' + '/login';
           }
         }
       },
