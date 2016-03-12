@@ -8,7 +8,8 @@
           <input type="email" placeholder="jambul@example.com" ng-model='auth.email' required>
         <label>Пароль</label>
           <input type="password" placeholder="********" ng-model="auth.password" required>
-					<input type="submit" class="submit_form" value="Войти" ng-click="submit()">
+          <span style='{color: red} ' ng-show='auth.$invalid'>Заполните форму корректно</span>
+          <input type="submit" class="submit_form" value="Войти" ng-click="submit()">
 					<a ui-sref="registry">Регистрация</a>
       </div>
     </form>

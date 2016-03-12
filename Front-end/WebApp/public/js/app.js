@@ -15,6 +15,7 @@ angular.module('ActivityAggregator',
     '$locationProvider',
      function ($urlRouterProvider, $stateProvider, $locationProvider) {
        $urlRouterProvider.otherwise("/");
+       $locationProvider.html5Mode(true);
 
        $stateProvider.state('studentsBase', {
          url: '/studentsBase',

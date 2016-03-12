@@ -14,12 +14,13 @@
    function($urlRouterProvider, $stateProvider, $locationProvider) {
 
    	 $urlRouterProvider.otherwise("/");
+     $locationProvider.html5Mode(true);
 
        $stateProvider.state('inbox', {
          url: '/',
          views: {
            'page_content': {
-             templateUrl: 'partials/admin_inbox.html',
+             templateUrl: 'admin/partials/admin_inbox.html',
              controller: 'inboxCtrl'
            }
          }
@@ -29,7 +30,7 @@
        	url: '/auth',
        	views: {
        		'page_content': {
-       			templateUrl: 'partials/authAdmin.html',
+       			templateUrl: 'admin/partials/authAdmin.html',
        			controller: 'authCtrl', 
        		}
        	}
