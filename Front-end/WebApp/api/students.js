@@ -43,6 +43,7 @@ function isAuth(req, res, next) {
 
 function logout(req, res, next) {
   req.session.destroy();
+  res.send('session destroyed');
 };
 
 function addStudent(req, res, next) {

@@ -31,7 +31,8 @@ function newAchivment(req, res, next) {
 
     var achivment = {
         checked: false,
-        files: []
+        files: [],
+        created: new Date()
     }
 
     form.on('error', function(err){
@@ -51,11 +52,14 @@ function newAchivment(req, res, next) {
                 };
                 doc.achivments.push(achivment);
                 console.log(doc);
-                doc.save(function(err) {
+                doc.save(function(err, data) {
                     if(err) {
                         res.send(err);
                     } else {
-                        res.send({status: 200});
+                        console.log({status: 200,
+                            data: data});
+                        res.send({status: 200,
+                            data: data});
                     }
                 })
             })
@@ -69,7 +73,8 @@ function newAchivment(req, res, next) {
     });
 
     form.on('part', function(part) {
-        if(part.name == 'file') {
+        if(part.filename) {
+        console.log(part.filename);
         uploadFile.size = part.byteCount;
         uploadFile.type = part.headers['content-type'];
         uploadFile.path = './public/storage/students/' + req.params.id + '/' + part.filename;

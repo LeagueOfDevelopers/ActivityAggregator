@@ -43,7 +43,7 @@ var achivment = new schema({
 		type: Boolean,
 		required: true
 	},
-	updated: {
+	created: {
 		type: Date,
 		default: Date.now
 	}
