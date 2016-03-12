@@ -164,7 +164,7 @@ angular.module('app.services', [])
 
         var userDetail = null;
         function getCurrentUser(params) {
-            params = params || { cache: true };
+            params = params || { cache: false };
             return $q.when(curUser && params.cache ? curUser : getUser()).then(function (result) {
                 return result.status ? result.data.user : result;
             });
@@ -172,7 +172,6 @@ angular.module('app.services', [])
             function getUser() {
               var reqUrl = apiUrl + '/auth/isAuth';
                 return $http.post(reqUrl).success(function (data) {
-                        console.log(data)
                         curUser = data.user;
                     
                     return curUser;

@@ -385,7 +385,7 @@ angular.module('app.controllers.main',
      $scope.currentUser = {};
       updateUserData();
 
-
+      
       function updateUserData() {
 
         UserManager.getCurrentUser().then(function (result) {
@@ -401,6 +401,11 @@ angular.module('app.controllers.main',
            console.log('auth!');
       })      
 
+    $scope.logout = function() {
+        UserManager.logout();
+        $state.go('mainPage');
+        $scope.$broadcast('userUpdate');
+      };
 
     }])
 
@@ -593,7 +598,7 @@ angular.module('app.services', [])
 
         var userDetail = null;
         function getCurrentUser(params) {
-            params = params || { cache: true };
+            params = params || { cache: false };
             return $q.when(curUser && params.cache ? curUser : getUser()).then(function (result) {
                 return result.status ? result.data.user : result;
             });
@@ -601,7 +606,6 @@ angular.module('app.services', [])
             function getUser() {
               var reqUrl = apiUrl + '/auth/isAuth';
                 return $http.post(reqUrl).success(function (data) {
-                        console.log(data)
                         curUser = data.user;
                     
                     return curUser;

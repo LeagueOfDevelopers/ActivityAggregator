@@ -17,7 +17,7 @@ angular.module('app.controllers.main',
      $scope.currentUser = {};
       updateUserData();
 
-
+      
       function updateUserData() {
 
         UserManager.getCurrentUser().then(function (result) {
@@ -33,6 +33,11 @@ angular.module('app.controllers.main',
            console.log('auth!');
       })      
 
+    $scope.logout = function() {
+        UserManager.logout();
+        $state.go('mainPage');
+        $scope.$broadcast('userUpdate');
+      };
 
     }])
 

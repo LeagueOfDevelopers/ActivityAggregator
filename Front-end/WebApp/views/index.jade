@@ -23,6 +23,9 @@ html(lang='en', ng-app='ActivityAggregator', ng-controller='appCtrl')
             li
               a(ui-sref='auth', ng-if='!(currentUser._id)') Рассказать о себе
               a#profile_link(ui-sref='account(currentUser._id)', ng-if='(currentUser._id)', ng-bind="currentUser.firstName + ' ' + currentUser.lastName")
+            li(ng-if='currentUser._id')
+              a#logout(ng-click='logout()')
+                i.fa.fa-sign-out
       section.mobile_nav_bar_background.small-12.columns(ng-if='showMobileMenu', ng-cloak, style="{visibility: hidden}")
         nav.mobile_nav_bar
           ul.small-12.columns

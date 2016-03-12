@@ -833,6 +833,15 @@ ul {
   -moz-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
   box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5); }
 
+#logout {
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s; }
+
+#logout:hover {
+  cursor: pointer;
+  text-decoration: underline; }
+
 .not_found_msg {
   position: absolute;
   color: #59595b;
