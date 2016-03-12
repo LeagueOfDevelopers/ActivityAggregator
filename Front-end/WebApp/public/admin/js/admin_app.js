@@ -1,4 +1,4 @@
-angular.module('ActivityAggregator.admin',
+ angular.module('ActivityAggregator.admin',
  [
    'ui.router',
    'app.services',

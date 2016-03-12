@@ -20,10 +20,12 @@ angular.module('admin.controllers',
 	 'API',
 	function($scope, $state, API) {
 		$scope.$emit('changeTitle', {title: 'Авторизация администратора'});
-		$scope.auth = {email: 'sadq'};
-		$scope.test = 'dqdw';
+		$scope.auth = {};
 
 		$scope.submit = function() {
-			API.query('admin.login', {data: $scope.auth}, true);
+			API.query('admin.login', {data: $scope.auth}, true).then(function(res) {
+				$scope.$emit('userUpdate');
+				$state.go('inbox');
+			})
 		}
 	}])

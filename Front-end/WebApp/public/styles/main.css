@@ -89,7 +89,7 @@ ul {
   float: right;
   height: 100%;
   display: none;
-  visibility: none; }
+  isibility: none; }
 
 .burger {
   float: right;
@@ -576,16 +576,16 @@ ul {
     margin-left: 50px;
     display: inline-block;
     vertical-align: top;
-    width: 240px;
+    width: 300px;
     line-height: 25px; } }
 
 .achivment_link a {
   color: #009fdf;
-  font-size: 18px;
-  text-decoration: underline; }
+  font-size: 18px; }
 
 .achivment_link a:hover {
-  color: #028ec7; }
+  color: #028ec7;
+  text-decoration: underline; }
 
 .achivments_count {
   border: none;
@@ -697,8 +697,10 @@ input.ng-valid {
 .achivment_owner {
   color: #009fdf;
   font-size: 18px;
-  text-decoration: underline;
   text-align: right; }
+
+.achivment_owner:hover {
+  text-decoration: underline; }
 
 .achivment_title {
   color: #fff;

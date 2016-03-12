@@ -22,10 +22,15 @@ angular.module('admin.controllers',
 	 'API',
 	function($scope, $state, API) {
 		$scope.$emit('changeTitle', {title: 'Авторизация администратора'});
-		$scope.auth = {email: 'sadq'};
+		$scope.auth = {};
 		$scope.test = 'dqdw';
 
+		if($scope.auth.$valid) {
 		$scope.submit = function() {
-			API.query('admin.login', {data: $scope.auth}, true);
+			API.query('admin.login', {data: $scope.auth}, true).then(function(result) {
+				$scope.$emit('userUpdate');
+				$state.go('inbox');
+			})
 		}
+	}
 	}])

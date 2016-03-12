@@ -1,12 +1,3 @@
 <section id="achivments_popup">
-  <ul>
-    <li ng-repeat='ach in achivmentsList'>
-      <a ui-sref="ahivment_detail(id={{ach.id}})">
-        <div class="ach">
-          <div class="ach_icon {{ach.type}}"></div>
-          <div class="ach_title" ng-bind='ach.name'></div>
-        </div>
-      </a>
-    </li>
-  </ul>
+  <p class="notif" ng-bind="message"></p>
 </section>

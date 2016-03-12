@@ -127,7 +127,7 @@ ul {
   float: right;
   height: 100%;
    display: none;
-    visibility: none;
+  isibility: none;
 
 }
 
@@ -695,17 +695,17 @@ ul {
   margin-left: 50px;
   display: inline-block;
   vertical-align: top;
-  width: 240px;
+  width: 300px;
   line-height: 25px;
 }
 }
 .achivment_link a  {
   color: $mainColor;
   font-size: 18px;
-  text-decoration: underline;
 }
 .achivment_link a:hover {
   color: #028ec7;
+  text-decoration: underline;
 }
 
 .achivments_count {
@@ -831,9 +831,11 @@ input.ng-valid {
 .achivment_owner {
   color: $mainColor;
   font-size: 18px;
-  text-decoration: underline;
   text-align: right;
 
+}
+.achivment_owner:hover {
+  text-decoration: underline;
 }
 
 .achivment_title {

@@ -43,7 +43,7 @@ angular.module('app.services', [])
 
       }
     } 
-  }
+  
 
     function parsePath(pathString, obj) {
       var path = pathString.split('.');

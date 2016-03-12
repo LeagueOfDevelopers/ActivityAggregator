@@ -229,7 +229,7 @@ angular.module('app.controllers.partials',
           $scope.auth.email = res;
         }
       })
-    
+     
     };
   }])
 

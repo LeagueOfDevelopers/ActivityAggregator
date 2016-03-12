@@ -11,8 +11,10 @@ html(lang='en', ng-app='ActivityAggregator.admin', ng-controller='appCtrl')
     .wrapper(ng-cloak='')
       section.header.small-12.columns
         a.logo(href='#')
-        a.burger(ng-cloak, ng-click='showMobileMenu = !showMobileMenu')
-          i.fa.fa-bars
+        nav.nav_bar(ng-cloak='')
+         ul
+           li
+             a(ui-sref='inbox', ng-bind="currentUser.firstName + ' ' + currentUser.lastName")
       section(ui-view='page_content')
       section(ui-view='footer')
     script(type='text/javascript', src='../admin/js/lib/angular.min.js')
