@@ -42,7 +42,7 @@ html {
 body {
   font-family: Calibri, Helvetica, sans-serif;
   height: 100%  !important;
-  background: #fafafa;
+  background-color: #fcfcfc !important;
   overflow-x: hidden;
 }
 
@@ -253,6 +253,9 @@ ul {
   padding: 20px;
   color: $fontColor;
   overflow: hidden;
+  -webkit-animation: fadeIn .2s ease-out;
+  -o-animation: fadeIn .2s ease-out;
+  animation: fadeIn .2s ease-out;
 }
 .about_edit_field {
   height: 100%;
@@ -444,6 +447,9 @@ ul {
 	-webkit-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
 	-moz-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
 	box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
+  -webkit-animation: fadeIn .2s ease-out;
+  -o-animation: fadeIn .2s ease-out;
+  animation: fadeIn .2s ease-out;
 }
 
 .ach.unchecked {
@@ -638,6 +644,16 @@ ul {
   to {transform: translateY(0px)}
 }
 
+@keyframes fadeInScale {
+  from {
+    transform: translateY(20px);
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+    transform: translateY(0px);
+    }
+}
 
 
 .avatar {
@@ -748,7 +764,11 @@ ul {
 }
  .form_card {
    margin-top: 50px;
+   background-color: #fff;
    @include cardShadow();
+   -webkit-animation: fadeIn .2s ease-out;
+  -o-animation: fadeIn .2s ease-out;
+  animation: fadeIn .2s ease-out;
  }
 
 @media only screen and (min-width: 670px) {
@@ -761,7 +781,14 @@ ul {
  .achivment_detail_card {
    margin-top: 100px;
    width: 300px;
-   @include cardShadow
+   background-color: #fff;
+   @include cardShadow;
+   -webkit-animation: fadeIn .2s ease-out;
+  -o-animation: fadeIn .2s ease-out;
+  animation: fadeIn .2s ease-out;
+  -webkit-animation: fadeInScale .2s ease-out;
+  -o-animation: fadeInScale .2s ease-out;
+  animation: fadeInScale .2s ease-out;
    }
 
 
