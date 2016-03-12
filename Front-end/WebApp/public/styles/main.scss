@@ -748,7 +748,6 @@ ul {
 }
  .form_card {
    margin-top: 50px;
-   max-width: 400px;
    @include cardShadow();
  }
 
@@ -813,12 +812,16 @@ ul {
   color: #fff;
 }
 
+.form_card {
+
 input.ng-invalid.ng-dirty {
   border: 1px solid red;
 }
 
-input.ng-valid {
+input.ng-valid.ng-dirty {
   border: 1px solid green;
+}
+
 }
 
 .file_field {
@@ -911,11 +914,28 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   background: rgb(255,255,255);
 }
 
+.short_info p {
+  font-size: 16px;
+  margin-top: 10px;
+}
+#thirdB {
+  display: none;
+}
+
 @media only screen and (min-width: 670px) {
 
 .project_name p {
   float: right;
-  margin-right: -15px;
+  margin-right: -15p;
+}
+
+#thirdB {
+  display: inline-block;
+}
+
+.short_info p {
+  font-size: 18px;
+  margin-top: 20px;
 }
 
   }
@@ -947,10 +967,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 
 }
 
-.short_info p {
-  font-size: 18px;
-  margin-top: 20px;
-}
+
 
 .not_found_msg {
   position: absolute;

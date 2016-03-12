@@ -1,14 +1,14 @@
 <div class="page_content">
 	<div class="row">
   <div class="form_card small-centered medium-6 medium-centered large-5 large-centered columns">
-    <form>
+    <form name='auth'>
       <div class="row column login_form">
         <span class="form_title">Вход на платформу</span>
         <label>Электронная почта</label>
           <input type="email" placeholder="jambul@example.com" ng-model='auth.email' required>
         <label>Пароль</label>
           <input type="password" placeholder="********" ng-model="auth.password" required>
-          <span style='{color: red} ' ng-show='auth.$valid'>Заполните форму корректно</span>
+          <span style='{color: red} ' ng-show='auth.$invalid'>Заполните форму корректно</span>
 					<input type="submit" class="submit_form" value="Войти" ng-click="submit()">
       </div>
     </form>

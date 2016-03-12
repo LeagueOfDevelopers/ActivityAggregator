@@ -1,8 +1,8 @@
 <div class="page_content">
 	<div class="row">
-  <div class=" form_card small-centered medium-6 medium-centered large-5 large-centered columns">
+  <div class=" form_card registry small-centered medium-7 medium-centered large-7 large-centered columns">
 
-    <form method='post'>
+    <form method='post' name='newStudent'>
       <div class="row column login_form">
         <span class="form_title">Регистрация на платформе</span>
         <label>Электронная почта</label>
@@ -24,7 +24,7 @@
         <div class="row">
 				<div class="small-12 medium-4 columns">
         <label>Институт</label>
-            <input type="text" placeholder="ИТАСУ" ng-model="newStudent.department" required='true'>
+            <input type="text" placeholder="ИТАСУ" ng-model="newStudent.department" required='true' ng-change="newStudent.department = newStudent.department.toUpperCase()">
             </div>
             <div class="small-12 medium-4 columns">
             <label>Курс</label>
@@ -32,17 +32,19 @@
             </div>
             <div class="small-12 medium-4 columns">
             <label>Группа</label>
-            <input type="text" placeholder="САПР" ng-model="newStudent.group" required='true'>
+            <input type="text" placeholder="САПР" ng-model="newStudent.group" ng-change="newStudent.group = newStudent.group.toUpperCase()" required='true'>
             </div>
             </div>
             <label>Номер студенческого билета</label>
-						<input type="text" placeholder="142062">
+						<input type="text" placeholder="142062" ng-pattern='/\d/' ng-model='newStudent.number' required>
         <label>Расскажите о себе (биография, увлечения)</label>
-          <textarea name="name" rows="5" cols="50" ng-model="newStudent.about"></textarea>
+          <textarea name="name" rows="5" class='small-12 columns' ng-model="newStudent.about"></textarea>
         <label>Пароль</label>
-          <input type="password" placeholder="********" required='true' ng-model='checkPassword'>
+          <input type="password"  ng-minlength="5" ng-maxlength="20" placeholder="********" required='true' ng-model='checkPassword'>
           <label>Пароль еще раз</label>
-          <input type="password" placeholder="********" ng-model='newStudent.password' required='true'>
+          <input type="password" ng-minlength="5" ng-maxlength="20" placeholder="********" ng-model='newStudent.password' required='true'>
+          <span ng-if='newStudent.$valid && (newStudent.password != checkPassword)'>Пароли не совпадают</span>
+          <span ng-if='newStudent.$invalid'>Заполните форму корректно</span>
 					<input type="submit" class="submit_form" ng-click='submit()' value="Регистрация">
 					<a ui-sref="auth">Вход</a>
       </div>

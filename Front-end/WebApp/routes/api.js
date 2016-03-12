@@ -12,7 +12,7 @@ router.get('/students/:student_id/achivments', achivments.getAchivmentsList);
 router.get('/achivments/:id', achivments.getAchivmentDetail);
 
 router.post('/admin/login', admin.login);
-router.post('/admin', admin.newAdmin);
+router.get('/admin', admin.newAdmin);
 router.post('/auth/isAuth', students.isAuth);
 router.post('/auth/logout', students.logout);
 router.post('/login', students.login);

@@ -174,10 +174,7 @@ angular.module('app.controllers.partials',
      'Upload',
      '$state',
     function($scope, $http, $timeout, Upload, $state) {
-
-    $scope.newAch = {
-      owner_id: $scope.currentUser._id
-    };
+    $scope.newAch = {};
     $scope.type = 'Наука';
     $scope.$watch('type', function() {
       var category = '';
@@ -190,23 +187,27 @@ angular.module('app.controllers.partials',
         }
         $scope.newAch.type = category;
     });
+      function isValid() {
+            return $scope.files && $scope.newAch.name && $scope.newAch.result && $scope.newAch.organization;
+          };
 
+    $scope.isValid = isValid;
   
     $scope.submit = function() {
-
-      if ($scope.files) {
+      if ($scope.isValid()) {
+        $scope.newAch.owner_id = $scope.currentUser._id;
         $scope.newAch.file = $scope.files;
-        console.log($scope.files);
         console.log($scope.newAch);
           Upload.upload({
             url: '/api/students/' + $scope.currentUser._id + '/achivments/',
             data: $scope.newAch
           }).then(function(res) {
+            console.log(res);
             $scope.$emit('userUpdate');
             $state.go('studentsBase');
           })
-      console.log($scope.newAch);
       }
+
 
     }
   }])
@@ -218,9 +219,10 @@ angular.module('app.controllers.partials',
     '$state',
    function($scope, $http, UserManager, $state){
 
-    $scope.auth = {};
     $scope.submit = function() {
+      if($scope.auth.$valid) {
       console.log($scope.auth);
+      console.log($scope.auth.$valid);
       $http.post('/api/login', $scope.auth).success(function(res) {
         console.log(res); if(res.data) {
           $scope.$emit('userUpdate');
@@ -229,7 +231,7 @@ angular.module('app.controllers.partials',
           $scope.auth.email = res;
         }
       })
-     
+     }
     };
   }])
 
@@ -243,8 +245,8 @@ angular.module('app.controllers.partials',
 
 
     $scope.submit = function() {
+      if($scope.newStudent.$valid && $scope.newStudent.password == $scope.checkPassword) {
       console.log($scope.newStudent);
-      if(isValid($scope.newStudent)) {
        $http({
           method  : 'POST',
           url     : '/api/students/',
@@ -254,22 +256,8 @@ angular.module('app.controllers.partials',
           console.log(res);
           $state.go('auth')
          })
-      }
+      
+    }
     };
 
-    function isValid(formModel) {
-      var valid = true;
-      $scope.newStudent.forEach(function(item) {
-          if(!item.$valid) {
-            valid = false;
-          }
-          if(!formModel.file) {
-            valid = false;
-          }
-          if(formModel.password != $scope.checkPassword) {
-            valid = false;
-          }
-      });
-      return valid;
-    };
   }])

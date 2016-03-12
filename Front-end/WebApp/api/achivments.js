@@ -86,8 +86,8 @@ function newAchivment(req, res, next) {
 
         //если нет ошибок то создаем поток для записи файла
         if(errors.length == 0) {
-            if (!fs.existsSync('./storage/students/' + req.params.id)) {
-                fs.mkdirSync('./storage/students/' + req.params.id);
+            if (!fs.existsSync('./public/storage/students/' + req.params.id)) {
+                fs.mkdirSync('./public/storage/students/' + req.params.id);
             }
             var out = fs.createWriteStream(uploadFile.path);
             part.pipe(out);
@@ -101,6 +101,7 @@ function newAchivment(req, res, next) {
            }
     });
   form.on('field', function(name, value) {
+    console.log(name);
     achivment[name] = value;
   });
   form.parse(req);

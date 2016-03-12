@@ -29,7 +29,7 @@
        	url: '/auth',
        	views: {
        		'page_content': {
-       			templateUrl: 'partials/auth.html',
+       			templateUrl: 'partials/authAdmin.html',
        			controller: 'authCtrl', 
        		}
        	}
