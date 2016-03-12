@@ -4,7 +4,6 @@ var students = require('../api/students');
 var achivments = require('../api/achivments');
 
 
-
 router.get('/students/:id', students.getStudentDetail);
 router.get('/students/search_by_category/:searchParams', students.getStudentsListByCategory);
 router.get('/students/search_by_name/:searchParams', students.getStudentsListByName);
