@@ -1,0 +1,31 @@
+<section class="page_content">
+<div class="row">
+  <div class="achivment_detail_card small-12 medium-6 medium-centered columns">
+    <div class="row">
+    <span class="achivment_title small-12 columns" ng-class="{unchecked: !achivment.checked}" ng-bind="achivment.title"></span>
+    </div>
+    <div class="row">
+    <div class="achivment_detail small-12-columns">
+    <div class="achivment_icon science"></div>
+    <span class="detail_label small-3 columns">Категория:</span>
+    <span class="achivment_result small-9 columns" ng-bind="achivment.type"></span>
+    <span class="detail_label small-3 columns">Результат:</span>
+    <span class="achivment_result small-9 columns" ng-bind="achivment.result"></span>
+    <span class="detail_label small-3 columns" >Организация:</span>
+    <span class="achivment_result small-9 columns" ng-bind="achivment.organization"></span>
+    <span class="detail_label small-3 columns" >Статус:</span>
+    <span class="achivment_result small-9 columns" ng-bind="achivment.checked ? 'Подтверждено' : 'Не подтверждено'"></span>
+    </div>
+    </div>
+    <div class="row">
+    <ul class="achivment_detail_photo small-12 columns" ng-if="achivment.photo.length > 0">
+      <li ng-repeat="photoUri in achivment.photo"><img ng-src="photoUri" alt="{{achivment.name}}"></li>
+    </ul>
+  </div>
+  <div class="row">
+    <p class="achivment_detail_description small-12 columns" ng-if='achivment.description' ng-bind="achivment.description"></p>
+    </div>
+    <a class="achivment_owner" ui-sref="profile({id : achivment.owner._id})" ng-bind="achivment.owner.firstName + ' ' + achivment.owner.lastName"></a>
+   </div>
+
+</section>

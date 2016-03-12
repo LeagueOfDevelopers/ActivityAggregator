@@ -1,0 +1,43 @@
+  <section class="page_content">
+      <div class="container">
+        <div class="row profile_info">
+          <div class="profile_info_card small-12 medium-7 columns">
+            <div class="user_main_info">
+              <div class="user_avatar_profile" style="{{avatar(userDetail)}}">
+              <div type="file" ngf-select="uploadAvatar($file)" ngf-pattern="'image/*'"  ngf-accept="'image/*'"  class="avatar_file_input"></div>
+            </div><span class="user_name_profile" ng-bind="userDetail.firstName + ' ' + userDetail.lastName"></span>
+              <span class="user_course_profile" ng-bind="userDetail.department +' '+ userDetail.course + ' курс'"></span>
+            </div>
+            <div class="user_detail"><span>O ceбе</span>
+              <p ng-bind="userDetail.about"></p>
+              <div class="row">
+              <textarea name="name" class="about_edit_field" rows="8"  ng-if="showEditField" ng-bind="newUserDetail"></textarea>
+              </div>
+            </div>
+            <button  class="btn_edit_user_detail" ng-click="applyChanges()" ng-if="showEditField">Применить</button>
+            <button class="btn_edit_user_detail" ng-if="showEditField" ng-click="notApplyChanges()" >Отмена</button>
+            <button class="btn_edit_user_detail" ng-if="!showEditField" ng-click="editUserDetail()" >Редактировать</button>
+          </div>
+          <div class="help small-12 medium-5 columns">
+            <span class="help_title small-12">Это ваш профиль студента</span>
+            <p class="help_content small-12">Здесь вы можете добавить свои достижения, которые отобразятся после подтверждения администрацией вуза </p>
+          </div>
+        </div>
+          <div class="row achivments_profile" ng-cloak>
+            <span>Достижения</span>
+            <button class="btn_add_achivment" ui-sref="add_achivment(currentUser.id)">+</button>
+          </div>
+        <div class="achivments_list">
+          <ul class="small-12">
+            <li ng-repeat='ach in userDetail.achivments'>
+              <a ui-sref="achivment_detail({achToShow : ach, owner: currentUser})">
+              <div class="ach" ng-class='{unchecked: !ach.checked}'>
+                <div class="ach_icon {{ach.type}}"></div>
+                <div class="ach_title" ng-bind="ach.name"></div>
+              </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>

@@ -1,0 +1,55 @@
+<div class="page_content">
+	<div class="row">
+  <div class=" form_card registry small-centered medium-7 medium-centered large-7 large-centered columns">
+
+    <form method='post' name='newStudent'>
+      <div class="row column login_form">
+        <span class="form_title">Регистрация на платформе</span>
+        <label>Электронная почта</label>
+            <input type="email" placeholder="jambul@example.com" ng-model="newStudent.email" required='true'>
+        <div class="row">
+        <div class="small-12 medium-4 columns">
+        <label>Фамилия</label>
+						<input type="text" placeholder="Иванов" size="10" ng-model="newStudent.lastName" required='true'>
+            </div>
+            <div class="small-12 medium-4 columns">
+            <label>Имя</label>
+            <input type="text" placeholder="Иван" ng-model="newStudent.firstName" size="10" required='true'>
+            </div>
+            <div class="small-12 medium-4 columns">
+            <label>Отчество</label>
+            <input type="text" placeholder="Иванович" ng-model="newStudent.middleName" size='10' required='true'>
+            </div>
+        </div>
+        <div class="row">
+				<div class="small-12 medium-4 columns">
+        <label>Институт</label>
+            <input type="text" placeholder="ИТАСУ" ng-model="newStudent.department" required='true' ng-change="newStudent.department = newStudent.department.toUpperCase()">
+            </div>
+            <div class="small-12 medium-4 columns">
+            <label>Курс</label>
+            <input type="text" placeholder="4" ng-model="newStudent.course" required='true'>
+            </div>
+            <div class="small-12 medium-4 columns">
+            <label>Группа</label>
+            <input type="text" placeholder="САПР" ng-model="newStudent.group" ng-change="newStudent.group = newStudent.group.toUpperCase()" required='true'>
+            </div>
+            </div>
+            <label>Номер студенческого билета</label>
+						<input type="text" placeholder="142062" ng-pattern='/\d/' ng-model='newStudent.number' required>
+        <label>Расскажите о себе (биография, увлечения)</label>
+          <textarea name="name" rows="5" class='small-12 columns' ng-model="newStudent.about"></textarea>
+        <label>Пароль</label>
+          <input type="password"  ng-minlength="5" ng-maxlength="20" placeholder="********" required='true' ng-model='checkPassword'>
+          <label>Пароль еще раз</label>
+          <input type="password" ng-minlength="5" ng-maxlength="20" placeholder="********" ng-model='newStudent.password' required='true'>
+          <span ng-if='newStudent.$valid && (newStudent.password != checkPassword)'>Пароли не совпадают</span>
+          <span ng-if='newStudent.$invalid'>Заполните форму корректно</span>
+					<input type="submit" class="submit_form" ng-click='submit()' value="Регистрация">
+					<a ui-sref="auth">Вход</a>
+      </div>
+    </form>
+
+  </div>
+</div>
+</div>
