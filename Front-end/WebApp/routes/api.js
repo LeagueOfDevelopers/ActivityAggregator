@@ -9,6 +9,7 @@ router.get('/students/search_by_category/:searchParams', students.getStudentsLis
 router.get('/students/search_by_name/:searchParams', students.getStudentsListByName);
 router.get('/students/:student_id/achivments', achivments.getAchivmentsList);
 router.get('/achivments/:id', achivments.getAchivmentDetail);
+router.get('/admin/students', admin.getUncheckedRequests);
 
 router.post('/admin/login', admin.login);
 router.post('/admin', admin.newAdmin);

@@ -9,9 +9,11 @@ angular.module('admin.controllers',
 	 '$scope', 
 	 '$state',
 	 'API',
-	 function($scope, $state, API){
+	 'avatar',
+	 function($scope, $state, API, avatar){
 	 	$scope.$emit('changeTitle', {title: 'Кабинет администратора'})
 		$scope.$emit('needAuth');
+		$scope.avatar = avatar
 	
 }]).controller('authCtrl',
 	 [
@@ -23,9 +25,21 @@ angular.module('admin.controllers',
 		$scope.auth = {};
 
 		$scope.submit = function() {
-			API.query('admin.login', {data: $scope.auth}, true).then(function(res) {
+			API.query('admin.login', {data: $scope.auth}).then(function(res) {
 				$scope.$emit('userUpdate');
 				$state.go('inbox');
 			})
 		}
 	}])
+
+.controller('profileCtrl', 
+	[
+	'$scope',
+	'API',
+	'$stateParams',
+	'avatar',
+   function($scope, API, $stateParams) {
+   		$scope.$emit('nedAuth');
+   		$scope.avatar = avatar;
+   };
+	])

@@ -46,6 +46,9 @@ var achivment = new schema({
 	created: {
 		type: Date,
 		default: Date.now
+	},
+	message: {
+		type: String
 	}
 });
 

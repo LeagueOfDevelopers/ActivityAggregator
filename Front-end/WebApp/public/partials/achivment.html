@@ -15,15 +15,15 @@
     <span class="achivment_result small-9 columns" ng-bind="achivment.organization"></span>
     <span class="detail_label small-3 columns" >Статус:</span>
     <span class="achivment_result small-9 columns" ng-bind="achivment.checked ? 'Подтверждено' : 'Не подтверждено'"></span>
+    <span class="detail_label small-3 columns" ng-if='achivment.message && achivment.owner_id == currentUser._id'>Отвергнуто:</span>
+    <p class="achivment_detail_description small-12 columns" ng-if='achivment.message && (achivment.owner_id == currentUser._id)' ng-bind="achivment.message"></p>
     </div>
     </div>
     <div class="row">
-    <ul class="achivment_detail_photo small-12 columns" ng-if="achivment.photo.length > 0">
-      <li ng-repeat="photoUri in achivment.photo"><img ng-src="photoUri" alt="{{achivment.name}}"></li>
-    </ul>
   </div>
   <div class="row">
     <p class="achivment_detail_description small-12 columns" ng-if='achivment.description' ng-bind="achivment.description"></p>
+    <span ></span>
     </div>
     <a class="achivment_owner" ui-sref="profile({id : achivment.owner._id})" ng-bind="achivment.owner.firstName + ' ' + achivment.owner.lastName"></a>
    </div>

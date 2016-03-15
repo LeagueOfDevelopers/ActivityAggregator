@@ -44,9 +44,8 @@ function newAchivment(req, res, next) {
 
     form.on('close', function() {
         if(errors.length == 0) {
-            console.log(achivment);
+    
             Student.findById(req.params.id, function(err, doc) {
-                console.log(doc);
                 if(achivment.organization == 'МИСиС') {
                     achivment.checked = true;
                 };

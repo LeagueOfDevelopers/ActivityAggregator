@@ -1,7 +1,7 @@
-  <section class="page_content" ng-cloak>
+  <section class="page_content">
       <div class="container">
         <div class="row profile_info">
-          <div class="profile_info_card small-12 medium-7 medium-centered columns" ng-cloak>
+          <div class="profile_info_card small-12 medium-7 medium-centered columns">
             <div class="user_main_info">
               <div class="avatar_profile" style="{{avatar(student)}}">
               </div><span class="user_name_profile" ng-bind="student.firstName + ' ' + student.lastName"></span>
@@ -15,7 +15,7 @@
           <div class="row achivments_profile" ng-if='student.achivments.length != 0' ng-cloak>
             <span>Достижения</span>
           </div>
-        <div class="achivments_list" ng-cloak>
+        <div class="achivments_list">
           <ul class="small-12">
             <li ng-repeat='ach in student.achivments' ng-if='ach.checked'>
               <a ui-sref="achivment_detail({achToShow : ach, owner: student})">

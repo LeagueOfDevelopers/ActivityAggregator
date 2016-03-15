@@ -1,9 +1,11 @@
 var fs = require('fs');
 var path = require('path');
 var Admin = require('../db/mongoose').models.Admin;
+var Student = require('../db/mongoose').models.Student;
 module.exports = {
   login: login,
-  newAdmin: newAdmin
+  newAdmin: newAdmin,
+  getUncheckedRequests: getUncheckedRequests
 };
 
 function login(req, res, next) {
@@ -42,5 +44,23 @@ function newAdmin(req, res, next) {
 	})
 };
 
+function getUncheckedRequests(req, res, next) {
+  Student.find({'achivments.unchecked': false}, function(err, data) {
+    if(err){
+      res.send(err);
+    }
+    res.send(data);
+  });
+
+};
+
+function confirmAchivment(req, res, next) {
+  Student.findOne({'achivments._id' : req.params.id}, function(err, student) {
+    if(err){
+      res.send(err);
+    };
+    
+  })
+};
 
 

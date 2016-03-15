@@ -148,7 +148,6 @@ angular.module('app.controllers.partials',
 
       $scope.getStudentsList = function(searchParams) {
         $scope.searchResults = {}
-        $scope.$emit('result loading');
         API.query('students.search', {searchParams: searchParams}, true).then(function(result) {
           $scope.searchResults = result.data;
         });
@@ -165,6 +164,10 @@ angular.module('app.controllers.partials',
     'avatar',
    function ($scope, $http, UserManager, Upload, avatar) {
 
+    if(!$scope.currentUser.department) {
+      $scope.$emit('needAuth');
+    }
+
     $scope.$emit('changeTitle', {title: 'Профиль студента'});    
     $scope.$emit('needAuth');
     $scope.avatar = avatar;
@@ -172,6 +175,7 @@ angular.module('app.controllers.partials',
     $scope.userDetail = $scope.currentUser; 
     $scope.oldAbout = '';
     $scope.newUserDetail = '';
+
 
       $scope.editUserDetail = function () {
         $scope.showEditField= true;

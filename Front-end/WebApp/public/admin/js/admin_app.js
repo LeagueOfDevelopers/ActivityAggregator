@@ -34,6 +34,17 @@
        			controller: 'authCtrl', 
        		}
        	}
-       });
+       })
+
+
+       .state('profile', {
+         url: '/profile/:id',
+         views: {
+           'page_content': {
+             templateUrl: 'admin/partials/profile.html',
+             controller: 'profileCtrl'
+           }
+         },
+       })
 
    }])
