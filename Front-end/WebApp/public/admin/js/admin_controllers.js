@@ -41,5 +41,5 @@ angular.module('admin.controllers',
    function($scope, API, $stateParams) {
    		$scope.$emit('nedAuth');
    		$scope.avatar = avatar;
-   };
+   }
 	])
