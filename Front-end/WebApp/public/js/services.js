@@ -68,7 +68,7 @@ angular.module('app.services', [])
                                           'search_by_name/' + params.searchParams.name);
         }
       },
-        getAll: {
+        getLast: {
           method: 'GET',
           url: function() {    // post
           return '/api'  + '/students/';
@@ -184,10 +184,16 @@ angular.module('app.services', [])
         }
 
        function update() {
-        return $q.when($http.post('/api/auth/update').success(function(data) {
+        return $q.when(updateUser()).then(function(res) {
+          return res;
+        })
+        } 
+      }
+
+        function updateUser() {
+          return $http.get('/api/auth/update').success(function(result) {
           console.log('ok');
-        })).then(function(res) {
-          console.log('updated');
+          return ressult.data;
         })
         };
 
@@ -202,7 +208,7 @@ angular.module('app.services', [])
         return {
             Current: Current,
             logout: logout,
-            update: update
+           update: update
         }
     }])
 

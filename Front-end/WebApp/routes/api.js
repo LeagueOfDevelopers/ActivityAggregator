@@ -15,7 +15,7 @@ router.post('/admin/login', admin.login);
 router.post('/admin', admin.newAdmin);
 router.post('/auth/isAuth', students.isAuth);
 router.post('/auth/logout', students.logout);
-router.post('/auth/update', students.updateSession);
+router.get('/auth/update', students.updateSession);
 router.post('/login', students.login);
 router.post('/students/', students.addStudent);
 router.post('/students/:id/avatar', students.changeAvatar);

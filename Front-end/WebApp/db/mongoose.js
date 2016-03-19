@@ -142,6 +142,10 @@ var admin = new schema({
 		type: String,
 		required: true
 	},
+	invCode: {
+		type: String,
+		required: true
+	},
 	middleName: {
 		type: String,
 		required: true

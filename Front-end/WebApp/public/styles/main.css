@@ -847,3 +847,47 @@ ul {
   font-size: 24px;
   top: 200px;
   text-align: center; }
+
+@media (min-height: 400px) {
+  .notification_popup {
+    top: 85% !important; } }
+
+.notification_popup {
+  z-index: 1000;
+  position: fixed;
+  top: 90%;
+  height: 90px;
+  background: #87b1cd;
+  -webkit-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5); }
+  .notification_popup p {
+    margin-top: 10px;
+    color: #fff;
+    font-size: 16px;
+    height: 100%; }
+  .notification_popup .label {
+    height: 100%;
+    background: #009fdf; }
+
+@keyframes popupIn {
+  from {
+    transform: translateY(100px); }
+  to {
+    transform: translateY(0px); } }
+
+@keyframes popupOut {
+  from {
+    transform: translateY(0px); }
+  to {
+    transform: translateY(100px); } }
+
+.notification_popup.popupIn {
+  -webkit-animation: popupIn .2s ease-out;
+  -o-animation: popupIn .2s ease-out;
+  animation: popupIn .2s ease-out; }
+
+.notification_popup.popupOut {
+  -webkit-animation: popupOut .2s ease-out;
+  -o-animation: popupOut .2s ease-out;
+  animation: popupOut .2s ease-out; }

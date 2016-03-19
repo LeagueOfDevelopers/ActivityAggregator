@@ -37,18 +37,20 @@ function login(req, res, next) {
 };
 function updateSession(req, res, next) {
 var oldSession = req.session;
-req.session.destroy();
+req.session.user = {};
  Student.findOne({_id: oldSession.user._id}, function(err, student) {
     if(err) {
       console.log(err)
     } 
     req.session.user = student;
-  }
+    console.log(' req.session.user');
+    res.send(req.session);
+  })
 
 
 };
+
 function isAuth(req, res, next) {
-  console.log(req.session.user);
   res.send(req.session);
 };
 

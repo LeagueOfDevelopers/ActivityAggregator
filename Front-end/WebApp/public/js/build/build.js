@@ -123,7 +123,7 @@ angular.module('app.controllers.partials',
      '$scope',
       'API',
      function($scope, API){
-      API.query('students.getAll', null, true).then(function(result) {
+      API.query('students.getLast', null, true).then(function(result) {
         var res = result.data;
         $scope.list = [res[res.length - 2], res[res.length - 1], res[res.length]];
       })
@@ -139,10 +139,9 @@ angular.module('app.controllers.partials',
    function ($scope, $http, API, avatar) {
       $scope.$emit('changeTitle', {title: 'База активистов НИТУ МИСиС'});
       $scope.avatar = avatar;
-      $scope.searchParams = {
-        name: '',
-        category: 'Наука'
-      }
+      API.query('students.getLast', null, true).then(function(result) {
+        $scope.searchResults = result.data;
+      })
 
       $scope.$watch('searchParams.category', function() {
         $scope.searchParams.name = '';
@@ -203,7 +202,6 @@ angular.module('app.controllers.partials',
       $scope.applyChanges = function () {    
         console.log($scope.newUserDetail);
         $http.post('/api/students/' + $scope.currentUser._id, {about : $scope.newUserDetail}).success(function(data) {
-          console.log(data);
           $scope.$emit('userUpdate');
         });
         $scope.showEditField = false;    
@@ -348,11 +346,12 @@ angular.module('app.controllers.partials',
       console.log($scope.auth);
       console.log($scope.auth.$valid);
       $http.post('/api/login', $scope.auth).success(function(res) {
-        console.log(res); if(res.data) {
+        console.log(res); 
+        if(res.data) {
           $scope.$emit('auth');
           $state.go('studentsBase');
         } else {
-          $scope.auth.email = res;
+          $scope.$emit('showMessage', {msg: 'Студент не найден, проверьте введенные данные'});
         }
       })
      }
@@ -378,6 +377,7 @@ angular.module('app.controllers.partials',
           
          }).success(function(res) {
           console.log(res);
+          $scope.$emit('showMessage', {msg: 'Регистрация прошла успешно, ждите верификации'})
           $state.go('auth')
          })
       
@@ -395,20 +395,24 @@ angular.module('app.controllers.main',
   ['$scope',
    '$state',
    'UserManager',
-  function ($scope, $state, UserManager) {
+   '$timeout',
+  function ($scope, $state, UserManager, $timeout) {
 
      $scope.title = 'Онлайн портфолио активных студентов НИТУ МИСиС';
      $scope.$on('changeTitle', function(e, args) {
       $scope.title = args.title;
      })
-
+     $scope.showMessage = false;
+     $scope.msg = '';
      $scope.currentUser = {};
       auth();
 
       
       function auth() {
-        $scope.currentUser = {};
-        UserManager.Current().then(function (result) {
+          UserManager.Current().then(function (result) {
+            if(!result) {
+              $scope.currentUser = {};
+            }
           $scope.currentUser = result;
         });
       };
@@ -420,12 +424,21 @@ angular.module('app.controllers.main',
            console.log('auth!');
       })     
 
-      $scope.$on('userUpdate', function (e, args) {
-           UserManager.update().then(function(res) {
-            $scope.broadcast('auth');
-           })
-           console.log('userUpdate');
-      })    
+      // $scope.$on('userUpdate', function (e, args) {
+      //      UserManager.update();
+           
+      // })    
+
+      $scope.$on('showMessage', function(e, args) {
+        $scope.showMessage = true;
+        $scope.msg = args.msg;
+        angular.element(document.querySelector('.notification_popup')).addClass('.popupIn');
+        $timeout(function() {
+        angular.element(document.querySelector('.notification_popup')).removeClass('.popupIn').addClass('.popupOut');
+        $scope.showMessage = false;
+        $scope.msg = '';
+        }, 5000);
+      })
 
     $scope.logout = function() {
         UserManager.logout();
@@ -528,7 +541,7 @@ angular.module('app.services', [])
                                           'search_by_name/' + params.searchParams.name);
         }
       },
-        getAll: {
+        getLast: {
           method: 'GET',
           url: function() {    // post
           return '/api'  + '/students/';
@@ -644,10 +657,16 @@ angular.module('app.services', [])
         }
 
        function update() {
-        return $q.when($http.post('/api/auth/update').success(function(data) {
+        return $q.when(updateUser()).then(function(res) {
+          return res;
+        })
+        } 
+      }
+
+        function updateUser() {
+          return $http.get('/api/auth/update').success(function(result) {
           console.log('ok');
-        })).then(function(res) {
-          console.log('updated');
+          return ressult.data;
         })
         };
 
@@ -662,7 +681,7 @@ angular.module('app.services', [])
         return {
             Current: Current,
             logout: logout,
-            update: update
+           update: update
         }
     }])
 

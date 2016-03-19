@@ -38,6 +38,11 @@ html(lang='en', ng-app='ActivityAggregator', ng-controller='appCtrl')
               a#profile_link(ui-sref='account(currentUser._id)', ng-if='(currentUser._id)', ng-bind="currentUser.firstName + ' ' + currentUser.lastName")
       section(ui-view='page_content')
       section(ui-view='footer')
+      section.notification_popup.small-12.medium-3.medium-offset-8.columns(ng-if='showMessage')
+        div.row
+          div.small-4.columns.label
+          div.small-9.columns
+            p(ng-bind='msg')
     script(type='text/javascript', src='../js/lib/angular.min.js')
     script(type='text/javascript', src='../js/lib/angular-sanitize.min.js')
     script(type='text/javascript', src='../js/lib/angular-ui-router.min.js')
