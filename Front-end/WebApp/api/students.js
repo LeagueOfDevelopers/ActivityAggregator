@@ -36,14 +36,12 @@ function login(req, res, next) {
   })
 };
 function updateSession(req, res, next) {
-var oldSession = req.session;
-req.session.user = {};
- Student.findOne({_id: oldSession.user._id}, function(err, student) {
+ Student.findOne({_id: req.session.user._id}, function(err, student) {
     if(err) {
       console.log(err)
     } 
     req.session.user = student;
-    console.log(' req.session.user');
+    console.log(req.session.user);
     res.send(req.session);
   })
 

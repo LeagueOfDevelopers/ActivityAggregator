@@ -70,13 +70,10 @@ angular.module('app.controllers.partials',
   .controller('accountCtrl',
    ['$scope',
     '$http',
+    '$state',
     'Upload',
     'avatar',
-   function ($scope, $http, Upload, avatar) {
-
-    if(!$scope.currentUser.department) {
-      $scope.$emit('needAuth');
-    }
+   function ($scope, $http, $state, Upload, avatar) {
 
     $scope.$emit('changeTitle', {title: 'Профиль студента'});    
     $scope.$emit('needAuth');
@@ -86,7 +83,9 @@ angular.module('app.controllers.partials',
     $scope.oldAbout = '';
     $scope.newUserDetail = '';
 
-
+    $scope.$on('userUpdated', function() {
+      $state.reload();
+    })
       $scope.editUserDetail = function () {
         $scope.showEditField= true;
         $scope.newUserDetail = $scope.userDetail.about;
@@ -98,6 +97,7 @@ angular.module('app.controllers.partials',
         console.log($scope.newUserDetail);
         $http.post('/api/students/' + $scope.currentUser._id, {about : $scope.newUserDetail}).success(function(data) {
           $scope.$emit('userUpdate');
+          $scope.$emit('showMessage', {msg: 'Информация успешно изменена'});
         });
         $scope.showEditField = false;    
       }
@@ -108,13 +108,13 @@ angular.module('app.controllers.partials',
       }
 
       $scope.uploadAvatar = function(avatar) {
-        console.log(avatar);
         Upload.upload({
             url: '/api/students/' + $scope.currentUser._id + '/avatar',
             data: {avatar : avatar}
           }).then(function(res) {
-            console.log(res);
             $scope.$emit('userUpdate');
+            $scope.$emit('showMessage', {msg: 'Аватар успешно сменен'});
+           
           })
 
       };

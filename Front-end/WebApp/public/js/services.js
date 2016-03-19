@@ -188,13 +188,13 @@ angular.module('app.services', [])
           return res;
         })
         } 
-      }
+      
 
         function updateUser() {
           return $http.get('/api/auth/update').success(function(result) {
-          console.log('ok');
-          return ressult.data;
-        })
+            console.log('ok');
+            return result.data;
+         })
         };
 
         function logout() {

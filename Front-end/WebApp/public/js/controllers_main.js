@@ -33,13 +33,14 @@ angular.module('app.controllers.main',
 
       $scope.$on('auth', function (e, args) {
            auth();
-           console.log('auth!');
+           $scope.$broadcast('userUpdated');
       })     
 
-      // $scope.$on('userUpdate', function (e, args) {
-      //      UserManager.update();
-           
-      // })    
+      $scope.$on('userUpdate', function (e, args) {
+           UserManager.update().then(function() {
+            $scope.$broadcast('auth');
+           })
+      })    
 
       $scope.$on('showMessage', function(e, args) {
         $scope.showMessage = true;
