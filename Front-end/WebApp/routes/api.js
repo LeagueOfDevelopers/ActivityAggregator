@@ -3,13 +3,13 @@ var admin = require('../api/admin');
 var students = require('../api/students');
 var achivments = require('../api/achivments');
 
-
+router.get('/students/', students.getStudentsList);
 router.get('/students/:id', students.getStudentDetail);
 router.get('/students/search_by_category/:searchParams', students.getStudentsListByCategory);
 router.get('/students/search_by_name/:searchParams', students.getStudentsListByName);
 router.get('/students/:student_id/achivments', achivments.getAchivmentsList);
 router.get('/achivments/:id', achivments.getAchivmentDetail);
-router.get('/admin/students', admin.getUncheckedRequests);
+router.get('/adm/requests', admin.getUncheckedRequests);
 
 router.post('/admin/login', admin.login);
 router.post('/admin', admin.newAdmin);

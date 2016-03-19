@@ -6,11 +6,21 @@
         <span class="form_title">Ваши успехи</span>
         <label>Название достижения</label>
           <input type="text" placeholder='Олимпиада по программирванию' required='true' ng-model='newAch.name'>
+          <label>Категория</label>
         <select name="category" class="select_category" ng-model='type' required='true'>
               <option>Спорт</option>
               <option>Культура</option>
               <option>Наука</option>
               <option>Общественная деятельность</option>
+              <option>Межкультурный диалог</option>
+              <option>Предпринимательство</option>
+            </select>
+            <label>Уровень</label>
+          <select name="level" class="select_category" ng-model='newAch.level' required='true'>
+              <option>Внутревузовский</option>
+              <option>Межвузовский</option>
+              <option>Государственный</option>
+              <option>Международный</option>
             </select>
           <label>Результаты</label>
           <input type="text" placeholder="Призер 2 место" required='true' ng-model='newAch.result'>
@@ -18,6 +28,8 @@
           <input type="text" placeholder="mail.ru" required='true' ng-model='newAch.organization'>
            <label>Подробнее (не обязательно)</label>
           <textarea name="name" rows="5" class="small-12 columns" ng-model="newAch.description"></textarea>
+           <label>Дата получения</label>
+          <input type="date" ng-model='newAch.created'  required>
            <label>Сканы документов</label>
             <div class="file_field" ngf-select ng-model="files" name="documents" ngf-pattern="'image/*'"
             ngf-accept="'image/*'"  

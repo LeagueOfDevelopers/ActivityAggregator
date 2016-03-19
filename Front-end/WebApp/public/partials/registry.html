@@ -22,6 +22,12 @@
             </div>
         </div>
         <div class="row">
+        <div class="small-12 columns">
+          <select name="level" ng-model="newStudent.level">
+            <option>Бакалавриат</option>
+            <option>Магистратура</option>
+          </select>
+        </div>
 				<div class="small-12 medium-4 columns">
         <label>Институт</label>
             <input type="text" placeholder="ИТАСУ" ng-model="newStudent.department" required='true' ng-change="newStudent.department = newStudent.department.toUpperCase()">

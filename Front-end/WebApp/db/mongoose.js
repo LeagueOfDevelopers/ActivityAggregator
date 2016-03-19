@@ -30,6 +30,10 @@ var achivment = new schema({
 		type: String,
 		required: true
 	},
+	level: {
+		type: String,
+		required: true
+	},
 	result: {
 		type: String,
 		required: true
@@ -44,6 +48,10 @@ var achivment = new schema({
 		required: true
 	},
 	created: {
+		type: Date,
+		default: Date.now
+	},
+	updated: {
 		type: Date,
 		default: Date.now
 	},
@@ -82,6 +90,10 @@ var student = new schema({
 		type: String,
 		required: true
 	},
+	level: {
+		type: String,
+		required: true
+	},
 	course: {
 		type: String,
 		required: true
@@ -93,8 +105,7 @@ var student = new schema({
 		type: String
 	},
 	registered: {
-		type: Date,
-		default: Date.now
+		type: Date
 	},
 	achivments: [achivment]
 
@@ -148,17 +159,15 @@ var admin = new schema({
 });
 var Admin = mongoose.model('Admin', admin);
 
+var Achivment = mongoose.model('Achivment', achivment);
 var Student = mongoose.model('Student', student);
 
 module.exports = {
 	connection: db,
 	models: {
 		Student: Student,
-		Admin: Admin
-	},
-	schemas: {
-		student: student,
-		achivment: achivment
+		Admin: Admin,
+		Achivment: Achivment
 	}
 
 }

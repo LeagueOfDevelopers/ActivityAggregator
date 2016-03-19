@@ -68,6 +68,13 @@ angular.module('app.services', [])
                                           'search_by_name/' + params.searchParams.name);
         }
       },
+        getAll: {
+          method: 'GET',
+          url: function() {    // post
+          return '/api'  + '/students/';
+        }
+        
+      },
 
         achivments: {
           add: {
@@ -125,7 +132,7 @@ angular.module('app.services', [])
         return $http({
           method: apiMethod.method,
           url   : apiMethod.url(params),
-          data  : params.data
+          data  : params && params.data ? params.data : null
         }).success(function(res) {
           return {
             data: res,
@@ -152,6 +159,7 @@ angular.module('app.services', [])
       }
   }])
 
+ 
 
   .service('UserManager',
    ['$rootScope',
@@ -160,21 +168,17 @@ angular.module('app.services', [])
    function ($rootScope, $q, $http) {
         
         var apiUrl = '/api';
-        var curUser = null;
 
         var userDetail = null;
-        function getCurrentUser(params) {
-            params = params || { cache: false };
-            return $q.when(curUser && params.cache ? curUser : getUser()).then(function (result) {
-                return result.status ? result.data.user : result;
+        function getCurrentUser() {
+            return $q.when(getUser()).then(function (result) {
+                return  result.data.user || result;
             });
 
             function getUser() {
               var reqUrl = apiUrl + '/auth/isAuth';
                 return $http.post(reqUrl).success(function (data) {
-                        curUser = data.user;
-                    
-                    return curUser;
+                        return data.user;
                 });
             }
         }
@@ -183,7 +187,6 @@ angular.module('app.services', [])
 
         function logout() {
             return $http.post('/api/auth/logout').success(function (data) {
-                curUser = null;
                 var defaultAction = true;
                 return data && data.result
                     ? data.result : defaultAction;

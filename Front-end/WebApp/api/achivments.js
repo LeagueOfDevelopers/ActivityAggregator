@@ -1,5 +1,6 @@
 
 var Student = require('../db/mongoose').models.Student,
+Achivment = require('../db/mongoose').models.Achivment,
 multiparty = require('multiparty'),
 util = require('util'),
 fs = require("fs");
@@ -7,11 +8,17 @@ fs = require("fs");
 module.exports = {
   	getAchivmentsList: getAchivmentsList,
   	getAchivmentDetail: getAchivmentDetail,
-  	newAchivment: newAchivment
+  	newAchivment: newAchivment,
+    getAchivmentsList: getAchivmentsList
 };
 
 function getAchivmentsList(req, res, next) {
-  res.end('getAchivmentsList' + req.params.student_id + ' ');
+  Achivments.find(function(err, data) {
+    if(err) {
+        res.send(err);
+    }
+    res.send(data);
+  })
 };
 
 function getAchivmentDetail(req, res, next) {
@@ -32,7 +39,7 @@ function newAchivment(req, res, next) {
     var achivment = {
         checked: false,
         files: [],
-        created: new Date()
+        updated: new Date()
     }
 
     form.on('error', function(err){
@@ -45,20 +52,20 @@ function newAchivment(req, res, next) {
     form.on('close', function() {
         if(errors.length == 0) {
     
-            Student.findById(req.params.id, function(err, doc) {
-                if(achivment.organization == 'МИСиС') {
-                    achivment.checked = true;
-                };
-                doc.achivments.push(achivment);
-                console.log(doc);
-                doc.save(function(err, data) {
-                    if(err) {
-                        res.send(err);
-                    } else {
-                        console.log({status: 200,
-                            data: data});
-                        res.send({status: 200,
-                            data: data});
+         Student.findById(req.params.id, function(err, doc) {
+                    if(achivment.organization == 'МИСиС') {
+                        achivment.checked = true;
+                    };
+                    doc.achivments.push(achivment);
+                    console.log(doc);
+                    doc.save(function(err, data) {
+                        if(err) {
+                            res.send(err);
+                        } else {
+                            console.log({status: 200,
+                                data: data});
+                            res.send({status: 200,
+                                data: data});
                     }
                 })
             })
@@ -77,6 +84,7 @@ function newAchivment(req, res, next) {
         uploadFile.size = part.byteCount;
         uploadFile.type = part.headers['content-type'];
         uploadFile.path = './public/storage/students/' + req.params.id + '/' + part.filename;
+        uploadFile.link = './storage/students/' + req.params.id + '/' + part.filename;
 
         //проверяем размер файла, он не должен быть больше максимального размера
         if(uploadFile.size > maxSize) {
@@ -95,7 +103,7 @@ function newAchivment(req, res, next) {
             }
             var out = fs.createWriteStream(uploadFile.path);
             part.pipe(out);
-            achivment.files.push(uploadFile.path);
+            achivment.files.push(uploadFile.link);
         }
         else {
             //пропускаем

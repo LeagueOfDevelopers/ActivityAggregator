@@ -11,7 +11,7 @@
             <div class="user_detail"><span>O ceбе</span>
               <p ng-bind="userDetail.about"></p>
               <div class="row">
-              <textarea name="name" class="about_edit_field" rows="8"  ng-if="showEditField" ng-bind="newUserDetail"></textarea>
+              <textarea name="name" class="about_edit_field" rows="8"  ng-if="showEditField" ng-model="$parent.newUserDetail"></textarea>
               </div>
             </div>
             <button  class="btn_edit_user_detail" ng-click="applyChanges()" ng-if="showEditField">Применить</button>

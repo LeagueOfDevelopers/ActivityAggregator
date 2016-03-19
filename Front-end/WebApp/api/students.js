@@ -1,5 +1,4 @@
 var Student = require('../db/mongoose').models.Student,
-studentSchema = require('../db/mongoose').schemas.student,
 fs = require("fs"),
 path = require("path"),
 util = require('util'),
@@ -49,7 +48,6 @@ function logout(req, res, next) {
 function addStudent(req, res, next) {
 
     var fields = req.body;
-    console.log(fields);
 
     var student = new Student ({
     firstName: fields.firstName,
@@ -60,7 +58,9 @@ function addStudent(req, res, next) {
     department: fields.department,
     course: fields.course,
     group: fields.group,
-    about: fields.about
+    about: fields.about,
+    level: fields.level,
+    registered: new Date()
   });
 
     
@@ -140,11 +140,8 @@ function getStudentsListByName(req, res, next) {
 };
 
 function updateStudentDetail(req, res, next) {
-  console.log(req.params.id);
   Student.findById(req.params.id, function(err, student) {
-    console.log(req.body)
     student.about = req.body.about;
-    console.log(student);
     student.save(function(data) {
       res.send(data);
     })
@@ -185,22 +182,5 @@ function changeAvatar(req, res, next) {
     })
     form.parse(req);
 
-    /*var savePath = './public/storage/students/' + req.params.id;
-
-        if(!fs.existsSync(savePath)) {
-            fs.mkdir(savePath);
-          }
-          
-    var file = fs.createWriteStream(savePath + '/avatar.png');
-    req.pipe(file);
-    Student.findById(req.params.id, function(err, data) {
-      if(err) {
-        res.send(err);
-      } else {
-        data.photoUri = savePath;
-        data.save(function(result) {
-          res.send('avatar changed');
-        })
-      }
-    })*/
+    
 };

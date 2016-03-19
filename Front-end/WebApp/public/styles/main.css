@@ -751,8 +751,7 @@ ul {
 .achivment_detail {
   height: 115px;
   position: relative;
-  font-size: 18px;
-  border-bottom: 1px solid #87b1cd; }
+  font-size: 18px; }
 
 .main_page_header {
   height: 100%; }

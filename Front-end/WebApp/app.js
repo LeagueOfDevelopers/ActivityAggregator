@@ -31,7 +31,7 @@ app.use(session({
   resave: true,
   saveUninitialized: true,
   key: 'sid',
-  cookie: { maxAge: 60000}
+  cookie: { maxAge: null}
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));

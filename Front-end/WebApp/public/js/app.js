@@ -32,6 +32,7 @@ angular.module('ActivityAggregator',
          views: {
            'page_content': {
              templateUrl: 'partials/main.html',
+             controller: 'indexCtrl'
            }
          }
        })

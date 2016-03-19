@@ -17,7 +17,7 @@
      $locationProvider.html5Mode(true);
 
        $stateProvider.state('inbox', {
-         url: '/',
+         url: '/admin/',
          views: {
            'page_content': {
              templateUrl: 'admin/partials/admin_inbox.html',
@@ -27,7 +27,7 @@
        })
 
        .state('auth', {
-       	url: '/auth',
+       	url: '/admin/auth',
        	views: {
        		'page_content': {
        			templateUrl: 'admin/partials/authAdmin.html',
@@ -37,14 +37,31 @@
        })
 
 
-       .state('profile', {
-         url: '/profile/:id',
+       .state('student', {
+         url: 'admin/student/:id',
          views: {
            'page_content': {
              templateUrl: 'admin/partials/profile.html',
              controller: 'profileCtrl'
            }
          },
+       })
+
+       .state('achivment_detail', {
+          url: 'admin/achivment_detail',
+          params: {
+            'achToShow': null,
+            'owner': null
+          },
+
+          views: {
+           'page_content': {
+             templateUrl: 'admin/partials/achivment.html',
+             controller: 'achCtrl'
+             }
+          },
+                   
+           
        })
 
    }])

@@ -17,7 +17,7 @@
      $locationProvider.html5Mode(true);
 
        $stateProvider.state('inbox', {
-         url: '/',
+         url: '/admin/',
          views: {
            'page_content': {
              templateUrl: 'admin/partials/admin_inbox.html',
@@ -27,7 +27,7 @@
        })
 
        .state('auth', {
-       	url: '/auth',
+       	url: '/admin/auth',
        	views: {
        		'page_content': {
        			templateUrl: 'admin/partials/authAdmin.html',
@@ -37,14 +37,31 @@
        })
 
 
-       .state('profile', {
-         url: '/profile/:id',
+       .state('student', {
+         url: 'admin/student/:id',
          views: {
            'page_content': {
              templateUrl: 'admin/partials/profile.html',
              controller: 'profileCtrl'
            }
          },
+       })
+
+       .state('achivment_detail', {
+          url: 'admin/achivment_detail',
+          params: {
+            'achToShow': null,
+            'owner': null
+          },
+
+          views: {
+           'page_content': {
+             templateUrl: 'admin/partials/achivment.html',
+             controller: 'achCtrl'
+             }
+          },
+                   
+           
        })
 
    }])
@@ -63,7 +80,10 @@ angular.module('admin.controllers',
 	 function($scope, $state, API, avatar){
 	 	$scope.$emit('changeTitle', {title: 'Кабинет администратора'})
 		$scope.$emit('needAuth');
-		$scope.avatar = avatar
+		$scope.avatar = avatar;
+		API.query('achivments.requests', null, true).then(function(res) {
+			$scope.studentsList = res.data || null;
+		})
 	
 }]).controller('authCtrl',
 	 [
@@ -88,11 +108,54 @@ angular.module('admin.controllers',
 	'API',
 	'$stateParams',
 	'avatar',
-   function($scope, API, $stateParams) {
+   function($scope, API, $stateParams, avatar) {
+   		console.log($stateParams);
    		$scope.$emit('nedAuth');
    		$scope.avatar = avatar;
+   		API.query('students.getDetail', {studentId : $stateParams.id}, true).then(function(res) {
+   			$scope.student = res.data || null;
+   		})
    }
 	])
+
+ .controller('achCtrl', 
+    ['$scope', 
+      '$state', 
+      '$http',
+      '$stateParams',
+     function($scope, $state, $http, $stateParams){
+
+         $scope.$emit('changeTitle', {title: $stateParams.achToShow.name}); 
+         console.log($stateParams)
+        var ach = $stateParams.achToShow;
+        var type = '';
+        switch(ach.type) {
+          case 'science' : type = 'Наука';  break;
+          case 'social' : type = 'Общественная деятельность'; break;
+          case 'cultural' : type = 'Культура'; break;
+          case 'sport' : type = 'Спорт'; break;
+          case 'study' : type = 'Учеба'; break;
+        }
+
+        var cr = new Date();
+        cr.setTime(Date.parse(ach.created));
+
+        $scope.achivment = {
+          owner: $stateParams.owner,
+          type: type,
+          title: ach.name,
+          organization: ach.organization,
+          result: ach.result,
+          checked: ach.checked,
+          description: ach.description,
+          created: cr.getDate() + '.' + (cr.getMonth() + 1) + '.' + cr.getFullYear(),
+          message: ach.message,
+          files: ach.files
+        }
+
+         
+    
+       }])
 angular.module('app.controllers.main',
  [
    'ui.router'
@@ -191,6 +254,21 @@ angular.module('app.services', [])
       },
 
       students: {
+        getDetail: {
+          method: 'GET',
+          url: function(params) {    // get
+          return '/api'  + '/students/' + params.studentId;
+        }
+      } 
+    },
+
+      achivments: {
+        requests: {
+          method: 'GET',
+          url: function() {
+            return '/api/adm/requests';
+          }
+        }
         
       }
 
@@ -219,7 +297,7 @@ angular.module('app.services', [])
 
  
       var apiMethod = parsePath(path, this.apiUrls);
-      return $q.when(send(apiMethod, params)).then(function(result) {
+      return $q.when(send(apiMethod, params || null)).then(function(result) {
         if(log) {
           console.log(result);
           }
@@ -229,12 +307,12 @@ angular.module('app.services', [])
 
       function send(apiMethod, params) {
         if(log) {
-          console.log(apiMethod.url(params));
+          console.log(apiMethod.url(params || null));
         }
         return $http({
           method: apiMethod.method,
           url   : apiMethod.url(params),
-          data  : params.data
+          data  : params && params.data ? params.data : undefined
         }).success(function(res) {
           return {
             data: res,
@@ -256,8 +334,8 @@ angular.module('app.services', [])
   .service('avatar',
     [ 
     function() {
-    return  function(student) {
-       return student.photoUri ? 'background-image: url(' + student.photoUri + ')' : ''; 
+    return  function(item) {
+       return item.photoUri ? 'background-image: url(' + item.photoUri + ')' : ''; 
       }
   }])
 
@@ -281,7 +359,6 @@ angular.module('app.services', [])
             function getUser() {
               var reqUrl = apiUrl + '/auth/isAuth';
                 return $http.post(reqUrl).success(function (data) {
-                        console.log(data)
                         curUser = data.user;
                     
                     return curUser;

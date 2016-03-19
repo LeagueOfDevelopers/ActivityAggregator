@@ -19,10 +19,9 @@ angular.module('app.controllers.main',
 
       
       function updateUserData() {
-
+        $scope.currentUser = {};
         UserManager.getCurrentUser().then(function (result) {
           $scope.currentUser = result;
-          console.log(result);
         });
       };
 

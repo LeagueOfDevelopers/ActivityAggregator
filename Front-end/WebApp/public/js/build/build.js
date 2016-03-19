@@ -32,6 +32,7 @@ angular.module('ActivityAggregator',
          views: {
            'page_content': {
              templateUrl: 'partials/main.html',
+             controller: 'indexCtrl'
            }
          }
        })
@@ -116,6 +117,19 @@ angular.module('app.controllers.partials',
 [ 
   'ui.router'
 ])
+  
+  .controller('indexCtrl',
+     [
+     '$scope',
+      'API',
+     function($scope, API){
+      API.query('students.getAll', null, true).then(function(result) {
+        var res = result.data;
+        $scope.list = [res[res.length - 2], res[res.length - 1], res[res.length]];
+      })
+      
+    
+  }])
 
   .controller('studentsBaseCtrl',
    ['$scope',
@@ -139,6 +153,9 @@ angular.module('app.controllers.partials',
           case 'Культура' : category = 'cultural'; break;
           case 'Спорт' : category = 'sport'; break;
           case 'Учеба' : category = 'study'; break;
+          case 'Предпринимательство' : category = 'business'; break;
+          case 'Межкультурный диалог' : category = 'international'; break;
+
         }
          
 
@@ -159,10 +176,9 @@ angular.module('app.controllers.partials',
   .controller('accountCtrl',
    ['$scope',
     '$http',
-    'UserManager',
     'Upload',
     'avatar',
-   function ($scope, $http, UserManager, Upload, avatar) {
+   function ($scope, $http, Upload, avatar) {
 
     if(!$scope.currentUser.department) {
       $scope.$emit('needAuth');
@@ -185,7 +201,7 @@ angular.module('app.controllers.partials',
       }
 
       $scope.applyChanges = function () {    
-        $scope.userDetail.about = $scope.newUserDetail;
+        console.log($scope.newUserDetail);
         $http.post('/api/students/' + $scope.currentUser._id, {about : $scope.newUserDetail}).success(function(data) {
           console.log(data);
           $scope.$emit('userUpdate');
@@ -249,7 +265,12 @@ angular.module('app.controllers.partials',
           case 'cultural' : type = 'Культура'; break;
           case 'sport' : type = 'Спорт'; break;
           case 'study' : type = 'Учеба'; break;
+          case 'business' : type = 'Предпринимательство'; break;
+          case 'international' : type = 'Межкультурный диалог'; break;
         }
+
+        var cr = new Date();
+        cr.setTime(Date.parse(ach.created));
 
         $scope.achivment = {
           owner: $stateParams.owner,
@@ -257,19 +278,12 @@ angular.module('app.controllers.partials',
           title: ach.name,
           organization: ach.organization,
           result: ach.result,
-          photo: [],
           checked: ach.checked,
-          description: ach.description 
-        }
-
-        $scope.type = '';
-
-         switch(ach.type) {
-          case 'science' : category = 'Наука';  break;
-          case 'social' : category = 'Общественная деятельность'; break;
-          case 'cultural' : category = 'Культура'; break;
-          case 'sport' : category = 'Спорт'; break;
-          case 'study' : category = 'Учеба'; break;
+          description: ach.description,
+          created: cr.getDate() + '.' + (cr.getMonth() + 1) + '.' + cr.getFullYear(),
+          message: ach.message,
+          files: ach.files,
+          level: ach.level
         }
          
     
@@ -291,7 +305,9 @@ angular.module('app.controllers.partials',
           case 'Общественная деятельность' : category = 'social'; break;
           case 'Культура' : category = 'cultural'; break;
           case 'Спорт' : category = 'sport'; break;
-          case 'Учеба' : category = 'study'; break;
+          case 'Учеба' : category = 'study' ; break;
+          case 'Предпринимательство' : category = 'business'; break;
+          case 'Межкультурный диалог' : category = 'international'; break;
         }
         $scope.newAch.type = category;
     });
@@ -391,10 +407,9 @@ angular.module('app.controllers.main',
 
       
       function updateUserData() {
-
+        $scope.currentUser = {};
         UserManager.getCurrentUser().then(function (result) {
           $scope.currentUser = result;
-          console.log(result);
         });
       };
 
@@ -506,6 +521,13 @@ angular.module('app.services', [])
                                           'search_by_name/' + params.searchParams.name);
         }
       },
+        getAll: {
+          method: 'GET',
+          url: function() {    // post
+          return '/api'  + '/students/';
+        }
+        
+      },
 
         achivments: {
           add: {
@@ -563,7 +585,7 @@ angular.module('app.services', [])
         return $http({
           method: apiMethod.method,
           url   : apiMethod.url(params),
-          data  : params.data
+          data  : params && params.data ? params.data : null
         }).success(function(res) {
           return {
             data: res,
@@ -590,6 +612,7 @@ angular.module('app.services', [])
       }
   }])
 
+ 
 
   .service('UserManager',
    ['$rootScope',
@@ -598,21 +621,17 @@ angular.module('app.services', [])
    function ($rootScope, $q, $http) {
         
         var apiUrl = '/api';
-        var curUser = null;
 
         var userDetail = null;
-        function getCurrentUser(params) {
-            params = params || { cache: false };
-            return $q.when(curUser && params.cache ? curUser : getUser()).then(function (result) {
-                return result.status ? result.data.user : result;
+        function getCurrentUser() {
+            return $q.when(getUser()).then(function (result) {
+                return  result.data.user || result;
             });
 
             function getUser() {
               var reqUrl = apiUrl + '/auth/isAuth';
                 return $http.post(reqUrl).success(function (data) {
-                        curUser = data.user;
-                    
-                    return curUser;
+                        return data.user;
                 });
             }
         }
@@ -621,7 +640,6 @@ angular.module('app.services', [])
 
         function logout() {
             return $http.post('/api/auth/logout').success(function (data) {
-                curUser = null;
                 var defaultAction = true;
                 return data && data.result
                     ? data.result : defaultAction;
