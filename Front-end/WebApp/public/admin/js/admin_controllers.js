@@ -83,7 +83,8 @@ angular.module('admin.controllers',
           description: ach.description,
           created: cr.getDate() + '.' + (cr.getMonth() + 1) + '.' + cr.getFullYear(),
           message: ach.message,
-          files: ach.files
+          files: ach.files,
+          level: ach.level
         }
 
          

@@ -14,7 +14,8 @@ module.exports = {
   getStudentsListByName: getStudentsListByName,
   addStudent: addStudent,
   changeAvatar: changeAvatar,
-  updateStudentDetail: updateStudentDetail
+  updateStudentDetail: updateStudentDetail,
+  updateSession: updateSession
 };
 
 function login(req, res, next) {
@@ -34,7 +35,18 @@ function login(req, res, next) {
     
   })
 };
+function updateSession(req, res, next) {
+var oldSession = req.session;
+req.session.destroy();
+ Student.findOne({_id: oldSession.user._id}, function(err, student) {
+    if(err) {
+      console.log(err)
+    } 
+    req.session.user = student;
+  }
 
+
+};
 function isAuth(req, res, next) {
   console.log(req.session.user);
   res.send(req.session);

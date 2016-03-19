@@ -244,7 +244,7 @@ angular.module('app.controllers.partials',
       console.log($scope.auth.$valid);
       $http.post('/api/login', $scope.auth).success(function(res) {
         console.log(res); if(res.data) {
-          $scope.$emit('userUpdate');
+          $scope.$emit('auth');
           $state.go('studentsBase');
         } else {
           $scope.auth.email = res;

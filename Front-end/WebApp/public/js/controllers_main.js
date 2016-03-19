@@ -15,22 +15,29 @@ angular.module('app.controllers.main',
      })
 
      $scope.currentUser = {};
-      updateUserData();
+      auth();
 
       
-      function updateUserData() {
+      function auth() {
         $scope.currentUser = {};
-        UserManager.getCurrentUser().then(function (result) {
+        UserManager.Current().then(function (result) {
           $scope.currentUser = result;
         });
       };
 
 
 
-      $scope.$on('userUpdate', function (e, args) {
-           updateUserData();
+      $scope.$on('auth', function (e, args) {
+           auth();
            console.log('auth!');
-      })      
+      })     
+
+      $scope.$on('userUpdate', function (e, args) {
+           UserManager.update().then(function(res) {
+            $scope.broadcast('auth');
+           })
+           console.log('userUpdate');
+      })    
 
     $scope.logout = function() {
         UserManager.logout();

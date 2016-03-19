@@ -169,21 +169,27 @@ angular.module('app.services', [])
         
         var apiUrl = '/api';
 
-        var userDetail = null;
-        function getCurrentUser() {
-            return $q.when(getUser()).then(function (result) {
-                return  result.data.user || result;
-            });
-
             function getUser() {
               var reqUrl = apiUrl + '/auth/isAuth';
                 return $http.post(reqUrl).success(function (data) {
                         return data.user;
                 });
             }
+
+        function Current() {
+            return $q.when(getUser()).then(function (result) {
+                return  result.data.user || result;
+            });
+
         }
 
-       
+       function update() {
+        return $q.when($http.post('/api/auth/update').success(function(data) {
+          console.log('ok');
+        })).then(function(res) {
+          console.log('updated');
+        })
+        };
 
         function logout() {
             return $http.post('/api/auth/logout').success(function (data) {
@@ -194,8 +200,9 @@ angular.module('app.services', [])
         }
 
         return {
-            getCurrentUser: getCurrentUser,
+            Current: Current,
             logout: logout,
+            update: update
         }
     }])
 

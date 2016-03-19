@@ -349,7 +349,7 @@ angular.module('app.controllers.partials',
       console.log($scope.auth.$valid);
       $http.post('/api/login', $scope.auth).success(function(res) {
         console.log(res); if(res.data) {
-          $scope.$emit('userUpdate');
+          $scope.$emit('auth');
           $state.go('studentsBase');
         } else {
           $scope.auth.email = res;
@@ -403,22 +403,29 @@ angular.module('app.controllers.main',
      })
 
      $scope.currentUser = {};
-      updateUserData();
+      auth();
 
       
-      function updateUserData() {
+      function auth() {
         $scope.currentUser = {};
-        UserManager.getCurrentUser().then(function (result) {
+        UserManager.Current().then(function (result) {
           $scope.currentUser = result;
         });
       };
 
 
 
-      $scope.$on('userUpdate', function (e, args) {
-           updateUserData();
+      $scope.$on('auth', function (e, args) {
+           auth();
            console.log('auth!');
-      })      
+      })     
+
+      $scope.$on('userUpdate', function (e, args) {
+           UserManager.update().then(function(res) {
+            $scope.broadcast('auth');
+           })
+           console.log('userUpdate');
+      })    
 
     $scope.logout = function() {
         UserManager.logout();
@@ -622,21 +629,27 @@ angular.module('app.services', [])
         
         var apiUrl = '/api';
 
-        var userDetail = null;
-        function getCurrentUser() {
-            return $q.when(getUser()).then(function (result) {
-                return  result.data.user || result;
-            });
-
             function getUser() {
               var reqUrl = apiUrl + '/auth/isAuth';
                 return $http.post(reqUrl).success(function (data) {
                         return data.user;
                 });
             }
+
+        function Current() {
+            return $q.when(getUser()).then(function (result) {
+                return  result.data.user || result;
+            });
+
         }
 
-       
+       function update() {
+        return $q.when($http.post('/api/auth/update').success(function(data) {
+          console.log('ok');
+        })).then(function(res) {
+          console.log('updated');
+        })
+        };
 
         function logout() {
             return $http.post('/api/auth/logout').success(function (data) {
@@ -647,8 +660,9 @@ angular.module('app.services', [])
         }
 
         return {
-            getCurrentUser: getCurrentUser,
+            Current: Current,
             logout: logout,
+            update: update
         }
     }])
 
