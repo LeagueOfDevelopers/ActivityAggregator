@@ -17,6 +17,8 @@ html(lang='en', ng-app='ActivityAggregator.admin', ng-controller='appCtrl')
          ul
            li
              a(ui-sref='inbox', ng-bind="currentUser.firstName + ' ' + currentUser.lastName")
+           li
+              a(ui-sref='inviteAdmin' ng-if='currentUser.firstName') Добавить администратора   
       section(ui-view='page_content')
       section(ui-view='footer')
     script(type='text/javascript', src='../admin/js/lib/angular.min.js')

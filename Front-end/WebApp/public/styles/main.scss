@@ -781,6 +781,7 @@ ul {
  .achivment_detail_card {
    margin-top: 100px;
    width: 300px;
+   height: auto;
    background-color: #fff;
    @include cardShadow;
    -webkit-animation: fadeIn .2s ease-out;
@@ -789,6 +790,17 @@ ul {
   -webkit-animation: fadeInScale .2s ease-out;
   -o-animation: fadeInScale .2s ease-out;
   animation: fadeInScale .2s ease-out;
+   }
+
+   .achivment_detail_card p {
+    display: block;
+    height: auto;
+    max-width: 60%;
+   }
+
+   .achivment_detail {
+    padding-left: 20px;
+    padding-top: 10px;
    }
 
 

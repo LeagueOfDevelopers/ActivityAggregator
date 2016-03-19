@@ -33,7 +33,7 @@ function newAdmin(req, res, next) {
 		firstName : 'Админ',
 		lastName: 'Админ',
 		middleName: 'Админ',
-		email: 'admin2@mail.ru',
+		email: 'admin3@mail.ru',
 		hashPassword: '11111'
 	});
 
@@ -42,6 +42,23 @@ function newAdmin(req, res, next) {
 		res.send(data);
 		console.log(new Date());
 	})
+};
+
+function registerByInvite(req, res, next) {
+
+  var admin = new Admin({
+    firstName : req.body.firstName,
+    lastName: req.body.lastName,
+    middleName: req.body.middleName
+    email: req.body.email,
+    hashPassword: req.body.password
+  });
+
+
+  admin.save(function(data) {
+    res.send(data);
+    console.log(new Date());
+  })
 };
 
 function getUncheckedRequests(req, res, next) {

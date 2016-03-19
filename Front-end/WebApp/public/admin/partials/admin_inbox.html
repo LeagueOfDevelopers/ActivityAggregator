@@ -1,6 +1,7 @@
 <section class="page_content">
-        <span class="students_base_title">
-          <center>Новые заявки</center></span>
+<div class="row">
+<div class="small-5 columns">
+  <h3>Неподтвержденные достижения</h3>
       <div class='not_found_msg small-12 columns' ng-if="sstudentsList.length == 0">Нет заявок</div>
       <ul class=" students_base_container" ng-if="studentsList.length != 0" ng-cloak>
         <li class="student_card ng-cloak" ng-repeat='student in studentsList' ng-cloak>
@@ -15,5 +16,8 @@
           </ul>
         </li>
       </ul>
+      </div>
+      <div class="small-5 columns"></div>
+</div>
 
     </section>

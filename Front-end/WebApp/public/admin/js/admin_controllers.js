@@ -35,6 +35,25 @@ angular.module('admin.controllers',
 		}
 	}])
 
+.controller('registryAdminCtrl',
+  [
+  '$scope',
+  '$state',
+  '$stateParams',
+  'API',
+ function($scope, $state, $stateParams, API) {
+  $scope.auth.code = $stateParams.code;
+  $scope.passwordCorrect = $scope.CheckPassword == $scope.auth.password;
+  $scope.submit = function() {
+    if(auth.$valid) {
+      API.query('admin.registry', {data: $scope.auth}, true).then(function(res) {
+        $scope.$emit('userUpdate');
+      })
+    }
+  }
+ }
+  ])
+
 .controller('profileCtrl', 
 	[
 	'$scope',

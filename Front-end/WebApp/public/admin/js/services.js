@@ -34,6 +34,12 @@ angular.module('app.services', [])
           url: function() {
             return '/api/admin' + '/login';
           }
+        },
+        registry: {
+          method: 'POST',
+          url: function() {
+            return '/api/admin/new'
+          }
         }
       },
 

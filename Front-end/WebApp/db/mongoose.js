@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var schema = mongoose.Schema;
+var crypto = require('crypto');
 
 mongoose.connect('mongodb://localhost/aggregator');
 var db = mongoose.connection;
@@ -80,7 +81,11 @@ var student = new schema({
 	},
 	hashPassword: {
 		type: String,
-		required: true
+		required: true,
+		set: setPassword
+	},
+	salt: {
+		type: String
 	},
 	department: {
 		type: String,
@@ -110,6 +115,26 @@ var student = new schema({
 	achivments: [achivment]
 
 });
+
+student.methods.encryptPass = function(pass) {
+	return crypto.createHmac('sha256', this.salt)
+                   .update(pass)
+                   .digest('hex');
+
+};
+
+student.methods.makeSalt = function() {
+	this.salt =  Math.random() + 'jambul' + Math.random();
+
+};
+
+student.methods.passwordIsCorrect = function(pass) {
+	return this.hashPassword == this.encryptPass(pass);
+
+};
+
+
+
 
 var action = new schema({
 	date: {
@@ -142,10 +167,7 @@ var admin = new schema({
 		type: String,
 		required: true
 	},
-	invCode: {
-		type: String,
-		required: true
-	},
+	invCodes: [{type: String}],
 	middleName: {
 		type: String,
 		required: true
@@ -155,12 +177,42 @@ var admin = new schema({
 		default: Date.now
 	},
 	actions: [action],
+	salt: {
+		type: String
+	},
 	hashPassword: {
 		type: String,
-		required: true
+		required: true,
+		set: setPassword
 	}
 
 });
+
+admin.methods.encryptData = function(data) {
+	return crypto.createHmac('sha256', this.salt).update(data).digest('hex');
+
+};
+
+admin.methods.makeSalt = function() {
+	this.salt =  Math.random() + 'jambul' + Math.random();
+
+};
+
+admin.methods.passwordIsCorrect = function(pass) {
+	return this.hashPassword == this.encryptData(pass);
+
+};
+
+
+admin.methods.generateInviteCode = function(guestWord) {
+	return this.ecryptData(guestWord);
+};
+
+ function setPassword(password) {
+      this.salt = this.makeSalt();
+      this.hashedPassword = this.encryptData(password);
+    }
+
 var Admin = mongoose.model('Admin', admin);
 
 var Achivment = mongoose.model('Achivment', achivment);

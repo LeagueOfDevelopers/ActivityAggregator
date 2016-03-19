@@ -6,26 +6,22 @@
     </div>
     <div class="row">
     <div class="achivment_detail small-12-columns">
-    <span class="detail_label small-3 columns">Категория:</span>
-    <span class="achivment_result small-9 columns" ng-bind="achivment.type"></span>
-    <span class="detail_label small-3 columns">Уровень:</span>
-    <span class="achivment_result small-9 columns" ng-bind="achivment.level"></span>
-    <span class="detail_label small-3 columns">Результат:</span>
-    <span class="achivment_result small-9 columns" ng-bind="achivment.result"></span>
-    <span class="detail_label small-4 columns" >Организация:</span>
-    <span class="achivment_result small-8 columns" ng-bind="achivment.organization"></span>
-    <span class="detail_label small-3 columns" >Получено:</span>
-    <span class="achivment_result small-8 columns" ng-bind="achivment.created"></span>
-    <span class="detail_label small-3 columns" >Статус:</span>
-    <span class="achivment_result small-9 columns" ng-bind="achivment.checked ? 'Подтверждено' : 'Не подтверждено'"></span>
-    <span class="detail_label small-3 columns" ng-if='achivment.message && achivment.owner_id == currentUser._id'>Отвергнуто:</span>
-    <p class="achivment_detail_description small-12 columns" ng-if='achivment.message && (achivment.owner_id == currentUser._id)' ng-bind="achivment.message"></p>
-    </div>
-    </div>
     <div class="row">
-  </div>
+    <ul class='detail_label small-3 columns'>
+        <li>Категория</li>
+        <li>Уровень</li>
+        <li>Результат</li>
+        <li>Организация</li>
+        <li>Получено</li>
+        <li>Статус</li>
+        <li>Отвергнуто</li>
+    </ul>
+    </div>
+    <p class="achivment_detail_description" ng-if='achivment.message && (achivment.owner_id == currentUser._id)' ng-bind="achivment.message"></p>
+    </div>
+    </div>
   <div class="row">
-    <p class="achivment_detail_description small-12 columns" ng-if='achivment.description' ng-bind="achivment.description"></p>
+    <p class ='small-12 columns' ng-if='achivment.description' ng-bind="achivment.description"></p>
         <ul><li ng-repeat='file in achivment.files'>
         <div style="{bacground: url({{file}})}"></div>
     </li>

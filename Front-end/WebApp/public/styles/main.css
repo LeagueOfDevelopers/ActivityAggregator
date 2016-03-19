@@ -654,6 +654,7 @@ ul {
 .achivment_detail_card {
   margin-top: 100px;
   width: 300px;
+  height: auto;
   background-color: #fff;
   -webkit-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
@@ -664,6 +665,15 @@ ul {
   -webkit-animation: fadeInScale .2s ease-out;
   -o-animation: fadeInScale .2s ease-out;
   animation: fadeInScale .2s ease-out; }
+
+.achivment_detail_card p {
+  display: block;
+  height: auto;
+  max-width: 60%; }
+
+.achivment_detail {
+  padding-left: 20px;
+  padding-top: 10px; }
 
 .detail_label {
   font-weight: bold !important; }

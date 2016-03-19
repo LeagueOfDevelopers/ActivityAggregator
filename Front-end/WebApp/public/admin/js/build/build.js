@@ -63,6 +63,33 @@
                    
            
        })
+       .state('registryAdmin', {
+        url: '/admin/registryAdmin/:code',
+        views: {
+          'page_content': {
+            templateUrl: 'admin/partials/registry_admin.html',
+            controller: 'registryAdminCtrl'
+          }
+        }
+       })
+
+       .state('inviteAdmin', {
+        url: 'admin/invite',
+        views: {
+           'page_content': {
+                templateUrl: 'admin/partials/invite.html',
+                controller: function($scope, $http) {
+                  $scope.generate = function() {
+                    $http.get('api/admin/invite').success(function(res) {
+                      $scope.inviteCode = res.data;
+                      $scope.inviteLink = 'http://localhost:3000/admin/register/' + res.data;
+                    })
+                  }
+                }
+             }
+          },
+       })
+
 
    }])
 angular.module('admin.controllers',
@@ -101,6 +128,25 @@ angular.module('admin.controllers',
 			})
 		}
 	}])
+
+.controller('registryAdminCtrl',
+  [
+  '$scope',
+  '$state',
+  '$stateParams',
+  'API',
+ function($scope, $state, $stateParams, API) {
+  $scope.auth.code = $stateParams.code;
+  $scope.passwordCorrect = $scope.CheckPassword == $scope.auth.password;
+  $scope.submit = function() {
+    if(auth.$valid) {
+      API.query('admin.registry', {data: $scope.auth}, true).then(function(res) {
+        $scope.$emit('userUpdate');
+      })
+    }
+  }
+ }
+  ])
 
 .controller('profileCtrl', 
 	[
@@ -250,6 +296,12 @@ angular.module('app.services', [])
           method: 'POST',
           url: function() {
             return '/api/admin' + '/login';
+          }
+        },
+        registry: {
+          method: 'POST',
+          url: function() {
+            return '/api/admin/new'
           }
         }
       },

@@ -63,5 +63,32 @@
                    
            
        })
+       .state('registryAdmin', {
+        url: '/admin/registryAdmin/:code',
+        views: {
+          'page_content': {
+            templateUrl: 'admin/partials/registry_admin.html',
+            controller: 'registryAdminCtrl'
+          }
+        }
+       })
+
+       .state('inviteAdmin', {
+        url: 'admin/invite',
+        views: {
+           'page_content': {
+                templateUrl: 'admin/partials/invite.html',
+                controller: function($scope, $http) {
+                  $scope.generate = function() {
+                    $http.get('api/admin/invite').success(function(res) {
+                      $scope.inviteCode = res.data;
+                      $scope.inviteLink = 'http://localhost:3000/admin/register/' + res.data;
+                    })
+                  }
+                }
+             }
+          },
+       })
+
 
    }])
