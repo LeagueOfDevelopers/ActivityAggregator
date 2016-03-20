@@ -10,12 +10,13 @@ router.get('/students/search_by_name/:searchParams', students.getStudentsListByN
 router.get('/students/:student_id/achivments', achivments.getAchivmentsList);
 router.get('/achivments/:id', achivments.getAchivmentDetail);
 router.get('/adm/requests', admin.getUncheckedRequests);
+router.get('/auth/update', students.updateSession);
 
+router.post('/admin/invite', admin.getInviteCode)
 router.post('/admin/login', admin.login);
 router.post('/admin', admin.newAdmin);
 router.post('/auth/isAuth', students.isAuth);
 router.post('/auth/logout', students.logout);
-router.get('/auth/update', students.updateSession);
 router.post('/login', students.login);
 router.post('/students/', students.addStudent);
 router.post('/students/:id/avatar', students.changeAvatar);

@@ -151,7 +151,7 @@ var action = new schema({
 		require: true
 	}
 
-})
+});
 
 var admin = new schema({
 	email: {
@@ -205,6 +205,8 @@ admin.methods.passwordIsCorrect = function(pass) {
 
 
 admin.methods.generateInviteCode = function(guestWord) {
+	var inviteCode = this.ecryptData(guestWord);
+	this.invCodes.push(inviteCode);
 	return this.ecryptData(guestWord);
 };
 

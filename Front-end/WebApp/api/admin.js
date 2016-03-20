@@ -5,6 +5,8 @@ var Student = require('../db/mongoose').models.Student;
 module.exports = {
   login: login,
   newAdmin: newAdmin,
+  getInviteCode: getInviteCode,
+  registryByInvite: registryByInvite,
   getUncheckedRequests: getUncheckedRequests
 };
 
@@ -44,7 +46,20 @@ function newAdmin(req, res, next) {
 	})
 };
 
-function registerByInvite(req, res, next) {
+function getInviteCode(req, res, next) {
+
+  Admin.findById(req.params.id, function(err, admin) {
+    if(err) res.send(err);
+    res.send(admin.generateInviteCode(req.body.secret)); 
+    admin.save();
+  })
+}
+
+function registryByInvite(req, res, next) {
+
+Admin.findOne({'invCodes' : req.body.code}, function(err, admin) {
+
+  if(err) res.send(err);
 
   var admin = new Admin({
     firstName : req.body.firstName,
@@ -54,21 +69,26 @@ function registerByInvite(req, res, next) {
     hashPassword: req.body.password
   });
 
-
   admin.save(function(data) {
     res.send(data);
     console.log(new Date());
   })
+  
+})
+
+
 };
 
 function getUncheckedRequests(req, res, next) {
-  console.log('hey');
-  Student.find({'achivments.checked': false}, function(err, data) {
-    if(err){
-      res.send(err);
-    }
-    res.send(data);
-  });
+
+  Student.find({'achivments.checked': false})
+         .limit(10)
+         .exec(function(err, data) {
+                if(err){
+                  res.send(err);
+                }
+                res.send(data);
+          });
 
 };
 
