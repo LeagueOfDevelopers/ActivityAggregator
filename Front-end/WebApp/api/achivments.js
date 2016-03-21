@@ -1,6 +1,7 @@
 
 var Student = require('../db/mongoose').models.Student,
 Achivment = require('../db/mongoose').models.Achivment,
+config = require('../config').files.achivmentsDocs,
 multiparty = require('multiparty'),
 util = require('util'),
 fs = require("fs");
@@ -22,7 +23,6 @@ function getAchivmentsList(req, res, next) {
 };
 
 function getAchivmentDetail(req, res, next) {
-  res.end('getAchivmentDetail' + ' ' + req.params.id);
 
 };
 
@@ -33,7 +33,7 @@ function newAchivment(req, res, next) {
 
     var uploadFile = {uploadPath: '', type: '', size: 0},
      maxSize = 2 * 1024 * 1024,
-     supportMimeTypes = ['image/jpg', 'image/jpeg', 'image/png'],
+     supportMimeTypes = config.types,
      errors = [];
 
     var achivment = {
@@ -83,8 +83,8 @@ function newAchivment(req, res, next) {
         console.log(part.filename);
         uploadFile.size = part.byteCount;
         uploadFile.type = part.headers['content-type'];
-        uploadFile.path = './public/storage/students/' + req.params.id + '/' + part.filename;
-        uploadFile.link = './storage/students/' + req.params.id + '/' + part.filename;
+        uploadFile.path = config.path + req.params.id + '/' + part.filename;
+        uploadFile.link = config.link + req.params.id + '/' + part.filename;
 
         //проверяем размер файла, он не должен быть больше максимального размера
         if(uploadFile.size > maxSize) {
@@ -98,8 +98,9 @@ function newAchivment(req, res, next) {
 
         //если нет ошибок то создаем поток для записи файла
         if(errors.length == 0) {
-            if (!fs.existsSync('./public/storage/students/' + req.params.id)) {
-                fs.mkdirSync('./public/storage/students/' + req.params.id);
+            var studentFolder = config.files.achivmentsDocs.path + req.params.id;
+            if (!fs.existsSync(studentFolder)) {
+                fs.mkdirSync(studentFolder);
             }
             var out = fs.createWriteStream(uploadFile.path);
             part.pipe(out);

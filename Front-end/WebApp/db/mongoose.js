@@ -1,8 +1,9 @@
-var mongoose = require('mongoose');
-var schema = mongoose.Schema;
-var crypto = require('crypto');
+var mongoose = require('mongoose'),
+	schema = mongoose.Schema,
+	config = require('../config').db,
+	crypto = require('crypto');
 
-mongoose.connect('mongodb://localhost/aggregator');
+mongoose.connect(config.string);
 var db = mongoose.connection;
 
 db.on('error', function (err) {

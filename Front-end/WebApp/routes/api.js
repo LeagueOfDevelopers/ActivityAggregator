@@ -12,6 +12,8 @@ router.get('/achivments/:id', achivments.getAchivmentDetail);
 router.get('/adm/requests', admin.getUncheckedRequests);
 router.get('/auth/update', students.updateSession);
 
+router.post('/admin/confirm/:id', admin.confirmAchivment)
+router.post('/admin/unConfirm/:id', admin.unConfirmAchivment)
 router.post('/admin/invite', admin.getInviteCode)
 router.post('/admin/login', admin.login);
 router.post('/admin', admin.newAdmin);
