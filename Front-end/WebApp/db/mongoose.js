@@ -216,7 +216,7 @@ admin.methods.passwordIsCorrect = function(pass) {
 
 
 admin.methods.generateInviteCode = function(guestWord) {
-	var inviteCode = this.ecryptData(guestWord);
+	var inviteCode = this.encryptData(guestWord);
 	this.invCodes.push(inviteCode);
 	return inviteCode;
 };

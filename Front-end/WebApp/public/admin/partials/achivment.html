@@ -1,3 +1,4 @@
+
 <section class="page_content">
 <div class="row">
   <div class="achivment_detail_card small-12 medium-6 medium-centered columns">
@@ -12,30 +13,27 @@
     <span class="achivment_result small-9 columns" ng-bind="achivment.level"></span>
     <span class="detail_label small-3 columns">Результат:</span>
     <span class="achivment_result small-9 columns" ng-bind="achivment.result"></span>
-    <span class="detail_label small-4 columns" >Организация:</span>
+    <span class="detail_label small-3 columns" >Организация:</span>
     <span class="achivment_result small-9 columns" ng-bind="achivment.organization"></span>
     <span class="detail_label small-3 columns" >Получено:</span>
     <span class="achivment_result small-9 columns" ng-bind="achivment.created"></span>
     <span class="detail_label small-3 columns" >Статус:</span>
     <span class="achivment_result small-9 columns" ng-bind="achivment.checked ? 'Подтверждено' : 'Не подтверждено'"></span>
     <span class="detail_label small-3 columns" ng-if='achivment.message && achivment.owner_id == currentUser._id'>Отвергнуто:</span>
-    <div class="small">
+    <div class="small-12 columns">
     <p class="achivment_detail_description small-12 columns" ng-if='achivment.message && (achivment.owner_id == currentUser._id)' ng-bind="achivment.message"></p>
     </div>
     </div>
-    </div>
-    <div class="row">
-  </div>
-  <div class="row">
-    <p class="achivment_detail_description small-12 columns" ng-if='achivment.description' ng-bind="achivment.description"></p>
-        <ul><li ng-repeat='file in achivment.files'>
-        <div style="{background: url({{file}})}"></div>
+    <ul>
+        <li ng-repeat='file in achivment.files'>
+        <img ng-src="{{file}}" alt="">
     </li>
     </ul>
+    <textarea class='small-12 columns' cols="10" ng-if="showEditfield"  ng-model="$parent.message"></textarea>
+    <button class='btn_edit_user_detail' ng-click='confirm()'>Подтвердить</button>
+    <button class='btn_edit_user_detail' ng-click='showEditField = !showEditField'>Отказать</button>
+    <button class='btn_edit_user_detail' ng-click='unconfirm()' ng-if="showEditfield">Отправить</button>
     </div>
-    <button ng-click='confirm()'>Подтвердить</button>
-    <button ng-click='showEditField = true' ng-bind="showEditField ? 'Отправить' : 'Отказать" ></button>
-    <textarea name="name" class="about_edit_field" rows="8"  ng-if="showEditfield" ng-model="$parent.message"></textarea>
    </div>
 
 </section>

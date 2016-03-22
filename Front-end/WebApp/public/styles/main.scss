@@ -1081,3 +1081,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   animation: popupOut .2s ease-out;
 
 }
+
+.backdrop {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0, .5);
+}

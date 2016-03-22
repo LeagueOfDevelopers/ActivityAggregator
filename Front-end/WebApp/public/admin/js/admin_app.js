@@ -3,7 +3,8 @@
    'ui.router',
    'app.services',
    'admin.controllers',
-   'ngSanitize'
+   'ngSanitize',
+   'ngDialog'
  ])
 
  .config(
@@ -64,7 +65,7 @@
            
        })
        .state('registryAdmin', {
-        url: '/admin/registryAdmin/:code?',
+        url: '/admin/registryAdmin/:code',
         views: {
           'page_content': {
             templateUrl: 'admin/partials/registry_admin.html',
@@ -73,14 +74,14 @@
         }
        })
 
-       .state('inviteCtrl', {
+       .state('inviteAdmin', {
         url: 'admin/invite',
         views: {
            'page_content': {
                 templateUrl: 'admin/partials/invite.html',
-                controller: inviteCtrl
+                controller: 'inviteCtrl'
              }
-          },
+          }
        })
 
 

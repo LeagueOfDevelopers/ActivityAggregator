@@ -3,7 +3,8 @@
    'ui.router',
    'app.services',
    'admin.controllers',
-   'ngSanitize'
+   'ngSanitize',
+   'ngDialog'
  ])
 
  .config(
@@ -64,7 +65,7 @@
            
        })
        .state('registryAdmin', {
-        url: '/admin/registryAdmin/:code?',
+        url: '/admin/registryAdmin/:code',
         views: {
           'page_content': {
             templateUrl: 'admin/partials/registry_admin.html',
@@ -73,14 +74,14 @@
         }
        })
 
-       .state('inviteCtrl', {
+       .state('inviteAdmin', {
         url: 'admin/invite',
         views: {
            'page_content': {
                 templateUrl: 'admin/partials/invite.html',
-                controller: inviteCtrl
+                controller: 'inviteCtrl'
              }
-          },
+          }
        })
 
 
@@ -161,17 +162,13 @@ angular.module('admin.controllers',
       '$state', 
       '$http',
       '$stateParams',
-     function($scope, $state, $http, $stateParams){
+      'ngDialog',
+     function($scope, $state, $http, $stateParams, ngDialog){
 
-      $scope.confirm = function() {
-
-      }
-
-      $scope.unconfirm = function() {
-        $scope.showEditField = false;
-      }
 
          $scope.$emit('changeTitle', {title: $stateParams.achToShow.name}); 
+         $scope.showEditField = false;
+         $scope.fullPhoto = null;
          console.log($stateParams)
         var ach = $stateParams.achToShow;
         var type = '';
@@ -200,25 +197,53 @@ angular.module('admin.controllers',
           level: ach.level
         }
 
-         
+        $scope.confirm = function() {
+          $http.post('api/admin/confirm/' + ach._id).success(function(result) {
+            console.log(result);
+          })
+
+        }
+
+        $scope.unconfirm = function() {
+          if($scope.message) {
+          $scope.showEditField = false;
+          $http.post('api/admin/unconfirm/' + ach._id, {message: $scope.message}).success(function(result) {
+            console.log(result);
+          })
+        }
+         }
+
+         $scope.showFullPhoto = function(photo) {
+          $scope.fullPhoto = photo;
+          console.log('hui');
+             $scope.$dialog = ngDialog.open({
+                      template: 'admin/partials/fullPhoto.html',
+                      showClose: true,
+                      scope: $scope
+                    });
+         }
     
        }])
 
-    .controller('inviteCtrl', ['$scope', '$http', function($scope, $http) {
-                  $scope.generate = function() {
+       .controller('inviteCtrl', ['$scope', '$http', function($scope, $http) {
+                    $scope.inviteCode = 'код';
+                    $scope.inviteLink = 'ссылка';
+                    $scope.secret = null;
+                    $scope.generate = function() {
 
                     if($scope.secret) {
 
-                    $http.post('api/admin/invite', $scope.secret).success(function(res) {
+                    $http.post('api/admin/invite/' + $scope.currentUser._id, {secret: $scope.secret}).success(function(res) {
+                      console.log(res);
                       $scope.inviteCode = res.data;
-                      $scope.inviteLink = 'http://localhost:3000/admin/register/' + res.data;
+                      $scope.inviteLink = 'http://localhost:3000/admin/registryAdmin/' + res.data;
                     })
                     
                   }
                   }
-                }
+                
       
-    ])
+    }])
 
 angular.module('app.controllers.main',
  [
@@ -247,6 +272,17 @@ angular.module('app.controllers.main',
           console.log(result);
         });
       };
+
+      $scope.$on('showMessage', function(e, args) {
+        $scope.showMessage = true;
+        $scope.msg = args.msg;
+        angular.element(document.querySelector('.notification_popup')).addClass('.popupIn');
+        $timeout(function() {
+        angular.element(document.querySelector('.notification_popup')).removeClass('.popupIn').addClass('.popupOut');
+        $scope.showMessage = false;
+        $scope.msg = '';
+        }, 5000);
+      })
 
 
 

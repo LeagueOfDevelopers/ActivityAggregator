@@ -26,6 +26,17 @@ angular.module('app.controllers.main',
         });
       };
 
+      $scope.$on('showMessage', function(e, args) {
+        $scope.showMessage = true;
+        $scope.msg = args.msg;
+        angular.element(document.querySelector('.notification_popup')).addClass('.popupIn');
+        $timeout(function() {
+        angular.element(document.querySelector('.notification_popup')).removeClass('.popupIn').addClass('.popupOut');
+        $scope.showMessage = false;
+        $scope.msg = '';
+        }, 5000);
+      })
+
 
 
       $scope.$on('userUpdate', function (e, args) {

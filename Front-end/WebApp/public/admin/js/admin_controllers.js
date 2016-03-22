@@ -74,17 +74,13 @@ angular.module('admin.controllers',
       '$state', 
       '$http',
       '$stateParams',
-     function($scope, $state, $http, $stateParams){
+      'ngDialog',
+     function($scope, $state, $http, $stateParams, ngDialog){
 
-      $scope.confirm = function() {
-
-      }
-
-      $scope.unconfirm = function() {
-        $scope.showEditField = false;
-      }
 
          $scope.$emit('changeTitle', {title: $stateParams.achToShow.name}); 
+         $scope.showEditField = false;
+         $scope.fullPhoto = null;
          console.log($stateParams)
         var ach = $stateParams.achToShow;
         var type = '';
@@ -113,22 +109,50 @@ angular.module('admin.controllers',
           level: ach.level
         }
 
-         
+        $scope.confirm = function() {
+          $http.post('api/admin/confirm/' + ach._id).success(function(result) {
+            console.log(result);
+          })
+
+        }
+
+        $scope.unconfirm = function() {
+          if($scope.message) {
+          $scope.showEditField = false;
+          $http.post('api/admin/unconfirm/' + ach._id, {message: $scope.message}).success(function(result) {
+            console.log(result);
+          })
+        }
+         }
+
+         $scope.showFullPhoto = function(photo) {
+          $scope.fullPhoto = photo;
+          console.log('hui');
+             $scope.$dialog = ngDialog.open({
+                      template: 'admin/partials/fullPhoto.html',
+                      showClose: true,
+                      scope: $scope
+                    });
+         }
     
        }])
 
-    .controller('inviteCtrl', ['$scope', '$http', function($scope, $http) {
-                  $scope.generate = function() {
+       .controller('inviteCtrl', ['$scope', '$http', function($scope, $http) {
+                    $scope.inviteCode = 'код';
+                    $scope.inviteLink = 'ссылка';
+                    $scope.secret = null;
+                    $scope.generate = function() {
 
                     if($scope.secret) {
 
-                    $http.post('api/admin/invite', $scope.secret).success(function(res) {
+                    $http.post('api/admin/invite/' + $scope.currentUser._id, {secret: $scope.secret}).success(function(res) {
+                      console.log(res);
                       $scope.inviteCode = res.data;
-                      $scope.inviteLink = 'http://localhost:3000/admin/register/' + res.data;
+                      $scope.inviteLink = 'http://localhost:3000/admin/registryAdmin/' + res.data;
                     })
                     
                   }
                   }
-                }
+                
       
-    ])
+    }])

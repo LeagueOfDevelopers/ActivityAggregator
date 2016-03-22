@@ -901,3 +901,9 @@ ul {
   -webkit-animation: popupOut .2s ease-out;
   -o-animation: popupOut .2s ease-out;
   animation: popupOut .2s ease-out; }
+
+.backdrop {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5); }

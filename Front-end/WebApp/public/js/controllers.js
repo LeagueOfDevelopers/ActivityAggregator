@@ -18,9 +18,9 @@ angular.module('app.controllers.partials',
      '$scope',
       'API',
      function($scope, API){
-      API.query('students.getLast', null, true).then(function(result) {
+      API.query('students.getLast', null, true).then(function(ressult) {
         var res = result.data;
-        $scope.list = [res[res.length - 2], res[res.length - 1], res[res.length]];
+        $scope.list = [res[res.length - 3], res[res.length - 2], res[res.length - 1]];
       })
       
     
@@ -95,12 +95,14 @@ angular.module('app.controllers.partials',
 
       $scope.applyChanges = function () {    
         console.log($scope.newUserDetail);
+        $scope.userDetail.about = $scope.newUserDetail;
         $http.post('/api/students/' + $scope.currentUser._id, {about : $scope.newUserDetail}).success(function(data) {
           $scope.$emit('userUpdate');
           $scope.$emit('showMessage', {msg: 'Информация успешно изменена'});
         });
         $scope.showEditField = false;    
       }
+
       $scope.notApplyChanges = function () {
           $scope.showEditField = false;
           $scope.newUserDetail = null;
@@ -214,13 +216,13 @@ angular.module('app.controllers.partials',
       if ($scope.isValid()) {
         $scope.newAch.owner_id = $scope.currentUser._id;
         $scope.newAch.file = $scope.files;
-        console.log($scope.newAch);
           Upload.upload({
             url: '/api/students/' + $scope.currentUser._id + '/achivments/',
             data: $scope.newAch
           }).then(function(res) {
             console.log(res);
             $scope.$emit('userUpdate');
+            $scope.$emit('showMessage', {msg: 'Достижение создано, ожидайте подтверждения'});
             $state.go('studentsBase');
           })
       }

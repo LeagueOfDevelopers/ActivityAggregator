@@ -12,11 +12,11 @@ router.get('/achivments/:id', achivments.getAchivmentDetail);
 router.get('/adm/requests', admin.getUncheckedRequests);
 router.get('/auth/update', students.updateSession);
 
+router.post('/admin/invite/:id', admin.getInviteCode)
 router.post('/admin/confirm/:id', admin.confirmAchivment)
 router.post('/admin/unConfirm/:id', admin.unConfirmAchivment)
-router.post('/admin/invite', admin.getInviteCode)
 router.post('/admin/login', admin.login);
-router.post('/admin', admin.newAdmin);
+router.post('/admin', admin.newAdmin);	
 router.post('/auth/isAuth', students.isAuth);
 router.post('/auth/logout', students.logout);
 router.post('/login', students.login);

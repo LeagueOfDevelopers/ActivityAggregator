@@ -49,11 +49,14 @@ function newAdmin(req, res, next) {
 };
 
 function getInviteCode(req, res, next) {
-
   Admin.findById(req.params.id, function(err, admin) {
     if(err) res.send(err);
-    res.send(admin.generateInviteCode(req.body.secret)); 
+    if(admin) {
+      console.log('founded');
+      var code = admin.generateInviteCode(req.body.secret)
+    res.send({data : code}); 
     admin.save();
+  }
   })
 }
 
