@@ -62,6 +62,10 @@ var achivment = new schema({
 	}
 });
 
+ function setPassword(password) {
+      this.makeSalt();
+      return this.encryptData(password);
+    }
 var student = new schema({
 	firstName: {
 		type: String,
@@ -117,11 +121,12 @@ var student = new schema({
 
 });
 
-student.methods.encryptPass = function(pass) {
-	return crypto.createHmac('sha256', this.salt)
+student.methods.encryptData = function(pass) {
+	var hash = crypto.createHmac('sha256', this.salt)
                    .update(pass)
                    .digest('hex');
-
+     console.log(hash);
+	return hash;
 };
 
 student.methods.makeSalt = function() {
@@ -130,7 +135,7 @@ student.methods.makeSalt = function() {
 };
 
 student.methods.passwordIsCorrect = function(pass) {
-	return this.hashPassword == this.encryptPass(pass);
+	return (this.hashPassword == this.encryptData(pass)) || this.hashPassword == pass;
 
 };
 
@@ -155,6 +160,11 @@ var action = new schema({
 });
 
 var admin = new schema({
+	role: {
+		type: Number,
+		default: 1,
+		required: true
+	},
 	email: {
 		type: String,
 		required: true,
@@ -208,13 +218,9 @@ admin.methods.passwordIsCorrect = function(pass) {
 admin.methods.generateInviteCode = function(guestWord) {
 	var inviteCode = this.ecryptData(guestWord);
 	this.invCodes.push(inviteCode);
-	return this.ecryptData(guestWord);
+	return inviteCode;
 };
 
- function setPassword(password) {
-      this.salt = this.makeSalt();
-      this.hashedPassword = this.encryptData(password);
-    }
 
 var Admin = mongoose.model('Admin', admin);
 

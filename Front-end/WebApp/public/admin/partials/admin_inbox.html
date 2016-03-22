@@ -1,10 +1,28 @@
 <section class="page_content">
-<div class="row">
+<h1 ng-if='!currentUser.role'>Необходимы права администратора</h1>
+<div class="row" ng-if='currentUser.role'>
 <div class="small-5 columns">
   <h3>Неподтвержденные достижения</h3>
-      <div class='not_found_msg small-12 columns' ng-if="sstudentsList.length == 0">Нет заявок</div>
+      <div class='not_found_msg small-12 columns' ng-if="studentsList.length == 0">Нет заявок</div>
       <ul class=" students_base_container" ng-if="studentsList.length != 0" ng-cloak>
         <li class="student_card ng-cloak" ng-repeat='student in studentsList' ng-cloak>
+          <div class="avatar" style="{{avatar(student)}}"></div>
+          <ul class="profile_detail">
+            <li class="first_name" ng-bind="student.firstName + ' ' + student.lastName"></li>
+            <li  ng-bind='student.group'></li>
+            <li class="course" ng-bind="student.department + ' ' + student.course + ' курс'"></li>
+            <li>
+              <button class="btn_profile_link" ui-sref='student({id : student._id})'>Профиль</button>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      </div>
+      <div class="small-5 columns">
+      <h3>Заявки на регистрацию</h3>
+      <div class='not_found_msg small-12 columns' ng-if="registry.length == 0">Нет заявок</div>
+      <ul class=" students_base_container" ng-if="registry.length != 0" ng-cloak>
+        <li class="student_card ng-cloak" ng-repeat='student in registry' ng-cloak>
           <div class="avatar" style="{{avatar(student)}}"></div>
           <ul class="profile_detail">
             <li class="first_name" ng-bind="student.firstName + ' ' + student.lastName"></li>

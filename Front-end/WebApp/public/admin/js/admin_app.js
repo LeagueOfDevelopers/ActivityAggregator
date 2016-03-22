@@ -73,24 +73,12 @@
         }
        })
 
-       .state('inviteAdmin', {
+       .state('inviteCtrl', {
         url: 'admin/invite',
         views: {
            'page_content': {
                 templateUrl: 'admin/partials/invite.html',
-                controller: function($scope, $http) {
-                  $scope.generate = function() {
-
-                    if($scope.secret) {
-
-                    $http.post('api/admin/invite', $scope.secret).success(function(res) {
-                      $scope.inviteCode = res.data;
-                      $scope.inviteLink = 'http://localhost:3000/admin/register/' + res.data;
-                    })
-                    
-                  }
-                  }
-                }
+                controller: inviteCtrl
              }
           },
        })

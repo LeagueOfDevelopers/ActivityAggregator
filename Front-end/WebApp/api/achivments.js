@@ -2,6 +2,7 @@
 var Student = require('../db/mongoose').models.Student,
 Achivment = require('../db/mongoose').models.Achivment,
 config = require('../config').files.achivmentsDocs,
+crypto = require('crypto'),
 multiparty = require('multiparty'),
 util = require('util'),
 fs = require("fs");
@@ -10,8 +11,8 @@ module.exports = {
   	getAchivmentsList: getAchivmentsList,
   	getAchivmentDetail: getAchivmentDetail,
   	newAchivment: newAchivment,
-    getAchivmentsList: getAchivmentsList
-};
+    getAchivmentsList: getAchivmentsList,
+}
 
 function getAchivmentsList(req, res, next) {
   Achivments.find(function(err, data) {
@@ -83,8 +84,9 @@ function newAchivment(req, res, next) {
         console.log(part.filename);
         uploadFile.size = part.byteCount;
         uploadFile.type = part.headers['content-type'];
-        uploadFile.path = config.path + req.params.id + '/' + part.filename;
-        uploadFile.link = config.link + req.params.id + '/' + part.filename;
+        var fileNameHash = crypto.createHmac('sha256', 'ach').update(part.filename).digest('hex').slice(10);
+        uploadFile.path = config.path + req.params.id + '/' + fileNameHash;
+        uploadFile.link = config.link + req.params.id + '/' + fileNameHash;
 
         //проверяем размер файла, он не должен быть больше максимального размера
         if(uploadFile.size > maxSize) {
@@ -98,7 +100,7 @@ function newAchivment(req, res, next) {
 
         //если нет ошибок то создаем поток для записи файла
         if(errors.length == 0) {
-            var studentFolder = config.files.achivmentsDocs.path + req.params.id;
+            var studentFolder = config.path + req.params.id;
             if (!fs.existsSync(studentFolder)) {
                 fs.mkdirSync(studentFolder);
             }

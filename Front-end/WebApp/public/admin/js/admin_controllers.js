@@ -61,8 +61,7 @@ angular.module('admin.controllers',
 	'$stateParams',
 	'avatar',
    function($scope, API, $stateParams, avatar) {
-   		console.log($stateParams);
-   		$scope.$emit('nedAuth');
+   		$scope.$emit('needAuth');
    		$scope.avatar = avatar;
    		API.query('students.getDetail', {studentId : $stateParams.id}, true).then(function(res) {
    			$scope.student = res.data || null;
@@ -76,6 +75,14 @@ angular.module('admin.controllers',
       '$http',
       '$stateParams',
      function($scope, $state, $http, $stateParams){
+
+      $scope.confirm = function() {
+
+      }
+
+      $scope.unconfirm = function() {
+        $scope.showEditField = false;
+      }
 
          $scope.$emit('changeTitle', {title: $stateParams.achToShow.name}); 
          console.log($stateParams)
@@ -109,3 +116,19 @@ angular.module('admin.controllers',
          
     
        }])
+
+    .controller('inviteCtrl', ['$scope', '$http', function($scope, $http) {
+                  $scope.generate = function() {
+
+                    if($scope.secret) {
+
+                    $http.post('api/admin/invite', $scope.secret).success(function(res) {
+                      $scope.inviteCode = res.data;
+                      $scope.inviteLink = 'http://localhost:3000/admin/register/' + res.data;
+                    })
+                    
+                  }
+                  }
+                }
+      
+    ])

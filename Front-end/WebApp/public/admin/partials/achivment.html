@@ -15,7 +15,7 @@
     <span class="detail_label small-4 columns" >Организация:</span>
     <span class="achivment_result small-9 columns" ng-bind="achivment.organization"></span>
     <span class="detail_label small-3 columns" >Получено:</span>
-    <span class="achivment_result small-8 columns" ng-bind="achivment.created"></span>
+    <span class="achivment_result small-9 columns" ng-bind="achivment.created"></span>
     <span class="detail_label small-3 columns" >Статус:</span>
     <span class="achivment_result small-9 columns" ng-bind="achivment.checked ? 'Подтверждено' : 'Не подтверждено'"></span>
     <span class="detail_label small-3 columns" ng-if='achivment.message && achivment.owner_id == currentUser._id'>Отвергнуто:</span>
@@ -29,12 +29,13 @@
   <div class="row">
     <p class="achivment_detail_description small-12 columns" ng-if='achivment.description' ng-bind="achivment.description"></p>
         <ul><li ng-repeat='file in achivment.files'>
-        <div style="{bacground: url({{file}})}"></div>
+        <div style="{background: url({{file}})}"></div>
     </li>
     </ul>
     </div>
-    <button>Подтвердить</button>
-    <button>Отказать</button>
+    <button ng-click='confirm()'>Подтвердить</button>
+    <button ng-click='showEditField = true' ng-bind="showEditField ? 'Отправить' : 'Отказать" ></button>
+    <textarea name="name" class="about_edit_field" rows="8"  ng-if="showEditfield" ng-model="$parent.message"></textarea>
    </div>
 
 </section>
