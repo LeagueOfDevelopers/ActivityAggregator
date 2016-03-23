@@ -284,118 +284,10 @@
 	"buffers":
 	[
 		{
-			"file": "routes/api.js",
+			"file": "public/admin/js/build/build.js",
 			"settings":
 			{
-				"buffer_size": 1412,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "api/admin.js",
-			"settings":
-			{
-				"buffer_size": 2699,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "api/achivments.js",
-			"settings":
-			{
-				"buffer_size": 3910,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/admin/partials/admin_inbox.html",
-			"settings":
-			{
-				"buffer_size": 1954,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/admin/partials/achivment.html",
-			"settings":
-			{
-				"buffer_size": 2330,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/admin/partials/fullPhoto.html",
-			"settings":
-			{
-				"buffer_size": 66,
-				"line_ending": "Windows",
-				"name": "fullPhoto.html"
-			}
-		},
-		{
-			"contents": "<div class=\"page_content\">\n	<div class=\"row\">\n  <div class=\"form_card small-centered medium-6 medium-centered large-5 large-centered columns\">\n    <form name='auth'>\n      <div class=\"row column login_form\">\n        <span class=\"form_title\">Вход на платформу</span>\n        <label>Электронная почта</label>\n          <input type=\"email\" placeholder=\"jambul@example.com\" ng-model='auth.email' required>\n        <label>Пароль</label>\n          <input type=\"password\" placeholder=\"********\" ng-model=\"auth.password\" required>\n          <span style='{color: red}' ng-show='auth.$invalid' >Заполните форму корректно</span>\n					<input type=\"submit\" class=\"submit_form\" value=\"Войти\" ng-click=\"submit()\">\n      </div>\n    </form>\n  </div>\n</div>\n</div>\n",
-			"file": "public/admin/partials/authAdmin.html",
-			"file_size": 828,
-			"file_write_time": 131031558310979384,
-			"settings":
-			{
-				"buffer_size": 747,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/styles/main.scss",
-			"settings":
-			{
-				"buffer_size": 18657,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/partials/registry.html",
-			"settings":
-			{
-				"buffer_size": 3168,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/admin/js/admin_controllers.js",
-			"settings":
-			{
-				"buffer_size": 4764,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/admin/js/services.js",
-			"settings":
-			{
-				"buffer_size": 3713,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/admin/partials/invite.html",
-			"settings":
-			{
-				"buffer_size": 360,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/admin/partials/registry_admin.html",
-			"settings":
-			{
-				"buffer_size": 1278,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "views/admin.jade",
-			"settings":
-			{
-				"buffer_size": 1571,
+				"buffer_size": 12059,
 				"line_ending": "Windows"
 			}
 		},
@@ -404,97 +296,6 @@
 			"settings":
 			{
 				"buffer_size": 1600,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/js/controllers.js",
-			"settings":
-			{
-				"buffer_size": 8217,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/js/controllers_main.js",
-			"settings":
-			{
-				"buffer_size": 2021,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/admin/js/admin_app.js",
-			"settings":
-			{
-				"buffer_size": 1979,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "config.js",
-			"settings":
-			{
-				"buffer_size": 391,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "Searching 10349 files for \"function getStudents\"\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\api\\students.js:\n  111  };\n  112  \n  113: function getStudentsList(req, res, next) {\n  114  \n  115    Student.find('-hashedPassword', function (err, data) {\n  ...\n  126  \n  127  };\n  128: function getStudentsListByCategory(req, res, next) {\n  129    console.log(req.params);\n  130    Student.find({'achivments.type' : req.params.searchParams},'-hashedPassword', function (err, data) {\n  ...\n  140  \n  141  };\n  142: function getStudentsListByName(req, res, next) {\n  143    var q = new RegExp(req.params.searchParams, 'i');\n  144    Student.find({$or : [\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-autoprefixer\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\normalize-package-data\\node_modules\\hosted-git-info\\test\\bitbucket-https-with-embedded-auth.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-autoprefixer\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\normalize-package-data\\node_modules\\hosted-git-info\\test\\https-with-inline-auth.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-autoprefixer\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\pify\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-autoprefixer\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\pify\\license:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-autoprefixer\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\pify\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-autoprefixer\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\pify\\readme.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\normalize-package-data\\node_modules\\hosted-git-info\\test\\bitbucket-https-with-embedded-auth.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\normalize-package-data\\node_modules\\is-builtin-module\\node_modules\\builtin-modules\\builtin-modules.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\normalize-package-data\\node_modules\\is-builtin-module\\node_modules\\builtin-modules\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\normalize-package-data\\node_modules\\is-builtin-module\\node_modules\\builtin-modules\\license:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\normalize-package-data\\node_modules\\is-builtin-module\\node_modules\\builtin-modules\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\normalize-package-data\\node_modules\\is-builtin-module\\node_modules\\builtin-modules\\readme.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\normalize-package-data\\node_modules\\is-builtin-module\\node_modules\\builtin-modules\\static.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\find-up\\node_modules\\pinkie-promise\\node_modules\\pinkie\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\find-up\\node_modules\\pinkie-promise\\node_modules\\pinkie\\license:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\find-up\\node_modules\\pinkie-promise\\node_modules\\pinkie\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\find-up\\node_modules\\pinkie-promise\\node_modules\\pinkie\\readme.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\pify\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\pify\\license:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\pify\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\pify\\readme.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\graceful-fs\\fs.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\graceful-fs\\graceful-fs.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\graceful-fs\\legacy-streams.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\graceful-fs\\LICENSE:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\graceful-fs\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\graceful-fs\\polyfills.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\graceful-fs\\README.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\pify\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\redent\\node_modules\\indent-string\\node_modules\\repeating\\node_modules\\is-finite\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\redent\\node_modules\\indent-string\\node_modules\\repeating\\node_modules\\is-finite\\license:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\redent\\node_modules\\indent-string\\node_modules\\repeating\\node_modules\\is-finite\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-concat\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\redent\\node_modules\\indent-string\\node_modules\\repeating\\node_modules\\is-finite\\readme.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\normalize-package-data\\node_modules\\hosted-git-info\\test\\bitbucket-https-with-embedded-auth.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\normalize-package-data\\node_modules\\is-builtin-module\\node_modules\\builtin-modules\\builtin-modules.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\normalize-package-data\\node_modules\\is-builtin-module\\node_modules\\builtin-modules\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\normalize-package-data\\node_modules\\is-builtin-module\\node_modules\\builtin-modules\\license:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\normalize-package-data\\node_modules\\is-builtin-module\\node_modules\\builtin-modules\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\normalize-package-data\\node_modules\\is-builtin-module\\node_modules\\builtin-modules\\readme.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\normalize-package-data\\node_modules\\is-builtin-module\\node_modules\\builtin-modules\\static.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\find-up\\node_modules\\pinkie-promise\\node_modules\\pinkie\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\find-up\\node_modules\\pinkie-promise\\node_modules\\pinkie\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\find-up\\node_modules\\pinkie-promise\\node_modules\\pinkie\\readme.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\pify\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\pify\\readme.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\strip-bom\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\strip-bom\\license:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\strip-bom\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\strip-bom\\readme.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\graceful-fs\\graceful-fs.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\graceful-fs\\legacy-streams.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\graceful-fs\\LICENSE:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\graceful-fs\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\graceful-fs\\polyfills.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\graceful-fs\\README.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\pinkie-promise\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\pinkie-promise\\license:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\pinkie-promise\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\pinkie-promise\\readme.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\redent\\node_modules\\indent-string\\node_modules\\repeating\\node_modules\\is-finite\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\redent\\node_modules\\indent-string\\node_modules\\repeating\\node_modules\\is-finite\\readme.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\cross-spawn\\node_modules\\spawn-sync\\node_modules\\concat-stream\\node_modules\\readable-stream\\node_modules\\process-nextick-args\\.travis.yml:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\cross-spawn\\node_modules\\spawn-sync\\node_modules\\concat-stream\\node_modules\\readable-stream\\node_modules\\process-nextick-args\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\cross-spawn\\node_modules\\spawn-sync\\node_modules\\concat-stream\\node_modules\\readable-stream\\node_modules\\process-nextick-args\\license.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\cross-spawn\\node_modules\\spawn-sync\\node_modules\\concat-stream\\node_modules\\readable-stream\\node_modules\\process-nextick-args\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\cross-spawn\\node_modules\\spawn-sync\\node_modules\\concat-stream\\node_modules\\readable-stream\\node_modules\\process-nextick-args\\readme.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\cross-spawn\\node_modules\\spawn-sync\\node_modules\\concat-stream\\node_modules\\readable-stream\\node_modules\\process-nextick-args\\test.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\cross-spawn\\node_modules\\spawn-sync\\node_modules\\concat-stream\\node_modules\\readable-stream\\node_modules\\string_decoder\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\cross-spawn\\node_modules\\spawn-sync\\node_modules\\concat-stream\\node_modules\\readable-stream\\node_modules\\util-deprecate\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\meow\\node_modules\\normalize-package-data\\node_modules\\validate-npm-package-license\\node_modules\\spdx-expression-parse\\parser.generated.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\parse-json\\node_modules\\error-ex\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\parse-json\\node_modules\\error-ex\\LICENSE:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\parse-json\\node_modules\\error-ex\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\parse-json\\node_modules\\error-ex\\README.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\strip-bom\\node_modules\\is-utf8\\is-utf8.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\strip-bom\\node_modules\\is-utf8\\LICENSE:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\strip-bom\\node_modules\\is-utf8\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\strip-bom\\node_modules\\is-utf8\\README.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\pinkie-promise\\node_modules\\pinkie\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\pinkie-promise\\node_modules\\pinkie\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\pinkie-promise\\node_modules\\pinkie\\readme.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\meow\\node_modules\\redent\\node_modules\\indent-string\\node_modules\\repeating\\node_modules\\is-finite\\node_modules\\number-is-nan\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\meow\\node_modules\\redent\\node_modules\\indent-string\\node_modules\\repeating\\node_modules\\is-finite\\node_modules\\number-is-nan\\license:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\meow\\node_modules\\redent\\node_modules\\indent-string\\node_modules\\repeating\\node_modules\\is-finite\\node_modules\\number-is-nan\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\meow\\node_modules\\redent\\node_modules\\indent-string\\node_modules\\repeating\\node_modules\\is-finite\\node_modules\\number-is-nan\\readme.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\npmlog\\node_modules\\are-we-there-yet\\node_modules\\readable-stream\\node_modules\\process-nextick-args\\.travis.yml:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\npmlog\\node_modules\\are-we-there-yet\\node_modules\\readable-stream\\node_modules\\process-nextick-args\\license.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\npmlog\\node_modules\\are-we-there-yet\\node_modules\\readable-stream\\node_modules\\process-nextick-args\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\npmlog\\node_modules\\are-we-there-yet\\node_modules\\readable-stream\\node_modules\\process-nextick-args\\readme.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\array\\#\\@@iterator\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\array\\#\\@@iterator\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\array\\#\\_compare-by-length.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\array\\#\\concat\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\array\\#\\copy-within\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\array\\#\\copy-within\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\array\\#\\copy-within\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\array\\#\\entries\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\array\\#\\entries\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\array\\#\\fill\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\array\\#\\filter\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\array\\#\\find-index\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\array\\#\\find-index\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\array\\#\\find\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\array\\#\\keys\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\array\\#\\map\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\array\\#\\slice\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\array\\#\\splice\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\array\\#\\values\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\array\\_sub-array-dummy-safe.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\array\\from\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\function\\#\\to-string-tokens.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\math\\acosh\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\math\\asinh\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\math\\atanh\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\math\\clz32\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\math\\expm1\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\math\\fround\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\math\\hypot\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\math\\log10\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\math\\log1p\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\math\\trunc\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\number\\epsilon\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\number\\is-finite\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\number\\is-finite\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\number\\is-integer\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\number\\is-integer\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\number\\is-nan\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\number\\is-safe-integer\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\number\\is-safe-integer\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\number\\is-safe-integer\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\number\\is-safe-integer\\shim.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\number\\max-safe-integer\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\number\\max-safe-integer\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\number\\max-safe-integer\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\number\\min-safe-integer\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\number\\min-safe-integer\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\number\\min-safe-integer\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\object\\assign\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\object\\ensure-natural-number-value.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\object\\ensure-natural-number.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\object\\get-property-names.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\object\\keys\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\object\\set-prototype-of\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\object\\set-prototype-of\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\object\\set-prototype-of\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\object\\set-prototype-of\\shim.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\object\\validate-array-like-object.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\object\\validate-array-like.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\object\\validate-stringifiable-value.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\object\\validate-stringifiable.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\reg-exp\\#\\match\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\reg-exp\\#\\match\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\reg-exp\\#\\replace\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\reg-exp\\#\\replace\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\reg-exp\\#\\search\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\reg-exp\\#\\search\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\reg-exp\\#\\split\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\reg-exp\\#\\split\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\reg-exp\\#\\sticky\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\reg-exp\\#\\sticky\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\reg-exp\\#\\unicode\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\reg-exp\\#\\unicode\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\string\\#\\@@iterator\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\string\\#\\@@iterator\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\string\\#\\@@iterator\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\string\\#\\case-insensitive-compare.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\string\\#\\code-point-at\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\string\\#\\code-point-at\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\string\\#\\code-point-at\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\string\\#\\code-point-at\\shim.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\string\\#\\contains\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\string\\#\\contains\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\string\\#\\ends-with\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\string\\#\\ends-with\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\string\\#\\normalize\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\string\\#\\normalize\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\string\\#\\plain-replace-all.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\string\\#\\repeat\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\string\\#\\repeat\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\string\\#\\starts-with\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\string\\#\\starts-with\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\string\\#\\starts-with\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\string\\#\\starts-with\\shim.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\string\\from-code-point\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\string\\from-code-point\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\string\\from-code-point\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\string\\from-code-point\\shim.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\string\\raw\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\@@iterator\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\@@iterator\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\@@iterator\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\@@iterator\\shim.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\_compare-by-length.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\binary-search.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\concat\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\concat\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\concat\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\e-last-index-of.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\entries\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\entries\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\entries\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\entries\\shim.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\fill\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\fill\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\filter\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\filter\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\filter\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\find-index\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\find-index\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\find-index\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\find-index\\shim.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\find\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\find\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\for-each-right.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\intersection.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\keys\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\keys\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\map\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\map\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\slice\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\slice\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\splice\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\splice\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\splice\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\values\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\values\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\#\\values\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\_is-extensible.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\_sub-array-dummy-safe.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\_sub-array-dummy.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\from\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\from\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\is-plain-array.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\array\\of\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\date\\#\\days-in-month.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\function\\#\\to-string-tokens.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\function\\_define-length.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\function\\is-arguments.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\function\\is-function.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\function\\valid-function.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\iterable\\validate-object.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\_unpack-ieee754.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\acosh\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\acosh\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\asinh\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\asinh\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\atanh\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\atanh\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\cbrt\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\clz32\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\clz32\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\cosh\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\expm1\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\expm1\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\fround\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\fround\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\hypot\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\hypot\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\imul\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\log10\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\log10\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\log1p\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\log1p\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\log2\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\sign\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\sinh\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\tanh\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\trunc\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\math\\trunc\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\number\\epsilon\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\number\\epsilon\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\number\\epsilon\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\number\\is-finite\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\number\\is-finite\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\number\\is-finite\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\number\\is-finite\\shim.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\number\\is-integer\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\number\\is-integer\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\number\\is-integer\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\number\\is-integer\\shim.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\number\\is-nan\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\number\\is-nan\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\number\\to-pos-integer.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\object\\assign\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\object\\assign\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\object\\ensure-natural-number-value.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\object\\ensure-natural-number.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\object\\get-property-names.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\object\\is-array-like.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\object\\is-number-value.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\object\\is-plain-object.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\object\\keys\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\object\\keys\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\object\\mixin-prototypes.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\object\\normalize-options.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\object\\primitive-set.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\object\\safe-traverse.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\object\\valid-callable.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\object\\validate-array-like-object.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\object\\validate-array-like.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\object\\validate-stringifiable-value.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\object\\validate-stringifiable.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\reg-exp\\#\\is-unicode.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\reg-exp\\#\\match\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\reg-exp\\#\\match\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\reg-exp\\#\\match\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\reg-exp\\#\\match\\shim.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\reg-exp\\#\\replace\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\reg-exp\\#\\replace\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\reg-exp\\#\\replace\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\reg-exp\\#\\replace\\shim.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\reg-exp\\#\\search\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\reg-exp\\#\\search\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\reg-exp\\#\\search\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\reg-exp\\#\\search\\shim.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\reg-exp\\#\\split\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\reg-exp\\#\\split\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\reg-exp\\#\\split\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\reg-exp\\#\\split\\shim.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\reg-exp\\#\\sticky\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\reg-exp\\#\\sticky\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\reg-exp\\#\\unicode\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\reg-exp\\#\\unicode\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\reg-exp\\valid-reg-exp.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\string\\#\\camel-to-hyphen.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\string\\#\\case-insensitive-compare.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\string\\#\\contains\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\string\\#\\contains\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\string\\#\\contains\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\string\\#\\contains\\shim.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\string\\#\\ends-with\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\string\\#\\ends-with\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\string\\#\\ends-with\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\string\\#\\ends-with\\shim.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\string\\#\\hyphen-to-camel.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\string\\#\\normalize\\_data.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\string\\#\\normalize\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\string\\#\\normalize\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\string\\#\\normalize\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\string\\#\\normalize\\shim.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\string\\#\\plain-replace-all.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\string\\#\\plain-replace.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\string\\#\\repeat\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\string\\#\\repeat\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\string\\#\\repeat\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\string\\#\\repeat\\shim.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\string\\#\\uncapitalize.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\string\\format-method.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\string\\raw\\implement.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\path-array\\node_modules\\array-index\\node_modules\\es6-symbol\\node_modules\\es5-ext\\test\\string\\raw\\is-implemented.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\rimraf\\node_modules\\glob\\node_modules\\minimatch\\node_modules\\brace-expansion\\node_modules\\balanced-match\\.npmignore:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\rimraf\\node_modules\\glob\\node_modules\\minimatch\\node_modules\\brace-expansion\\node_modules\\balanced-match\\.travis.yml:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\rimraf\\node_modules\\glob\\node_modules\\minimatch\\node_modules\\brace-expansion\\node_modules\\balanced-match\\example.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\rimraf\\node_modules\\glob\\node_modules\\minimatch\\node_modules\\brace-expansion\\node_modules\\balanced-match\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\rimraf\\node_modules\\glob\\node_modules\\minimatch\\node_modules\\brace-expansion\\node_modules\\balanced-match\\LICENSE.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\rimraf\\node_modules\\glob\\node_modules\\minimatch\\node_modules\\brace-expansion\\node_modules\\balanced-match\\Makefile:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\rimraf\\node_modules\\glob\\node_modules\\minimatch\\node_modules\\brace-expansion\\node_modules\\balanced-match\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\rimraf\\node_modules\\glob\\node_modules\\minimatch\\node_modules\\brace-expansion\\node_modules\\balanced-match\\README.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\rimraf\\node_modules\\glob\\node_modules\\minimatch\\node_modules\\brace-expansion\\node_modules\\concat-map\\.travis.yml:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\rimraf\\node_modules\\glob\\node_modules\\minimatch\\node_modules\\brace-expansion\\node_modules\\concat-map\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\rimraf\\node_modules\\glob\\node_modules\\minimatch\\node_modules\\brace-expansion\\node_modules\\concat-map\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\node-gyp\\node_modules\\rimraf\\node_modules\\glob\\node_modules\\minimatch\\node_modules\\brace-expansion\\node_modules\\concat-map\\README.markdown:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp-sass\\node_modules\\node-sass\\node_modules\\sass-graph\\node_modules\\yargs\\node_modules\\string-width\\node_modules\\is-fullwidth-code-point\\node_modules\\number-is-nan\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\normalize-package-data\\node_modules\\hosted-git-info\\test\\bitbucket-https-with-embedded-auth.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\normalize-package-data\\node_modules\\is-builtin-module\\node_modules\\builtin-modules\\builtin-modules.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\normalize-package-data\\node_modules\\is-builtin-module\\node_modules\\builtin-modules\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\graceful-fs\\graceful-fs.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\graceful-fs\\legacy-streams.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\graceful-fs\\LICENSE:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\graceful-fs\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\graceful-fs\\polyfills.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\graceful-fs\\README.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\parse-json\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\parse-json\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\parse-json\\readme.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\pinkie-promise\\index.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\pinkie-promise\\license:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\pinkie-promise\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\pinkie-promise\\readme.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\strip-bom\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\load-json-file\\node_modules\\strip-bom\\readme.md:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\graceful-fs\\graceful-fs.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\graceful-fs\\legacy-streams.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\graceful-fs\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\graceful-fs\\polyfills.js:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\pinkie-promise\\package.json:\n    ERROR: Unable to open file\n\nC:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\node_modules\\gulp\\node_modules\\gulp-util\\node_modules\\dateformat\\node_modules\\meow\\node_modules\\read-pkg-up\\node_modules\\read-pkg\\node_modules\\path-type\\node_modules\\pinkie-promise\\readme.md:\n    ERROR: Unable to open file\n\n3 matches in 1 file\n",
-			"settings":
-			{
-				"buffer_size": 116066,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "api/students.js",
-			"settings":
-			{
-				"buffer_size": 4482,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "db/mongoose.js",
-			"settings":
-			{
-				"buffer_size": 3654,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Windows",
-				"scratch": true
-			}
-		},
-		{
-			"file": "public/partials/achivment.html",
-			"settings":
-			{
-				"buffer_size": 2154,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/partials/profile.html",
-			"settings":
-			{
-				"buffer_size": 2474,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/partials/profile_another.html",
-			"settings":
-			{
-				"buffer_size": 1479,
 				"line_ending": "Windows"
 			}
 		}
@@ -574,57 +375,60 @@
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/build",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/build",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/routes",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/views"
 	],
 	"file_history":
 	[
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/gulpfile.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/admin_app.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/views/index.jade",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/achivment.html",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/invite.html",
-		"/C/Users/user pc/Downloads/ring.css",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/build/build.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/fullPhoto.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/routes/api.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/admin.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/achivments.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/config.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/students.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/package.json",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/profile_another.html",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/profile.html",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/achivment.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/mongoose.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/students.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/config.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/admin_app.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/controllers_main.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/controllers.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/controllers_main.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/views/admin.jade",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/registry_admin.html",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/invite.html",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/services.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/admin_controllers.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/registry.html",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles/main.scss",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/authAdmin.html",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/achivment.html",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/admin_inbox.html",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/achivments.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/admin.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/gulpfile.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/views/index.jade",
+		"/C/Users/user pc/Downloads/ring.css",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/config.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/package.json",
 		"/C/Users/user pc/Documents/Movie-Extended/front-end/WebApp/bin/www",
 		"/C/Users/user pc/Documents/Movie-Extended/front-end/WebApp/node_modules/body-parser/node_modules/bytes/History.md",
 		"/C/Users/user pc/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/C/Users/user pc/AppData/Roaming/Sublime Text 3/Packages/User/InsertFilepath.sublime-settings",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles/main.scss",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/services.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/build/build.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/registry_admin.html",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/admin_controllers.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/achivment.html",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/admin_inbox.html",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/views/admin.jade",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/bower_components/ng-dialog/css/ngDialog-theme-default.css",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/authAdmin.html",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/controllers_main.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/services.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/controllers.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/build/build.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles/main.css",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/app.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/profile.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/main.html",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/registry.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/addAchivment.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/bower_components/ng-dialog/css/ngDialog.css",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/views/layout.jade",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/profile.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/app.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/profile_another.html",
 		"/C/Users/user pc/Desktop/GitHubLog.txt",
 		"/C/Users/user pc/Desktop/Новый текстовый документ.txt",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/bower_components/ng-dialog/README.md",
@@ -644,7 +448,6 @@
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/user.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/reqParser.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/lib/ng-file-upload.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/config.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/index.html",
 		"/C/Users/user pc/Desktop/1iwE-uDw97w.jpg",
 		"/C/Users/user pc/Desktop/test/newsfeed.html",
@@ -708,9 +511,7 @@
 		"/C/Users/user pc/Documents/GitHub/Movie-Extended/Front-End/WebApp/app.js",
 		"/C/Users/user pc/Documents/GitHub/Movie-Extended/Front-End/WebApp/config.js",
 		"/C/Users/user pc/Documents/GitHub/extendedmovie/server/config/config.js",
-		"/C/Users/user pc/Documents/GitHub/Movie-Extended/Front-End/WebApp/package.json",
-		"/C/Users/user pc/Documents/GitHub/Movie-Extended/Front-End/WebApp/bower_components/jquery/bower.json",
-		"/C/Users/user pc/Downloads/Movie-Extended/Front-End/WebApp/sass/style.scss"
+		"/C/Users/user pc/Documents/GitHub/Movie-Extended/Front-End/WebApp/package.json"
 	],
 	"find":
 	{
@@ -797,469 +598,57 @@
 	"groups":
 	[
 		{
-			"selected": 25,
+			"sheets":
+			[
+			]
+		},
+		{
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "routes/api.js",
+					"file": "public/admin/js/build/build.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1412,
+						"buffer_size": 12059,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								762,
-								762
+								10922,
+								10631
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1458709819.28,
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1458715715.14,
 							"tabs_extra_last_activated_sheet_index": 0,
-							"tabs_extra_spawned": true
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 5045.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 0,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
 				{
 					"buffer": 1,
-					"file": "api/admin.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2699,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1812,
-								1812
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1458708465.28,
-							"tabs_extra_last_activated_sheet_index": 1,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 993.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 16,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "api/achivments.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3910,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								798,
-								798
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"tabs_extra_last_activated": 1458708290.38,
-							"tabs_extra_last_activated_sheet_index": 2,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 18,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "public/admin/partials/admin_inbox.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1954,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1044,
-								1044
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1458708463.64,
-							"tabs_extra_last_activated_sheet_index": 3,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 17,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "public/admin/partials/achivment.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2330,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1671,
-								1671
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"tabs_extra_last_activated": 1458710094.18,
-							"tabs_extra_last_activated_sheet_index": 4,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "public/admin/partials/fullPhoto.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 66,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								66,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_name": "fullPhoto.html",
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tabs_extra_last_activated": 1458710096.45,
-							"tabs_extra_last_activated_sheet_index": 5
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "public/admin/partials/authAdmin.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 747,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								584,
-								584
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1458710094.94,
-							"tabs_extra_last_activated_sheet_index": 6,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "public/styles/main.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 18657,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								18573,
-								18573
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1458709009.23,
-							"tabs_extra_last_activated_sheet_index": 7,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 19269.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 14,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "public/partials/registry.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3168,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1235,
-								1235
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1458707677.67,
-							"tabs_extra_last_activated_sheet_index": 8,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 19,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "public/admin/js/admin_controllers.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4764,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3816,
-								3816
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1458710091.57,
-							"tabs_extra_last_activated_sheet_index": 9,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 405.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "public/admin/js/services.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3713,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								720,
-								720
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1458710093.36,
-							"tabs_extra_last_activated_sheet_index": 10,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 458.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "public/admin/partials/invite.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 360,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								261,
-								261
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tabs_extra_last_activated": 1458710163.45,
-							"tabs_extra_last_activated_sheet_index": 11,
-							"tabs_extra_spawned": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "public/admin/partials/registry_admin.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1278,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1091,
-								1091
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1458708723.12,
-							"tabs_extra_last_activated_sheet_index": 12,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 15,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "views/admin.jade",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1571,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1188,
-								1188
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1458683661.24,
-							"tabs_extra_last_activated_sheet_index": 10,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 21,
-					"type": "text"
-				},
-				{
-					"buffer": 14,
 					"file": "public/admin/js/controllers_main.js",
-					"semi_transient": false,
+					"semi_transient": true,
 					"settings":
 					{
 						"buffer_size": 1600,
@@ -1269,367 +658,15 @@
 						"selection":
 						[
 							[
-								1027,
-								1027
+								447,
+								447
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1458710090.63,
-							"tabs_extra_last_activated_sheet_index": 14,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 781.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 15,
-					"file": "public/js/controllers.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8217,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								468,
-								468
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1458709069.02,
-							"tabs_extra_last_activated_sheet_index": 15,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2240.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 13,
-					"type": "text"
-				},
-				{
-					"buffer": 16,
-					"file": "public/js/controllers_main.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2021,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								573,
-								573
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1458709166.4,
-							"tabs_extra_last_activated_sheet_index": 16,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": -0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 17,
-					"file": "public/admin/js/admin_app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1979,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1540,
-								1540
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1458710092.33,
-							"tabs_extra_last_activated_sheet_index": 17,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1115.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 18,
-					"file": "config.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 391,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								390,
-								391
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1458706896.53,
-							"tabs_extra_last_activated_sheet_index": 15,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 20,
-					"type": "text"
-				},
-				{
-					"buffer": 19,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 116066,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										162,
-										182
-									],
-									[
-										308,
-										328
-									],
-									[
-										536,
-										556
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								213,
-								277
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ 	].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
-							"tabs_extra_last_activated": 1458666787.49,
-							"tabs_extra_last_activated_sheet_index": 6,
-							"tabs_extra_spawned": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 23,
-					"type": "text"
-				},
-				{
-					"buffer": 20,
-					"file": "api/students.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4482,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3084,
-								3084
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1458666789.66,
-							"tabs_extra_last_activated_sheet_index": 8,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1255.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 24,
-					"type": "text"
-				},
-				{
-					"buffer": 21,
-					"file": "db/mongoose.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3654,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3389,
-								3389
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1458683321.96,
-							"tabs_extra_last_activated_sheet_index": 14,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 3428.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 22,
-					"type": "text"
-				},
-				{
-					"buffer": 22,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"default_extension": "js",
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1458666686.37,
-							"tabs_extra_last_activated_sheet_index": 9
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 25,
-					"type": "text"
-				},
-				{
-					"buffer": 23,
-					"file": "public/partials/achivment.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2154,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1872,
-								1872
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"tabs_extra_last_activated": 1458710180.57,
-							"tabs_extra_last_activated_sheet_index": 23,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 193.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 24,
-					"file": "public/partials/profile.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2474,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								658,
-								710
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1458710253.98,
-							"tabs_extra_last_activated_sheet_index": 24,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
+							"tabs_extra_last_activated": 1458715588.42,
+							"tabs_extra_last_activated_sheet_index": 0
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1637,50 +674,7 @@
 					},
 					"stack_index": 1,
 					"type": "text"
-				},
-				{
-					"buffer": 25,
-					"file": "public/partials/profile_another.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1479,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								572,
-								572
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1458714340.12,
-							"tabs_extra_last_activated_sheet_index": 25,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 33.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
 				}
-			]
-		},
-		{
-			"sheets":
-			[
-			]
-		},
-		{
-			"sheets":
-			[
 			]
 		}
 	],
@@ -1724,7 +718,7 @@
 		"rows":
 		[
 			0.0,
-			0.924812030075,
+			0.0751879699248,
 			1.0
 		]
 	},
@@ -1779,7 +773,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 		"xdebug":
