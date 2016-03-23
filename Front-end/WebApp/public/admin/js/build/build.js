@@ -130,14 +130,14 @@ angular.module('admin.controllers',
   '$stateParams',
   'API',
  function($scope, $state, $stateParams, API) {
+  $scope.auth = {};
   $scope.auth.code = $stateParams.code;
-  $scope.passwordCorrect = $scope.CheckPassword == $scope.auth.password;
+  $scope.passwordCorrect = $scope.checkPassword == $scope.auth.password ? true : false;
   $scope.submit = function() {
-    if(auth.$valid) {
       API.query('admin.registry', {data: $scope.auth}, true).then(function(res) {
         $scope.$emit('userUpdate');
       })
-    }
+    
   }
  }
   ])
@@ -165,12 +165,17 @@ angular.module('admin.controllers',
       'ngDialog',
      function($scope, $state, $http, $stateParams, ngDialog){
 
-
          $scope.$emit('changeTitle', {title: $stateParams.achToShow.name}); 
          $scope.showEditField = false;
+         $scope.showPhotos = false;
          $scope.fullPhoto = null;
-         console.log($stateParams)
-        var ach = $stateParams.achToShow;
+         $scope.message = '';
+         // var ach = {};
+         // $http.get('api/achivments/' + $stateParams.achToShow._id).success(function(res) {
+         //   ach = res.data.achivments[0];
+         //   console.log(res);
+         // })
+       var ach = $stateParams.achToShow;
         var type = '';
         switch(ach.type) {
           case 'science' : type = 'Наука';  break;
@@ -199,23 +204,24 @@ angular.module('admin.controllers',
 
         $scope.confirm = function() {
           $http.post('api/admin/confirm/' + ach._id).success(function(result) {
+            $scope.$emit('showMessage',  {msg: 'Достижение подтверждено'})
             console.log(result);
           })
 
         }
 
         $scope.unconfirm = function() {
-          if($scope.message) {
-          $scope.showEditField = false;
+          if($scope.message != '') {
+          $scope.showTextaria = false;
           $http.post('api/admin/unconfirm/' + ach._id, {message: $scope.message}).success(function(result) {
             console.log(result);
+            $scope.$emit('showMessage', {msg: 'Отказ отправлен'})
           })
         }
          }
 
          $scope.showFullPhoto = function(photo) {
           $scope.fullPhoto = photo;
-          console.log('hui');
              $scope.$dialog = ngDialog.open({
                       template: 'admin/partials/fullPhoto.html',
                       showClose: true,
@@ -354,7 +360,7 @@ angular.module('app.services', [])
         registry: {
           method: 'POST',
           url: function() {
-            return '/api/admin/new'
+            return '/api/admin/registry';
           }
         }
       },

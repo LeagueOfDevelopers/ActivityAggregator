@@ -17,7 +17,7 @@
         <label>Пароль</label>
           <input type="password" placeholder="********" ng-model="auth.password" ng-invalid='passwordCorrect' required>
           <input type="password" placeholder="********" ng-model="сheckPassword" ng-invalid='passwordCorrect' required>
-          <span style='{color: red} ' ng-show='auth.$invalid'>Заполните форму корректно</span>
+          <span  ng-show='auth.$invalid'>Заполните форму корректно</span>
 					<input type="submit" class="submit_form" value="Войти" ng-click="submit()">
       </div>
     </form>

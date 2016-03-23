@@ -38,7 +38,7 @@ angular.module('app.services', [])
         registry: {
           method: 'POST',
           url: function() {
-            return '/api/admin/new'
+            return '/api/admin/registry';
           }
         }
       },

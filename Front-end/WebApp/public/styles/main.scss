@@ -1083,6 +1083,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 
 .backdrop {
+  z-index: 2000;
   position: fixed;
   height: 100%;
   width: 100%;

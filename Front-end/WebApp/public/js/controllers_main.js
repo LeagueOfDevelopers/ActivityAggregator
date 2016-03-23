@@ -23,7 +23,7 @@ angular.module('app.controllers.main',
       function auth() {
           UserManager.Current().then(function (result) {
             if(!result) {
-              $scope.currentUser = {};
+              $scope.currentUser = null;
             }
           $scope.currentUser = result;
         });
@@ -38,7 +38,7 @@ angular.module('app.controllers.main',
 
       $scope.$on('userUpdate', function (e, args) {
            UserManager.update().then(function() {
-            $scope.$broadcast('auth');
+            $scope.$emit('auth');
            })
       })    
 
@@ -56,7 +56,7 @@ angular.module('app.controllers.main',
     $scope.logout = function() {
         UserManager.logout();
         $state.go('mainPage');
-        $scope.$broadcast('userUpdate');
+        $scope.$emit('userUpdate');
       };
 
     }])

@@ -24,7 +24,10 @@ function getAchivmentsList(req, res, next) {
 };
 
 function getAchivmentDetail(req, res, next) {
-
+ Student.findOne({'achivments._id': req.params.id}, 'achivments.$', function(err, ach) {
+    if(err) res.send(err);
+    res.send({data: ach});
+ })
 };
 
 function newAchivment(req, res, next) {

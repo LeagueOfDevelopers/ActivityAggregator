@@ -6,7 +6,7 @@
               <div class="user_avatar_profile" style="{{avatar(userDetail)}}">
               <div type="file" ngf-select="uploadAvatar($file)" ngf-pattern="'image/*'"  ngf-accept="'image/*'"  class="avatar_file_input"></div>
             </div><span class="user_name_profile" ng-bind="userDetail.firstName + ' ' + userDetail.lastName"></span>
-              <span class="user_course_profile" ng-bind="userDetail.department +' '+ userDetail.course + ' курс'"></span>
+              <span class="user_course_profile" ng-bind="userDetail.department +' '+ userDetail.course + ' курс ' + userDetail.level + ' ' + userDetail.group"></span>
             </div>
             <div class="user_detail"><span>O ceбе</span>
               <p ng-bind="userDetail.about"></p>

@@ -8,31 +8,35 @@
     <div class="row">
     <div class="achivment_detail small-12-columns">
     <span class="detail_label small-3 columns">Категория:</span>
-    <span class="achivment_result small-9 columns" ng-bind="achivment.type"></span>
+    <span class=" small-9 columns" ng-bind="achivment.type"></span>
     <span class="detail_label small-3 columns">Уровень:</span>
-    <span class="achivment_result small-9 columns" ng-bind="achivment.level"></span>
+    <span class="small-9 columns" ng-bind="achivment.level"></span>
     <span class="detail_label small-3 columns">Результат:</span>
-    <span class="achivment_result small-9 columns" ng-bind="achivment.result"></span>
+    <span class=" small-9 columns" ng-bind="achivment.result"></span>
     <span class="detail_label small-3 columns" >Организация:</span>
-    <span class="achivment_result small-9 columns" ng-bind="achivment.organization"></span>
+    <span class=" small-9 columns" ng-bind="achivment.organization"></span>
     <span class="detail_label small-3 columns" >Получено:</span>
-    <span class="achivment_result small-9 columns" ng-bind="achivment.created"></span>
+    <span class=" small-9 columns" ng-bind="achivment.created"></span>
     <span class="detail_label small-3 columns" >Статус:</span>
-    <span class="achivment_result small-9 columns" ng-bind="achivment.checked ? 'Подтверждено' : 'Не подтверждено'"></span>
+    <span class="small-9 columns" ng-bind="achivment.checked ? 'Подтверждено' : 'Не подтверждено'"></span>
     <span class="detail_label small-3 columns" ng-if='achivment.message && achivment.owner_id == currentUser._id'>Отвергнуто:</span>
     <div class="small-12 columns">
     <p class="achivment_detail_description small-12 columns" ng-if='achivment.message && (achivment.owner_id == currentUser._id)' ng-bind="achivment.message"></p>
     </div>
     </div>
+    <div ng-if='showPhotos'>
+    <button class='btn_edit_user_detail' ng-click='showPhotos = !showPhotos'>X</button>
     <ul>
-        <li ng-repeat='file in achivment.files'>
-        <img ng-src="{{file}}" alt="">
+    <li ng-repeat='file in achivment.files'>
+    <img ng-src="{{file}}" alt="">
     </li>
     </ul>
-    <textarea class='small-12 columns' cols="10" ng-if="showEditfield"  ng-model="$parent.message"></textarea>
+    </div>
+    <textarea class='small-12 columns' cols="10" ng-if="showTextaria"  ng-model="$parent.message"></textarea>
+    <button class='btn_edit_user_detail' ng-click='showPhotos = true'>Показать документы</button>
     <button class='btn_edit_user_detail' ng-click='confirm()'>Подтвердить</button>
-    <button class='btn_edit_user_detail' ng-click='showEditField = !showEditField'>Отказать</button>
-    <button class='btn_edit_user_detail' ng-click='unconfirm()' ng-if="showEditfield">Отправить</button>
+    <button class='btn_edit_user_detail' ng-click='showTextaria = !showTextaria'>Отказать</button>
+    <button class='btn_edit_user_detail' ng-click='unconfirm()' ng-if="showTextaria">Отправить</button>
     </div>
    </div>
 
