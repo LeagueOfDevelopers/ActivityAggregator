@@ -214,16 +214,28 @@ angular.module('app.controllers.partials',
   
     $scope.submit = function() {
       if ($scope.isValid()) {
+        $scope.$emit('waiting')
         $scope.newAch.owner_id = $scope.currentUser._id;
-        $scope.newAch.file = $scope.files;
           Upload.upload({
             url: '/api/students/' + $scope.currentUser._id + '/achivments/',
             data: $scope.newAch
           }).then(function(res) {
-            console.log(res);
-            $scope.$emit('userUpdate');
-            $scope.$emit('showMessage', {msg: 'Достижение создано, ожидайте подтверждения'});
-            $state.go('studentsBase');
+                console.log($scope.files);
+                $scope.files.forEach(function(file) {
+                  console.log('уплоадим');
+                  Upload.upload({
+                    url: '/api/students/' + $scope.currentUser._id + '/achivments/' + res.data.data._id + '/file',
+                    data: file
+                  }).then(function(result) {
+                      $scope.$emit('userUpdate');
+                      $scope.$emit('showMessage', {msg: 'Достижение создано, ожидайте подтверждения'});
+                      console.log(result);
+                  })
+                })
+            
+
+            
+           // $state.g o('studentsBase');
           })
       }
 

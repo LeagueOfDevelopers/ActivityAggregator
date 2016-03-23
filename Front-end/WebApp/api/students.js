@@ -32,8 +32,8 @@ function login(req, res, next) {
 
 			req.session.user = student;
 			res.send({
-								data: student
-							});
+						data: student
+					});
 
 			} else {
 
@@ -46,7 +46,7 @@ function login(req, res, next) {
 };
 
 function updateSession(req, res, next) {
- Student.findOne({_id: req.session.user._id}, function(err, student) {
+ Student.findById({_id: req.session.user._id}, function(err, student) {
 		if(err) {
 			console.log(err)
 		} 
