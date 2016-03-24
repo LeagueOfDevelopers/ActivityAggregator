@@ -46,8 +46,8 @@ function addFile(req, res, next) {
             if(err) {
                 res.send(err);
             } else {
-                res.send(data);
                 console.log(data);
+                res.send(data);
             }
          })
            

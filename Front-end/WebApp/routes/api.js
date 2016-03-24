@@ -25,7 +25,7 @@ router.post('/students/', students.addStudent);
 router.post('/students/:id/avatar', students.changeAvatar);
 router.post('/students/:id', students.updateStudentDetail);
 router.post('/students/:id/achivments', achivments.newAchivment);
-router.post('/students/:student_id/achivments/:ach_id/file', achivments.addFile);
+router.post('/students/:student_id/achivments/:ach_id', achivments.addFile);
 
 
 module.exports = router;

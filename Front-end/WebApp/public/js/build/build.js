@@ -329,7 +329,7 @@ angular.module('app.controllers.partials',
                 $scope.files.forEach(function(file) {
                   console.log('уплоадим');
                   Upload.upload({
-                    url: '/api/students/' + $scope.currentUser._id + '/achivments/' + res.data.data._id + '/file',
+                    url: '/api/students/' + $scope.currentUser._id + '/achivments/' + res.data._id + '/file',
                     data: file
                   }).then(function(result) {
                       $scope.$emit('userUpdate');
@@ -340,7 +340,7 @@ angular.module('app.controllers.partials',
             
 
             
-           // $state.g o('studentsBase');
+           // $state.go('studentsBase');
           })
       }
 
