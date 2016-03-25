@@ -7,7 +7,8 @@ angular.module('app.controllers.main',
   ['$scope',
    '$state',
    'UserManager',
-  function ($scope, $state, UserManager) {
+   '$timeout',
+  function ($scope, $state, UserManager, $timeout) {
 
      $scope.title = 'Онлайн портфолио активных студентов НИТУ МИСиС';
      $scope.$on('changeTitle', function(e, args) {

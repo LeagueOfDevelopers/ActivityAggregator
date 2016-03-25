@@ -51,7 +51,7 @@ function newAdmin(req, res, next) {
 function getInviteCode(req, res, next) {
   Admin.findById(req.params.id, function(err, admin) {
     if(err) res.send(err);
-    if(admin) {
+    else if(admin) {
       console.log('founded');
       var code = admin.generateInviteCode(req.body.secret)
     res.send({data : code}); 
@@ -65,19 +65,30 @@ function registryByInvite(req, res, next) {
 Admin.findOne({'invCodes' : req.body.code}, function(err, findedData) {
 
   if(err) res.send(err);
+  
+  Admin.findOne({'code': req.body.code}, function(er, data) {
+    if(err) res.send(err);
+    else if(data) {
+      res.send('0'); //code already used
+    } else if(!data) {
 
-  var admin = new Admin({
-    firstName : req.body.firstName,
-    lastName: req.body.lastName,
-    middleName: req.body.middleName,
-    email: req.body.email,
-    hashPassword: req.body.password
-  });
+      var admin = new Admin({
+        firstName : req.body.firstName,
+        lastName: req.body.lastName,
+        middleName: req.body.middleName,
+        email: req.body.email,
+        hashPassword: req.body.password,
+        code: req.body.code
+      });
 
-  admin.save(function(data) {
-    res.send(data);
-    console.log(new Date());
+      admin.save(function(result) {
+        res.send(result);
+      })
+      
+    }
   })
+
+
   
 })
 
@@ -104,7 +115,7 @@ function confirmAchivment(req, res, next) {
   {
     '$set' : {
       'achivments.$.checked' : true,
-      'achivments.$.message' : undefined
+      'achivments.$.message' : null
     }
   }, 
    function(err, data) {

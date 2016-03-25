@@ -1,7 +1,7 @@
 <div class="page_content">
 	<div class="row">
   <div class="form_card small-centered medium-6 medium-centered large-5 large-centered columns">
-    <form name='auth'>
+    <form>
       <div class="row column login_form">
         <span class="form_title">Регистрация администратора</span>
         <label>Фамилия</label>
@@ -16,8 +16,8 @@
           <input type="text" ng-model='auth.code' required>
         <label>Пароль</label>
           <input type="password" placeholder="********" ng-model="auth.password" ng-invalid='passwordCorrect' required>
-          <input type="password" placeholder="********" ng-model="сheckPassword" ng-invalid='passwordCorrect' required>
-          <span  ng-show='auth.$invalid'>Заполните форму корректно</span>
+          <input type="password" placeholder="********"  ng-invalid='passwordCorrect' required>
+          <span >Заполните форму корректно</span>
 					<input type="submit" class="submit_form" value="Войти" ng-click="submit()">
       </div>
     </form>

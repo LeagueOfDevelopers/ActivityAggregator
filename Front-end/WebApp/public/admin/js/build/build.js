@@ -131,11 +131,23 @@ angular.module('admin.controllers',
   'API',
  function($scope, $state, $stateParams, API) {
   $scope.auth = {};
+  $scope.checkPassword = '';
   $scope.auth.code = $stateParams.code;
-  $scope.passwordCorrect = $scope.checkPassword == $scope.auth.password ? true : false;
+   if($scope.checkPassword == $scope.auth.password) {
+    $scope.passwordCorrect = true;
+  } else {
+    $scope.passwordCorrect = false;
+  }
+
   $scope.submit = function() {
       API.query('admin.registry', {data: $scope.auth}, true).then(function(res) {
+        if(res.data == "0") {
+          $scope.$emit('showMessage', {msg: 'код уже использован!'});
+  
+        } else {
         $scope.$emit('userUpdate');
+        $scope.$emit('showMessage', {msg: 'Администратор успешно зарегестрирован'})
+      }
       })
     
   }
@@ -260,7 +272,8 @@ angular.module('app.controllers.main',
   ['$scope',
    '$state',
    'UserManager',
-  function ($scope, $state, UserManager) {
+   '$timeout',
+  function ($scope, $state, UserManager, $timeout) {
 
      $scope.title = 'Онлайн портфолио активных студентов НИТУ МИСиС';
      $scope.$on('changeTitle', function(e, args) {
