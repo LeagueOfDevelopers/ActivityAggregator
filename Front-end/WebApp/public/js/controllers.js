@@ -21,6 +21,7 @@ angular.module('app.controllers.partials',
       API.query('students.getLast', null, true).then(function(ressult) {
         var res = result.data;
         $scope.list = [res[res.length - 3], res[res.length - 2], res[res.length - 1]];
+        console.log($scope.list);
       })
       
     

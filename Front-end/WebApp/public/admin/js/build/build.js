@@ -39,7 +39,7 @@
 
 
        .state('student', {
-         url: 'admin/student/:id',
+         url: '/admin/student/:id',
          views: {
            'page_content': {
              templateUrl: 'admin/partials/profile.html',
@@ -49,7 +49,7 @@
        })
 
        .state('achivment_detail', {
-          url: 'admin/achivment_detail',
+          url: '/admin/achivment_detail',
           params: {
             'achToShow': null,
             'owner': null

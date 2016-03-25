@@ -19,9 +19,10 @@
     <span class=" small-9 columns" ng-bind="achivment.created"></span>
     <span class="detail_label small-3 columns" >Статус:</span>
     <span class="small-9 columns" ng-bind="achivment.checked ? 'Подтверждено' : 'Не подтверждено'"></span>
-    <span class="detail_label small-3 columns" ng-if='achivment.message && (achivment.owner_id == currentUser._id)'>Отвергнуто:</span>
+    <span class="detail_label small-3 columns" ng-if='achivment.message'>Отвергнуто:</span>
+    <p class="achivment_detail_description small-12 columns" ng-if='achivment.message' ng-bind="achivment.message"></p>
     <div class="small-12 columns">
-    <p class="achivment_detail_description small-12 columns" ng-if='achivment.message && (achivment.owner_id == currentUser._id)' ng-bind="achivment.message"></p>
+    <p class="achivment_detail_description small-12 columns" ng-if='achivment.description' ng-bind="achivment.description"></p>
     </div>
     </div>
     <div ng-if='showPhotos'>

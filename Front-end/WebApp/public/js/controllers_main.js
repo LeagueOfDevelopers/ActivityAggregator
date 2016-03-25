@@ -55,8 +55,8 @@ angular.module('app.controllers.main',
 
     $scope.logout = function() {
         UserManager.logout();
-        $state.go('mainPage');
         $scope.$emit('userUpdate');
+        $state.go('mainPage');
       };
 
     }])

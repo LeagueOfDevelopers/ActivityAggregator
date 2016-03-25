@@ -46,6 +46,9 @@ function login(req, res, next) {
 };
 
 function updateSession(req, res, next) {
+	if(!req.session.user) {
+		res.send('logout')
+	} else {
  Student.findById({_id: req.session.user._id}, function(err, student) {
 		if(err) {
 			console.log(err)
@@ -54,7 +57,7 @@ function updateSession(req, res, next) {
 		console.log(req.session.user);
 		res.send('session updated');
 	})
-
+}
 
 };
 
@@ -178,7 +181,7 @@ function changeAvatar(req, res, next) {
 		form.on('close', function() {
 
 			Student.findById(req.params.id, function(err, student) {
-				console.log(fileName);
+				console.log(file);
 				student.photoUri = config.avatar.link + req.params.id + fileName;
 				student.save(function(resp) {
 					res.send(resp);

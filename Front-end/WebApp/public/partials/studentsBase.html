@@ -2,9 +2,10 @@
       <div class="students_base_header card">
         <span class="students_base_title">
           <center>База активистов НИТУ МИСиС</center></span>
-        <div class="row search_params">
+        <form class="row search_params">
           <input type="text" name="name" max-lenght="15" value="" placeholder="Найти студента" class="search_student_input small-12 medium-4 columns" ng-model='searchParams.name'/>
-          <button class="columns medium-1 btn_start_search" ng-click='getStudentsList(searchParams)'><i class=" fa fa-search"></i></button>
+          <button type=submit class="columns medium-1 btn_start_search" ng-click='getStudentsList(searchParams)'><i class=" fa fa-search"></i></button>
+
           <span class="category_label columns medium-2">По категории</span>
             <select name="category" class="select_category small-12 medium-5 columns" ng-model='searchParams.category'>
               <option>Спорт</option>
@@ -12,7 +13,7 @@
               <option>Наука</option>
               <option>Общественная деятельность</option>
             </select>
-        </div>
+        </form>
       </div>
       <div class='not_found_msg small-12 columns' ng-if="searchResults.length == 0">По данному запросу не найдено студентов</div>
       <ul class="students_list students_base_container" ng-if="searchResults.length != 0" ng-cloak>

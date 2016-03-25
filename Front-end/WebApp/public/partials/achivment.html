@@ -1,3 +1,4 @@
+
 <section class="page_content">
 <div class="row">
   <div class="achivment_detail_card small-12 medium-6 medium-centered columns">
@@ -6,33 +7,34 @@
     </div>
     <div class="row">
     <div class="achivment_detail small-12-columns">
-    <span class="detail_label small-3 columns">Категория:</span>
-    <span class="achivment_result small-9 columns" ng-bind="achivment.type"></span>
-    <span class="detail_label small-3 columns">Уровень:</span>
-    <span class="achivment_result small-9 columns" ng-bind="achivment.level"></span>
-    <span class="detail_label small-3 columns">Результат:</span>
-    <span class="achivment_result small-9 columns" ng-bind="achivment.result"></span>
-    <span class="detail_label small-3 columns" >Организация:</span>
-    <span class="achivment_result small-9 columns" ng-bind="achivment.organization"></span>
-    <span class="detail_label small-3 columns" >Получено:</span>
-    <span class="achivment_result small-9 columns" ng-bind="achivment.created"></span>
-    <span class="detail_label small-3 columns" >Статус:</span>
-    <span class="achivment_result small-9 columns" ng-bind="achivment.checked ? 'Подтверждено' : 'Не подтверждено'"></span>
-    <span class="detail_label small-3 columns" ng-if='achivment.message && achivment.owner_id == currentUser._id'>Отвергнуто:</span>
+    <span class="detail_label small-12 medium-3 columns">Категория:</span>
+    <span class=" small-12 medium-9 columns" ng-bind="achivment.type"></span>
+    <span class="detail_label small-12 medium-3 columns">Уровень:</span>
+    <span class="small-12 medium-9 columns" ng-bind="achivment.level"></span>
+    <span class="detail_label small-12 medium-3 columns">Результат:</span>
+    <span class=" small-12 medium-9 columns" ng-bind="achivment.result"></span>
+    <span class="detail_label small-12 medium-3 columns" >Организация:</span>
+    <span class=" small-12 medium-9 columns" ng-bind="achivment.organization"></span>
+    <span class="detail_label small-12 medium-3 columns" >Получено:</span>
+    <span class=" small-12 medium-9 columns" ng-bind="achivment.created"></span>
+    <span class="detail_label small-12 medium-3 columns" >Статус:</span>
+    <span class="small-12 medium-9 columns" ng-bind="achivment.checked ? 'Подтверждено' : 'Не подтверждено'"></span>
+    <span class="detail_label small-12 medium-9 columns" ng-if='achivment.message'>Отвергнуто:</span>
+    <p class="achivment_detail_description small-12 columns" ng-if='achivment.message' ng-bind="achivment.message"></p>
     <div class="small-12 columns">
-    <p class="achivment_detail_description small-12 columns" ng-if='achivment.message && (achivment.owner_id == currentUser._id)' ng-bind="achivment.message"></p>
+    <p class="achivment_detail_description small-12 columns" ng-if='achivment.message' ng-bind="achivment.description"></p>
     </div>
     </div>
-    </div>
-  <div class="row">
-    <p class ='small-12 columns' ng-if='achivment.description' ng-bind="achivment.description"></p>
-        <ul><li ng-repeat='file in achivment.files'>
-        <div style="{bacground: url({{file}})}"></div>
+    <div ng-if='showPhotos'>
+    <button class='btn_edit_user_detail' ng-click='$parent.showPhotos = false'>X</button>
+    <ul>
+    <li ng-repeat='file in achivment.files'>
+    <img ng-src="{{file}}" alt="">
     </li>
     </ul>
     </div>
-    <a class="achivment_owner" ui-sref="profile({id : achivment.owner._id})" ng-bind="achivment.owner.firstName + ' ' + achivment.owner.lastName"></a>
-   <div class='uil-ring-css'><div></div></div>
+    <button class='btn_edit_user_detail' ng-click='showPhotos = true'>Показать документы</button>
+    </div>
    </div>
 
 </section>
