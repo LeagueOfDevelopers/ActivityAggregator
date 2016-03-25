@@ -191,6 +191,7 @@ angular.module('app.controllers.partials',
     $scope.$on('userUpdated', function() {
       $state.reload();
     })
+
       $scope.editUserDetail = function () {
         $scope.showEditField= true;
         $scope.newUserDetail = $scope.userDetail.about;
@@ -210,7 +211,7 @@ angular.module('app.controllers.partials',
 
       $scope.notApplyChanges = function () {
           $scope.showEditField = false;
-          $scope.newUserDetail = null;
+          $scope.newUserDetail = '';
           $scope.userDetail.about = $scope.oldAbout;
       }
 
@@ -235,8 +236,7 @@ angular.module('app.controllers.partials',
     'avatar',
    function($scope, $http, $stateParams, avatar){
 
-      $scope.avatar = avatar;
-      console.log($stateParams.id);
+     $scope.avatar = avatar;
      $scope.student = {};
      $http.get('/api/students/' + $stateParams.id).success(function(data) {
       console.log(data);
@@ -256,7 +256,6 @@ angular.module('app.controllers.partials',
      function($scope, $state, $http, $stateParams){
 
          $scope.$emit('changeTitle', {title: $stateParams.achToShow.name}); 
-         console.log($stateParams)
         var ach = $stateParams.achToShow;
         var type = '';
         switch(ach.type) {
@@ -296,10 +295,12 @@ angular.module('app.controllers.partials',
      'Upload',
      '$state',
     function($scope, $http, $timeout, Upload, $state) {
+
     $scope.newAch = {};    $scope.type = 'Наука';
     $scope.files = [];
     $scope.selectedFiles = [];
     $scope.$watch('type', function() {
+
       var category = '';
         switch($scope.type) {
           case 'Наука' : category = 'science';  break;
@@ -321,12 +322,14 @@ angular.module('app.controllers.partials',
             && $scope.newAch.organization;
           };
 
-    $scope.uploadFidle = function(file) {
+    $scope.uploadFile = function(file) {
+      if(file.name) {
       $scope.selectedFiles.push(file);
       Upload.upload({
         url: '/api/students/' + $scope.currentUser._id + '/achivments/file',
         data: {file: file}
           }).then(function(res) {
+            console.log(res);
 
             if(!res.data) {
               $scope.$emit('showMessage', {msg: 'Произошла ошибка'});
@@ -335,6 +338,7 @@ angular.module('app.controllers.partials',
               $scope.files.push(res.data.fileLink);
             }
          })
+        }
     };      
   
     $scope.submit = function() {
@@ -342,10 +346,7 @@ angular.module('app.controllers.partials',
         $scope.$emit('waiting')
         $scope.newAch.owner_id = $scope.currentUser._id;
         $scope.newAch.files = $scope.files;
-          Upload.upload({
-            url: '/api/students/' + $scope.currentUser._id + '/achivments/',
-            data: $scope.newAch
-          }).then(function(res) {
+          $http.post('/api/students/' + $scope.currentUser._id + '/achivments/', $scope.newAch).success(function(res) {
             $scope.$emit('showMessage', {msg: 'Достижение добавлено, ожидайте подтверждения'})
            // $state.go('studentsBase');
           })

@@ -178,7 +178,7 @@ function changeAvatar(req, res, next) {
 		form.on('close', function() {
 
 			Student.findById(req.params.id, function(err, student) {
-				console.log(filePath);
+				console.log(fileName);
 				student.photoUri = config.avatar.link + req.params.id + fileName;
 				student.save(function(resp) {
 					res.send(resp);
@@ -186,7 +186,8 @@ function changeAvatar(req, res, next) {
 			})
 		})
 		form.on('part', function(part) {
-			if(supportedTypes.indexOf(part.headers['content-type'] == -1)) {
+			console.log(part);
+			if(false) {
 				res.send({status: 'bad'});
 			} else {
 				 savePath = config.avatar.path + req.params.id;
@@ -194,10 +195,10 @@ function changeAvatar(req, res, next) {
 						fs.mkdir(savePath);
 					};
 				 fileName = '/avatar.jpg';
-				 if(fs.existsSync(savePath + filePath)) {
-				fs.unlinkSync(savePath + filePath);
+				 if(fs.existsSync(savePath + fileName)) {
+				fs.unlinkSync(savePath + fileName);
 			 }
-				var out = fs.createWriteStream(savePath + filePath);
+				var out = fs.createWriteStream(savePath + fileName);
 				console.log(fileName);
 				part.pipe(out);
 			} 

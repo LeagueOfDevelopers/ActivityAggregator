@@ -40,6 +40,7 @@ function addFile(req, res, next) {
     errors = [];
 
     form.on('close', function() {
+
         if(errors.length == 0) {
     
          res.send({fileLink: uploadFile.link})
@@ -63,12 +64,12 @@ function addFile(req, res, next) {
 
       form.on('part', function(part) {
         if(part.filename) {
-        console.log(part.filename);
+        console.log(part);
         uploadFile.size = part.byteCount;
         uploadFile.type = part.headers['content-type'];
-        var fileNameHash = crypto.createHmac('sha256', 'ach').update(part.filename).digest('hex').slice(10);
-        uploadFile.path = config.path + req.params.student_id + '/' + fileNameHash;
-        uploadFile.link = config.link + req.params.student_id + '/' + fileNameHash;
+        var fileNameHash = crypto.createHmac('sha256', 'ach').update(part.filename).digest('hex').slice(10) + '.jpg';
+        uploadFile.path = config.path + req.params.id + '/' + fileNameHash;
+        uploadFile.link = config.link + req.params.id + '/' + fileNameHash;
 
         //проверяем размер файла, он не должен быть больше максимального размера
         if(uploadFile.size > maxSize) {
@@ -76,12 +77,13 @@ function addFile(req, res, next) {
         }
 
         //проверяем является ли тип поддерживаемым
-        if(supportMimeTypes.indexOf(uploadFile.type) == -1) {
+        if(false) {
             errors.push('Unsupported mimetype ' + uploadFile.type);
         }
 
         //если нет ошибок то создаем поток для записи файла
         if(errors.length == 0) {
+            console.log('no one error');
             var studentFolder = config.path + req.params.student_id;
             if (!fs.existsSync(studentFolder)) {
                 fs.mkdirSync(studentFolder);
@@ -98,19 +100,26 @@ function addFile(req, res, next) {
            }
     });
 
-
+      form.parse(req);
 }
 
 function newAchivment(req, res, next) {
 	
- 
-  var form = new multiparty.Form();
+  var achivment = {
+        checked: false,
+        updated: new Date()
+    }
+ var fields = req.body;
+ Object.getOwnPropertyNames(fields).forEach(function(key) {
+    achivment[key] = fields[key];
+ })
 
- 
-    form.on('close', function() {
+ console.log(achivment);
+   
     
          Student.findById(req.params.id, function(err, doc) {
-            console.log(err );
+            if(err) res.send(err);
+
                     if(achivment.organization == 'МИСиС') {
                         achivment.checked = true;
                     };
@@ -120,7 +129,7 @@ function newAchivment(req, res, next) {
                         if(err) {
                             res.send(err);
                         } else {
-                            console.log({status: ok,
+                            console.log({status: 'ok',
                                 data: data});
                             res.send({status: 'ok',
                                 data: data.achivments[data.achivments.length - 1]});
@@ -129,14 +138,10 @@ function newAchivment(req, res, next) {
             })
         
 
-    });
+   
 
    
-  form.on('field', function(name, value) {
-    console.log(name);
-    achivment[name] = value;
-  });
-  form.parse(req);
+  
 };
     
     
