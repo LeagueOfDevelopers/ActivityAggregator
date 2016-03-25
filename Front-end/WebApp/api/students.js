@@ -172,33 +172,33 @@ function updateStudentDetail(req, res, next) {
 };
 
 function changeAvatar(req, res, next) {
-		var savePath, filePath;
+		var savePath, fileName;
 		var form = new multiparty.Form();
 		var supportedTypes = config.avatar.types;
 		form.on('close', function() {
 
 			Student.findById(req.params.id, function(err, student) {
 				console.log(filePath);
-				student.photoUri = config.avatar.link + req.params.id + filePath;
+				student.photoUri = config.avatar.link + req.params.id + fileName;
 				student.save(function(resp) {
 					res.send(resp);
 				});
 			})
 		})
 		form.on('part', function(part) {
-			if(false) {
-				res.send('unsopported format');
+			if(supportedTypes.indexOf(part.headers['content-type'] == -1)) {
+				res.send({status: 'bad'});
 			} else {
 				 savePath = config.avatar.path + req.params.id;
 				if(!fs.existsSync(savePath)) {
 						fs.mkdir(savePath);
 					};
-				 filePath = '/avatar.jpg';
+				 fileName = '/avatar.jpg';
 				 if(fs.existsSync(savePath + filePath)) {
 				fs.unlinkSync(savePath + filePath);
 			 }
 				var out = fs.createWriteStream(savePath + filePath);
-				console.log(filePath);
+				console.log(fileName);
 				part.pipe(out);
 			} 
 		})

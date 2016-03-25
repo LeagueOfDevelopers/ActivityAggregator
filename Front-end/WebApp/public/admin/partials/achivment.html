@@ -25,7 +25,7 @@
     </div>
     </div>
     <div ng-if='showPhotos'>
-    <button class='btn_edit_user_detail' ng-click='showPhotos = !showPhotos'>X</button>
+    <button class='btn_edit_user_detail' ng-click='$parent.showPhotos = false'>X</button>
     <ul>
     <li ng-repeat='file in achivment.files'>
     <img ng-src="{{file}}" alt="">

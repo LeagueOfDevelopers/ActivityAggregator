@@ -220,7 +220,7 @@ angular.module('app.controllers.partials',
             data: {avatar : avatar}
           }).then(function(res) {
             $scope.$emit('userUpdate');
-            $scope.$emit('showMessage', {msg: 'Аватар успешно сменен'});
+            $scope.$emit('showMessage', {msg: 'Аватар успешно изменен'});
            
           })
 
@@ -296,8 +296,9 @@ angular.module('app.controllers.partials',
      'Upload',
      '$state',
     function($scope, $http, $timeout, Upload, $state) {
-    $scope.newAch = {};
-    $scope.type = 'Наука';
+    $scope.newAch = {};    $scope.type = 'Наука';
+    $scope.files = [];
+    $scope.selectedFiles = [];
     $scope.$watch('type', function() {
       var category = '';
         switch($scope.type) {
@@ -311,39 +312,46 @@ angular.module('app.controllers.partials',
         }
         $scope.newAch.type = category;
     });
-      function isValid() {
-            return $scope.files && $scope.newAch.name && $scope.newAch.result && $scope.newAch.organization;
+     
+
+    $scope.isValid =  function () {
+            return ($scope.files.length != 0) 
+            && $scope.newAch.name
+            && $scope.newAch.result
+            && $scope.newAch.organization;
           };
 
-    $scope.isValid = isValid;
+    $scope.uploadFidle = function(file) {
+      $scope.selectedFiles.push(file);
+      Upload.upload({
+        url: '/api/students/' + $scope.currentUser._id + '/achivments/file',
+        data: {file: file}
+          }).then(function(res) {
+
+            if(!res.data) {
+              $scope.$emit('showMessage', {msg: 'Произошла ошибка'});
+            } else {
+              $scope.$emit('showMessage', {msg: 'Файлы отправлены'});
+              $scope.files.push(res.data.fileLink);
+            }
+         })
+    };      
   
     $scope.submit = function() {
       if ($scope.isValid()) {
         $scope.$emit('waiting')
         $scope.newAch.owner_id = $scope.currentUser._id;
+        $scope.newAch.files = $scope.files;
           Upload.upload({
             url: '/api/students/' + $scope.currentUser._id + '/achivments/',
             data: $scope.newAch
           }).then(function(res) {
-                console.log($scope.files);
-                $scope.files.forEach(function(file) {
-                  console.log('уплоадим');
-                  Upload.upload({
-                    url: '/api/students/' + $scope.currentUser._id + '/achivments/' + res.data._id + '/file',
-                    data: file
-                  }).then(function(result) {
-                      $scope.$emit('userUpdate');
-                      $scope.$emit('showMessage', {msg: 'Достижение создано, ожидайте подтверждения'});
-                      console.log(result);
-                  })
-                })
-            
-
-            
+            $scope.$emit('showMessage', {msg: 'Достижение добавлено, ожидайте подтверждения'})
            // $state.go('studentsBase');
           })
+      } else {
+        $scope.$emit('showMessage', {msg: 'Заполните все поля формы и добавьте подтверждающие документы'})
       }
-
 
     }
   }])

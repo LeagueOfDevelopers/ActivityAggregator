@@ -42,14 +42,7 @@ function addFile(req, res, next) {
     form.on('close', function() {
         if(errors.length == 0) {
     
-         Student.findOne({'achivments._id': req.params.ach_id}, 'achivments.$', function(err, data) {
-            if(err) {
-                res.send(err);
-            } else {
-                console.log(data);
-                res.send(data);
-            }
-         })
+         res.send({fileLink: uploadFile.link})
            
         }
         else {
@@ -113,17 +106,11 @@ function newAchivment(req, res, next) {
  
   var form = new multiparty.Form();
 
-  
-    var achivment = {
-        checked: false,
-        files: [],
-        updated: new Date()
-    }
-
-   
+ 
     form.on('close', function() {
     
          Student.findById(req.params.id, function(err, doc) {
+            console.log(err );
                     if(achivment.organization == 'МИСиС') {
                         achivment.checked = true;
                     };
@@ -133,7 +120,7 @@ function newAchivment(req, res, next) {
                         if(err) {
                             res.send(err);
                         } else {
-                            console.log({status: 200,
+                            console.log({status: ok,
                                 data: data});
                             res.send({status: 'ok',
                                 data: data.achivments[data.achivments.length - 1]});

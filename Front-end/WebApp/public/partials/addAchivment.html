@@ -31,10 +31,11 @@
            <label>Дата получения</label>
           <input type="date" ng-model='newAch.created'  required>
            <label>Сканы документов</label>
-            <div class="file_field" ngf-select ng-model="files" name="documents" ngf-pattern="'image/*'"
+            <div class="file_field" ngf-select='uploadFile($file)' name="documents" ngf-pattern="'image/*'"
             ngf-accept="'image/*'"  
              ngf-multiple='true'>Выберите файлы</div>
-             <div class="file_field" ng-repeat="file in files" ng-bind='file.name'></div>
+             <div class="file_field" ng-repeat="file in selectedFiles" ng-bind='file.name'>
+             </div>
              <span ng-if='!isValid()'>Заполните форму корректно</span>
 					<input type="submit"   class="submit_form" value="Отправить" ng-click="submit()">
       </div>
