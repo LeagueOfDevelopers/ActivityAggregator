@@ -58,6 +58,7 @@ angular.module('app.controllers.partials',
         
       })
 
+
       $scope.getStudentsList = function(searchParams) {
         $scope.searchResults = {}
         API.query('students.search', {searchParams: searchParams}, true).then(function(result) {

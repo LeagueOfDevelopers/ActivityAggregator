@@ -37,7 +37,7 @@ function login(req, res, next) {
 
 			} else {
 
-				res.send("student not found or password uncorrect")
+				res.send({status: 'not found'});
 
 			}
 		 

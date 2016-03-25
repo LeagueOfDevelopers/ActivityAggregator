@@ -86,6 +86,7 @@
 
 
    }])
+
 angular.module('admin.controllers',
 [
 'ui.router',
@@ -117,8 +118,13 @@ angular.module('admin.controllers',
 
 		$scope.submit = function() {
 			API.query('admin.login', {data: $scope.auth}).then(function(res) {
+        console.log(res);
+        if(res.data.admin) {
 				$scope.$emit('userUpdate');
 				$state.go('inbox');
+      } else {
+        $scope.$emit('showMessage', {msg: 'Введены неверные данные'})
+      }
 			})
 		}
 	}])
@@ -130,28 +136,31 @@ angular.module('admin.controllers',
   '$stateParams',
   'API',
  function($scope, $state, $stateParams, API) {
-  $scope.auth = {};
-  $scope.checkPassword = '';
-  $scope.auth.code = $stateParams.code;
-   if($scope.checkPassword == $scope.auth.password) {
-    $scope.passwordCorrect = true;
-  } else {
-    $scope.passwordCorrect = false;
-  }
+  $scope.code = $stateParams.code;
 
   $scope.submit = function() {
-      API.query('admin.registry', {data: $scope.auth}, true).then(function(res) {
-        if(res.data == "0") {
-          $scope.$emit('showMessage', {msg: 'код уже использован!'});
-  
-        } else {
-        $scope.$emit('userUpdate');
-        $scope.$emit('showMessage', {msg: 'Администратор успешно зарегестрирован'})
-      }
+    if($scope.newAdmin.$valid && $scope.code) {
+      $scope.newAdmin.code = $scope.code
+
+      API.query('admin.registry', {data: $scope.newAdmin}, true).then(function(res) {
+        switch(res.data) {
+          case 
+          '0': $scope.$emit('showMessage', {msg: 'код уже использован!'});  
+            break;
+          case '1':
+             $scope.$emit('showMessage', {msg: 'код не подходит'}); 
+            break;
+          default: 
+          $scope.$emit('userUpdate');
+          $scope.$emit('showMessage', {msg: 'Администратор успешно зарегестрирован'});
+          $scope.go('auth');
+            break;
+        }
       })
     
   }
  }
+}
   ])
 
 .controller('profileCtrl', 
@@ -254,7 +263,7 @@ angular.module('admin.controllers',
                     $http.post('api/admin/invite/' + $scope.currentUser._id, {secret: $scope.secret}).success(function(res) {
                       console.log(res);
                       $scope.inviteCode = res.data;
-                      $scope.inviteLink = 'http://localhost:3000/admin/registryAdmin/' + res.data;
+                      $scope.inviteLink = 'http://' + '162.243.78.140' + '/admin/registryAdmin/' + res.data;
                     })
                     
                   }

@@ -13,21 +13,17 @@ module.exports = {
 };
 
 function login(req, res, next) {
-  console.log(req.body);
   Admin.findOne({email: req.body.email}, function(err, admin) {
     if(err) {
       res.send(err)
-    } else {
+    } else 
       if(admin && admin.passwordIsCorrect(req.body.password)) {
       	req.session.user = admin;
-      	res.send({
-      		status: 'ok',
-      		data: admin
-      	});
-      } else {
-      	res.send('admin not found')
+      	res.send({admin});
+      } else if (!admin) {
+      	res.send('not found')
       }
-    }
+    
   })
 };
 
@@ -37,8 +33,9 @@ function newAdmin(req, res, next) {
 		firstName : 'Админ',
 		lastName: 'Админ',
 		middleName: 'Админ',
-		email: 'admin3@mail.ru',
-		hashPassword: '11111'
+		email: 'adm@mail.ru',
+		hashPassword: '11111',
+    code: 'parent'
 	});
 
 
@@ -52,10 +49,11 @@ function getInviteCode(req, res, next) {
   Admin.findById(req.params.id, function(err, admin) {
     if(err) res.send(err);
     else if(admin) {
-      console.log('founded');
       var code = admin.generateInviteCode(req.body.secret)
     res.send({data : code}); 
-    admin.save();
+    admin.save(function(ressult) {
+      res.send(result);
+    });
   }
   })
 }
@@ -63,9 +61,8 @@ function getInviteCode(req, res, next) {
 function registryByInvite(req, res, next) {
 
 Admin.findOne({'invCodes' : req.body.code}, function(err, findedData) {
-
-  if(err) res.send(err);
-  
+   if(findedData) {
+    console.log(findedData);
   Admin.findOne({'code': req.body.code}, function(er, data) {
     if(err) res.send(err);
     else if(data) {
@@ -82,13 +79,15 @@ Admin.findOne({'invCodes' : req.body.code}, function(err, findedData) {
       });
 
       admin.save(function(result) {
-        res.send(result);
+        res.send('2');
       })
       
     }
   })
 
-
+} else {
+  res.send('1')
+}
   
 })
 
