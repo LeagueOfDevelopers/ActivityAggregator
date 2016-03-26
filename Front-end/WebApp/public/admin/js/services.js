@@ -46,7 +46,7 @@ angular.module('app.services', [])
       students: {
         getDetail: {
           method: 'GET',
-          url: function(params) {    // get
+          url: function(params) {    
           return '/api'  + '/students/' + params.studentId;
         }
       } 

@@ -26,20 +26,18 @@ function login(req, res, next) {
 
 		if(err) {
 
-			console.log(err)
+			res.send(err);
 
 		} else if (student && student.passwordIsCorrect(req.body.password)) {
 
 			req.session.user = student;
-			res.send({
-						data: student
-					});
-
+			res.send({student});
 			} else {
-
 				res.send({status: 'not found'});
+			}
 
 			}
+			
 		 
 		
 	})
@@ -88,18 +86,17 @@ function addStudent(req, res, next) {
 		registered: new Date()
 	});
 
+		student.save(function(err) {
+			if(!err) {
+				res.end('student added')
+			} else {
+				res.send(err);
+			}
+		})
 		
 	
-	student.save(function(err) {
-		if(!err) {
-			res.end('student added')
-		} else {
-			res.send(err);
-		}
-	})
 
-
-		};
+};
 		
 	
 
@@ -121,9 +118,18 @@ function getStudentsList(req, res, next) {
 				} else {
 						res.statusCode = 500;
 						console.log('Internal error(%d): %s',res.statusCode,err.message);
-						 res.send({ error: 'Server error' });
+						res.send({ error: 'Server error' });
 				}
 		});
+
+function getStudentListLimit(req, res, next) {
+	Student.find({'achivments.checked': true}).select('-hashPassword').limit(req.params.number).exec(function(err, data) {
+		if(err) res.send(err);
+		else if(data) {
+			res.send(data);
+		}
+	})
+}
 
 
 
@@ -145,21 +151,21 @@ function getStudentsListByCategory(req, res, next) {
 function getStudentsListByName(req, res, next) {
 	var q = new RegExp(req.params.searchParams, 'i');
 	Student.find({$or : [
-												{'firstName' : q},
-												{'lastName' : q},   
-												{'department' : q},
-												{'group' : q}
-										]
-								}, 
-								'-hashPassword',
-								function (err, data) {
-									if (!err) {
-												res.send(data);
-									 } else {
-										 res.statusCode = 500;
-										 console.log('Internal error(%d): %s',res.statusCode,err.message);
-											res.send({ error: 'Server error' });
-										}
+							{'firstName' : q},
+							{'lastName' : q},   
+							{'department' : q},
+							{'group' : q}
+						]
+				}, 
+				'-hashPassword',
+					function (err, data) {
+						if (!err) {
+									res.send(data);
+						 } else {
+							 res.statusCode = 500;
+							 console.log('Internal error(%d): %s',res.statusCode,err.message);
+								res.send({ error: 'Server error' });
+							}
 		});
 
 
@@ -181,7 +187,6 @@ function changeAvatar(req, res, next) {
 		form.on('close', function() {
 
 			Student.findById(req.params.id, function(err, student) {
-				console.log(file);
 				student.photoUri = config.avatar.link + req.params.id + fileName;
 				student.save(function(resp) {
 					res.send(resp);

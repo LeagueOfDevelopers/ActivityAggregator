@@ -289,14 +289,12 @@ angular.module('app.controllers.partials',
 
     $scope.submit = function() {
       if($scope.newStudent.$valid && $scope.newStudent.password == $scope.checkPassword) {
-      console.log($scope.newStudent);
        $http({
           method  : 'POST',
           url     : '/api/students/',
           data    : $scope.newStudent
           
          }).success(function(res) {
-          console.log(res);
           $scope.$emit('showMessage', {msg: 'Регистрация прошла успешно, ждите верификации'})
           $state.go('auth')
          })
