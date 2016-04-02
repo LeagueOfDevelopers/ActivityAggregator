@@ -67,7 +67,8 @@ function addFile(req, res, next) {
         console.log(part);
         uploadFile.size = part.byteCount;
         uploadFile.type = part.headers['content-type'];
-        var fileNameHash = crypto.createHmac('sha256', 'ach').update(part.filename).digest('hex').slice(10) + '.jpg';
+        var type = uploadFile.type == 'application/pdf' ? '.pdf' : '.jpg';
+        var fileNameHash = crypto.createHmac('sha256', 'ach').update(part.filename).digest('hex').slice(10) + type;
         uploadFile.path = config.path + req.params.id + '/' + fileNameHash;
         uploadFile.link = config.link + req.params.id + '/' + fileNameHash;
 

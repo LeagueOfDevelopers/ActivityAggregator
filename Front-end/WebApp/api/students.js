@@ -106,7 +106,7 @@ function addStudent(req, res, next) {
 	
 
 function getStudentDetail(req, res, next) {
-		Student.findById(req.params.id,'-hashPasswod -salt', function(err, data) {
+		Student.findById(req.params.id,'-hashPasswod', function(err, data) {
 			if(!err) {
 				res.send(data)
 			} else {
