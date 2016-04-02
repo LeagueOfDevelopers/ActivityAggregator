@@ -337,6 +337,15 @@ ul {
   font-size: 18 px;
 }
 
+.user_number_profile {
+  position: absolute;
+  left: 133px;
+  top: 60px;
+  font-family: Calibrib;
+  font-size: 18 px;
+}
+
+
 .user_detail {
   margin-top: 15px;
 }
@@ -1082,10 +1091,27 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 
 }
 
-.backdrop {
+.pList_list_h {
+  li {
+    display: inline-block;
+    margin-right: 2px;
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+  }
+
+  li:hover {
+    border: 3px solid $mainColor;
+  }
+}
+
+.fp_backdrop {
   z-index: 2000;
   position: fixed;
+  left: 0;
+  top: 0;
   height: 100%;
   width: 100%;
   background: rgba(0,0,0, .5);
+  overflow: auto;
 }

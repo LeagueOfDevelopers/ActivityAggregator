@@ -17,7 +17,7 @@ module.exports = {
 	addStudent: addStudent,
 	changeAvatar: changeAvatar,
 	updateStudentDetail: updateStudentDetail,
-	updateSession: updateSession
+	updateSession: updateSession,
 };
 
 function login(req, res, next) {
@@ -28,16 +28,18 @@ function login(req, res, next) {
 
 			res.send(err);
 
-		} else if (student && student.passwordIsCorrect(req.body.password)) {
+		} else if (student && student.passwordIsCorrect(req.body.password) && student.confirmed) {
 
 			req.session.user = student;
-			res.send({student});
+			res.send({
+						data: student
+					});
+
 			} else {
+
 				res.send({status: 'not found'});
-			}
 
 			}
-			
 		 
 		
 	})
@@ -52,7 +54,6 @@ function updateSession(req, res, next) {
 			console.log(err)
 		} 
 		req.session.user = student;
-		console.log(req.session.user);
 		res.send('session updated');
 	})
 }
@@ -83,7 +84,9 @@ function addStudent(req, res, next) {
 		group: fields.group,
 		about: fields.about,
 		level: fields.level,
-		registered: new Date()
+		registered: new Date(),
+		status: 0,
+		number: fields.number
 	});
 
 		student.save(function(err) {
@@ -97,11 +100,13 @@ function addStudent(req, res, next) {
 	
 
 };
+
+
 		
 	
 
 function getStudentDetail(req, res, next) {
-		Student.findById(req.params.id,'-hashedPasswod', function(err, data) {
+		Student.findById(req.params.id,'-hashPasswod -salt', function(err, data) {
 			if(!err) {
 				res.send(data)
 			} else {

@@ -9,7 +9,10 @@ module.exports = {
   registryByInvite: registryByInvite,
   getUncheckedRequests: getUncheckedRequests,
   confirmAchivment: confirmAchivment,
-  unConfirmAchivment: unConfirmAchivment
+  unConfirmAchivment: unConfirmAchivment,
+  confirmStudent: confirmStudent,
+  rejectStudent: rejectStudent,
+  getUncheckedStudents: getUncheckedStudents
 };
 
 function login(req, res, next) {
@@ -96,6 +99,8 @@ Admin.findOne({'invCodes' : req.body.code}, function(err, findedData) {
 
 function getUncheckedRequests(req, res, next) {
 
+  if(req.session.user && req.session.user.role) {
+
   Student.find({'achivments.checked': false})
          .limit(10)
          .exec(function(err, data) {
@@ -104,12 +109,16 @@ function getUncheckedRequests(req, res, next) {
                 }
                 res.send(data);
           });
-
+       } else {
+        res.send('admin permossion required')
+       }
 };
 
 
 
 function confirmAchivment(req, res, next) {
+
+  if(req.session.user && req.session.user.role) {
   Student.update({'achivments._id' : req.params.id},
   {
     '$set' : {
@@ -123,10 +132,15 @@ function confirmAchivment(req, res, next) {
 
     res.send(data);
    });
+} else {
+  res.send('admin permossion required')
+}
 };
 
 function unConfirmAchivment(req, res, next) {
+  if(req.session.user && req.session.user.role) {
    Student.update({'achivments._id' : req.params.id},
+  
   {
     '$set' : {
       'achivments.$.checked' : false,
@@ -139,5 +153,44 @@ function unConfirmAchivment(req, res, next) {
 
     res.send(data);
    });
+ } else {
+  res.send('admin permossion required')
+ }
 };
 
+function confirmStudent(req, res, next) {
+  Student.findById(req.params.id, function(err, student) {
+    if(err) res.send(err);
+    else if(student) {
+      student.status = 1;
+      student.save(function(data) {
+        res.send('ok')
+      }) } else {
+        res.send('student not found');
+      }
+    
+  })
+}
+
+function rejectStudent(req, res, next) {
+   Student.findById(req.params.id, function(err, student) {
+    if(err) res.send(err);
+    else if(student) {
+      student.status = 2;
+      student.save(function(data) {
+        res.send('ok')
+      }) } else {
+        res.send('student not found');
+      }
+    })
+    
+}
+
+function getUncheckedStudents(req, res, next) {
+  Student.find({'status': 0}, '-hashPassword', function(err, data) {
+    if(err) res.send(err);
+    else {
+      res.send(data);
+    }
+  })
+}

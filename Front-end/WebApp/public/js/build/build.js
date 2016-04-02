@@ -257,8 +257,9 @@ angular.module('app.controllers.partials',
       '$stateParams',
      function($scope, $state, $http, $stateParams){
 
-         $scope.$emit('changeTitle', {title: $stateParams.achToShow.name}); 
+         $scope.$emit('changeTitle', {title: $stateParams.achToShow.name});
         var ach = $stateParams.achToShow;
+        $scope.visiblePhoto = false;
         var type = '';
         switch(ach.type) {
           case 'science' : type = 'Наука';  break;
@@ -287,6 +288,11 @@ angular.module('app.controllers.partials',
           level: ach.level
         }
          
+         $scope.showPhoto = function(photo) {
+          $scope.photoToShow = photo;
+          $scope.visiblePhoto = true;
+         }
+
     
        }])
 
@@ -394,14 +400,12 @@ angular.module('app.controllers.partials',
 
     $scope.submit = function() {
       if($scope.newStudent.$valid && $scope.newStudent.password == $scope.checkPassword) {
-      console.log($scope.newStudent);
        $http({
           method  : 'POST',
           url     : '/api/students/',
           data    : $scope.newStudent
           
          }).success(function(res) {
-          console.log(res);
           $scope.$emit('showMessage', {msg: 'Регистрация прошла успешно, ждите верификации'})
           $state.go('auth')
          })

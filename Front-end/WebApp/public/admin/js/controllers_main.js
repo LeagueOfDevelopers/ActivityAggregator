@@ -23,7 +23,6 @@ angular.module('app.controllers.main',
 
         UserManager.getCurrentUser().then(function (result) {
           $scope.currentUser = result;
-          console.log(result);
         });
       };
 
@@ -42,7 +41,6 @@ angular.module('app.controllers.main',
 
       $scope.$on('userUpdate', function (e, args) {
            updateUserData();
-           console.log('auth!');
       })      
 
     }])

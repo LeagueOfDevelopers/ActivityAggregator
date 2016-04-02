@@ -17,7 +17,10 @@ angular.module('admin.controllers',
 		$scope.avatar = avatar;
 		API.query('achivments.requests', null, true).then(function(res) {
 			$scope.studentsList = res.data || null;
-		})
+		});
+    API.query('students.requests', null, true).then(function(res) {
+      $scope.registryRequests = res.data;
+    })
 	
 }]).controller('authCtrl',
 	 [
@@ -30,8 +33,7 @@ angular.module('admin.controllers',
 
 		$scope.submit = function() {
 			API.query('admin.login', {data: $scope.auth}).then(function(res) {
-        console.log(res);
-        if(res.data.admin) {
+        if(res.data != 'not found') {
 				$scope.$emit('userUpdate');
 				$state.go('inbox');
       } else {
@@ -87,6 +89,23 @@ angular.module('admin.controllers',
    		API.query('students.getDetail', {studentId : $stateParams.id}, true).then(function(res) {
    			$scope.student = res.data || null;
    		})
+
+      $scope.confirm = function() {
+        API.query('students.confirm', {studentId: $stateParams.id}, true).then(function(res) {
+            $scope.$emit('showMessage', {msg: 'Студент верифицирован'});
+            API.query('students.getDetail', {studentId : $stateParams.id}, true).then(function(res) {
+              $scope.student = res.data || null;
+            });
+        })
+      }
+      $scope.reject = function() {
+        API.query('students.reject', {studentId: $stateParams.id}, true).then(function(res) {
+            $scope.$emit('showMessage', {msg: 'Заявка отклонена'});
+            API.query('students.getDetail', {studentId : $stateParams.id}, true).then(function(res) {
+              $scope.student = res.data || null;
+            });
+        })
+      }
    }
 	])
 
@@ -108,6 +127,7 @@ angular.module('admin.controllers',
          //   ach = res.data.achivments[0];
          //   console.log(res);
          // })
+
        var ach = $stateParams.achToShow;
         var type = '';
         switch(ach.type) {
@@ -138,7 +158,6 @@ angular.module('admin.controllers',
         $scope.confirm = function() {
           $http.post('api/admin/confirm/' + ach._id).success(function(result) {
             $scope.$emit('showMessage',  {msg: 'Достижение подтверждено'})
-            console.log(result);
           })
 
         }
@@ -147,20 +166,16 @@ angular.module('admin.controllers',
           if($scope.message != '') {
           $scope.showTextaria = false;
           $http.post('api/admin/unconfirm/' + ach._id, {message: $scope.message}).success(function(result) {
-            console.log(result);
             $scope.$emit('showMessage', {msg: 'Отказ отправлен'})
           })
         }
          }
 
-         $scope.showFullPhoto = function(photo) {
-          $scope.fullPhoto = photo;
-             $scope.$dialog = ngDialog.open({
-                      template: 'admin/partials/fullPhoto.html',
-                      showClose: true,
-                      scope: $scope
-                    });
+       $scope.showPhoto = function(photo) {
+          $scope.photoToShow = photo;
+          $scope.visiblePhoto = true;
          }
+
     
        }])
 
@@ -173,7 +188,6 @@ angular.module('admin.controllers',
                     if($scope.secret) {
 
                     $http.post('api/admin/invite/' + $scope.currentUser._id, {secret: $scope.secret}).success(function(res) {
-                      console.log(res);
                       $scope.inviteCode = res.data;
                       $scope.inviteLink = 'http://' + '162.243.78.140' + '/admin/registryAdmin/' + res.data;
                     })

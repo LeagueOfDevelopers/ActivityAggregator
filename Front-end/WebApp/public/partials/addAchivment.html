@@ -33,7 +33,9 @@
            <label>Сканы документов</label>
             <div class="file_field" ngf-select='uploadFile($file)'  ngf-pattern="'image/*'"
             ngf-accept="'image/*'" >Выберите файлы</div>
-             <div class="file_field" ng-repeat="file in selectedFiles" ng-bind='file.name'>
+            <div style="max-width: 100%; height: auto;">
+             <div ng-repeat="file in files" style=' width: 100px; height: 100px; margin-right: 2px; display: inline-block; background: url({{file}}); background-size: cover;'>
+             </div>
              </div>
              <span ng-if='!isValid()'>Заполните форму корректно</span>
 					<input type="submit"   class="submit_form" value="Отправить" ng-click="submit()">

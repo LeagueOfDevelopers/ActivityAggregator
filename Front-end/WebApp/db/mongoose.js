@@ -92,6 +92,14 @@ var student = new schema({
 	salt: {
 		type: String
 	},
+	number: {
+		type: String,
+		required: true
+	},
+	status: { // 1- confirmed 2 - rejected
+		type: Number,
+		required: true
+	},
 	department: {
 		type: String,
 		required: true
@@ -138,6 +146,14 @@ student.methods.passwordIsCorrect = function(pass) {
 	return (this.hashPassword == this.encryptData(pass)) || this.hashPassword == pass;
 
 };
+
+student.methods.confirm = function() {
+	this.status = 1;
+}
+
+student.methods.reject = function() {
+	this.status = 2;
+}
 
 
 

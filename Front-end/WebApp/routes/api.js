@@ -11,11 +11,14 @@ router.get('/students/:student_id/achivments', achivments.getAchivmentsList);
 router.get('/achivments/:id', achivments.getAchivmentDetail);
 router.get('/adm/requests', admin.getUncheckedRequests);
 router.get('/auth/update', students.updateSession);
+router.get('/admin/registryRequests', admin.getUncheckedStudents)
 
 router.post('/admin/registry/', admin.registryByInvite)
 router.post('/admin/invite/:id', admin.getInviteCode)
 router.post('/admin/confirm/:id', admin.confirmAchivment)
-router.post('/admin/unConfirm/:id', admin.unConfirmAchivment)
+router.post('/admin/unconfirm/:id', admin.unConfirmAchivment)
+router.post('/admin/confirmStudent/:id', admin.confirmStudent)
+router.post('/admin/rejectStudent/:id', admin.rejectStudent)
 router.post('/admin/login', admin.login);
 router.post('/admin', admin.newAdmin);	
 router.post('/auth/isAuth', students.isAuth);

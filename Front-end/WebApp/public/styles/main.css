@@ -267,6 +267,13 @@ ul {
   font-family: Calibrib;
   font-size: 18 px; }
 
+.user_number_profile {
+  position: absolute;
+  left: 133px;
+  top: 60px;
+  font-family: Calibrib;
+  font-size: 18 px; }
+
 .user_detail {
   margin-top: 15px; }
 
@@ -902,9 +909,22 @@ ul {
   -o-animation: popupOut .2s ease-out;
   animation: popupOut .2s ease-out; }
 
-.backdrop {
+.pList_list_h li {
+  display: inline-block;
+  margin-right: 2px;
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px; }
+
+.pList_list_h li:hover {
+  border: 3px solid #009fdf; }
+
+.fp_backdrop {
   z-index: 2000;
   position: fixed;
+  left: 0;
+  top: 0;
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.5); }
+  background: rgba(0, 0, 0, 0.5);
+  overflow: auto; }

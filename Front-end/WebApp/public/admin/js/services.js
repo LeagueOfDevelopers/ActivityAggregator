@@ -49,7 +49,26 @@ angular.module('app.services', [])
           url: function(params) {    
           return '/api'  + '/students/' + params.studentId;
         }
-      } 
+      },
+      requests: {
+        method: 'GET',
+        url: function() {
+          return '/api/admin/registryRequests'
+          }
+        },
+        confirm: {
+          method: 'POST',
+          url: function(params) {
+            return 'api/admin/confirmStudent/' + params.studentId;
+            }
+          },
+          reject: {
+          method: 'POST',
+          url: function(params) {
+            return 'api/admin/rejectStudent/' + params.studentId;
+          }
+        }
+      
     },
 
       achivments: {
@@ -63,7 +82,8 @@ angular.module('app.services', [])
       }
 
       }
-    } 
+    }
+
   
 
     function parsePath(pathString, obj) {
@@ -83,9 +103,9 @@ angular.module('app.services', [])
       }
     };
 
+
     function query(path, params, log) {
 
- 
       var apiMethod = parsePath(path, this.apiUrls);
       return $q.when(send(apiMethod, params || null)).then(function(result) {
         if(log) {
