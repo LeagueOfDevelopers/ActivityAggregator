@@ -285,26 +285,24 @@ ul {
   margin-top: 7px;
   font-size: 18px; }
 
-.btn_edit_user_detail {
-  margin-top: 15px;
-  float: right;
+.btn_ghost {
   background: #fff;
   padding: 8px 10px;
-  border: 1px solid #009fdf;
-  border-radius: 0;
   color: #009fdf;
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
   -webkit-transition: all .2s;
   -o-transition: all .2s;
   transition: all .2s; }
 
-.btn_edit_user_detail:hover {
-  cursor: pointer;
-  color: #fff;
-  background: #009fdf;
-  -webkit-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5); }
+.btn_ghost:hover {
+  cursor: pointer; }
+
+.achCard_btn {
+  float: right;
+  margin: 5px;
+  text-decoration: underline; }
 
 .btn_add_achivment {
   margin-left: 10px;

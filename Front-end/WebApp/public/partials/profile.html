@@ -14,9 +14,9 @@
               <textarea name="name" class="about_edit_field" rows="8"  ng-if="showEditField" ng-model="$parent.newUserDetail"></textarea>
               </div>
             </div>
-            <button  class="btn_edit_user_detail" ng-click="applyChanges()" ng-if="showEditField">Применить</button>
-            <button class="btn_edit_user_detail" ng-if="showEditField" ng-click="notApplyChanges()" >Отмена</button>
-            <button class="btn_edit_user_detail" ng-if="!showEditField" ng-click="editUserDetail()" >Редактировать</button>
+            <button  class="btn_ghost profCard_btn" ng-click="applyChanges()" ng-if="showEditField">Применить</button>
+            <button class="btn_ghost profCard_btn" ng-if="showEditField" ng-click="notApplyChanges()" >Отмена</button>
+            <button class="btn_ghost profCard_btn" ng-if="!showEditField" ng-click="editUserDetail()" >Редактировать</button>
           </div>
           <div class="help small-12 medium-5 columns">
             <span class="help_title small-12">Это ваш профиль студента</span>
