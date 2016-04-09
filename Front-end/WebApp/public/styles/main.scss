@@ -60,7 +60,7 @@ html {
 body {
   font-family: Calibri, Helvetica, sans-serif;
   height: 100%  !important;
-  background-color: #fcfcfc !important;
+  background-color: #fafafa !important;
   overflow-x: hidden;
 }
 
@@ -84,6 +84,11 @@ body {
   font-family: Calibri;
   padding-top: 60px;
 
+}
+
+.vertical_offset {
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 
@@ -1125,3 +1130,70 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   background: rgba(0,0,0, .5);
   overflow: auto;
 }
+
+.achD_card {
+	position: relative;
+  margin: 0 auto;
+  min-height: 200px;
+  background: #fff;
+  @include cardShadow;
+  border-radius: 7px;
+  border-left: 4px solid $softBlue;
+  -webkit-animation: fadeIn .2s ease-out;
+  -o-animation: fadeIn .2s ease-out;
+  animation: fadeIn .2s ease-out;}
+
+
+
+.achD_title {
+  margin-top: 10px;
+  margin-bottom: 8px;
+	font-size: 24px;
+	font-weight: bold;
+  padding-left: 8px;
+}
+
+.achD_ownerLink {
+  color: $mainColor;
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+
+.achD_rejected {
+  padding: 10px;
+  background: red;
+}
+
+
+.achD_description {
+  margin-top: 10px;
+  margin-bottom: 8px;
+  padding: 5px;
+}
+
+.achD_files {
+  background: #eeeeee;
+  padding: 0;
+  width: 100%;
+}
+
+.achD_filesList li {
+  display: inline-block;
+  box-sizing: border-box;
+  border: 0;
+  height: 100px;
+  width: 100px;
+  margin: 0 !important;
+}
+
+.achD_filesList li:hover {
+  display: inline-block;
+  border: 3px solid $mainColor;
+}
+
+.achD_filePrev {
+  height: 100%;
+  width: 100%;
+  background: #000;
+}
+

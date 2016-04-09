@@ -100,7 +100,6 @@ angular.module('app.controllers.partials',
         console.log($scope.newUserDetail);
         $scope.userDetail.about = $scope.newUserDetail;
         $http.post('/api/students/' + $scope.currentUser._id, {about : $scope.newUserDetail}).success(function(data) {
-          $scope.$emit('userUpdate');
           $scope.$emit('showMessage', {msg: 'Информация успешно изменена'});
         });
         $scope.showEditField = false;    
