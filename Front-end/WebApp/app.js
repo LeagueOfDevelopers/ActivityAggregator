@@ -9,8 +9,8 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var api = require('./routes/api');
-//var MongoStore = require('connect-mongo')(session);
-//var mongoose = require('./db/mongoose');
+var MongoStore = require('connect-mongo')(session);
+var mongoose = require('./db/mongoose');
 var app = express();
 
 // view engine setup
@@ -27,7 +27,7 @@ app.use(favicon(__dirname + '/public/icons/favicon.png'));
 
 app.use(session({
   secret: 'jambuljambul',
- // store: new MongoStore({mongooseConnection : mongoose.connection}),
+  store: new MongoStore({mongooseConnection : mongoose.connection}),
   resave: true,
   saveUninitialized: true,
   key: 'sid',

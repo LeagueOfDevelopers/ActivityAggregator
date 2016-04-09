@@ -67,8 +67,7 @@ function addFile(req, res, next) {
         console.log(part);
         uploadFile.size = part.byteCount;
         uploadFile.type = part.headers['content-type'];
-        var type = uploadFile.type == 'application/pdf' ? '.pdf' : '.jpg';
-        var fileNameHash = crypto.createHmac('sha256', 'ach').update(part.filename).digest('hex').slice(10) + type;
+        var fileNameHash = crypto.createHmac('sha256', 'ach').update(part.filename).digest('hex').slice(10) + uploadFile.type.split('')[1];
         uploadFile.path = config.path + req.params.id + '/' + fileNameHash;
         uploadFile.link = config.link + req.params.id + '/' + fileNameHash;
 
@@ -110,14 +109,12 @@ function newAchivment(req, res, next) {
         checked: false,
         updated: new Date()
     }
+
  var fields = req.body;
  Object.getOwnPropertyNames(fields).forEach(function(key) {
     achivment[key] = fields[key];
  })
-
  console.log(achivment);
-   
-    
          Student.findById(req.params.id, function(err, doc) {
             if(err) res.send(err);
 

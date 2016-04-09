@@ -3,23 +3,8 @@
   margin: 0;
   padding: 0; }
 
-textaria {
-  font-size: 18px; }
-
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important; }
-
-button:active :after :before {
-  display: none; }
-
-html {
-  height: 100% !important; }
-
-body {
-  font-family: Calibri, Helvetica, sans-serif;
-  height: 100%  !important;
-  background-color: #fcfcfc !important;
-  overflow-x: hidden; }
 
 a {
   text-decoration: none; }
@@ -39,6 +24,15 @@ ul {
   font-family: DaysSans;
   src: url(../fonts/DaysSansBlack.otf); }
 
+html {
+  height: 100% !important; }
+
+body {
+  font-family: Calibri, Helvetica, sans-serif;
+  height: 100%  !important;
+  background-color: #fcfcfc !important;
+  overflow-x: hidden; }
+
 .wrapper {
   height: 100% !important;
   position: relative; }
@@ -56,8 +50,7 @@ ul {
 .page_content {
   height: 100% !important;
   font-family: Calibri;
-  padding-top: 60px;
-  padding-bottom: 60px; }
+  padding-top: 60px; }
 
 .footer {
   width: 100%;
@@ -424,6 +417,12 @@ ul {
 
 .ach_icon.study:after {
   background: url(../icons/achivments_icons.png) -256px no-repeat; }
+
+.ach_icon.business:after {
+  background: url(../icons/achivments_icons.png) -379px no-repeat; }
+
+.ach_icon.international:after {
+  background: url(../icons/achivments_icons.png) -312px no-repeat; }
 
 .ach_title {
   position: absolute;

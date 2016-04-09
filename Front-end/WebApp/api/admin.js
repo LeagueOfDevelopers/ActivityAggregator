@@ -2,6 +2,7 @@ var fs = require('fs');
 var path = require('path');
 var Admin = require('../db/mongoose').models.Admin;
 var Student = require('../db/mongoose').models.Student;
+
 module.exports = {
   login: login,
   newAdmin: newAdmin,
@@ -52,9 +53,10 @@ function getInviteCode(req, res, next) {
   Admin.findById(req.params.id, function(err, admin) {
     if(err) res.send(err);
     else if(admin) {
-      var code = admin.generateInviteCode(req.body.secret)
-    res.send({data : code}); 
-    admin.save(function(ressult) {
+      var secret = req.body.secret || Math.Random();
+      var code = admin.generateInviteCode(secret);
+      res.send({data : code}); 
+      admin.save(function(result) {
       res.send(result);
     });
   }

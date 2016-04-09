@@ -2,6 +2,7 @@ $mainColor: #009fdf;
 $softBlue: #87b1cd;
 $fontColor: #59595b;
 $achivmentsIcons: url(../icons/achivments_icons.png);
+
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
      -moz-border-radius: $radius;
@@ -10,13 +11,13 @@ $achivmentsIcons: url(../icons/achivments_icons.png);
 }
 @mixin cardShadow() {
   -webkit-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
-  -moz-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
-  box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
+     -moz-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
+          box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
 }
 @mixin headerShadow() {
-  -webkit-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
-  -moz-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
-  box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
+   -webkit-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
+     -moz-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
+          box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
 }
 
 * {
@@ -24,27 +25,12 @@ $achivmentsIcons: url(../icons/achivments_icons.png);
   padding: 0;
 }
 
-textaria {
-  font-size: 18px;
-}
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
 
-button:active :after :before {
-display: none;
-}
-html {
-  height: 100% !important;
-}
 
-body {
-  font-family: Calibri, Helvetica, sans-serif;
-  height: 100%  !important;
-  background-color: #fcfcfc !important;
-  overflow-x: hidden;
-}
 
 a {
   text-decoration: none;
@@ -67,6 +53,17 @@ ul {
   src:url(../fonts/DaysSansBlack.otf);
 }
 
+html {
+  height: 100% !important;
+}
+
+body {
+  font-family: Calibri, Helvetica, sans-serif;
+  height: 100%  !important;
+  background-color: #fcfcfc !important;
+  overflow-x: hidden;
+}
+
 .wrapper {
   height: 100% !important;
   position: relative;
@@ -78,16 +75,14 @@ ul {
   background-color: $mainColor;
   z-index: 1000;
   position: fixed;
-
-
   @include headerShadow();
 }
+
 
 .page_content {
   height: 100% !important;
   font-family: Calibri;
   padding-top: 60px;
-  padding-bottom: 60px;
 
 }
 
@@ -98,7 +93,6 @@ ul {
   line-height: 60px;
   border-top: 2px solid $mainColor;
   background: #fff;
-
 }
 
 .misis_logo {
@@ -182,6 +176,7 @@ ul {
   -o-transition: all .2s;
   transition: all .2s;
 }
+
 .mobile_nav_bar li:hover {
   background: #fff;
   a {
@@ -192,6 +187,7 @@ ul {
 .nav_bar ul {
 	height: 100%;
 }
+
 .nav_bar li {
   display: inline-block;
   color: #fff;
@@ -226,6 +222,7 @@ ul {
 .index_header {
   height: 85px;
 }
+
 .index_title {
   display: inline-block;
   font-family: DaysSans;
@@ -257,11 +254,13 @@ ul {
   -o-animation: fadeIn .2s ease-out;
   animation: fadeIn .2s ease-out;
 }
+
 .about_edit_field {
   height: 100%;
   width: 100%;
   display: block;
 }
+
 .user_main_info {
   position: relative;
   height: 120px;
@@ -349,6 +348,7 @@ ul {
 .user_detail {
   margin-top: 15px;
 }
+
 .user_detail span {
   font-weight: bold;
   font-size: 20px;
@@ -379,8 +379,8 @@ ul {
   float: right;
   margin: 5px;
   text-decoration: underline;
-
 }
+
 .btn_add_achivment {
   margin-left: 10px;
   padding: 3px 12px;
@@ -389,7 +389,6 @@ ul {
   border: 1px solid $mainColor;
   color: $mainColor;
   font-size: 24px;
-
   line-height: normal !important;
   -webkit-transition: all .2s;
   -o-transition: all .2s;
@@ -434,16 +433,20 @@ ul {
   font-size: 20px;
   font-weight: bold;
 }
+
 .achivments_list {
   margin-bottom: 100px;
 }
+
 .achivments_list ul {
   margin: 20px auto;
 }
+
 .achivments_list li {
   display: inline-block;
   margin: 5px;
 }
+
 .ach {
 	height: 70px;
 	width: 270px;
@@ -453,7 +456,6 @@ ul {
 	-webkit-transition: all .2s;
 	-o-transition: all .2s;
 	transition: all .2s;
-
 	-webkit-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
 	-moz-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
 	box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
@@ -528,6 +530,15 @@ ul {
 .ach_icon.study:after {
   background: $achivmentsIcons -256px no-repeat;
 }
+
+.ach_icon.business:after {
+  background: $achivmentsIcons -379px no-repeat;
+}
+
+.ach_icon.international:after {
+  background: $achivmentsIcons -312px no-repeat;
+}
+
 
 .ach_title {
 	position: absolute;
@@ -724,6 +735,7 @@ ul {
   width: 300px;
   line-height: 25px;
 }
+
 }
 .achivment_link a  {
   color: $mainColor;

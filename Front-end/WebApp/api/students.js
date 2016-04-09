@@ -28,7 +28,7 @@ function login(req, res, next) {
 
 			res.send(err);
 
-		} else if (student && student.passwordIsCorrect(req.body.password) && student.confirmed) {
+		} else if (student && student.passwordIsCorrect(req.body.password)) {
 
 			req.session.user = student;
 			res.send({
