@@ -31,7 +31,7 @@
            <label>Дата получения</label>
           <input type="date" ng-model='newAch.created'  required>
            <label>Сканы документов</label>
-            <div class="file_field" ngf-select='uploadFile($file)'  ngf-pattern="'image/*'"
+            <div class="file_field" ngf-select='uploadFile($file)'
             ngf-accept="'image/*, application/pdf'" >Выберите файлы</div>
             <div style="max-width: 100%; height: auto;">
              <div ng-repeat="file in files" style=' width: 100px; height: 100px; margin-right: 2px; display: inline-block; background: url({{file}}); background-size: cover;'>

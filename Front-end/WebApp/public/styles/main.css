@@ -357,7 +357,7 @@ body {
 
 .ach {
   height: 70px;
-  width: 270px;
+  width: 250px;
   background-color: #87b1cd;
   opacity: 1;
   position: relative;
@@ -432,7 +432,7 @@ body {
   font-family: Calibri;
   line-height: normal;
   font-size: 18px;
-  width: 190px; }
+  width: 180px; }
 
 .students_base {
   font-family: Calibri; }

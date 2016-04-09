@@ -67,7 +67,7 @@ function addFile(req, res, next) {
         console.log(part);
         uploadFile.size = part.byteCount;
         uploadFile.type = part.headers['content-type'];
-        var fileNameHash = crypto.createHmac('sha256', 'ach').update(part.filename).digest('hex').slice(10) + uploadFile.type.split('')[1];
+        var fileNameHash = crypto.createHmac('sha256', 'ach').update(part.filename).digest('hex').slice(10) + '.' + uploadFile.type.split('/')[1];
         uploadFile.path = config.path + req.params.id + '/' + fileNameHash;
         uploadFile.link = config.link + req.params.id + '/' + fileNameHash;
 
@@ -84,10 +84,13 @@ function addFile(req, res, next) {
         //если нет ошибок то создаем поток для записи файла
         if(errors.length == 0) {
             console.log('no one error');
-            var studentFolder = config.path + req.params.student_id;
+            var studentFolder = config.path + req.params.id;
+            console.log(studentFolder);
             if (!fs.existsSync(studentFolder)) {
                 fs.mkdirSync(studentFolder);
-            }
+                console.log('created dir');
+
+            } 
             var out = fs.createWriteStream(uploadFile.path);
             part.pipe(out);
             file = uploadFile.link;

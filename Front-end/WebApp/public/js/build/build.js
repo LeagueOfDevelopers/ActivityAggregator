@@ -255,7 +255,8 @@ angular.module('app.controllers.partials',
       '$state', 
       '$http',
       '$stateParams',
-     function($scope, $state, $http, $stateParams){
+      '$window',
+     function($scope, $state, $http, $stateParams, $window){
 
          $scope.$emit('changeTitle', {title: $stateParams.achToShow.name});
         var ach = $stateParams.achToShow;
@@ -291,6 +292,9 @@ angular.module('app.controllers.partials',
          $scope.showPhoto = function(photo) {
           $scope.photoToShow = photo;
           $scope.visiblePhoto = true;
+         }
+         $scope.showPdf = function(pdf) {
+            $window.open('localhost:3000/' + pdf)
          }
 
     
@@ -331,6 +335,7 @@ angular.module('app.controllers.partials',
           };
 
     $scope.uploadFile = function(file) {
+      console.log(file);
       if(file.name) {
       $scope.selectedFiles.push(file);
       Upload.upload({
