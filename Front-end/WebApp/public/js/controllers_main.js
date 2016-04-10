@@ -9,7 +9,7 @@ angular.module('app.controllers.main',
    'UserManager',
    '$timeout',
   function ($scope, $state, UserManager, $timeout) {
-
+     $scope.BASE_URI = 'http://localhost:3000/';
      $scope.title = 'Онлайн портфолио активных студентов НИТУ МИСиС';
      $scope.$on('changeTitle', function(e, args) {
       $scope.title = args.title;

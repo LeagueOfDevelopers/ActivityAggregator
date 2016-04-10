@@ -68,7 +68,7 @@ angular.module('ActivityAggregator',
        })
 
        .state('achivment_detail', {
-          url: '/achivment_detail/:id',
+          url: '/achivment_detail',
           params: {
             'achToShow': null,
             'owner': null

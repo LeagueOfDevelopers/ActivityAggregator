@@ -307,10 +307,18 @@
 			}
 		},
 		{
-			"file": "public/partials/profile.html",
+			"file": "public/partials/profile_another.html",
 			"settings":
 			{
-				"buffer_size": 2480,
+				"buffer_size": 1479,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "api/admin.js",
+			"settings":
+			{
+				"buffer_size": 4261,
 				"line_ending": "Windows"
 			}
 		},
@@ -318,7 +326,15 @@
 			"file": "public/partials/achivment.html",
 			"settings":
 			{
-				"buffer_size": 2388,
+				"buffer_size": 3254,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/partials/studentsBase.html",
+			"settings":
+			{
+				"buffer_size": 2797,
 				"line_ending": "Windows"
 			}
 		},
@@ -326,7 +342,102 @@
 			"file": "public/styles/main.scss",
 			"settings":
 			{
-				"buffer_size": 18965,
+				"buffer_size": 20546,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": " 0px 1px 3px 0px rgba(0,0,0,0.15);",
+			"settings":
+			{
+				"buffer_size": 34,
+				"line_ending": "Windows",
+				"name": "0px 1px 3px 0px rgba(0,0,0,0.15);"
+			}
+		},
+		{
+			"file": "public/js/controllers_main.js",
+			"settings":
+			{
+				"buffer_size": 2069,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "api/students.js",
+			"settings":
+			{
+				"buffer_size": 4713,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/admin/js/controllers_main.js",
+			"settings":
+			{
+				"buffer_size": 1561,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "config.js",
+			"settings":
+			{
+				"buffer_size": 475,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "api/achivments.js",
+			"settings":
+			{
+				"buffer_size": 4291,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "<div class=\"page_content\">\n	<div class=\"row\">\n  <div class=\"form_card small-centered small-12 medium-6 medium-centered large-5 large-centered columns\">\n    <form method=\"post\" enctype=\"multipart/form-data\">\n      <div class=\"row column login_form\">\n        <span class=\"form_title\">Ваши успехи</span>\n        <label>Название достижения</label>\n          <input type=\"text\" placeholder='Олимпиада по программирванию' required='true' ng-model='newAch.name'>\n          <label>Категория</label>\n        <select name=\"category\" class=\"select_category\" ng-model='type' required='true'>\n              <option>Спорт</option>\n              <option>Культура</option>\n              <option>Наука</option>\n              <option>Общественная деятельность</option>\n              <option>Межкультурный диалог</option>\n              <option>Предпринимательство</option>\n            </select>\n            <label>Уровень</label>\n          <select name=\"level\" class=\"select_category\" ng-model='newAch.level' required='true'>\n              <option>Внутревузовский</option>\n              <option>Межвузовский</option>\n              <option>Государственный</option>\n              <option>Международный</option>\n            </select>\n          <label>Результаты</label>\n          <input type=\"text\" placeholder=\"Призер 2 место\" required='true' ng-model='newAch.result'>\n          <label>Организация</label>\n          <input type=\"text\" placeholder=\"mail.ru\" required='true' ng-model='newAch.organization'>\n           <label>Подробнее (не обязательно)</label>\n          <textarea name=\"name\" rows=\"5\" class=\"small-12 columns\" ng-model=\"newAch.description\"></textarea>\n           <label>Дата получения</label>\n          <input type=\"date\" ng-model='newAch.created'  required>\n           <label>Сканы документов</label>\n            <div class=\"file_field\" ngf-select='uploadFile($file)'\n            ngf-accept=\"'image/*, application/pdf'\" >Выберите файлы</div>\n            <div style=\"max-width: 100%; height: auto;\">\n             <div ng-repeat=\"file in files\" style=' width: 100px; height: 100px; margin-right: 2px; display: inline-block; background: url({{file}}); background-size: cover;'>\n             </div>\n             </div>\n             <span ng-if='!isValid()'>Заполните форму корректно</span>\n					<input type=\"submit\"   class=\"submit_form\" value=\"Отправить\" ng-click=\"submit()\">\n      </div>\n    </form>\n\n  </div>\n</div>\n</div>\n",
+			"file": "public/partials/addAchivment.html",
+			"file_size": 2795,
+			"file_write_time": 131046510297117478,
+			"settings":
+			{
+				"buffer_size": 2416,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/js/controllers.js",
+			"settings":
+			{
+				"buffer_size": 9314,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "views/index.jade",
+			"settings":
+			{
+				"buffer_size": 2661,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/js/app.js",
+			"settings":
+			{
+				"buffer_size": 2445,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "var express = require('express');\nvar session = require('express-session');\nvar path = require('path');\nvar favicon = require('serve-favicon');\nvar logger = require('morgan');\nvar cookieParser = require('cookie-parser');\nvar bodyParser = require('body-parser');\n\nvar routes = require('./routes/index');\nvar users = require('./routes/users');\nvar api = require('./routes/api');\nvar MongoStore = require('connect-mongo')(session);\nvar mongoose = require('./db/mongoose');\nvar app = express();\n\n// view engine setup\napp.set('views', path.join(__dirname, 'views'));\napp.set('view engine', 'jade');\n\n// uncomment after placing your favicon in /public\n//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));\napp.use(logger('dev'));\napp.use(bodyParser.json());\napp.use(bodyParser.urlencoded({ extended: false }));\napp.use(cookieParser());\napp.use(favicon(__dirname + '/public/icons/favicon.png'));\n\napp.use(session({\n  secret: 'jambuljambul',\n  store: new MongoStore({mongooseConnection : mongoose.connection}),\n  resave: true,\n  saveUninitialized: true,\n  key: 'sid',\n  cookie: { maxAge: null}\n}));\n\napp.use(express.static(path.join(__dirname, 'public')));\n\napp.all('/*', function(req, res, next) {\n  res.header(\"Access-Control-Allow-Origin\", \"*\");\n  res.header(\"Access-Control-Allow-Headers\", \"X-Requested-With\");\n  next();\n });\n\napp.use(function(req, res, next) {\n  console.log(req.session);\n  next();\n });\n\napp.use('/', routes);\napp.use('/users', users);\napp.use('/api', api);\n\n// catch 404 and forward to error handler\napp.use(function(req, res, next) {\n  var err = new Error('Not Found');\n  err.status = 404;\n  next(err);\n});\n\n// error handlers\n\n// development error handler\n// will print stacktrace\nif (app.get('env') === 'development') {\n  app.use(function(err, req, res, next) {\n    res.status(err.status || 500);\n    res.render('error', {\n      message: err.message,\n      error: err\n    });\n  });\n}\n\n// production error handler\n// no stacktraces leaked to user\napp.use(function(err, req, res, next) {\n  res.status(err.status || 500);\n  res.render('error', {\n    message: err.message,\n    error: {}\n  });\n});\n\n\nmodule.exports = app;\n",
+			"file": "app.js",
+			"file_size": 2231,
+			"file_write_time": 131046180305434775,
+			"settings":
+			{
+				"buffer_size": 2147,
 				"line_ending": "Windows"
 			}
 		},
@@ -428,14 +539,23 @@
 	"expanded_folders":
 	[
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/build",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/lib",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/routes"
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles/lib",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/routes",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/views"
 	],
 	"file_history":
 	[
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles/main.scss",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/profile.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/services.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/profile.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/addAchivment.html",
@@ -467,7 +587,6 @@
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/config.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/build/build.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/profile_another.html",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/profile.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/views/admin.jade",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/registry.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/authAdmin.html",
@@ -581,6 +700,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"input",
+			"form",
+			"card",
+			"achivment",
+			"ach",
+			"achivment",
 			"btn_edit_user_detail",
 			"newStudent",
 			"cry",
@@ -654,7 +779,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 9,
 			"sheets":
 			[
 				{
@@ -683,34 +808,34 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3842.0,
+						"translation.y": 3586.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "public/partials/profile.html",
+					"file": "public/partials/profile_another.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2480,
+						"buffer_size": 1479,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1342,
-								1342
+								1143,
+								1143
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"tab_size": 2,
-							"tabs_extra_last_activated": 1459860555.12,
+							"tabs_extra_last_activated": 1460185392.91,
 							"tabs_extra_last_activated_sheet_index": 1,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
@@ -719,82 +844,252 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "public/partials/achivment.html",
+					"file": "api/admin.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2388,
+						"buffer_size": 4261,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2124,
-								2135
+								160,
+								160
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1460204040.33,
+							"tabs_extra_last_activated_sheet_index": 2,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2181.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "public/partials/achivment.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3254,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2321,
+								2321
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"tab_size": 4,
-							"tabs_extra_last_activated": 1459860968.3,
-							"tabs_extra_last_activated_sheet_index": 2,
+							"tabs_extra_last_activated": 1460203103.16,
+							"tabs_extra_last_activated_sheet_index": 3,
+							"tabs_extra_moving":
+							[
+								2,
+								0
+							],
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 139.0,
+						"translation.y": 106.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "public/styles/main.scss",
+					"buffer": 4,
+					"file": "public/partials/studentsBase.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 18965,
+						"buffer_size": 2797,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6199,
-								6199
+								2734,
+								2734
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1460203130.47,
+							"tabs_extra_last_activated_sheet_index": 4,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 160.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "public/styles/main.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 20546,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								14425,
+								14426
+							],
+							[
+								14564,
+								14564
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/CSS/CSS.sublime-syntax",
 							"tab_size": 2,
-							"tabs_extra_last_activated": 1459883582.32,
-							"tabs_extra_last_activated_sheet_index": 3,
+							"tabs_extra_last_activated": 1460205286.1,
+							"tabs_extra_last_activated_sheet_index": 5,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4128.0,
+						"translation.y": 12261.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "public/admin/partials/achivment.html",
+					"buffer": 6,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2611,
+						"buffer_size": 34,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								34,
+								34
+							]
+						],
+						"settings":
+						{
+							"auto_name": "0px 1px 3px 0px rgba(0,0,0,0.15);",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tabs_extra_last_activated": 1460324027.64,
+							"tabs_extra_last_activated_sheet_index": 6
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "public/js/controllers_main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2069,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								245,
+								245
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1460199625.01,
+							"tabs_extra_last_activated_sheet_index": 5,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "api/students.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4713,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2223,
+								2223
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tabs_extra_last_activated": 1460324029.53,
+							"tabs_extra_last_activated_sheet_index": 8,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 2.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "public/admin/js/controllers_main.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1561,
 						"regions":
 						{
 						},
@@ -807,10 +1102,172 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "config.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 475,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								344,
+								344
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tabs_extra_last_activated": 1460144478.58,
+							"tabs_extra_last_activated_sheet_index": 4,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "api/achivments.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4291,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								831,
+								831
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 4,
-							"tabs_extra_last_activated": 1459860658.4,
-							"tabs_extra_last_activated_sheet_index": 3,
+							"tabs_extra_last_activated": 1460204032.7,
+							"tabs_extra_last_activated_sheet_index": 10,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1363.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "public/partials/addAchivment.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2416,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								990,
+								990
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1460205257.23,
+							"tabs_extra_last_activated_sheet_index": 11,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 180.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "public/js/controllers.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9314,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2002,
+								2002
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1460203828.62,
+							"tabs_extra_last_activated_sheet_index": 12,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 43.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "views/index.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2661,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								733,
+								733
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1460199510.36,
+							"tabs_extra_last_activated_sheet_index": 10,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
 						},
@@ -818,7 +1275,106 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "public/js/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2445,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1654,
+								1670
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1460201021.38,
+							"tabs_extra_last_activated_sheet_index": 12,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 668.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2147,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1335,
+								1335
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1460144349.37,
+							"tabs_extra_last_activated_sheet_index": 5,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 839.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 16,
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "public/admin/partials/achivment.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2611,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1448,
+								1448
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"tabs_extra_last_activated": 1460201485.56,
+							"tabs_extra_last_activated_sheet_index": 15,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 66.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
 					"type": "text"
 				}
 			]
@@ -996,7 +1552,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 206.0,
+	"side_bar_width": 309.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

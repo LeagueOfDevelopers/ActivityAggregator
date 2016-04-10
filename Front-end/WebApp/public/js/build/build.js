@@ -68,7 +68,7 @@ angular.module('ActivityAggregator',
        })
 
        .state('achivment_detail', {
-          url: '/achivment_detail/:id',
+          url: '/achivment_detail',
           params: {
             'achToShow': null,
             'owner': null
@@ -140,6 +140,8 @@ angular.module('app.controllers.partials',
    function ($scope, $http, API, avatar) {
       $scope.$emit('changeTitle', {title: 'База активистов НИТУ МИСиС'});
       $scope.avatar = avatar;
+      var studentsList;
+      var viewItemCount;
       API.query('students.getLast', null, true).then(function(result) {
         $scope.searchResults = result.data;
       })
@@ -163,9 +165,12 @@ angular.module('app.controllers.partials',
         
       })
 
+      $scope.getMoreStudents = function() {
+        $scope.searchResults.push(studentsList[viewItemCount]);
+      }
 
       $scope.getStudentsList = function(searchParams) {
-        $scope.searchResults = {}
+        $scope.searchResults = {};
         API.query('students.search', {searchParams: searchParams}, true).then(function(result) {
           $scope.searchResults = result.data;
         });
@@ -289,13 +294,13 @@ angular.module('app.controllers.partials',
         }
          
          $scope.showPhoto = function(photo) {
-          $scope.photoToShow = photo;
-          $scope.visiblePhoto = true;
+          if(photo.split('').indexOf('pdf') == -1) {
+            $scope.photoToShow = photo;
+            $scope.visiblePhoto = true;
+          } else {
+            $window.open($scope.BASE_URI + photo);
+          }
          }
-         $scope.showPdf = function(pdf) {
-            $window.open('localhost:3000/' + pdf)
-         }
-
     
        }])
 
@@ -430,7 +435,7 @@ angular.module('app.controllers.main',
    'UserManager',
    '$timeout',
   function ($scope, $state, UserManager, $timeout) {
-
+     $scope.BASE_URI = 'http://localhost:3000/';
      $scope.title = 'Онлайн портфолио активных студентов НИТУ МИСиС';
      $scope.$on('changeTitle', function(e, args) {
       $scope.title = args.title;

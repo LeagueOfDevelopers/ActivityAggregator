@@ -1,42 +1,59 @@
 
-<section class="page_content">
-<div class="row">
-  <div class="achivment_detail_card small-12 medium-6 medium-centered columns">
+   <section class="page_content">
+    <div class="vertical_offset">
     <div class="row">
-    <span class="achivment_title small-12 columns" ng-class="{unchecked: !achivment.checked}" ng-bind="achivment.title"></span>
+        <div class="achD_card small-12 medium-10 medium-centered columns">
+        <div class="row">
+            <div class="achD_title small-12 medium-8 columns"ng-bind="achivment.title"></div>
+            <a ui-sref="profile({id: achivment.owner._id})" class="achD_ownerLink small-12 columns" ng-bind="achivment.owner.firstName + ' ' + achivment.owner.lastName"></a>
+        </div>
+            <div class="row">
+            <div class="achD_details small-12 medium-8 columns">
+                <ul class="achD_detailsList small-12 columns">
+                    <li class="row">
+                    <span class="achD_detailsListLabel small-4 columns">Катеогрия</span>
+                    <span class=" achD_detailsListDesc small-8 columns" ng-bind="achivment.type"></span>
+                    </li>
+                    <li class="row">
+                    <span class="achD_detailsListLabel  small-4 columns ">Уровень</span>
+                    <span class="achD_detailsListDesc small-8 columns" ng-bind="achivment.level"></span>
+                    </li>
+                    <li class="row">
+                    <span class="achD_detailsListLabel  small-4 columns  ">Организация</span>
+                    <span class="achD_detailsListDesc small-8 columns" ng-bind="achivment.organization"></span>
+                    </li>
+                    <li class="row">
+                    <span class="achD_detailsListLabel  small-4 columns">Результат</span>
+                    <span class="achD_detailsListDesc small-8 columns" ng-bind="achivment.result"></span>
+                    </li>
+                    <li class="row">
+                    <span class="achD_detailsListLabel  small-4 columns">Получено</span>
+                    <span class="achD_detailsListDesc small-8 columns" ng-bind="achivment.created"></span>
+                    </li>
+                    <li class="row">
+                    <span class="achD_detailsListLabel  small-4 columns">Статус</span>
+                    <span class="achD_detailsListDesc small-8 columns" ng-bind="achivment.checked ? 'Подтверждено' : 'Не подтверждено'"></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="achD_files small-12 medium-3 columns">
+                <ul class="achD_filesList">
+                    <li ng-repeat="file in achivment.files">
+                        <div class="achD_filePrev" style='background: url({{file}}); background-size: cover;' ng-click='$parent.showPhoto(file)'></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="row"></div>
+            <div class="achD_rejected small-12 columns" ng-if="achivment.message">
+                <p class="achD_rejectedMsg"ng-bind="'Отказано: ' + achivment.message "></p>
+            </div>
+            <div class="achD_description small-12 columns">
+                <p class="achD_desctiptionP" ng-bind="achivment.description"></p>
+            </div>
+        </div>
     </div>
-    <div class="row">
-    <div class="achivment_detail small-12-columns">
-    <span class="detail_label small-12 medium-3 columns">Категория:</span>
-    <span class=" small-12 medium-9 columns" ng-bind="achivment.type"></span>
-    <span class="detail_label small-12 medium-3 columns">Уровень:</span>
-    <span class="small-12 medium-9 columns" ng-bind="achivment.level"></span>
-    <span class="detail_label small-12 medium-3 columns">Результат:</span>
-    <span class=" small-12 medium-9 columns" ng-bind="achivment.result"></span>
-    <span class="detail_label small-12 medium-3 columns" >Организация:</span>
-    <span class=" small-12 medium-9 columns" ng-bind="achivment.organization"></span>
-    <span class="detail_label small-12 medium-3 columns" >Получено:</span>
-    <span class=" small-12 medium-9 columns" ng-bind="achivment.created"></span>
-    <span class="detail_label small-12 medium-3 columns" >Статус:</span>
-    <span class="small-12 medium-9 columns" ng-bind="achivment.checked ? 'Подтверждено' : 'Не подтверждено'"></span>
-    <span class="detail_label small-12 medium-9 columns" ng-if='achivment.message'>Отвергнуто:</span>
-    <p class="achivment_detail_description small-12 columns" ng-if='achivment.message' ng-bind="achivment.message"></p>
-    <div class="small-12 columns">
-    <p class="achivment_detail_description small-12 columns" ng-if='achivment.message' ng-bind="achivment.description"></p>
     </div>
-    </div>
-    <div ng-if='showPhotos'>
-    <button class='btn_ghost' ng-click='$parent.showPhotos = false'>X</button>
-    <ul class='pList_list_h'>
-    <li ng-repeat='file in achivment.files'>
-    <div style='width: 100%; height: 100%; background: url({{file}}); background-size: cover;' ng-click='$parent.showPhoto(file)' alt=""></div>
-    </li>
-    </ul>
-    </div>
-    <button class='btn_ghost achCard_btn' ng-click='showPhotos = true'>Показать документы</button>
-    </div>
-    <div class="fp_backdrop" ng-if='visiblePhoto' ng-click='$parent.visiblePhoto = false'>
-    <img class='small-centered columns'src="{{photoToShow}}" alt="">
-    </div>
-
 </section>
+<div class="fp_backdrop" ng-if='visiblePhoto' ng-click='$parent.visiblePhoto = false'>
+<img class='small-centered columns' src="{{photoToShow}}" alt="">
+</div>

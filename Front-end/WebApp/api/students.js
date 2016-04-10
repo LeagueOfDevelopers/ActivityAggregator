@@ -117,7 +117,7 @@ function getStudentDetail(req, res, next) {
 
 function getStudentsList(req, res, next) {
 
-	Student.find('-hashPassword', function (err, data) {
+	Student.find('-hashPassword').limit(10).exec(function (err, data) {
 				if (!err) {
 						 res.send(data);
 				} else {

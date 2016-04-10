@@ -194,7 +194,8 @@ body {
   overflow: hidden;
   -webkit-animation: fadeIn .2s ease-out;
   -o-animation: fadeIn .2s ease-out;
-  animation: fadeIn .2s ease-out; }
+  animation: fadeIn .2s ease-out;
+  border-radius: 5px; }
 
 .about_edit_field {
   height: 100%;
@@ -291,7 +292,11 @@ body {
   border-radius: 5px;
   -webkit-transition: all .2s;
   -o-transition: all .2s;
-  transition: all .2s; }
+  transition: all .2s;
+  opacity: .8; }
+
+.btn_ghost:hover {
+  opacity: 1; }
 
 .btn_ghost:hover {
   cursor: pointer; }
@@ -306,8 +311,12 @@ body {
   padding: 3px 12px;
   border-radius: 50%;
   background: transparent;
-  border: 1px solid #009fdf;
+  opacity: 1;
+  background: #fff;
   color: #009fdf;
+  -webkit-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
   font-size: 24px;
   line-height: normal !important;
   -webkit-transition: all .2s;
@@ -315,12 +324,7 @@ body {
   transition: all .2s; }
 
 .btn_add_achivment:hover {
-  cursor: pointer;
-  color: #fff;
-  background: #009fdf;
-  -webkit-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5); }
+  cursor: pointer; }
 
 .help {
   margin-top: 10px;
@@ -532,7 +536,8 @@ body {
   box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
   -webkit-animation: fadeIn .2s ease-out;
   -o-animation: fadeIn .2s ease-out;
-  animation: fadeIn .2s ease-out; }
+  animation: fadeIn .2s ease-out;
+  border-radius: 5px; }
 
 @keyframes fadeIn {
   from {
@@ -653,7 +658,8 @@ body {
   box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
   -webkit-animation: fadeIn .2s ease-out;
   -o-animation: fadeIn .2s ease-out;
-  animation: fadeIn .2s ease-out; }
+  animation: fadeIn .2s ease-out;
+  border-radius: 5px; }
 
 @media only screen and (min-width: 670px) {
   .form_card {
@@ -730,11 +736,15 @@ body {
 .form_card input.ng-valid.ng-dirty {
   border: 1px solid green; }
 
+.form_card input {
+  border: 1px solid #009fdf; }
+
 .file_field {
   height: 50px;
-  position: relative;
-  color: #009fdf;
-  background: #fafafa; }
+  color: #009fdf; }
+
+.file_field:hover {
+  cursor: pointer; }
 
 .achivment_owner {
   color: #009fdf;
@@ -956,27 +966,36 @@ body {
   text-decoration: underline;
   margin-bottom: 10px; }
 
+achD_detailsList li {
+  border-bottom: 1px solid #fff; }
+
 .achD_rejected {
   padding: 10px;
-  background: red; }
+  background: red;
+  color: #fff; }
 
 .achD_description {
   margin-top: 10px;
   margin-bottom: 8px;
   padding: 5px; }
 
+.achD_descriptionP {
+  display: block;
+  width: 70%;
+  font-size: 18px; }
+
 .achD_files {
-  background: #eeeeee;
   padding: 0;
-  width: 100%; }
+  width: 100%;
+  margin-bottom: 8px; }
 
 .achD_filesList li {
   display: inline-block;
   box-sizing: border-box;
   border: 0;
-  height: 100px;
-  width: 100px;
-  margin: 0 !important; }
+  height: 70px;
+  width: 70px;
+  margin-right: 2px; }
 
 .achD_filesList li:hover {
   display: inline-block;
@@ -986,3 +1005,10 @@ body {
   height: 100%;
   width: 100%;
   background: #000; }
+
+.achD_detailsListLabel {
+  display: inline-block;
+  font-weight: bold; }
+
+.profCard_btn {
+  float: right; }

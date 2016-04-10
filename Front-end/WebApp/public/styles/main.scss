@@ -258,6 +258,7 @@ body {
   -webkit-animation: fadeIn .2s ease-out;
   -o-animation: fadeIn .2s ease-out;
   animation: fadeIn .2s ease-out;
+  border-radius: 5px;
 }
 
 .about_edit_field {
@@ -374,6 +375,11 @@ body {
   -webkit-transition: all .2s;
   -o-transition: all .2s;
   transition: all .2s;
+  opacity: .8;
+}
+
+.btn_ghost:hover {
+  opacity: 1;
 }
 
 .btn_ghost:hover {
@@ -391,8 +397,10 @@ body {
   padding: 3px 12px;
   border-radius: 50%;
   background: transparent;
-  border: 1px solid $mainColor;
+  opacity: 1;
+  background: #fff;
   color: $mainColor;
+  @include cardShadow();
   font-size: 24px;
   line-height: normal !important;
   -webkit-transition: all .2s;
@@ -402,9 +410,6 @@ body {
 
 .btn_add_achivment:hover {
   cursor: pointer;
-  color: #fff;
-  background: $mainColor;
-  @include cardShadow();
 }
 
 .help {
@@ -660,6 +665,7 @@ body {
   -webkit-animation: fadeIn .2s ease-out;
   -o-animation: fadeIn .2s ease-out;
   animation: fadeIn .2s ease-out;
+  border-radius: 5px;
 }
 
 @keyframes fadeIn {
@@ -793,6 +799,7 @@ body {
    -webkit-animation: fadeIn .2s ease-out;
   -o-animation: fadeIn .2s ease-out;
   animation: fadeIn .2s ease-out;
+  border-radius: 5px;
  }
 
 @media only screen and (min-width: 670px) {
@@ -885,13 +892,19 @@ input.ng-valid.ng-dirty {
   border: 1px solid green;
 }
 
+input {
+  border: 1px solid $mainColor;
+}
+
 }
 
 .file_field {
   height: 50px;
-  position: relative;
   color: $mainColor;
-  background: #fafafa;
+}
+
+.file_field:hover {
+  cursor: pointer;
 }
 
 .achivment_owner {
@@ -1153,15 +1166,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   padding-left: 8px;
 }
 
+
 .achD_ownerLink {
   color: $mainColor;
   text-decoration: underline;
   margin-bottom: 10px;
 }
 
+achD_detailsList li {
+	border-bottom: 1px solid #fff;
+}
+
 .achD_rejected {
   padding: 10px;
   background: red;
+  color: #fff;
 }
 
 
@@ -1171,19 +1190,25 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   padding: 5px;
 }
 
+.achD_descriptionP {
+  display: block;
+  width: 70%;
+  font-size: 18px;
+}
+
 .achD_files {
-  background: #eeeeee;
   padding: 0;
   width: 100%;
+  margin-bottom: 8px;
 }
 
 .achD_filesList li {
   display: inline-block;
   box-sizing: border-box;
   border: 0;
-  height: 100px;
-  width: 100px;
-  margin: 0 !important;
+  height: 70px;
+  width: 70px;
+  margin-right: 2px;
 }
 
 .achD_filesList li:hover {
@@ -1197,3 +1222,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   background: #000;
 }
 
+.achD_rejected {
+
+}
+
+.achD_details {
+}
+
+.achD_detailsListLabel {
+	display: inline-block;
+  font-weight: bold;
+}
+
+.profCard_btn {
+  float: right;
+}
