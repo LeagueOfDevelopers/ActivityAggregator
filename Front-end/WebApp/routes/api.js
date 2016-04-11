@@ -2,6 +2,7 @@ var router = require('express').Router();
 var admin = require('../api/admin');
 var students = require('../api/students');
 var achivments = require('../api/achivments');
+var multiparty = require('multiparty');
 
 router.get('/students/', students.getStudentsList);
 router.get('/students/:id', students.getStudentDetail);
@@ -11,7 +12,7 @@ router.get('/students/:student_id/achivments', achivments.getAchivmentsList);
 router.get('/achivments/:id', achivments.getAchivmentDetail);
 router.get('/adm/requests', admin.getUncheckedRequests);
 router.get('/auth/update', students.updateSession);
-router.get('/admin/registryRequests', admin.getUncheckedStudents)
+router.get('/admin/registryRequests', admin.getUncheckedStudents);
 
 router.post('/admin/registry/', admin.registryByInvite)
 router.post('/admin/invite/:id', admin.getInviteCode)
@@ -29,6 +30,7 @@ router.post('/students/:id/avatar', students.changeAvatar);
 router.post('/students/:id', students.updateStudentDetail);
 router.post('/students/:id/achivments', achivments.newAchivment);
 router.post('/students/:id/achivments/file', achivments.addFile);
+
 
 
 module.exports = router;
