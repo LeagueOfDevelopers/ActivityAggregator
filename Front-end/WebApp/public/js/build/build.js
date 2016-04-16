@@ -161,12 +161,11 @@ angular.module('app.controllers.partials',
       $scope.$emit('changeTitle', {title: 'База активистов НИТУ МИСиС'});
       $scope.avatar = avatar;
       var studentsList;
-      var viewItemCount = 3;
+      var viewItemCount = 5;
       API.query('students.get', null, true).then(function(result) {
         studentsList = result.data;
-        console.log(studentsList);
         var cropArr = studentsList;
-        $scope.searchResults = cropArr.slice(0, 2);
+        $scope.searchResults = cropArr.slice(0, 4);
       })
 
       $scope.$watch('searchParams.category', function() {
@@ -199,7 +198,9 @@ angular.module('app.controllers.partials',
       $scope.getStudentsList = function(searchParams) {
         $scope.searchResults = {};
         API.query('students.search', {searchParams: searchParams}, true).then(function(result) {
-          $scope.searchResults = result.data;
+          studentsList = result.data;
+          var cropArr = studentsList;
+          $scope.searchResults = cropArr.slice(0, 4);
         });
       };
 
@@ -580,6 +581,13 @@ angular.module('app.services', [])
 
         add: {
          method: 'POST',
+         url: function() {
+          return '/api' + '/students/';
+         }
+        }, 
+
+        get: {
+         method: 'GET',
          url: function() {
           return '/api' + '/students/';
          }

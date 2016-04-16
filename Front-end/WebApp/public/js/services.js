@@ -46,6 +46,13 @@ angular.module('app.services', [])
          }
         }, 
 
+        get: {
+         method: 'GET',
+         url: function() {
+          return '/api' + '/students/';
+         }
+        }, 
+
         getDetail: {
           method: 'GET',
           url: function(params) {    // get
