@@ -145,8 +145,7 @@ angular.module('app.controllers.partials',
         });
          console.log(result);
         
-          $scope.lastStudents = result;
-          $scope.lastStudents.slice(0, studentsLimit - 1);
+          $scope.lastStudents = result.slice(0, studentsLimit);
         
       })
       
@@ -164,7 +163,7 @@ angular.module('app.controllers.partials',
       var studentsList;
       var viewItemCount = 5;
       API.query('students.get', null, true).then(function(result) {
-        studentsList = result.data;
+        studentsList = result.data.reverse();
         var cropArr = studentsList;
         $scope.searchResults = cropArr.slice(0, 4);
       })
@@ -321,16 +320,20 @@ angular.module('app.controllers.partials',
           files: ach.files,
           level: ach.level
         }
+
+        $scope.isPdf = function(photo) {
+          return !photo.split('.').indexOf('pdf') == -1;
+        }
          
-         $scope.showPhoto = function(photo) {
-          if(photo.split('.').indexOf('pdf') == -1) {
+        $scope.showPhoto = function(photo) {
+          if(!$scope.isPdf) {
             $scope.photoToShow = photo;
             $scope.visiblePhoto = true;
           } else {
-            $window.open($scope.BASE_URI + photo);
+            var url = 'http://162.243.78.140' + photo.slice(1, photo.length);
+            $window.open(url);
           }
          }
-    
        }])
 
   .controller('newAchCtrl',
