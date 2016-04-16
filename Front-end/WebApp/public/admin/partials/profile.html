@@ -5,14 +5,14 @@
             <div class="user_main_info">
               <div class="avatar_profile" style="{{avatar(student)}}">
               </div><span class="user_name_profile" ng-bind="student.firstName + ' ' + student.lastName"></span>
-              <span class="user_course_profile" ng-bind="student.department +' '+ student.course + ' курс' + ' ' + 'student.group' "></span>
+              <span class="user_course_profile" ng-bind="student.department +' '+ student.course + ' курс' + ' ' + student.group "></span>
               <span class="user_number_profile" ng-bind="'Номер студенческого билета ' + student.number"></span>
             </div>
             <div class="user_detail" ng-if="student.about" ng-cloak><span>O ceбе</span>
               <p ng-bind="student.about"></p>
             </div>
-          <button class="btn_edit_user_detail" ng-if="student.status == 0" ng-click="confirm()">Подтвердить</button>
-          <button class="btn_edit_user_detail" ng-if="student.status == 0" ng-click="reject()">Отказать</button>
+          <button class="btn_ghost" ng-if="student.status == 0" ng-click="confirm()">Подтвердить</button>
+          <button class="btn_ghost" ng-if="student.status == 0" ng-click="reject()">Отказать</button>
           </div>
         </div>
           <div class="row achivments_profile" ng-if='student.achivments.length != 0' ng-cloak>

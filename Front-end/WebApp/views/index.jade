@@ -12,7 +12,7 @@ html(lang='en', ng-app='ActivityAggregator', ng-controller='appCtrl')
   body(ng-controller='pageCtrl', ng-cloak='')
     .wrapper(ng-cloak='')
       section.header.small-12.columns
-        a.logo(href='#')
+        a.logo(ui-sref="mainPage")
         a.burger(ng-cloak, ng-click='showMobileMenu = !showMobileMenu')
           i.fa.fa-bars
         nav.nav_bar(ng-cloak='')
@@ -23,7 +23,8 @@ html(lang='en', ng-app='ActivityAggregator', ng-controller='appCtrl')
               a(ui-sref='studentsBase') База активистов
             li
               a(ui-sref='auth', ng-if='!(currentUser._id)') Рассказать о себе
-              a#profile_link(ui-sref='account(currentUser._id)', ng-if='(currentUser._id)', ng-bind="currentUser.firstName + ' ' + currentUser.lastName")
+              a#profile_link(ui-sref='account(currentUser._id)', ng-if='(currentUser._id && !currentUser.role )', ng-bind="currentUser.firstName + ' ' + currentUser.lastName")
+              a#profile_link(href='admin', ng-if='(currentUser.role)') Вы зашли как администратор  
             li(ng-if='currentUser._id')
               a#logout(ng-click='logout()')
                 i.fa.fa-sign-out
