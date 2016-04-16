@@ -129,6 +129,21 @@ angular.module('app.controllers.partials',
       $scope.avatar = avatar;
       API.query('students.getLast', null, true).then(function(res) {
         var result = res.data;
+         result = result.map(function(student) {
+          student.achivments = student.achivments.filter(function(ach) {
+            return ach.checked;
+          });
+          student.achivments = student.achivments.sort(function(a, b) {
+             var aCr = new Date();
+             aCr.setTime(Date.parse(a.created));
+             var bCr = new Date();
+             bCr.setTime(Date.parse(b.created));
+             return a > b ? 1 : -1
+          });
+          student.achivments = student.achivments.reverse();
+          return student;
+        });
+         console.log(result);
         for (var i = 0; i < studentsLimit; i++) {
           $scope.lastStudents[i] = result[i];
         }
@@ -146,9 +161,12 @@ angular.module('app.controllers.partials',
       $scope.$emit('changeTitle', {title: 'База активистов НИТУ МИСиС'});
       $scope.avatar = avatar;
       var studentsList;
-      var viewItemCount;
-      API.query('students.getLast', null, true).then(function(result) {
-        $scope.searchResults = result.data;
+      var viewItemCount = 3;
+      API.query('students.get', null, true).then(function(result) {
+        studentsList = result.data;
+        console.log(studentsList);
+        var cropArr = studentsList;
+        $scope.searchResults = cropArr.slice(0, 2);
       })
 
       $scope.$watch('searchParams.category', function() {
@@ -171,7 +189,11 @@ angular.module('app.controllers.partials',
       })
 
       $scope.getMoreStudents = function() {
-        $scope.searchResults.push(studentsList[viewItemCount]);
+        console.log(studentsList);
+        var cropArr = studentsList;
+        var newElems = cropArr.slice($scope.searchResults.length, $scope.searchResults.length + 3);
+        console.log(newElems);
+        $scope.searchResults = $scope.searchResults.concat(newElems);
       }
 
       $scope.getStudentsList = function(searchParams) {

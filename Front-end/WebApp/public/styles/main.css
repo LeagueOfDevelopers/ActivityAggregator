@@ -50,7 +50,8 @@ body {
 .page_content {
   height: 100% !important;
   font-family: Calibri;
-  padding-top: 60px; }
+  padding-top: 60px;
+  padding-bottom: 60px; }
 
 .vertical_offset {
   margin-top: 100px;
@@ -731,13 +732,10 @@ body {
   color: #fff; }
 
 .form_card input.ng-invalid.ng-dirty {
-  border: 1px solid red; }
+  border-bottom: 1px solid red; }
 
 .form_card input.ng-valid.ng-dirty {
   border: 1px solid green; }
-
-.form_card input {
-  border: 1px solid #009fdf; }
 
 .file_field {
   height: 50px;
@@ -1081,3 +1079,16 @@ achD_detailsList li {
 
 .studItem_achivment :hover {
   text-decoration: underline; }
+
+.sB_loadMoreBtn {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 10px;
+  color: #009fdf;
+  font-size: 18px;
+  border: 1px solid #009fdf; }
+
+.sB_loadMoreBtn :hover {
+  background: #009fdf;
+  color: #fff; }

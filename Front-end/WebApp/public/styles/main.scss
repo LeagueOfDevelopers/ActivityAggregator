@@ -83,6 +83,7 @@ body {
   height: 100% !important;
   font-family: Calibri;
   padding-top: 60px;
+  padding-bottom: 60px;
 
 }
 
@@ -863,6 +864,7 @@ body {
   width: 100%;
   padding: 8px;
   margin: 5px auto;
+
 }
 .login_form a {
   color: $mainColor;
@@ -885,7 +887,7 @@ body {
 .form_card {
 
 input.ng-invalid.ng-dirty {
-  border: 1px solid red;
+  border-bottom: 1px solid red;
 }
 
 input.ng-valid.ng-dirty {
@@ -893,7 +895,6 @@ input.ng-valid.ng-dirty {
 }
 
 input {
-  border: 1px solid $mainColor;
 }
 
 }
@@ -1326,3 +1327,17 @@ achD_detailsList li {
   text-decoration: underline;
 }
 
+.sB_loadMoreBtn {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding: 10px;
+  color: $mainColor;
+  font-size: 18px;
+  border: 1px solid $mainColor;
+}
+
+.sB_loadMoreBtn :hover {
+  background: $mainColor;
+  color: #fff;
+}

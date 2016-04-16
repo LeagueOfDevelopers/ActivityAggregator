@@ -107,7 +107,7 @@ function getLast(req, res, next) {
 	Student.find({'achivments.checked': true}, '-hashPassword', {sort: {'achivments.$.created': 1}}).exec(function(err, data) {
 		if(err) res.send(err);
 		else if(data) {
-			res.send(data);
+			res.send(data.reverse());
 		}
 	})
 }	

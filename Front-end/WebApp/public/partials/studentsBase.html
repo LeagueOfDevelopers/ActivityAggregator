@@ -28,10 +28,10 @@
             </li>
           </ul>
           <ul class="short_achivments_list">
-            <li class="achivment_link" ng-if='student.achivments[0]'><a ui-sref='achivment_detail({achToShow: student.achivments[0], owner: student})' ng-bind='student.achivments[0].name '></a></li>
-            <li class="achivment_link" ng-if='student.achivments[1]'><a ui-sref='achivment_detail({achToShow: student.achivments[1], owner: student})' ng-bind='student.achivments[1].name '></a></li>
-            <li class="achivment_link" ng-if='student.achivments[2]'><a ui-sref='achivment_detail({achToShow: student.achivments[2], owner: student})' ng-bind='student.achivments[2].name '></a></li>
-            <li class="achivment_link" ng-if='student.achivments[3]'><a  ui-sref='achivment_detail({achToShow: student.achivments[3], owner: student})' ng-bind='student.achivments[3].name '></a></li>
+            <li class="achivment_link" ng-if='student.achivments[0] && student.achivments[0].checked '><a ui-sref='achivment_detail({achToShow: student.achivments[0], owner: student})' ng-bind='student.achivments[0].name.slice(0, 30) '></a></li>
+            <li class="achivment_link" ng-if='student.achivments[1]  && student.achivments[1].checked'><a ui-sref='achivment_detail({achToShow: student.achivments[1], owner: student})' ng-bind='student.achivments[1].name.slice(0, 30) '></a></li>
+            <li class="achivment_link" ng-if='student.achivments[2]  && student.achivments[2].checked'><a ui-sref='achivment_detail({achToShow: student.achivments[2], owner: student})' ng-bind='student.achivments[2].name.slice(0, 30) '></a></li>
+            <li class="achivment_link" ng-if='student.achivments[3]  && student.achivments[3].checked'><a  ui-sref='achivment_detail({achToShow: student.achivments[3], owner: student})' ng-bind='student.achivments[3].name.slice(0, 30) '></a></li>
 
           </ul>
             
