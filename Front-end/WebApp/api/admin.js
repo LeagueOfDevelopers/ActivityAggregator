@@ -23,7 +23,7 @@ function login(req, res, next) {
     } else 
       if(admin && admin.passwordIsCorrect(req.body.password)) {
       	req.session.user = admin;
-      	res.send({admin});
+      	res.send(admin);
       } else if (!admin) {
       	res.send('not found')
       }
