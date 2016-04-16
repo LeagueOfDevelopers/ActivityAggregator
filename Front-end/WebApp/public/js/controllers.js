@@ -39,9 +39,9 @@ angular.module('app.controllers.partials',
           return student;
         });
          console.log(result);
-        for (var i = 0; i < studentsLimit; i++) {
-          $scope.lastStudents[i] = result[i] ? result[i] : null;
-        }
+        
+          $scope.lastStudents = result;
+        
       })
       
     
