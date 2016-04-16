@@ -146,6 +146,7 @@ angular.module('app.controllers.partials',
          console.log(result);
         
           $scope.lastStudents = result;
+          $scope.lastStudents.slice(0, studentsLimit - 1);
         
       })
       
