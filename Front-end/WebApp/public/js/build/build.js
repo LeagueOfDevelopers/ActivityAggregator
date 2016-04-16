@@ -145,7 +145,7 @@ angular.module('app.controllers.partials',
         });
          console.log(result);
         for (var i = 0; i < studentsLimit; i++) {
-          $scope.lastStudents[i] = result[i];
+          $scope.lastStudents[i] = result[i] ? result[i] : null;
         }
       })
       
