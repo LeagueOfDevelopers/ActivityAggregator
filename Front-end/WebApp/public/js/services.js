@@ -71,7 +71,7 @@ angular.module('app.services', [])
         getLast: {
           method: 'GET',
           url: function() {    // post
-          return '/api'  + '/students/';
+          return '/api'  + '/studentsL/last';
         }
         
       },

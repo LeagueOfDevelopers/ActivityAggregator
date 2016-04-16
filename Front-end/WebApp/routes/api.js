@@ -13,6 +13,7 @@ router.get('/achivments/:id', achivments.getAchivmentDetail);
 router.get('/adm/requests', admin.getUncheckedRequests);
 router.get('/auth/update', students.updateSession);
 router.get('/admin/registryRequests', admin.getUncheckedStudents);
+router.get('/studentsL/last', students.getLast);
 
 router.post('/admin/registry/', admin.registryByInvite)
 router.post('/admin/invite/:id', admin.getInviteCode)

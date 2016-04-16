@@ -2,7 +2,24 @@
 	<div class="main_page_header">
 		 <div class="project_name small-12 medium-5 columns">
 		 	<div class="grad"></div>
-		 	<p>Онлайн портфолио <br/> активных студентов <br/> НИТУ МИСиС</p>
+		 	<div class="projectName_wrap">
+		 		<p class="projectName_title">Онлайн портфолио активных студентов НИТУ МИСиС</p>
+			</div>
+		 	<div class="small-12 medium-10 columns shortList_wrap">
+		 		<span class="shortList_title">Последние достижения</span>
+		 		<ul class="shortList_list">
+		 			<li class="shortList_item" ng-repeat="student in lastStudents">
+		 			<a ui-sref="profile({id: student._id})" class="shortList_itemLink">
+		 				<div class="studItem_avatar" style="{{avatar(student)}}"></div>
+		 				<ul class="studItem_details">
+		 				<li class="studItem_name" ng-bind="student.firstName + ' ' + student.lastName"></li>
+		 				<li ng-bind="student.department + ' ' + student.course + ' курс ' + student.group"></li>
+		 				</ul>
+		 				<a ui-sref="achivment_detail({achToShow: student.achivments[0], owner: student})" class="studItem_achivment" ng-bind="student.achivments[0].name"></a>
+		 				</a>
+		 			</li>
+		 		</ul>
+		 	</div>
 		 </div>
 		 <div class="short_info small-12 medium-4 columns">
 		 	<h1>Расскажите о своих лучших достижениях и следите за самыми выдающимися студентами</h1>

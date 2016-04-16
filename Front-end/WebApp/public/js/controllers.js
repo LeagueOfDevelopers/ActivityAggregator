@@ -17,11 +17,16 @@ angular.module('app.controllers.partials',
      [
      '$scope',
       'API',
-     function($scope, API){
-      API.query('students.getLast', null, true).then(function(ressult) {
-        var res = result.data;
-        $scope.list = [res[res.length - 3], res[res.length - 2], res[res.length - 1]];
-        console.log($scope.list);
+      'avatar',
+     function($scope, API, avatar){
+      var studentsLimit = 3;
+      $scope.lastStudents = [];
+      $scope.avatar = avatar;
+      API.query('students.getLast', null, true).then(function(res) {
+        var result = res.data;
+        for (var i = 0; i < studentsLimit; i++) {
+          $scope.lastStudents[i] = result[i];
+        }
       })
       
     

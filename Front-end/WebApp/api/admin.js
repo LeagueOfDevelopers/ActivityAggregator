@@ -104,7 +104,6 @@ function getUncheckedRequests(req, res, next) {
   if(req.session.user && req.session.user.role) {
 
   Student.find({'achivments.checked': false})
-         .limit(10)
          .exec(function(err, data) {
                 if(err){
                   res.send(err);
