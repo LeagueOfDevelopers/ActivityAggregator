@@ -57,7 +57,7 @@ function getInviteCode(req, res, next) {
       var code = admin.generateInviteCode(secret);
       res.send({data : code}); 
       admin.save(function(result) {
-      res.send(result);
+      console.log(result);
     });
   }
   })
