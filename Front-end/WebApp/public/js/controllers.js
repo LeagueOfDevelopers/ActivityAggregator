@@ -217,11 +217,11 @@ angular.module('app.controllers.partials',
         }
 
         $scope.isPdf = function(photo) {
-          return !photo.split('.').indexOf('pdf') == -1;
+          return !(photo.split('.').indexOf('pdf') == -1);
         }
          
         $scope.showPhoto = function(photo) {
-          if(!$scope.isPdf) {
+          if(!$scope.isPdf(photo)) {
             $scope.photoToShow = photo;
             $scope.visiblePhoto = true;
           } else {
@@ -292,7 +292,8 @@ angular.module('app.controllers.partials',
         $scope.newAch.files = $scope.files;
           $http.post('/api/students/' + $scope.currentUser._id + '/achivments/', $scope.newAch).success(function(res) {
             $scope.$emit('showMessage', {msg: 'Достижение добавлено, ожидайте подтверждения'})
-           // $state.go('studentsBase');
+            $scope.$emit('userUpdate');
+            $state.go('studentsBase');
           })
       } else {
         $scope.$emit('showMessage', {msg: 'Заполните все поля формы и добавьте подтверждающие документы'})

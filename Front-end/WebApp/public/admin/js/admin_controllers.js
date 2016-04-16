@@ -172,8 +172,12 @@ angular.module('admin.controllers',
         }
          }
 
+         $scope.isPdf = function(photo) {
+          return !(photo.split('.').indexOf('pdf') == -1);
+        }
+
        $scope.showPhoto = function(photo) {
-          if(photo.split('.').indexOf('pdf') == -1) {
+          if(!$scope.isPdf(photo)) {
             $scope.photoToShow = photo;
             $scope.visiblePhoto = true;
           } else {
