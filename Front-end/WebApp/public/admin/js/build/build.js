@@ -203,7 +203,8 @@ angular.module('admin.controllers',
       '$http',
       '$stateParams',
       'ngDialog',
-     function($scope, $state, $http, $stateParams, ngDialog){
+      '$window',
+     function($scope, $state, $http, $stateParams, ngDialog, $window){
 
          $scope.$emit('changeTitle', {title: $stateParams.achToShow.name}); 
          $scope.showEditField = false;
@@ -260,9 +261,15 @@ angular.module('admin.controllers',
          }
 
        $scope.showPhoto = function(photo) {
-          $scope.photoToShow = photo;
-          $scope.visiblePhoto = true;
+          if(photo.split('.').indexOf('pdf') == -1) {
+            $scope.photoToShow = photo;
+            $scope.visiblePhoto = true;
+          } else {
+            var url = 'http://162.243.78.140' + photo.slice(1, photo.length);
+            $window.open(url);
+          }
          }
+    
 
     
        }])

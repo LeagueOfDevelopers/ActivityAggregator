@@ -323,7 +323,7 @@ angular.module('app.controllers.partials',
         }
          
          $scope.showPhoto = function(photo) {
-          if(photo.split('').indexOf('pdf') == -1) {
+          if(photo.split('.').indexOf('pdf') == -1) {
             $scope.photoToShow = photo;
             $scope.visiblePhoto = true;
           } else {

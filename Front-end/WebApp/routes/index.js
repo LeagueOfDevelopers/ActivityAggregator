@@ -5,6 +5,11 @@ var router = express.Router();
 
 router.get('*', function(req, res, next) {
 	var path = req.originalUrl.split('/');
+	var pdfCheck = req.originalUrl.split('.').indexOf('pdf') == -1 ? false : true;
+	if(pdfCheck) {
+		console.log('pdf!');
+		next();
+	}
 	if(path.indexOf('api') != -1) {
 		next();
 	} else if(path.indexOf('admin') != -1) {
@@ -12,7 +17,7 @@ router.get('*', function(req, res, next) {
 	}
 	else {
 		res.render('index');
-	}
+	} 
 })
 
 /*router.get('/', function(req, res, next) {
