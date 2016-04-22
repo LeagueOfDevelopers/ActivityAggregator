@@ -68,11 +68,7 @@ angular.module('ActivityAggregator',
        })
 
        .state('achivment_detail', {
-          url: '/achivment_detail',
-          params: {
-            'achToShow': null,
-            'owner': null
-          },
+          url: '/achivment_detail/:studentId/:achId',
           views: {
            'page_content': {
              templateUrl: 'partials/achivment.html',

@@ -9,7 +9,7 @@ router.get('/students/:id', students.getStudentDetail);
 router.get('/students/search_by_category/:searchParams', students.getStudentsListByCategory);
 router.get('/students/search_by_name/:searchParams', students.getStudentsListByName);
 router.get('/students/:student_id/achivments', achivments.getAchivmentsList);
-router.get('/achivments/:id', achivments.getAchivmentDetail);
+router.get('/students/:student_id/achivments/:ach_id', achivments.getAchivmentDetail);
 router.get('/adm/requests', admin.getUncheckedRequests);
 router.get('/auth/update', students.updateSession);
 router.get('/admin/registryRequests', admin.getUncheckedStudents);

@@ -68,11 +68,7 @@ angular.module('ActivityAggregator',
        })
 
        .state('achivment_detail', {
-          url: '/achivment_detail',
-          params: {
-            'achToShow': null,
-            'owner': null
-          },
+          url: '/achivment_detail/:studentId/:achId',
           views: {
            'page_content': {
              templateUrl: 'partials/achivment.html',
@@ -120,11 +116,11 @@ angular.module('app.controllers.partials',
 ])
   
   .controller('indexCtrl',
-     [
-     '$scope',
-      'API',
-      'avatar',
-     function($scope, API, avatar){
+   ['$scope',
+    'API',
+    'avatar',
+   function($scope, API, avatar){
+
       var studentsLimit = 3;
       $scope.lastStudents = [];
       $scope.avatar = avatar;
@@ -159,6 +155,7 @@ angular.module('app.controllers.partials',
     'API',
     'avatar',
    function ($scope, $http, API, avatar) {
+
       $scope.$emit('changeTitle', {title: 'База активистов НИТУ МИСиС'});
       $scope.avatar = avatar;
       var studentsList;
@@ -286,41 +283,47 @@ angular.module('app.controllers.partials',
   .controller('achCtrl', 
     ['$scope', 
       '$state', 
-      '$http',
+      'API',
       '$stateParams',
       '$window',
-     function($scope, $state, $http, $stateParams, $window){
-
-         $scope.$emit('changeTitle', {title: $stateParams.achToShow.name});
-        var ach = $stateParams.achToShow;
+     function($scope, $state, API, $stateParams, $window){
+        var ach = {};
+        var owner = {};
         $scope.visiblePhoto = false;
-        var type = '';
-        switch(ach.type) {
-          case 'science' : type = 'Наука';  break;
-          case 'social' : type = 'Общественная деятельность'; break;
-          case 'cultural' : type = 'Культура'; break;
-          case 'sport' : type = 'Спорт'; break;
-          case 'study' : type = 'Учеба'; break;
-          case 'business' : type = 'Предпринимательство'; break;
-          case 'international' : type = 'Межкультурный диалог'; break;
-        }
+        $scope.$emit('dataLoad', {field: 'common'});
+        API.query('achivments.getDetail', 
+                  {
+                    achId: $stateParams.achId, 
+                    studentId: $stateParams.studentId 
 
-        var cr = new Date();
-        cr.setTime(Date.parse(ach.created));
+                  }).then(function(res) {
+                    console.log(res);
+                    if(res.data) {
+                      ach = res.data.achivment;
+                      owner = res.data.owner;
+                    }
 
-        $scope.achivment = {
-          owner: $stateParams.owner,
-          type: type,
-          title: ach.name,
-          organization: ach.organization,
-          result: ach.result,
-          checked: ach.checked,
-          description: ach.description,
-          created: cr.getDate() + '.' + (cr.getMonth() + 1) + '.' + cr.getFullYear(),
-          message: ach.message,
-          files: ach.files,
-          level: ach.level
-        }
+                    var type = '';
+
+                      switch(ach.type) {
+                        case 'science' : type = 'Наука';  break;
+                        case 'social' : type = 'Общественная деятельность'; break;
+                        case 'cultural' : type = 'Культура'; break;
+                        case 'sport' : type = 'Спорт'; break;
+                        case 'study' : type = 'Учеба'; break;
+                        case 'business' : type = 'Предпринимательство'; break;
+                        case 'international' : type = 'Межкультурный диалог'; break;
+                      }
+
+                      var cr = new Date();
+                      cr.setTime(Date.parse(ach.created));
+
+                      $scope.achivment = ach;
+                      $scope.achivment.owner = owner;
+                      $scope.achivment.created =  cr.getDate() + '.' + (cr.getMonth() + 1) + '.' + cr.getFullYear();
+                      //$scope.$emit('dataLoad_done', {field: 'common'});
+                  });
+        
 
         $scope.isPdf = function(photo) {
           return !(photo.split('.').indexOf('pdf') == -1);
@@ -551,7 +554,7 @@ angular.module('app.controllers.main',
         $scope.onLoad[args.field] = true;
       };
 
-      function stopLoad() {
+      function stopLoad(e, args) {
 
         if(!$scope.onLoad[args.field]) console.log('field' + args.field + 'is not defined');
 
@@ -612,15 +615,6 @@ angular.module('app.services', [])
         }
       },
 
-      admin: {
-        login: {
-          method: 'POST',
-          url: function() {
-            return '/api/admin' + '/login';
-          }
-        }
-      },
-
       students: {
 
         add: {
@@ -665,9 +659,12 @@ angular.module('app.services', [])
           return '/api'  + '/studentsL/last';
         }
         
-      },
+      }
+
+    },
 
         achivments: {
+
           add: {
           method: 'POST',
           url: function(params) { //post
@@ -683,9 +680,11 @@ angular.module('app.services', [])
         }
       }
 
-      }
+      
     } 
-  }
+  };
+
+  config.BASE_URL = '';
 
     function parsePath(pathString, obj) {
       var path = pathString.split('.');
@@ -695,7 +694,8 @@ angular.module('app.services', [])
           if(obj[item]) {
             obj = obj[item]
           } else {
-            return
+            console.log('apiUrl error ' + item);
+            return 
           }
         } 
         return obj;
@@ -706,7 +706,7 @@ angular.module('app.services', [])
 
     function query(path, params, log) {
 
- 
+      
       var apiMethod = parsePath(path, this.apiUrls);
       return $q.when(send(apiMethod, params)).then(function(result) {
         if(log) {
@@ -719,23 +719,25 @@ angular.module('app.services', [])
       function send(apiMethod, params) {
         if(log) {
           console.log(apiMethod.url(params));
-        }
+        };
         return $http({
-          method: apiMethod.method,
-          url   : apiMethod.url(params),
-          data  : params && params.data ? params.data : null
-        }).success(function(res) {
-          return {
-            data: res,
-            method: apiMethod
-          };
-        });
+                        method: apiMethod.method,
+                        url   : apiMethod.url(params),
+                        data  : params && params.data ? params.data : null
+                    })
+                      .success(function(res) {
+                          return {
+                                  data: res,
+                                  method: apiMethod
+                                 };
+                      });
       };
 
     };
 
     return {
-      query: query.bind(config)
+      query: query.bind(config),
+      config: config
     }
 
 
@@ -756,16 +758,11 @@ angular.module('app.services', [])
    ['$rootScope',
     '$q',
     '$http',
+    'API',
    function ($rootScope, $q, $http) {
         
         var apiUrl = '/api';
 
-            function getUser() {
-              var reqUrl = apiUrl + '/auth/isAuth';
-                return $http.post(reqUrl).success(function (data) {
-                        return data.user;
-                });
-            }
 
         function Current() {
             return $q.when(getUser()).then(function (result) {
@@ -774,13 +771,19 @@ angular.module('app.services', [])
 
         }
 
+        function getUser() {
+          var reqUrl = apiUrl + '/auth/isAuth';
+            return $http.post(reqUrl).success(function (data) {
+                    return data.user;
+            });
+        }
+
        function update() {
         return $q.when(updateUser()).then(function(res) {
           return res;
         })
         } 
       
-
         function updateUser() {
           return $http.get('/api/auth/update').success(function(result) {
             console.log('ok');

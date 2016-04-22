@@ -26,10 +26,15 @@ function getAchivmentsList(req, res, next) {
 };
 
 function getAchivmentDetail(req, res, next) {
- Student.findOne({'achivments._id': req.params.id}, 'achivments.$', function(err, ach) {
+    console.log(req.params.ach_id);
+ Student.findOne({'achivments._id': req.params.ach_id}, 'firstName lastName achivments.$', function(err, data) {
     if(err) res.send(err);
-    res.send(ach);
-    console.log(ach);
+    if (data) {
+        res.send({achivment: data.achivments[0], owner: data});
+        console.log(data);   
+    } else {
+        res.send('no data');
+    }
  })
 };
 

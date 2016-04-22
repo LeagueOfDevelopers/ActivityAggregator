@@ -31,7 +31,6 @@ function login(req, res, next) {
   })
 };
 
-
 function newAdmin(req, res, next) {
 	var admin = new Admin({
 		firstName : 'Админ',
@@ -49,6 +48,7 @@ function newAdmin(req, res, next) {
 	})
 };
 
+
 function getInviteCode(req, res, next) {
   Admin.findById(req.params.id, function(err, admin) {
     if(err) res.send(err);
@@ -64,43 +64,41 @@ function getInviteCode(req, res, next) {
 }
 
 function registryByInvite(req, res, next) {
+  Admin.findOne({'invCodes' : req.body.code}, function(err, findedData) {
+     if(findedData) {
+        console.log(findedData);
+      Admin.findOne({'code': req.body.code}, function(er, data) {
+        if(err) res.send(err);
+        else if(data) {
+          res.send('0'); //code already used
+        } else if(!data) {
 
-Admin.findOne({'invCodes' : req.body.code}, function(err, findedData) {
-   if(findedData) {
-    console.log(findedData);
-  Admin.findOne({'code': req.body.code}, function(er, data) {
-    if(err) res.send(err);
-    else if(data) {
-      res.send('0'); //code already used
-    } else if(!data) {
+          var admin = new Admin({
+            firstName : req.body.firstName,
+            lastName: req.body.lastName,
+            middleName: req.body.middleName,
+            email: req.body.email,
+            hashPassword: req.body.password,
+            code: req.body.code
+          });
 
-      var admin = new Admin({
-        firstName : req.body.firstName,
-        lastName: req.body.lastName,
-        middleName: req.body.middleName,
-        email: req.body.email,
-        hashPassword: req.body.password,
-        code: req.body.code
-      });
-
-      admin.save(function(result) {
-        res.send('2');
+          admin.save(function(result) {
+            res.send('2');
+          })
+          
+        }
       })
-      
-    }
-  })
 
-} else {
-  res.send('1')
-}
-  
-})
+      } else {
+        res.send('1')
+      }
+      
+    })
 
 
 };
 
 function getUncheckedRequests(req, res, next) {
-
   if(req.session.user && req.session.user.role) {
 
   Student.find({'achivments.checked': false})
@@ -118,22 +116,23 @@ function getUncheckedRequests(req, res, next) {
 
 
 function confirmAchivment(req, res, next) {
-
   if(req.session.user && req.session.user.role) {
-  Student.update({'achivments._id' : req.params.id},
-  {
-    '$set' : {
-      'achivments.$.checked' : true,
-      'achivments.$.message' : null
-    }
-  }, 
-   function(err, data) {
 
-    if(err) res.send(err);
+    Student.update({'achivments._id' : req.params.id},
+    {
+      '$set' : {
+        'achivments.$.checked' : true,
+        'achivments.$.message' : null
+      }
+    }, 
+     function(err, data) {
 
-    res.send(data);
-   });
+      if(err) res.send(err);
+
+        res.send(data);
+     });
 } else {
+
   res.send('admin permossion required')
 }
 };

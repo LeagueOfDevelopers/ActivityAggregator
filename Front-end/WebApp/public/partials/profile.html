@@ -30,7 +30,7 @@
         <div class="achivments_list">
           <ul class="small-12">
             <li  ng-repeat='ach in userDetail.achivments'>
-              <a ui-sref="achivment_detail({achToShow : ach, owner: currentUser})">
+              <a ui-sref="achivment_detail({achId : ach._id, studentId: currentUser._id})">
               <div class="ach " ng-class='{unchecked: !ach.checked}'>
                 <div class="ach_icon {{ach.type}}"></div>
                 <div class="ach_title" ng-bind="ach.name.slice(0, 30)"></div>

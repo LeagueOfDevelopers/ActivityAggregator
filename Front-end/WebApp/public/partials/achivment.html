@@ -4,7 +4,8 @@
     <div class="row">
         <div class="achD_card small-12 medium-9 medium-centered columns">
         <div class="row">
-            <div class="achD_title small-12 medium-8 columns"ng-bind="achivment.title"></div>
+            <div class="preloader" ng-if="onLoad.common">Загрузка...</div>
+            <div class="achD_title small-12 medium-8 columns"ng-bind="achivment.name"></div>
             <a ui-sref="profile({id: achivment.owner._id})" class="achD_ownerLink small-12 columns" ng-bind="achivment.owner.firstName + ' ' + achivment.owner.lastName"></a>
         </div>
             <div class="row">

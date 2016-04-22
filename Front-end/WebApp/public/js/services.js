@@ -28,15 +28,6 @@ angular.module('app.services', [])
         }
       },
 
-      admin: {
-        login: {
-          method: 'POST',
-          url: function() {
-            return '/api/admin' + '/login';
-          }
-        }
-      },
-
       students: {
 
         add: {
@@ -81,9 +72,12 @@ angular.module('app.services', [])
           return '/api'  + '/studentsL/last';
         }
         
-      },
+      }
+
+    },
 
         achivments: {
+
           add: {
           method: 'POST',
           url: function(params) { //post
@@ -99,9 +93,11 @@ angular.module('app.services', [])
         }
       }
 
-      }
+      
     } 
-  }
+  };
+
+  config.BASE_URL = '';
 
     function parsePath(pathString, obj) {
       var path = pathString.split('.');
@@ -111,7 +107,8 @@ angular.module('app.services', [])
           if(obj[item]) {
             obj = obj[item]
           } else {
-            return
+            console.log('apiUrl error ' + item);
+            return 
           }
         } 
         return obj;
@@ -122,7 +119,7 @@ angular.module('app.services', [])
 
     function query(path, params, log) {
 
- 
+      
       var apiMethod = parsePath(path, this.apiUrls);
       return $q.when(send(apiMethod, params)).then(function(result) {
         if(log) {
@@ -135,23 +132,25 @@ angular.module('app.services', [])
       function send(apiMethod, params) {
         if(log) {
           console.log(apiMethod.url(params));
-        }
+        };
         return $http({
-          method: apiMethod.method,
-          url   : apiMethod.url(params),
-          data  : params && params.data ? params.data : null
-        }).success(function(res) {
-          return {
-            data: res,
-            method: apiMethod
-          };
-        });
+                        method: apiMethod.method,
+                        url   : apiMethod.url(params),
+                        data  : params && params.data ? params.data : null
+                    })
+                      .success(function(res) {
+                          return {
+                                  data: res,
+                                  method: apiMethod
+                                 };
+                      });
       };
 
     };
 
     return {
-      query: query.bind(config)
+      query: query.bind(config),
+      config: config
     }
 
 
@@ -172,16 +171,11 @@ angular.module('app.services', [])
    ['$rootScope',
     '$q',
     '$http',
+    'API',
    function ($rootScope, $q, $http) {
         
         var apiUrl = '/api';
 
-            function getUser() {
-              var reqUrl = apiUrl + '/auth/isAuth';
-                return $http.post(reqUrl).success(function (data) {
-                        return data.user;
-                });
-            }
 
         function Current() {
             return $q.when(getUser()).then(function (result) {
@@ -190,13 +184,19 @@ angular.module('app.services', [])
 
         }
 
+        function getUser() {
+          var reqUrl = apiUrl + '/auth/isAuth';
+            return $http.post(reqUrl).success(function (data) {
+                    return data.user;
+            });
+        }
+
        function update() {
         return $q.when(updateUser()).then(function(res) {
           return res;
         })
         } 
       
-
         function updateUser() {
           return $http.get('/api/auth/update').success(function(result) {
             console.log('ok');
