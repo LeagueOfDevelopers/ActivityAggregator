@@ -215,7 +215,7 @@ angular.module('app.services', [])
         return {
             Current: Current,
             logout: logout,
-           update: update
+            update: update
         }
     }])
 

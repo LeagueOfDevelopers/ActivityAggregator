@@ -291,7 +291,7 @@ angular.module('app.controllers.partials',
         $scope.newAch.owner_id = $scope.currentUser._id;
         $scope.newAch.files = $scope.files;
           $http.post('/api/students/' + $scope.currentUser._id + '/achivments/', $scope.newAch).success(function(res) {
-            $scope.$emit('showMessage', {msg: 'Достижение добавлено, ожидайте подтверждения'})
+            $scope.$emit('showMessage', {msg: 'Достижение добавлено, ожидайте подтверждения'});
             $scope.$emit('userUpdate');
             $state.go('studentsBase');
           })

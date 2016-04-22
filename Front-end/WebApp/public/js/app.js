@@ -92,6 +92,7 @@ angular.module('ActivityAggregator',
             }
            }
        })
+       
        .state('registry', {
           url: '/registry',
            views: {

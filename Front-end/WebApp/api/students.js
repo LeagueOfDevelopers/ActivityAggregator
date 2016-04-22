@@ -48,16 +48,19 @@ function login(req, res, next) {
 
 function updateSession(req, res, next) {
 	if(!req.session.user) {
+
 		res.send('logout')
 	} else {
- Student.findById({_id: req.session.user._id}, function(err, student) {
-		if(err) {
-			console.log(err)
-		} 
-		req.session.user = student;
-		res.send('session updated');
-	})
-}
+
+	 Student.findById({_id: req.session.user._id}, function(err, student) {
+			if(err) {
+
+				console.log(err)
+			} 
+			req.session.user = student;
+			res.send('session updated');
+		})
+	}
 
 };
 
@@ -71,23 +74,21 @@ function logout(req, res, next) {
 };
 
 function addStudent(req, res, next) {
-
 		var fields = req.body;
-
 		var student = new Student ({
-		firstName: fields.firstName,
-		lastName: fields.lastName,
-		middleName: fields.middleName,
-		email: fields.email,
-		hashPassword: fields.password,
-		department: fields.department,
-		course: fields.course,
-		group: fields.group,
-		about: fields.about,
-		level: fields.level,
-		registered: new Date(),
-		status: 0,
-		number: fields.number
+			firstName: fields.firstName,
+			lastName: fields.lastName,
+			middleName: fields.middleName,
+			email: fields.email,
+			hashPassword: fields.password,
+			department: fields.department,
+			course: fields.course,
+			group: fields.group,
+			about: fields.about,
+			level: fields.level,
+			registered: new Date(),
+			status: 0,
+			number: fields.number
 	});
 
 		student.save(function(err) {
@@ -110,7 +111,7 @@ function getLast(req, res, next) {
 			res.send(data.reverse());
 		}
 	})
-}	
+};	
 	
 
 function getStudentDetail(req, res, next) {
@@ -147,6 +148,7 @@ function getStudentListLimit(req, res, next) {
 
 
 };
+
 function getStudentsListByCategory(req, res, next) {
 	console.log(req.params);
 	Student.find({'achivments.type' : req.params.searchParams},'-hashPassword', function (err, data) {
@@ -161,6 +163,7 @@ function getStudentsListByCategory(req, res, next) {
 
 
 };
+
 function getStudentsListByName(req, res, next) {
 	var q = new RegExp(req.params.searchParams, 'i');
 	Student.find({$or : [
