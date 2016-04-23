@@ -45,7 +45,7 @@
             ngf-accept="'image/*, application/pdf'" >Выберите файлы</div>
             
             <div style="max-width: 100%; height: auto;">
-             <div ng-repeat="file in files" style=' width: 100px; height: 100px; margin-right: 2px; display: inline-block; background: url({{file}}); background-size: cover;'>
+             <div ng-repeat="file in files" style=" width: 100px; height: 100px; margin-right: 2px; display: inline-block; background-image: url({{ isPdf(file) ? '../icons/interface.png' : file}}); background-size: cover; background-color: #000;">
              </div>
 
              <div class="preloader sB_preloader" style="transform: translateX(20px);" ng-if="onLoad.file"><div></div></div>

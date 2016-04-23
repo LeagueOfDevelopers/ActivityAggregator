@@ -379,24 +379,25 @@ angular.module('app.controllers.partials',
           };
 
     $scope.uploadFile = function(file) {
-      $scope.$emit('loadData', {field: 'file'});
       console.log(file);
-      if(file.name) {
+      if(file.name && $scope.files[file] != -1 ) {
+      $scope.$emit('loadData', {field: 'file'});
       $scope.selectedFiles.push(file);
       Upload.upload({
         url: '/api/students/' + $scope.currentUser._id + '/achivments/file',
         data: {file: file}
           }).then(function(res) {
             console.log(res);
-
+              $scope.$emit('loadData_done', {field: 'file'});
             if(!res.data) {
               $scope.$emit('showMessage', {msg: 'Произошла ошибка',  type: 'bad'});
             } else {
               $scope.$emit('showMessage', {msg: 'Файлы отправлены',  type: 'good'});
-              $scope.$emit('loadData_done', {field: 'file'});
               $scope.files.push(res.data.fileLink);
             }
          })
+        } else {
+          $scope.$emit('showMessage', {msg: 'Файл уже выбран',  type: 'bad'});
         }
 
          $scope.isPdf = function(photo) {
