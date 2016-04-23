@@ -8,8 +8,8 @@
 
             <div class="preloader" style="transform: translateX(20px);" ng-if="onLoad.common"><div></div></div>
 
-            <div class="achD_title small-12 medium-8 columns"ng-bind="achivment.name"></div>
-            <a ui-sref="profile({id: achivment.owner._id})" class="achD_ownerLink small-12 columns" ng-bind="achivment.owner.firstName + ' ' + achivment.owner.lastName"></a>
+            <div class="achD_title small-12 columns"ng-bind="achivment.name"></div>
+            <a ui-sref="profile({id: achivment.owner._id})" class="achD_ownerLink" ng-bind="achivment.owner.firstName + ' ' + achivment.owner.lastName"></a>
         </div>
         
 

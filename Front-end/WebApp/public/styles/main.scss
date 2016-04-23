@@ -408,6 +408,7 @@ body {
   margin-left: 10px;
   padding: 3px 12px;
   border-radius: 50%;
+  border: 2px solid $mainColor;
   background: transparent;
   opacity: 1;
   background: #fff;
@@ -422,6 +423,8 @@ body {
 
 .btn_add_achivment:hover {
   cursor: pointer;
+  background: $mainColor;
+  color: #fff;
 }
 
 .help {
@@ -1224,8 +1227,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .achD_ownerLink {
   color: $mainColor;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   opacity: .8;
+  margin-left: 20px;  
+  border-bottom: 1px dotted $mainColor;
+
 }
 
 .achD_ownerLink :hover {
@@ -1299,6 +1305,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 
 .profCard_btn {
   float: right;
+  margin-top: 10px; 
+  margin-left: 5px; 
 }
 
 .projectName_wrap {
@@ -1724,4 +1732,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .link {
   border-bottom: 1px dotted $mainColor;
   font-weight:  bold;
+}
+
+.nAch_uploadedList {
+  background-color: $mainColor;
+  background-size: cover;
+}
+.nAch_filePreloader {
+  display: inline-block;
 }

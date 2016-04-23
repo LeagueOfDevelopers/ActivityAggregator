@@ -380,7 +380,7 @@ angular.module('app.controllers.partials',
 
     $scope.uploadFile = function(file) {
       console.log(file);
-      if(file.name && $scope.files[file] != -1 ) {
+      if(file.name && $scope.selectedFiles[file] != -1 ) {
       $scope.$emit('loadData', {field: 'file'});
       $scope.selectedFiles.push(file);
       Upload.upload({
