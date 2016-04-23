@@ -41,6 +41,8 @@ $achivmentsIcons: url(../icons/achivments_icons.png);
   display: none !important;
 }
 
+
+
 a {
   text-decoration: none;
 }
@@ -226,6 +228,7 @@ body {
 	 border-bottom: 4px solid rgba(255, 255, 255, 1);
 }
 
+
 .nav_bar a {
   display: inline-block;
   height: 100%;
@@ -233,6 +236,8 @@ body {
   font-family: Calibrib;
   border-bottom: 0px solid #fff;
 }
+
+
 
 .index_header {
   height: 85px;
@@ -291,6 +296,7 @@ body {
   background-color: #8c9397;
   background-size: cover;
   background-image: url(../img/default-avatar.gif)
+
 }
 
 .user_avatar_profile {
@@ -335,6 +341,7 @@ body {
   cursor: pointer;
 }
 
+
 .user_name_profile {
   position: absolute;
   left: 133px;
@@ -357,6 +364,7 @@ body {
   font-weight: bold;
   font-size: 18 px;
 }
+
 
 .user_detail {
   margin-top: 15px;
@@ -482,14 +490,19 @@ body {
   color: #fafafa;
 
 .ach_icon:after {
-  visibility:  hidden; 
+  visibility:  hidden;
 }
+
+}
+
 
 .ach:hover {
 	opacity: 1;
   cursor: pointer;
   background: #78a0ba;
 }
+
+
 
 .ach_icon {
 	position: absolute;
@@ -502,6 +515,7 @@ body {
   @include cardShadow();
 }
 
+
 .ach_icon:after {
   position: absolute;
   align: center;
@@ -511,6 +525,7 @@ body {
   width: 55px;
   height: 55px;
 }
+
 
 .ach_icon.science:after {
 
@@ -542,6 +557,7 @@ body {
   background: $achivmentsIcons -312px no-repeat;
 }
 
+
 .ach_title {
 	position: absolute;
 	top: 7px;
@@ -552,11 +568,12 @@ body {
   width: 180px;
 }
 
+
+
  .students_base_container {
   margin: 0 auto;
   max-width: 800px;
 }
-
 .students_base_header {
   width: 100%;
   min-height: 100px;
@@ -588,12 +605,14 @@ body {
   max-width: 800px !important;
 }
 
+
 .search_student_input {
   padding: 7px;
   max-height: 35px;
   border: 1px solid $mainColor;
   font-size: 16px;
 }
+
 
 .btn_start_search {
   width: 30px;
@@ -609,6 +628,7 @@ body {
   transition: all .2s;
 }
 
+
 .btn_start_search:hover {
   cursor: pointer;
   color: #fff;
@@ -622,6 +642,7 @@ body {
   font-size: 17px;
   padding: 7px;
   text-align: center;
+
 }
 
 .select_category {
@@ -631,11 +652,9 @@ body {
   font-size: 16px;
   border-radius: 0;
 }
-
 .students_list {
   padding-top: 300px;
 }
-
 @media (min-width: 640px) {
   .students_list {
     padding-top: 200px;
@@ -654,7 +673,7 @@ body {
   -webkit-animation: fadeIn .2s ease-out;
   -o-animation: fadeIn .2s ease-out;
   animation: fadeIn .2s ease-out;
-  border-radius: 7px;
+  border-radius: 5px;
 }
 
 @keyframes fadeIn {
@@ -673,13 +692,13 @@ body {
     }
 }
 
+
 .avatar {
   background-image: url(../img/default-avatar.gif);
   background-size: cover;
   width: 100px;
   height: 100px;
   display: inline-block;
-  overflow: hidden;
 }
 
 .profile_detail {
@@ -697,6 +716,7 @@ body {
 .course {
   font-size: 18px;
 }
+
 
 .btn_profile_link {
   margin-top: 15px;
@@ -721,17 +741,16 @@ body {
 }
 
 @media (min-width: 640px) {
-
-      .short_achivments_list {
-      visibility: visible;
-      margin-left: 50px;
-      display: inline-block;
-      vertical-align: top;
-      width: 300px;
-      line-height: 25px;
-    }
+  .short_achivments_list {
+  visibility: visible;
+  margin-left: 50px;
+  display: inline-block;
+  vertical-align: top;
+  width: 300px;
+  line-height: 25px;
 }
 
+}
 .achivment_link a  {
   opacity: .8;
   color: $mainColor;
@@ -739,7 +758,6 @@ body {
   font-weight: bold;
   border-bottom: 1px dotted $mainColor;
 }
-
 .achivment_link a:hover {
   cursor: pointer;
   color: #028ec7;
@@ -757,7 +775,6 @@ body {
   font-weight: bold;
   text-decoration: underline;
 }
-
 .achivments_count i {
   margin-left: 3px;
   font-size: 20px;
@@ -782,11 +799,9 @@ body {
   overflow-x: hidden;
   z-index: 500;
 }
-
 #achivments_popup li {
   margin-bottom: 3px;
 }
-
  .form_card {
    margin-top: 50px;
    background-color: #fff;
@@ -803,18 +818,19 @@ body {
   }
 }
  
+
  .achivment_detail_card {
    margin-top: 100px;
    width: 300px;
    height: auto;
    background-color: #fff;
    @include cardShadow;
-    -webkit-animation: fadeIn .2s ease-out;
-    -o-animation: fadeIn .2s ease-out;
-    animation: fadeIn .2s ease-out;
-    -webkit-animation: fadeInScale .2s ease-out;
-    -o-animation: fadeInScale .2s ease-out;
-    animation: fadeInScale .2s ease-out;
+   -webkit-animation: fadeIn .2s ease-out;
+  -o-animation: fadeIn .2s ease-out;
+  animation: fadeIn .2s ease-out;
+  -webkit-animation: fadeInScale .2s ease-out;
+  -o-animation: fadeInScale .2s ease-out;
+  animation: fadeInScale .2s ease-out;
    }
 
    .achivment_detail_card p {
@@ -828,6 +844,7 @@ body {
     padding-top: 10px;
    }
 
+
  .detail_label {
   font-weight: bold !important;
  }
@@ -838,8 +855,9 @@ body {
  color: $fontColor;
  text-align: center;
  display: block;
-}
 
+
+}
 .login_form {
   padding: 10px;
   padding-left: 100px;
@@ -849,18 +867,17 @@ body {
   display: block;
   margin-bottom: 5px;
   font-size: 16px;
-}
 
+}
 .login_form input {
   width: 100%;
   padding: 8px;
   margin: 5px auto;
-}
 
+}
 .login_form a {
   color: $mainColor;
 }
-
  .submit_form {
   text-align: center;
   font-weight: bold;
@@ -871,19 +888,24 @@ body {
   color: $mainColor;
   transition: all .2s;
 }
-
 .submit_form:hover {
   background: $mainColor;
   color: #fff;
 }
 
 .form_card {
+
 input.ng-invalid.ng-dirty {
   border-bottom: 1px solid red;
 }
 
 input.ng-valid.ng-dirty {
   border: 1px solid green;
+}
+
+input {
+}
+
 }
 
 .file_field {
@@ -903,7 +925,6 @@ input.ng-valid.ng-dirty {
   opacity: .8;
 
 }
-
 .achivment_owner:hover {
   opacity: 1;
 }
@@ -915,7 +936,6 @@ input.ng-valid.ng-dirty {
   text-align: center;
   background-color: $softBlue;
 }
-
 .achivment_title.unchecked {
   background-color: #ddd !important;
 }
@@ -924,11 +944,9 @@ input.ng-valid.ng-dirty {
   font-size: 16px;
   color: $fontColor;
 }
-
 .achivment_detail span {
   display: block;
 }
-
 .achivment_detail_description {
   font-size: 18px;
   color: $fontColor;
@@ -948,7 +966,6 @@ input.ng-valid.ng-dirty {
 .main_page_header div.columns {
   height: 600px;
 }
-
 .grad {
 top: 50%;
 height: 50%;
@@ -978,6 +995,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     visibility: hidden;
   }
 
+  
+
 .project_name p {
   padding: 5px;
   color: $fontColor;
@@ -992,7 +1011,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   font-size: 16px;
   margin-top: 10px;
 }
-
 #thirdB {
   display: none;
 }
@@ -1008,10 +1026,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
      visibility: visible;
      }
 
+
 .short_info p {
   font-size: 18px;
   margin-top: 20px;
 }
+
+  }
 
 .short_info {
   background: $mainColor;
@@ -1021,7 +1042,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 
 .short_info button  {
-  color: #fff; 
+  color: #fff;
   border: 2px solid #fff;
   padding: 10px 14px;
   font-size: 18px;
@@ -1045,7 +1066,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   -o-transition: all .2s;
   transition: all .2s;
 }
-
 #logout:hover {
  cursor: pointer;
  text-decoration: underline;
@@ -1073,6 +1093,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   background: $softBlue;
   border-radius: 7px 7px 0 0;
   @include cardShadow;
+  
+  
+ 
 }
 
 .nt_label {
@@ -1135,6 +1158,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   animation: popupIn .1s ease-out;
 }
 
+
+
 .notification_popup.popupOut {
   -webkit-animation: popupOut .2s ease-out;
   -o-animation: popupOut .2s ease-out;
@@ -1177,8 +1202,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   border-left: 4px solid $softBlue;
   -webkit-animation: fadeIn .2s ease-out;
   -o-animation: fadeIn .2s ease-out;
-  animation: fadeIn .2s ease-out;
-}
+  animation: fadeIn .2s ease-out;}
+
+
 
 .achD_title {
   margin-top: 10px;
@@ -1187,6 +1213,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	font-weight: bold;
   padding-left: 8px;
 }
+
 
 .achD_ownerLink {
   color: $mainColor;
@@ -1210,7 +1237,9 @@ achD_detailsList li {
   color: #fff;
 }
 
+
 .achD_description {
+  border-top: 1px solid $softBlue;
   margin-top: 10px;
   margin-bottom: 8px;
   padding: 5px;
@@ -1247,6 +1276,13 @@ achD_detailsList li {
   height: 100%;
   width: 100%;
   background: $mainColor;
+}
+
+.achD_rejected {
+
+}
+
+.achD_details {
 }
 
 .achD_detailsListLabel {
@@ -1290,20 +1326,23 @@ achD_detailsList li {
   display: block;
 }
 
+.shortList_list {
+  
+}
+
 .shortList_item {
   position: relative;
   margin: 5px;
   display: block;
 }
-
 .shortList_item  a {
   display: block;
   color: #000;
 }
-
 .shortList_item  a:hover{
   cursor: pointer;
 }
+
 
 .studItem_avatar {
   box-sizing: border-box;
@@ -1361,9 +1400,12 @@ achD_detailsList li {
 
 .sB_preloader {
   margin: 0 auto;
-  margin-top: 80px; 
-  margin-left: -50px; 
+  margin-top: 200px;
 }
+
+
+
+
 
 @-webkit-keyframes uil-ring-anim {
   0% {
@@ -1493,14 +1535,12 @@ achD_detailsList li {
     transform: rotate(360deg);
   }
 }
-
 .uil-ring-css {
   background: none;
   position: relative;
   width: 200px;
   height: 200px;
 }
-
 .uil-ring-css > div {
   position: absolute;
   display: block;
@@ -1521,39 +1561,39 @@ achD_detailsList li {
   margin-bottom: 10px;
 }
 
-@-webkit-keyframes uil-ring-anim {
-  0% {
-    -ms-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -ms-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@-webkit-keyframes uil-ring-anim {
-  0% {
-    -ms-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -ms-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
 
+@-webkit-keyframes uil-ring-anim {
+  0% {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes uil-ring-anim {
+  0% {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
 @-moz-keyframes uil-ring-anim {
   0% {
     -ms-transform: rotate(0deg);
@@ -1570,7 +1610,6 @@ achD_detailsList li {
     transform: rotate(360deg);
   }
 }
-
 @-ms-keyframes uil-ring-anim {
   0% {
     -ms-transform: rotate(0deg);
@@ -1587,7 +1626,6 @@ achD_detailsList li {
     transform: rotate(360deg);
   }
 }
-
 @-moz-keyframes uil-ring-anim {
   0% {
     -ms-transform: rotate(0deg);
@@ -1604,7 +1642,6 @@ achD_detailsList li {
     transform: rotate(360deg);
   }
 }
-
 @-webkit-keyframes uil-ring-anim {
   0% {
     -ms-transform: rotate(0deg);
@@ -1621,7 +1658,6 @@ achD_detailsList li {
     transform: rotate(360deg);
   }
 }
-
 @-o-keyframes uil-ring-anim {
   0% {
     -ms-transform: rotate(0deg);
@@ -1638,7 +1674,6 @@ achD_detailsList li {
     transform: rotate(360deg);
   }
 }
-
 @keyframes uil-ring-anim {
   0% {
     -ms-transform: rotate(0deg);
@@ -1655,14 +1690,12 @@ achD_detailsList li {
     transform: rotate(360deg);
   }
 }
-
 .preloader {
   background: none;
   position: relative;
   width: 50px;
   height: 50px;
 }
-
 .preloader > div {
   position: absolute;
   display: block;
@@ -1678,6 +1711,3 @@ achD_detailsList li {
   -o-animation: uil-ring-anim .5s linear infinite;
   animation: uil-ring-anim .5s linear infinite;
 }
-} 
-} 
-    } 

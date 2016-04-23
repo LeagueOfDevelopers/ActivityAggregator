@@ -4,26 +4,6 @@
 		"selected_items":
 		[
 			[
-				"borderr",
-				"border-radius"
-			],
-			[
-				"ali",
-				"align-content"
-			],
-			[
-				"bor",
-				"border-top"
-			],
-			[
-				"tr",
-				"translateZ()"
-			],
-			[
-				"tran",
-				"transform"
-			],
-			[
 				"border-bo",
 				"border-bottom"
 			],
@@ -134,6 +114,10 @@
 			[
 				"f",
 				"font-size"
+			],
+			[
+				"bor",
+				"border-box"
 			],
 			[
 				"v",
@@ -319,31 +303,7 @@
 			"file": "api/achivments.js",
 			"settings":
 			{
-				"buffer_size": 4483,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "db/mongoose.js",
-			"settings":
-			{
-				"buffer_size": 3938,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app.js",
-			"settings":
-			{
-				"buffer_size": 2146,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "routes/api.js",
-			"settings":
-			{
-				"buffer_size": 1784,
+				"buffer_size": 4306,
 				"line_ending": "Windows"
 			}
 		},
@@ -351,7 +311,7 @@
 			"file": "api/admin.js",
 			"settings":
 			{
-				"buffer_size": 4374,
+				"buffer_size": 4375,
 				"line_ending": "Windows"
 			}
 		},
@@ -359,7 +319,7 @@
 			"file": "public/js/controllers_main.js",
 			"settings":
 			{
-				"buffer_size": 3243,
+				"buffer_size": 2950,
 				"line_ending": "Windows"
 			}
 		},
@@ -367,55 +327,7 @@
 			"file": "public/js/controllers.js",
 			"settings":
 			{
-				"buffer_size": 11201,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/partials/achivment.html",
-			"settings":
-			{
-				"buffer_size": 3418,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/partials/registry.html",
-			"settings":
-			{
-				"buffer_size": 3199,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/partials/profile.html",
-			"settings":
-			{
-				"buffer_size": 2503,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/admin/partials/profile.html",
-			"settings":
-			{
-				"buffer_size": 1783,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/admin/partials/achivment.html",
-			"settings":
-			{
-				"buffer_size": 3716,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/partials/profile_another.html",
-			"settings":
-			{
-				"buffer_size": 1512,
+				"buffer_size": 10540,
 				"line_ending": "Windows"
 			}
 		},
@@ -423,7 +335,7 @@
 			"file": "public/js/app.js",
 			"settings":
 			{
-				"buffer_size": 2381,
+				"buffer_size": 2453,
 				"line_ending": "Windows"
 			}
 		},
@@ -431,90 +343,15 @@
 			"file": "public/js/services.js",
 			"settings":
 			{
-				"buffer_size": 4949,
+				"buffer_size": 4843,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "public/partials/addAchivment.html",
-			"settings":
-			{
-				"buffer_size": 2439,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/partials/admin_inbox.html",
-			"settings":
-			{
-				"buffer_size": 1894,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/styles/main.scss",
-			"settings":
-			{
-				"buffer_size": 30280,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/styles/ring.css",
-			"settings":
-			{
-				"buffer_size": 3708,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/styles/main.css",
-			"settings":
-			{
-				"buffer_size": 31092,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "views/index.jade",
-			"settings":
-			{
-				"buffer_size": 3039,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/partials/main.html",
-			"settings":
-			{
-				"buffer_size": 1711,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/partials/load.html",
-			"settings":
-			{
-				"buffer_size": 224,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/partials/studentsBase.html",
-			"settings":
-			{
-				"buffer_size": 3256,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "var \n	Student = require('../db/mongoose').models.Student,\n	fs = require(\"fs\"),\n	config = require('../config').files.students,\n	path = require(\"path\"),\n	util = require('util'),\n	multiparty = require('multiparty');\n\nmodule.exports = {\n	isAuth: isAuth,\n	login: login,\n	logout: logout,\n	getStudentDetail: getStudentDetail,\n	getStudentsList: getStudentsList,\n	getStudentsListByCategory: getStudentsListByCategory,\n	getStudentsListByName: getStudentsListByName,\n	addStudent: addStudent,\n	changeAvatar: changeAvatar,\n	updateStudentDetail: updateStudentDetail,\n	updateSession: updateSession,\n	getLast: getLast\n};\n\nfunction login(req, res, next) {\n\n	Student.findOne({email: req.body.email}, function(err, student) {\n\n		if(err) {\n\n			res.send(err);\n\n		} else if (student && student.passwordIsCorrect(req.body.password)) {\n\n			req.session.user = student;\n			res.send({\n						data: student\n					});\n\n			} else {\n\n				res.send({status: 'not found'});\n\n			}\n		 \n		\n	})\n};\n\nfunction updateSession(req, res, next) {\n	if(!req.session.user) {\n\n		res.send('logout')\n	} else {\n\n	 Student.findById({_id: req.session.user._id}, function(err, student) {\n			if(err) {\n\n				console.log(err)\n			} \n			req.session.user = student;\n			res.send('session updated');\n		})\n	}\n\n};\n\nfunction isAuth(req, res, next) {\n	res.send(req.session);\n};\n\nfunction logout(req, res, next) {\n	req.session.destroy();\n	res.send('session destroyed');\n};\n\nfunction addStudent(req, res, next) {\n		var fields = req.body;\n		var student = new Student ({\n			firstName: fields.firstName,\n			lastName: fields.lastName,\n			middleName: fields.middleName,\n			email: fields.email,\n			hashPassword: fields.password,\n			department: fields.department,\n			course: fields.course,\n			group: fields.group,\n			about: fields.about,\n			level: fields.level,\n			registered: new Date(),\n			status: 0,\n			number: fields.number\n	});\n\n		student.save(function(err) {\n			if(!err) {\n				res.end('student added')\n			} else {\n				res.send(err);\n			}\n		})\n		\n	\n\n};\n\nfunction getLast(req, res, next) {\n	Student.find({'achivments.checked': true}, '-hashPassword', {sort: {'achivments.$.created': 1}}).exec(function(err, data) {\n		if(err) res.send(err);\n		else if(data) {\n			res.send(data.reverse());\n		}\n	})\n};	\n	\n\nfunction getStudentDetail(req, res, next) {\n		Student.findById(req.params.id,'-hashPasswod', function(err, data) {\n			if(!err) {\n				res.send(data)\n			} else {\n				res.send(err)\n			}\n		})\n};\n\nfunction getStudentsList(req, res, next) {\n\n	Student.find('-hashPassword').limit(10).exec(function (err, data) {\n				if (!err) {\n						 res.send(data);\n				} else {\n						res.statusCode = 500;\n						console.log('Internal error(%d): %s',res.statusCode,err.message);\n						res.send({ error: 'Server error' });\n				}\n		});\n\nfunction getStudentListLimit(req, res, next) {\n	Student.find({'achivments.checked': true}).select('-hashPassword').limit(req.params.number).exec(function(err, data) {\n		if(err) res.send(err);\n		else if(data) {\n			res.send(data);\n		}\n	})\n}\n\n};\n\nfunction getStudentsListByCategory(req, res, next) {\n	console.log(req.params);\n	Student.find({'achivments.type' : req.params.searchParams},'-hashPassword', function (err, data) {\n				if (!err) {\n						 res.send(data);\n				} else {\n						res.statusCode = 500;\n						console.log('Internal error(%d): %s',res.statusCode,err.message);\n						 res.send({ error: 'Server error' });\n				}\n		});\n\n\n};\n\nfunction getStudentsListByName(req, res, next) {\n	var q = new RegExp(req.params.searchParams, 'i');\n	Student.find({$or : [\n							{'firstName' : q},\n							{'lastName' : q},   \n							{'department' : q},\n							{'group' : q}\n						]\n				}, \n				'-hashPassword',\n					function (err, data) {\n						if (!err) {\n									res.send(data);\n						 } else {\n							 res.statusCode = 500;\n							 console.log('Internal error(%d): %s',res.statusCode,err.message);\n								res.send({ error: 'Server error' });\n							}\n		});\n\n\n};\n\nfunction updateStudentDetail(req, res, next) {\n	Student.findById(req.params.id, function(err, student) {\n		student.about = req.body.about;\n		student.save(function(data) {\n			res.send('about updated');\n		})\n	})\n};\n\nfunction changeAvatar(req, res, next) {\n		var savePath, fileName;\n		var form = new multiparty.Form();\n		var supportedTypes = config.avatar.types;\n		form.on('close', function() {\n\n			Student.findById(req.params.id, function(err, student) {\n				student.photoUri = config.avatar.link + req.params.id + fileName;\n				student.save(function(resp) {\n					res.send(resp);\n				});\n			})\n		})\n		form.on('part', function(part) {\n			console.log(part);\n			if(false) {\n				res.send({status: 'bad'});\n			} else {\n				 savePath = config.avatar.path + req.params.id;\n				if(!fs.existsSync(savePath)) {\n						fs.mkdir(savePath);\n					};\n				 fileName = '/avatar.jpg';\n				 if(fs.existsSync(savePath + fileName)) {\n				fs.unlinkSync(savePath + fileName);\n			 }\n				var out = fs.createWriteStream(savePath + fileName);\n				console.log(fileName);\n				part.pipe(out);\n			} \n		})\n		form.parse(req);\n\n		\n};",
 			"file": "api/students.js",
-			"file_size": 5226,
-			"file_write_time": 131058733435392524,
 			"settings":
 			{
-				"buffer_size": 4993,
+				"buffer_size": 4996,
 				"line_ending": "Windows"
 			}
 		},
@@ -622,11 +459,7 @@
 	[
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/storage",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/views"
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js"
 	],
 	"file_history":
 	[
@@ -761,7 +594,7 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 28.0
 	},
 	"find_in_files":
 	{
@@ -776,16 +609,6 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"sB_loadMoreBtn",
-			"popup",
-			"ownerLi",
-			"profile_lin",
-			"font-family: Calibri",
-			"nav_bar a",
-			"font-family",
-			"trans",
-			"transo",
-			"project",
 			"form_card",
 			"form",
 			"input",
@@ -870,7 +693,7 @@
 	"groups":
 	[
 		{
-			"selected": 17,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -879,190 +702,197 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4483,
+						"buffer_size": 4306,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								931,
-								931
+								4032,
+								4032
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 4,
-							"tabs_extra_last_activated": 1461399888.11,
+							"tabs_extra_last_activated": 1461186255.69,
 							"tabs_extra_last_activated_sheet_index": 0,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 579.0,
+						"translation.y": 1521.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 16,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "db/mongoose.js",
+					"file": "api/admin.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3938,
+						"buffer_size": 4375,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3675,
-								3675
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1461399801.19,
-							"tabs_extra_last_activated_sheet_index": 1,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 3188.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 17,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2146,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
+								2176,
+								2176
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
-							"tabs_extra_last_activated": 1461321250.76,
+							"tabs_extra_last_activated": 1461307828.76,
 							"tabs_extra_last_activated_sheet_index": 1,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 22.0,
+						"translation.y": 2950.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 24,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "routes/api.js",
+					"buffer": 2,
+					"file": "public/js/controllers_main.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1784,
+						"buffer_size": 2950,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								888,
-								888
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1461321912.7,
-							"tabs_extra_last_activated_sheet_index": 2,
-							"tabs_extra_spawned": true
-						},
-						"translation.x": -0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 23,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "api/admin.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4374,
-						"regions":
-						{
-						},
-						"selection":
-						[
+								1259,
+								1259
+							],
 							[
-								1155,
-								1155
+								1260,
+								1260
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
-							"tabs_extra_last_activated": 1461399769.71,
+							"tabs_extra_last_activated": 1461309921.25,
+							"tabs_extra_last_activated_sheet_index": 2,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 576.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "public/js/controllers.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 10540,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1239,
+								1239
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1461308991.09,
 							"tabs_extra_last_activated_sheet_index": 3,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2644.0,
+						"translation.y": 1528.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 18,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "public/js/controllers_main.js",
+					"buffer": 4,
+					"file": "public/js/app.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3243,
+						"buffer_size": 2453,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2525,
-								2525
+								2201,
+								2201
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
-							"tabs_extra_last_activated": 1461402640.14,
-							"tabs_extra_last_activated_sheet_index": 5,
+							"tabs_extra_last_activated": 1461308990.23,
+							"tabs_extra_last_activated_sheet_index": 4,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1152.0,
+						"translation.y": 540.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "public/js/services.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4843,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4809,
+								4809
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1461308989.01,
+							"tabs_extra_last_activated_sheet_index": 5,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
@@ -1070,629 +900,38 @@
 				},
 				{
 					"buffer": 6,
-					"file": "public/js/controllers.js",
+					"file": "api/students.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11201,
+						"buffer_size": 4996,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9739,
-								9739
+								1239,
+								1239
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1461404765.35,
-							"tabs_extra_last_activated_sheet_index": 6,
+							"tabs_extra_last_activated": 1461307827.25,
+							"tabs_extra_last_activated_sheet_index": 2,
 							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 5087.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "public/partials/achivment.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3418,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								251,
-								228
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"tabs_extra_last_activated": 1461401367.16,
-							"tabs_extra_last_activated_sheet_index": 7,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "public/partials/registry.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3199,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1217,
-								1217
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1461401428.12,
-							"tabs_extra_last_activated_sheet_index": 8,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2831.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
-					"file": "public/partials/profile.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2503,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1148,
-								1148
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1461400797.46,
-							"tabs_extra_last_activated_sheet_index": 9,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 14,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "public/admin/partials/profile.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1783,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								994,
-								994
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1461399299.19,
-							"tabs_extra_last_activated_sheet_index": 9,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 21,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "public/admin/partials/achivment.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3716,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3394,
-								3394
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"tabs_extra_last_activated": 1461399559.22,
-							"tabs_extra_last_activated_sheet_index": 10,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 20,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "public/partials/profile_another.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1512,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								797,
-								797
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1461401384.25,
-							"tabs_extra_last_activated_sheet_index": 12,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "public/js/app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2381,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1688,
-								1688
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1461399300.81,
-							"tabs_extra_last_activated_sheet_index": 12,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1005.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 22,
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "public/js/services.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4949,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3515,
-								3515
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1461401011.26,
-							"tabs_extra_last_activated_sheet_index": 14,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2168.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 13,
-					"type": "text"
-				},
-				{
-					"buffer": 15,
-					"file": "public/partials/addAchivment.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2439,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2154,
-								2154
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1461401375.07,
-							"tabs_extra_last_activated_sheet_index": 16,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 16,
-					"file": "public/partials/admin_inbox.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1894,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1822,
-								1822
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1461401380.65,
-							"tabs_extra_last_activated_sheet_index": 17,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 200.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 17,
-					"file": "public/styles/main.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 30280,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								11256,
-								11256
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1461405427.88,
-							"tabs_extra_last_activated_sheet_index": 17,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 10186.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 18,
-					"file": "public/styles/ring.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3708,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3708,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1461401110.05,
-							"tabs_extra_last_activated_sheet_index": 19,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 19,
-					"file": "public/styles/main.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 31092,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1461400503.24,
-							"tabs_extra_last_activated_sheet_index": 19,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 12397.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 15,
-					"type": "text"
-				},
-				{
-					"buffer": 20,
-					"file": "views/index.jade",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3039,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								791,
-								791
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1461402278.17,
-							"tabs_extra_last_activated_sheet_index": 20,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 21,
-					"file": "public/partials/main.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1711,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1700,
-								559
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tabs_extra_last_activated": 1461401381.86,
-							"tabs_extra_last_activated_sheet_index": 22,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 166.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 22,
-					"file": "public/partials/load.html",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 224,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tabs_extra_last_activated": 1461401383.06,
-							"tabs_extra_last_activated_sheet_index": 22,
-							"tabs_extra_spawned": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 23,
-					"file": "public/partials/studentsBase.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3256,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1358,
-								1370
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1461404768.82,
-							"tabs_extra_last_activated_sheet_index": 23,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 230.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 24,
-					"file": "api/students.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4993,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2980,
-								2980
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1461399727.09,
-							"tabs_extra_last_activated_sheet_index": 21,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 19,
-					"type": "text"
-				},
-				{
-					"buffer": 25,
+					"buffer": 7,
 					"file": "/C/Users/user pc/Google Диск/AU_15/2 семестр/ООП/Практика/8 норматив/n8_s3_9.txt",
 					"semi_transient": false,
 					"settings":
@@ -1718,14 +957,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 378.0,
+						"translation.y": 430.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 26,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 26,
+					"buffer": 8,
 					"file": "/C/Users/user pc/Downloads/My Project-c9ecec05a342.json",
 					"semi_transient": false,
 					"settings":
@@ -1751,7 +990,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 25,
+					"stack_index": 7,
 					"type": "text"
 				}
 			]
@@ -1769,7 +1008,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 23.0
+		"height": 28.0
 	},
 	"input":
 	{
@@ -1832,7 +1071,7 @@
 	"project": "sublime_project.sublime-project",
 	"replace":
 	{
-		"height": 62.0
+		"height": 66.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1929,7 +1168,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 289.0,
+	"side_bar_width": 192.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
