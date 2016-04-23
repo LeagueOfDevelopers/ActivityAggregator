@@ -10,7 +10,7 @@ html(lang='en', ng-app='ActivityAggregator', ng-controller='appCtrl')
     link(rel='stylesheet', href='../styles/lib/font-awesome/css/font-awesome.min.css')
     link(rel='stylesheet', href='../styles/lib/foundation.min.css')
     link(rel="stylesheet", href="../styles/lib/ring.css")
-  body(ng-controller='pageCtrl', ng-cloak='')
+  body(ng-controller='pageCtrl')
     .wrapper(ng-cloak='')
       section.header.small-12.columns
         a.logo(ui-sref="mainPage")
@@ -47,7 +47,11 @@ html(lang='en', ng-app='ActivityAggregator', ng-controller='appCtrl')
             span.bad(ng-show="msg.type.bad")
             span.good(ng-show="msg.type.good")
           div.small-9.columns.msg
-            p(ng-bind="msg.content") 
+            p(ng-bind="msg.content")
+    .startScreen(ng-if="starting")
+        .loader-wrapper.start
+          .loader
+          .loader_circle 
     script(type='text/javascript', src='../js/lib/angular.min.js')
     script(type='text/javascript', src='../js/lib/angular-sanitize.min.js')
     script(type='text/javascript', src='../js/lib/angular-ui-router.min.js')

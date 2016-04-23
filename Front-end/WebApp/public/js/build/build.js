@@ -486,7 +486,7 @@ angular.module('app.controllers.main',
   function ($scope, $state, UserManager, $timeout, API) {
 
       //define default vars and consts
-
+     $scope.starting = true;
      $scope.BASE_URI = 'http://localhost:3000/';
      $scope.title = 'Онлайн портфолио активных студентов НИТУ МИСиС';
      $scope.showMessage = false;
@@ -582,6 +582,10 @@ angular.module('app.controllers.main',
         $scope.onLoad[args.field] = false;
         console.log(args.field);
       };
+
+       $timeout(function() {
+        $scope.starting = false;
+       }, 2500)
 
 }])
 

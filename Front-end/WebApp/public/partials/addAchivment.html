@@ -48,7 +48,11 @@
              <div class="nAch_uploadedList" ng-repeat="file in files" style=" width: 100px; height: 100px; margin-right: 2px; display: inline-block; background-image: url({{isPdf(file) ? '../icons/interface.png' : file}}); background-size: cover;">
              </div>
 
-             <div class="preloader nAch_filePreloader" style="transform: translateX(30px);transform:translateY(-10px);" ><div></div></div>
+             
+            <div class="preloader_wrapper nAch_filePreloader" ng-if="onLoad.file" style="transform: translateY(10px);">
+              <div class="preloader"></div>
+              <div class="preloader_circle"></div>
+            </div>
 
              </div>
              <span ng-if='!isValid()'>Заполните форму корректно</span>

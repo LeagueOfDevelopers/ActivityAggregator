@@ -13,13 +13,20 @@
             </div>
           </div>
         </div>
-             <div class="preloader sB_preloader" style="transform: translateX(20px);" ng-if="onLoad.common"><div></div></div>
-        
+
+        <div class="preloader_wrapper sB_preloader" ng-if="onLoad.common">
+          <div class="preloader"></div>
+          <div class="preloader_circle"></div>
+        </div>        
+
           <div class="row achivments_profile" ng-if='student.achivments.length != 0' ng-cloak>
             <span>Достижения</span>
           </div>
 
-        <div class="preloader" style="transform: translateX(20px);" ng-if="onLoad.common"><div></div></div>
+        <div class="preloader_wrapper sB_preloader" ng-if="onLoad.common">
+          <div class="preloader"></div>
+          <div class="preloader_circle"></div>
+         </div>
 
         <div class="achivments_list" ng-cloak ng-if="!onLoad.common">
           <ul class="small-12">
