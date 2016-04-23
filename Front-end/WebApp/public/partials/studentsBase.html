@@ -42,6 +42,9 @@
             
         </li>
       </ul>
-      <div class="preloader sB_preloader" ng-if="onLoad.common"><div></div></div>
+      <div class="preloader_wrapper sB_preloader" ng-if="onLoad.common">
+      <div class="preloader"></div>
+      <div class="preloader_circle"></div>
+      </div>
       <button  ng-click='getMoreStudents()' class="sB_loadMoreBtn btn_ghost" ng-if="!onLoad.common">Загрузить еще</button>
     </section>
