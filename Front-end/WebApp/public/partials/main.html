@@ -1,11 +1,10 @@
 <section class="page_content">
 	<div class="main_page_header">
-		 <div class="project_name small-12 medium-4 columns">
-		 	<div class="grad"></div>
+		 <div class="project_name small-12 medium-5 columns">
 		 	<div class="projectName_wrap">
 		 		<p class="projectName_title">Онлайн портфолио активных студентов НИТУ МИСиС</p>
 			</div>
-		 	<div class="small-12 medium-10 columns shortList_wrap">
+		 	<div class="small-12 medium-12 columns shortList_wrap">
 		 		<span class="shortList_title">Последние достижения</span>
 		 		<ul class="shortList_list">
 		 			<li class="shortList_item" ng-repeat="student in lastStudents">
@@ -22,17 +21,13 @@
 		 	</div>
 		 </div>
 
-		 <div class="short_info small-12 medium-5 columns">
+		 <div class="short_info small-12 medium-7 large-4 columns">
 		 	<h1>Расскажите о своих лучших достижениях и следите за самыми выдающимися студентами</h1>
-		 	<div class="row">
-		 	<button  ui-sref='registry' ng-if="!(currentUser._id)">Регистрация</button>
-		 	<button  ui-sref='auth' ng-if="!(currentUser._id)">Вход</button>
-		 	<button  id='thirdB' ui-sref='studentsBase'>Найти студента</button>
-		 	</div>
+		 	<button class="mp_btn_registry" ui-sref='registry' ng-if="!(currentUser._id)">Регистрация</button>
 		 	<p>Официальная база активистов университета МИСиС позволяет рассказывать о своих успехах в учебе, спорте, культуре и науке. Кроме того, все достижения проверяются администрацией вуза и после подтверждения могут обеспечить вам повышенную стипендию.</p>
 		 	</div>
-		 <div class="project_name small-12 medium-3 columns">
-		 	<div class="grad"></div>
+
+		 <div class="project_name third_block small-12 large-3 columns">
 		 </div>
 		
 	</div>

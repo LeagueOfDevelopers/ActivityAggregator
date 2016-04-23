@@ -5,6 +5,7 @@ html(lang='en', ng-app='ActivityAggregator', ng-controller='appCtrl')
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title(ng-bind='title')
+    link(href='https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css')
     link(rel='stylesheet', href='../styles/main.css')
     link(rel='stylesheet', href='../styles/lib/font-awesome/css/font-awesome.min.css')
     link(rel='stylesheet', href='../styles/lib/foundation.min.css')
@@ -22,7 +23,7 @@ html(lang='en', ng-app='ActivityAggregator', ng-controller='appCtrl')
             li
               a(ui-sref='studentsBase') База активистов
             li
-              a(ui-sref='auth', ng-if='!(currentUser._id)') Рассказать о себе
+              a(ui-sref='auth', ng-if='!(currentUser._id)') Вход
               a#profile_link(ui-sref='account(currentUser._id)', ng-if='(currentUser._id && !currentUser.role )', ng-bind="currentUser.firstName + ' ' + currentUser.lastName")
               a#profile_link(href='admin', ng-if='(currentUser.role)') Вы зашли как администратор  
             li(ng-if='currentUser._id')
@@ -40,7 +41,7 @@ html(lang='en', ng-app='ActivityAggregator', ng-controller='appCtrl')
               a#profile_link(ui-sref='account(currentUser._id)', ng-if='(currentUser._id)', ng-bind="currentUser.firstName + ' ' + currentUser.lastName")
       section(ui-view='page_content')
       section(ui-view='footer')
-      section.notification_popup.small-12.medium-3.medium-offset-8.columns(ng-if='showMessage')
+      section.notification_popup.small-12.medium-3.medium-offset-8.columns.popupIn(ng-if='showMessage')
         div.row
           div.small-4.columns.label
           div.small-9.columns

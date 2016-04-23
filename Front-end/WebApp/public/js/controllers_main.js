@@ -72,15 +72,16 @@ angular.module('app.controllers.main',
         });
       };
 
-      function showMessage() {
+      function showMessage(e , args) {
         $scope.showMessage = true;
         $scope.msg = args.msg;
-        angular.element(document.querySelector('.notification_popup')).addClass('.popupIn');
 
         $timeout(function() {
         angular.element(document.querySelector('.notification_popup')).removeClass('.popupIn').addClass('.popupOut');
-        $scope.showMessage = false;
-        $scope.msg = '';
+        $timeout(function() {
+           $scope.showMessage = false;
+           $scope.msg = '';
+        }, 1000)
         }, 5000);
       };
 
