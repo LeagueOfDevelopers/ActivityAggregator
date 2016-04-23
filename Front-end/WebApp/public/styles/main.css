@@ -43,9 +43,9 @@ body {
   background-color: #009fdf;
   z-index: 1000;
   position: fixed;
-  -webkit-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5); }
+  -webkit-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5); }
 
 .page_content {
   height: 100% !important;
@@ -74,7 +74,7 @@ body {
   float: right; }
 
 .logo {
-  width: 198px;
+  width: 200px;
   margin-left: -15px;
   height: 60px;
   float: left;
@@ -187,9 +187,9 @@ body {
   box-sizing: border-box;
   display: inline-block;
   background: #fff;
-  -webkit-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
   padding: 20px;
   color: #59595b;
   overflow: hidden;
@@ -315,9 +315,9 @@ body {
   opacity: 1;
   background: #fff;
   color: #009fdf;
-  -webkit-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
   font-size: 24px;
   line-height: normal !important;
   -webkit-transition: all .2s;
@@ -399,9 +399,9 @@ body {
   height: 55px;
   border-radius: 50%;
   background-color: #fff;
-  -webkit-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5); }
+  -webkit-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5); }
 
 .ach_icon:after {
   position: absolute;
@@ -458,9 +458,9 @@ body {
   top: 60px;
   background: #fff;
   z-index: 200;
-  -webkit-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5); }
+  -webkit-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5); }
 
 /*@media (min-width: 600px) {
   .students_base_header {
@@ -532,9 +532,9 @@ body {
   margin-bottom: 20px;
   padding: 15px;
   line-height: normal;
-  -webkit-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
   -webkit-animation: fadeIn .2s ease-out;
   -o-animation: fadeIn .2s ease-out;
   animation: fadeIn .2s ease-out;
@@ -590,9 +590,9 @@ body {
   cursor: pointer;
   color: #fff;
   background: #009fdf;
-  -webkit-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5); }
+  -webkit-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5); }
 
 .short_achivments_list {
   display: none;
@@ -654,9 +654,9 @@ body {
 .form_card {
   margin-top: 50px;
   background-color: #fff;
-  -webkit-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
   -webkit-animation: fadeIn .2s ease-out;
   -o-animation: fadeIn .2s ease-out;
   animation: fadeIn .2s ease-out;
@@ -671,9 +671,9 @@ body {
   width: 300px;
   height: auto;
   background-color: #fff;
-  -webkit-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
   -webkit-animation: fadeIn .2s ease-out;
   -o-animation: fadeIn .2s ease-out;
   animation: fadeIn .2s ease-out;
@@ -802,21 +802,20 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 ); }
 
 .project_name {
+  background: #fff;
   background-image: url(../img/main_bg.png);
   background-size: cover;
   position: relative; }
 
-/*.project_name p {
+.project_name p {
   padding: 5px;
-  color: $fontColor;
-  font-family: DaysSans;
+  color: #59595b;
   display: block;
   font-size: 30px;
   font-weight: bold;
   line-height: 50px;
-  margin-top: 80px;
-  background: rgb(255,255,255);
-}*/
+  background: #fff; }
+
 .short_info p {
   font-size: 16px;
   margin-top: 10px; }
@@ -853,9 +852,9 @@ body {
   cursor: pointer;
   color: #009fdf;
   background: #fff;
-  -webkit-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5); }
+  -webkit-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5); }
 
 #logout {
   -webkit-transition: all .2s;
@@ -883,9 +882,9 @@ body {
   top: 90%;
   height: 90px;
   background: #87b1cd;
-  -webkit-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5); }
+  -webkit-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5); }
   .notification_popup p {
     margin-top: 10px;
     color: #fff;
@@ -942,9 +941,9 @@ body {
   margin: 0 auto;
   min-height: 200px;
   background: #fff;
-  -webkit-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
   border-radius: 7px;
   border-left: 4px solid #87b1cd;
   -webkit-animation: fadeIn .2s ease-out;
@@ -1032,7 +1031,7 @@ achD_detailsList li {
 .shortList_title {
   font-weight: bold;
   font-size: 24px;
-  color: #000;
+  color: #59595b;
   margin: 0 auto;
   margin-bottom: 8px;
   display: block; }

@@ -188,7 +188,7 @@ angular.module('app.controllers.partials',
         var ach = {};
         var owner = {};
         $scope.visiblePhoto = false;
-        $scope.$emit('dataLoad', {field: 'common'});
+        $scope.$emit('loadData', {field: 'common'});
         API.query('achivments.getDetail', 
                   {
                     achId: $stateParams.achId, 

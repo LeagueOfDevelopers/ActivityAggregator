@@ -1,11 +1,15 @@
 <div class="page_content">
 	<div class="row">
   <div class="form_card small-centered small-12 medium-6 medium-centered large-5 large-centered columns">
+
     <form method="post" enctype="multipart/form-data">
       <div class="row column login_form">
+
         <span class="form_title">Ваши успехи</span>
+
         <label>Название достижения</label>
           <input type="text" placeholder='Олимпиада по программирванию' required='true' ng-model='newAch.name'>
+
           <label>Категория</label>
         <select name="category" class="select_category" ng-model='type' required='true'>
               <option>Спорт</option>
@@ -15,6 +19,7 @@
               <option>Межкультурный диалог</option>
               <option>Предпринимательство</option>
             </select>
+
             <label>Уровень</label>
           <select name="level" class="select_category" ng-model='newAch.level' required='true'>
               <option>Внутривузовский</option>
@@ -22,17 +27,23 @@
               <option>Государственный</option>
               <option>Международный</option>
             </select>
+
           <label>Результаты</label>
           <input type="text" placeholder="Призер 2 место" required='true' ng-model='newAch.result'>
+
           <label>Организация</label>
           <input type="text" placeholder="mail.ru" required='true' ng-model='newAch.organization'>
+
            <label>Подробнее (не обязательно)</label>
           <textarea name="name" rows="5" class="small-12 columns" ng-model="newAch.description"></textarea>
+
            <label>Дата получения</label>
           <input type="date" ng-model='newAch.created'  required>
+
            <label>Сканы документов</label>
             <div class="file_field" ngf-select='uploadFile($file)'
             ngf-accept="'image/*, application/pdf'" >Выберите файлы</div>
+            
             <div style="max-width: 100%; height: auto;">
              <div ng-repeat="file in files" style=' width: 100px; height: 100px; margin-right: 2px; display: inline-block; background: url({{file}}); background-size: cover;'>
              </div>

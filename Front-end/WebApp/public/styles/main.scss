@@ -1,6 +1,7 @@
 $mainColor: #009fdf;
 $softBlue: #87b1cd;
 $fontColor: #59595b;
+$bodyColor: #fafafa;
 $achivmentsIcons: url(../icons/achivments_icons.png);
 
 @mixin border-radius($radius) {
@@ -9,15 +10,17 @@ $achivmentsIcons: url(../icons/achivments_icons.png);
       -ms-border-radius: $radius;
           border-radius: $radius;
 }
+
 @mixin cardShadow() {
-  -webkit-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
-     -moz-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
-          box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 3px 4px 5px -4px rgba(0,0,0,0.5);
+     -moz-box-shadow: 3px 4px 5px -4px rgba(0,0,0,0.5);
+          box-shadow: 3px 4px 5px -4px rgba(0,0,0,0.5);
 }
+
 @mixin headerShadow() {
-   -webkit-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
-     -moz-box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
-          box-shadow: 2px 3px 13px -4px rgba(0,0,0,0.5);
+   -webkit-box-shadow: 3px 4px 5px -4px rgba(0,0,0,0.5);
+     -moz-box-shadow: 3px 4px 5px -4px rgba(0,0,0,0.5);
+          box-shadow: 3px 4px 5px -4px rgba(0,0,0,0.5);
 }
 
 * {
@@ -60,7 +63,7 @@ html {
 body {
   font-family: Calibri, Helvetica, sans-serif;
   height: 100%  !important;
-  background-color: #fafafa !important;
+  background-color: $bodyColor !important;
   overflow-x: hidden;
 }
 
@@ -113,7 +116,7 @@ body {
 
 
 .logo {
-  width: 198px;
+  width: 200px;
   margin-left: -15px;
   height: 60px;
   float: left;
@@ -122,6 +125,7 @@ body {
   -webkit-background-size: cover;
   background-size: cover;
 }
+
 
 .nav_bar {
   float: right;
@@ -973,22 +977,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 
 .project_name {
+  background: #fff;
   background-image: url(../img/main_bg.png);
   background-size: cover;
   position: relative;
   }
 
-/*.project_name p {
+.project_name p {
   padding: 5px;
   color: $fontColor;
-  font-family: DaysSans;
   display: block;
   font-size: 30px;
   font-weight: bold;
   line-height: 50px;
-  margin-top: 80px;
-  background: rgb(255,255,255);
-}*/
+  background: #fff;
+}
 
 .short_info p {
   font-size: 16px;
@@ -1264,7 +1267,7 @@ achD_detailsList li {
 .shortList_title {
   font-weight: bold;
   font-size: 24px;
-  color: #000;
+  color: $fontColor;
   margin: 0 auto;
   margin-bottom: 8px;
   display: block;

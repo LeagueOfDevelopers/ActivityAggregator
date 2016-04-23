@@ -87,7 +87,7 @@ angular.module('app.controllers.main',
       function startLoad(e, args) {
 
         if(!$scope.onLoad[args.field]) console.log('field' + args.field + 'is not defined');
-
+        console.log(args.field);
         $scope.onLoad[args.field] = true;
       };
 
