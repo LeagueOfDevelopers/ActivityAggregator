@@ -1392,10 +1392,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .studItem_achivment {
   color: $mainColor !important;
   display: block;
+  border-bottom: 1px dotted $mainColor;
+  opacity: .8;
 }
 
+
+
 .studItem_achivment :hover {
-  text-decoration: underline;
+  cursor: pointer;
+  opacity: 1;
 }
 
 .sB_loadMoreBtn {
