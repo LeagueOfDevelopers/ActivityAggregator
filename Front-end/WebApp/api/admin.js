@@ -48,7 +48,6 @@ function newAdmin(req, res, next) {
 	})
 };
 
-
 function getInviteCode(req, res, next) {
   Admin.findById(req.params.id, function(err, admin) {
     if(err) res.send(err);

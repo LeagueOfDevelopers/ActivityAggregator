@@ -17,12 +17,12 @@ angular.module('app.controllers.main',
      $scope.title = 'Онлайн портфолио активных студентов НИТУ МИСиС';
      $scope.showMessage = false;
      $scope.msg = {
-      content: 'dddddd',
+      content: '',
       type: {
         good: false,
         bad: false
       }
-     }
+     };
      $scope.bad = false;
      $scope.good = false;
      $scope.currentUser = {};
@@ -106,6 +106,7 @@ angular.module('app.controllers.main',
         if(!$scope.onLoad[args.field]) console.log('field' + args.field + 'is not defined');
 
         $scope.onLoad[args.field] = false;
+        console.log(args.field);
       };
 
 }])

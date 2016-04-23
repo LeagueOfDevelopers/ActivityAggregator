@@ -103,7 +103,6 @@ function addStudent(req, res, next) {
 
 };
 
-
 function getLast(req, res, next) {
 	Student.find({'achivments.checked': true}, '-hashPassword', {sort: {'achivments.$.created': 1}}).exec(function(err, data) {
 		if(err) res.send(err);

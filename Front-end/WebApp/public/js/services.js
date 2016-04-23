@@ -156,7 +156,6 @@ angular.module('app.services', [])
 
   }])
 
-
   .service('avatar',
     [ 
     function() {
@@ -164,8 +163,6 @@ angular.module('app.services', [])
        return student.photoUri ? 'background-image: url(' + student.photoUri + ')' : ''; 
       }
   }])
-
- 
 
   .service('UserManager',
    ['$rootScope',

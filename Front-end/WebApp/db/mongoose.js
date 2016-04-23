@@ -9,11 +9,10 @@ var db = mongoose.connection;
 db.on('error', function (err) {
     console.log('connection error:', err.message);
 });
+
 db.once('open', function callback () {
     console.log("Connected to DB!");
 });
-
-
 
 var achivment = new schema({
 	name: {
@@ -66,6 +65,7 @@ var achivment = new schema({
       this.makeSalt();
       return this.encryptData(password);
     }
+
 var student = new schema({
 	firstName: {
 		type: String,
@@ -126,7 +126,6 @@ var student = new schema({
 		type: Date
 	},
 	achivments: [achivment]
-
 });
 
 student.methods.encryptData = function(pass) {
@@ -154,9 +153,6 @@ student.methods.confirm = function() {
 student.methods.reject = function() {
 	this.status = 2;
 }
-
-
-
 
 var action = new schema({
 	date: {
@@ -241,9 +237,7 @@ admin.methods.generateInviteCode = function(guestWord) {
 	return inviteCode;
 };
 
-
 var Admin = mongoose.model('Admin', admin);
-
 var Achivment = mongoose.model('Achivment', achivment);
 var Student = mongoose.model('Student', student);
 

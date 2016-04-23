@@ -1,5 +1,6 @@
   <section class="page_content" ng-cloak>
       <div class="container">
+
         <div class="row profile_info">
           <div class="profile_info_card small-12 medium-7 medium-centered columns" ng-cloak>
             <div class="user_main_info">
@@ -12,9 +13,11 @@
             </div>
           </div>
         </div>
+        
           <div class="row achivments_profile" ng-if='student.achivments.length != 0' ng-cloak>
             <span>Достижения</span>
           </div>
+
         <div class="achivments_list" ng-cloak>
           <ul class="small-12">
             <li ng-repeat='ach in student.achivments' ng-if='ach.checked'>
@@ -27,5 +30,6 @@
             </li>
           </ul>
         </div>
+
       </div>
     </section>

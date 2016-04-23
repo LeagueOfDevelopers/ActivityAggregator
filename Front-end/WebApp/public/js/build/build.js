@@ -160,10 +160,12 @@ angular.module('app.controllers.partials',
       $scope.avatar = avatar;
       var studentsList;
       var viewItemCount = 5;
+       $scope.$emit('loadData', {field: 'common'});
       API.query('students.get', null, true).then(function(result) {
         studentsList = result.data.reverse();
         var cropArr = studentsList;
         $scope.searchResults = cropArr.slice(0, 4);
+         $scope.$emit('loadData_done', {field: 'common'});
       })
 
       $scope.$watch('searchParams.category', function() {
@@ -194,11 +196,13 @@ angular.module('app.controllers.partials',
       }
 
       $scope.getStudentsList = function(searchParams) {
+         $scope.$emit('loadData', {field: 'common'});
         $scope.searchResults = {};
         API.query('students.search', {searchParams: searchParams}, true).then(function(result) {
           studentsList = result.data;
           var cropArr = studentsList;
           $scope.searchResults = cropArr.slice(0, 4);
+           $scope.$emit('loadData_done', {field: 'common'});
         });
       };
 
@@ -321,7 +325,7 @@ angular.module('app.controllers.partials',
                       $scope.achivment = ach;
                       $scope.achivment.owner = owner;
                       $scope.achivment.created =  cr.getDate() + '.' + (cr.getMonth() + 1) + '.' + cr.getFullYear();
-                      //$scope.$emit('dataLoad_done', {field: 'common'});
+                      $scope.$emit('loadData_done', {field: 'common'});
                   });
         
 
@@ -480,12 +484,12 @@ angular.module('app.controllers.main',
      $scope.title = 'Онлайн портфолио активных студентов НИТУ МИСиС';
      $scope.showMessage = false;
      $scope.msg = {
-      content: 'dddddd',
+      content: '',
       type: {
         good: false,
         bad: false
       }
-     }
+     };
      $scope.bad = false;
      $scope.good = false;
      $scope.currentUser = {};
@@ -569,6 +573,7 @@ angular.module('app.controllers.main',
         if(!$scope.onLoad[args.field]) console.log('field' + args.field + 'is not defined');
 
         $scope.onLoad[args.field] = false;
+        console.log(args.field);
       };
 
 }])
@@ -753,7 +758,6 @@ angular.module('app.services', [])
 
   }])
 
-
   .service('avatar',
     [ 
     function() {
@@ -761,8 +765,6 @@ angular.module('app.services', [])
        return student.photoUri ? 'background-image: url(' + student.photoUri + ')' : ''; 
       }
   }])
-
- 
 
   .service('UserManager',
    ['$rootScope',
