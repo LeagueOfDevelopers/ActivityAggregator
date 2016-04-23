@@ -11,8 +11,8 @@
             <div class="user_detail" ng-if="student.about" ng-cloak><span>O ceбе</span>
               <p ng-bind="student.about"></p>
             </div>
-          <button class="btn_ghost" ng-if="student.status == 0" ng-click="confirm()">Подтвердить</button>
-          <button class="btn_ghost" ng-if="student.status == 0" ng-click="reject()">Отказать</button>
+          <button class="btn_ghost admR_btn" ng-if="student.status == 0" ng-click="confirm()">Подтвердить</button>
+          <button class="btn_ghost admR_btn reject" ng-if="student.status == 0" ng-click="reject()">Отказать</button>
           </div>
         </div>
           <div class="row achivments_profile" ng-if='student.achivments.length != 0' ng-cloak>

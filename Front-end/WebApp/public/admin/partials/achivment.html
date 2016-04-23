@@ -52,9 +52,9 @@
             </div>
         </div>
     <textarea class='small-12 columns' cols="10" ng-if="showTextaria"  ng-model="$parent.message"></textarea>
-    <button class='btn_ghost' ng-click='confirm()'>Подтвердить</button>
-    <button class='btn_ghost' ng-click='showTextaria = !showTextaria'>Отказать</button>
-    <button class='btn_ghost' ng-click='unconfirm()' ng-if="showTextaria">Отправить</button>
+    <button class='btn_ghost admAch_btn' ng-click='confirm()'>Подтвердить</button>
+    <button class='btn_ghost admAch_btn' ng-click='showTextaria = !showTextaria' ng-bind="showTextaria ? 'Отмена' :'Отказать'"></button>
+    <button class='btn_ghost admAch_btn' ng-click='unconfirm()' ng-if="showTextaria">Отправить</button>
     </div>
     </div>
 </section>

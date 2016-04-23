@@ -326,7 +326,7 @@ angular.module('app.controllers.partials',
           $scope.$emit('auth');
           $state.go('studentsBase');
         } else {
-          $scope.$emit('showMessage', {msg: 'Студент не найден, проверьте введенные данные'});
+          $scope.$emit('showMessage', {msg: 'Студент не найден, проверьте введенные данные', type: 'bad'});
         }
       })
      }

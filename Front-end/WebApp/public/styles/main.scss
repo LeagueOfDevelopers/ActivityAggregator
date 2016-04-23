@@ -384,15 +384,14 @@ body {
   background: #fff;
   padding: 8px 10px;
   color: $mainColor;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 5px;
+  font-size: 14px;
+  border: 1px solid $mainColor;
   @include trans(.2s, ease-out);
-  opacity: .8;
 }
 
 .btn_ghost:hover {
-  opacity: 1;
+  color: #fff;
+  background: $mainColor;
 }
 
 .btn_ghost:hover {
@@ -1092,9 +1091,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   bottom: 50px;
   height: 90px;
   background: $softBlue;
+  border-radius: 7px 7px 0 0;
   @include cardShadow;
   
-  p {
+  
+ 
+}
+
+.nt_label {
+  height: 90px;
+  margin-left: -15px;
+  line-height: 90px;
+  padding: 15px;
+ }
+
+  .msg  p {
     margin-top: 10px;
     color: #fff;
     font-size: 16px;
@@ -1102,11 +1113,26 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     height: 100%;
   }
 
-  .label{
-    height: 100%;
-    background: $mainColor;
-  }
+.nt_label .bad {
+  display: block;
+  background-image: url(../icons/bad.png);
+  height: 64px;
+  width: 64px;
+  background-size: cover;
 }
+
+.nt_label .good {
+  display: block;
+  background-image: url(../icons/good.png);
+  height: 64px;
+  width: 64px;
+  background-size: cover;
+}
+
+.nt_label i {
+  font-size: 30px;
+  color: #fff;
+ }
 
 @keyframes popupIn {
   from {
@@ -1244,13 +1270,12 @@ achD_detailsList li {
 
 .achD_filesList li:hover {
   cursor: pointer;
-  @include cardShadow();
 }
 
 .achD_filePrev {
   height: 100%;
   width: 100%;
-  background: #000;
+  background: $mainColor;
 }
 
 .achD_rejected {
@@ -1525,4 +1550,8 @@ achD_detailsList li {
   -webkit-animation: uil-ring-anim .5s linear infinite;
   -o-animation: uil-ring-anim .5s linear infinite;
   animation: uil-ring-anim .5s linear infinite;
+}
+
+.admAch_btn {
+  margin-bottom: 10px;
 }

@@ -293,16 +293,15 @@ body {
   background: #fff;
   padding: 8px 10px;
   color: #009fdf;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 5px;
+  font-size: 14px;
+  border: 1px solid #009fdf;
   -webkit-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out;
-  opacity: .8; }
+  transition: all 0.2s ease-out; }
 
 .btn_ghost:hover {
-  opacity: 1; }
+  color: #fff;
+  background: #009fdf; }
 
 .btn_ghost:hover {
   cursor: pointer; }
@@ -888,18 +887,41 @@ body {
   bottom: 50px;
   height: 90px;
   background: #87b1cd;
+  border-radius: 7px 7px 0 0;
   -webkit-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
   box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5); }
-  .notification_popup p {
-    margin-top: 10px;
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    height: 100%; }
-  .notification_popup .label {
-    height: 100%;
-    background: #009fdf; }
+
+.nt_label {
+  height: 90px;
+  margin-left: -15px;
+  line-height: 90px;
+  padding: 15px; }
+
+.msg p {
+  margin-top: 10px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  height: 100%; }
+
+.nt_label .bad {
+  display: block;
+  background-image: url(../icons/bad.png);
+  height: 64px;
+  width: 64px;
+  background-size: cover; }
+
+.nt_label .good {
+  display: block;
+  background-image: url(../icons/good.png);
+  height: 64px;
+  width: 64px;
+  background-size: cover; }
+
+.nt_label i {
+  font-size: 30px;
+  color: #fff; }
 
 @keyframes popupIn {
   from {
@@ -1011,15 +1033,12 @@ achD_detailsList li {
   transition: all 0.1s ease-out; }
 
 .achD_filesList li:hover {
-  cursor: pointer;
-  -webkit-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
-  box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5); }
+  cursor: pointer; }
 
 .achD_filePrev {
   height: 100%;
   width: 100%;
-  background: #000; }
+  background: #009fdf; }
 
 .achD_detailsListLabel {
   display: inline-block;
@@ -1243,3 +1262,6 @@ achD_detailsList li {
   -webkit-animation: uil-ring-anim .5s linear infinite;
   -o-animation: uil-ring-anim .5s linear infinite;
   animation: uil-ring-anim .5s linear infinite; }
+
+.admAch_btn {
+  margin-bottom: 10px; }

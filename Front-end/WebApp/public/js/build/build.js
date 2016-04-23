@@ -428,7 +428,7 @@ angular.module('app.controllers.partials',
           $scope.$emit('auth');
           $state.go('studentsBase');
         } else {
-          $scope.$emit('showMessage', {msg: 'Студент не найден, проверьте введенные данные'});
+          $scope.$emit('showMessage', {msg: 'Студент не найден, проверьте введенные данные', type: 'bad'});
         }
       })
      }
@@ -479,7 +479,15 @@ angular.module('app.controllers.main',
      $scope.BASE_URI = 'http://localhost:3000/';
      $scope.title = 'Онлайн портфолио активных студентов НИТУ МИСиС';
      $scope.showMessage = false;
-     $scope.msg = '';
+     $scope.msg = {
+      content: 'dddddd',
+      type: {
+        good: false,
+        bad: false
+      }
+     }
+     $scope.bad = false;
+     $scope.good = false;
      $scope.currentUser = {};
      $scope.onLoad = {
             common: false,
@@ -537,14 +545,15 @@ angular.module('app.controllers.main',
 
       function showMessage(e , args) {
         $scope.showMessage = true;
-        $scope.msg = args.msg;
+        $scope.msg.type[args.type] = true;
+        $scope.msg.content = args.msg;
+        console.log($scope.msg);
 
         $timeout(function() {
         angular.element(document.querySelector('.notification_popup')).removeClass('.popupIn').addClass('.popupOut');
-        $timeout(function() {
-           $scope.showMessage = false;
-           $scope.msg = '';
-        }, 1000)
+             $scope.showMessage = false;
+              $scope.msg.type[args.type] = false;
+              $scope.msg.content = '';
         }, 5000);
       };
 
