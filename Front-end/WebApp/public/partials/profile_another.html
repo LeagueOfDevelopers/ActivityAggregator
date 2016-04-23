@@ -13,12 +13,15 @@
             </div>
           </div>
         </div>
+             <div class="preloader sB_preloader" style="transform: translateX(20px);" ng-if="onLoad.common"><div></div></div>
         
           <div class="row achivments_profile" ng-if='student.achivments.length != 0' ng-cloak>
             <span>Достижения</span>
           </div>
 
-        <div class="achivments_list" ng-cloak>
+        <div class="preloader" style="transform: translateX(20px);" ng-if="onLoad.common"><div></div></div>
+
+        <div class="achivments_list" ng-cloak ng-if="!onLoad.common">
           <ul class="small-12">
             <li ng-repeat='ach in student.achivments' ng-if='ach.checked'>
               <a ui-sref="achivment_detail({achId : ach._id, studentId: student._id})">

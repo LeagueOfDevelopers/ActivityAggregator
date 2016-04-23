@@ -240,7 +240,7 @@ angular.module('app.controllers.partials',
         console.log($scope.newUserDetail);
         $scope.userDetail.about = $scope.newUserDetail;
         $http.post('/api/students/' + $scope.currentUser._id, {about : $scope.newUserDetail}).success(function(data) {
-          $scope.$emit('showMessage', {msg: 'Информация успешно изменена'});
+          $scope.$emit('showMessage', {msg: 'Информация успешно изменена',  type: 'good'});
         });
         $scope.showEditField = false;    
       }
@@ -257,7 +257,7 @@ angular.module('app.controllers.partials',
             data: {avatar : avatar}
           }).then(function(res) {
             $scope.$emit('userUpdate');
-            $scope.$emit('showMessage', {msg: 'Аватар успешно изменен'});
+            $scope.$emit('showMessage', {msg: 'Аватар успешно изменен',  type: 'good'});
            
           })
 
@@ -274,12 +274,11 @@ angular.module('app.controllers.partials',
 
      $scope.avatar = avatar;
      $scope.student = {};
+     $scope.$emit('loadData', {field: 'common'});
      $http.get('/api/students/' + $stateParams.id).success(function(data) {
       console.log(data);
      $scope.student = data;
-     $scope.photo = function(student) {
-       return student.photoUri ? 'background-image: url(' + student.photoUri + ')' : ''; 
-      };
+     $scope.$emit('loadData_done', {field: 'common'});
      })
 
   }])
@@ -323,6 +322,7 @@ angular.module('app.controllers.partials',
                       cr.setTime(Date.parse(ach.created));
 
                       $scope.achivment = ach;
+                      $scope.achivment.type = type;
                       $scope.achivment.owner = owner;
                       $scope.achivment.created =  cr.getDate() + '.' + (cr.getMonth() + 1) + '.' + cr.getFullYear();
                       $scope.$emit('loadData_done', {field: 'common'});
@@ -379,6 +379,7 @@ angular.module('app.controllers.partials',
           };
 
     $scope.uploadFile = function(file) {
+      $scope.$emit('loadData', {field: 'file'});
       console.log(file);
       if(file.name) {
       $scope.selectedFiles.push(file);
@@ -389,12 +390,17 @@ angular.module('app.controllers.partials',
             console.log(res);
 
             if(!res.data) {
-              $scope.$emit('showMessage', {msg: 'Произошла ошибка'});
+              $scope.$emit('showMessage', {msg: 'Произошла ошибка',  type: 'bad'});
             } else {
-              $scope.$emit('showMessage', {msg: 'Файлы отправлены'});
+              $scope.$emit('showMessage', {msg: 'Файлы отправлены',  type: 'good'});
+              $scope.$emit('loadData_done', {field: 'file'});
               $scope.files.push(res.data.fileLink);
             }
          })
+        }
+
+         $scope.isPdf = function(photo) {
+          return !(photo.split('.').indexOf('pdf') == -1);
         }
     };      
   
@@ -404,12 +410,12 @@ angular.module('app.controllers.partials',
         $scope.newAch.owner_id = $scope.currentUser._id;
         $scope.newAch.files = $scope.files;
           $http.post('/api/students/' + $scope.currentUser._id + '/achivments/', $scope.newAch).success(function(res) {
-            $scope.$emit('showMessage', {msg: 'Достижение добавлено, ожидайте подтверждения'});
+            $scope.$emit('showMessage', {msg: 'Достижение добавлено, ожидайте подтверждения',  type: 'good'});
             $scope.$emit('userUpdate');
             $state.go('studentsBase');
           })
       } else {
-        $scope.$emit('showMessage', {msg: 'Заполните все поля формы и добавьте подтверждающие документы'})
+        $scope.$emit('showMessage', {msg: 'Заполните все поля формы и добавьте подтверждающие документы',  type: 'bad'})
       }
 
     }
@@ -456,7 +462,7 @@ angular.module('app.controllers.partials',
           data    : $scope.newStudent
           
          }).success(function(res) {
-          $scope.$emit('showMessage', {msg: 'Регистрация прошла успешно, ждите верификации'})
+          $scope.$emit('showMessage', {msg: 'Регистрация прошла успешно, ждите верификации', type: 'good'});
           $state.go('auth')
          })
       
@@ -498,7 +504,7 @@ angular.module('app.controllers.main',
             studentDetail: false,
             avatar: false,
             achivments: false,
-            fileUpload: false
+            file: false
           };
 
      auth();

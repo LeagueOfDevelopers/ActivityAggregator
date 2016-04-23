@@ -6,7 +6,7 @@ $fontColor: #59595b;
 $bodyColor: #fafafa;
 $achivmentsIcons: url(../icons/achivments_icons.png);
 
-@mixin border-radius($radius) {
+@mixin border-r($radius) {
   -webkit-border-radius: $radius;
      -moz-border-radius: $radius;
       -ms-border-radius: $radius;
@@ -896,7 +896,7 @@ body {
 .form_card {
 
 input.ng-invalid.ng-dirty {
-  border-bottom: 1px solid red;
+  border: 1px solid red;
 }
 
 input.ng-valid.ng-dirty {
@@ -904,8 +904,13 @@ input.ng-valid.ng-dirty {
 }
 
 input {
+  @include border-r(5px)
 }
 
+}
+
+textaria {
+ @include border-r(5px)
 }
 
 .file_field {
@@ -918,6 +923,7 @@ input {
 }
 
 .achivment_owner {
+  display: block;
   color: $mainColor;
   font-size: 18px;
   font-weight: bold;
@@ -1227,8 +1233,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   opacity: 1;
 }
 
-achD_detailsList li {
-	border-bottom: 1px solid #fff;
+.achD_detailsList li {
+	border-bottom: 1px dotted $mainColor;
+  width:  auto;
+  max-width: 350px
 }
 
 .achD_rejected {
@@ -1239,7 +1247,6 @@ achD_detailsList li {
 
 
 .achD_description {
-  border-top: 1px solid $softBlue;
   margin-top: 10px;
   margin-bottom: 8px;
   padding: 5px;
@@ -1265,11 +1272,11 @@ achD_detailsList li {
   width: 70px;
   margin-right: 3px;
   border: 2px solid $mainColor;
-  @include trans(.1s, ease-out);
 }
 
 .achD_filesList li:hover {
   cursor: pointer;
+  border: 4px solid $mainColor;
 }
 
 .achD_filePrev {
@@ -1391,7 +1398,9 @@ achD_detailsList li {
   color: $mainColor;
   font-size: 18px;
   border: 1px solid $mainColor;
+  @include trans(.2s, ease-out);
 }
+
 
 .sB_loadMoreBtn :hover {
   background: $mainColor;
@@ -1400,7 +1409,7 @@ achD_detailsList li {
 
 .sB_preloader {
   margin: 0 auto;
-  margin-top: 200px;
+  margin-top: 80px;
 }
 
 
@@ -1690,19 +1699,19 @@ achD_detailsList li {
     transform: rotate(360deg);
   }
 }
+
 .preloader {
   background: none;
   position: relative;
   width: 50px;
   height: 50px;
 }
+
 .preloader > div {
   position: absolute;
   display: block;
   width: 30px;
   height: 30px;
-  top: 20px;
-  left: 20px;
   border-radius: 80px;
   box-shadow: 0 6px 0 0 $mainColor;
   -ms-animation: uil-ring-anim .5s linear infinite;
@@ -1710,4 +1719,9 @@ achD_detailsList li {
   -webkit-animation: uil-ring-anim .5s linear infinite;
   -o-animation: uil-ring-anim .5s linear infinite;
   animation: uil-ring-anim .5s linear infinite;
+}
+
+.link {
+  border-bottom: 1px dotted $mainColor;
+  font-weight:  bold;
 }

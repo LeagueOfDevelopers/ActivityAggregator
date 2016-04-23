@@ -86,9 +86,9 @@ function addFile(req, res, next) {
             }
 
         //проверяем является ли тип поддерживаемым
-            if(supportMimeTypes.indexOf(uploadFile.type == -1)) {
-                errors.push('Unsupported mimetype ' + uploadFile.type);
-            }
+            // if(supportMimeTypes.indexOf(uploadFile.type == -1)) {
+            //     errors.push('Unsupported mimetype ' + uploadFile.type);
+            // }
 
         //если нет ошибок то создаем поток для записи файла
             if(errors.length == 0) {

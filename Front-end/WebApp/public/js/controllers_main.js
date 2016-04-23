@@ -31,7 +31,7 @@ angular.module('app.controllers.main',
             studentDetail: false,
             avatar: false,
             achivments: false,
-            fileUpload: false
+            file: false
           };
 
      auth();
