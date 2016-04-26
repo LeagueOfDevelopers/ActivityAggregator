@@ -22,7 +22,9 @@ angular.module('admin.controllers',
       $scope.registryRequests = res.data;
     })
 	
-}]).controller('authCtrl',
+}])
+
+.controller('authCtrl',
 	 [
 	 '$scope',
 	 '$state',
@@ -185,12 +187,9 @@ angular.module('admin.controllers',
             $window.open(url);
           }
          }
-    
+}])
 
-    
-       }])
-
-       .controller('inviteCtrl', ['$scope', '$http', function($scope, $http) {
+.controller('inviteCtrl', ['$scope', '$http', function($scope, $http) {
                     $scope.inviteCode = 'код';
                     $scope.inviteLink = 'ссылка';
                     $scope.secret = null;

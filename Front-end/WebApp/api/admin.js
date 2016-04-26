@@ -2,6 +2,7 @@ var fs = require('fs');
 var path = require('path');
 var Admin = require('../db/mongoose').models.Admin;
 var Student = require('../db/mongoose').models.Student;
+var modelParse = require('/common').modelParse;
 
 module.exports = {
   login: login,
@@ -17,6 +18,7 @@ module.exports = {
 };
 
 function login(req, res, next) {
+
   Admin.findOne({email: req.body.email}, function(err, admin) {
     if(err) {
       res.send(err)
@@ -26,12 +28,13 @@ function login(req, res, next) {
       	res.send(admin);
       } else if (!admin) {
       	res.send('not found')
-      }
-    
-  })
+      }  
+  });
+
 };
 
 function newAdmin(req, res, next) {
+
 	var admin = new Admin({
 		firstName : 'Админ',
 		lastName: 'Админ',
@@ -41,14 +44,15 @@ function newAdmin(req, res, next) {
     code: 'parent'
 	});
 
-
 	admin.save(function(data) {
 		res.send(data);
 		console.log(new Date());
-	})
+	});
+
 };
 
 function getInviteCode(req, res, next) {
+
   Admin.findById(req.params.id, function(err, admin) {
     if(err) res.send(err);
     else if(admin) {
@@ -60,9 +64,10 @@ function getInviteCode(req, res, next) {
     });
   }
   })
-}
+};
 
 function registryByInvite(req, res, next) {
+
   Admin.findOne({'invCodes' : req.body.code}, function(err, findedData) {
      if(findedData) {
         console.log(findedData);
@@ -93,11 +98,10 @@ function registryByInvite(req, res, next) {
       }
       
     })
-
-
 };
 
 function getUncheckedRequests(req, res, next) {
+
   if(req.session.user && req.session.user.role) {
 
   Student.find({'achivments.checked': false})
@@ -112,9 +116,8 @@ function getUncheckedRequests(req, res, next) {
        }
 };
 
-
-
 function confirmAchivment(req, res, next) {
+  
   if(req.session.user && req.session.user.role) {
 
     Student.update({'achivments._id' : req.params.id},
@@ -123,15 +126,13 @@ function confirmAchivment(req, res, next) {
         'achivments.$.checked' : true,
         'achivments.$.message' : null
       }
-    }, 
-     function(err, data) {
+    }).exec(function(err, data) {
 
       if(err) res.send(err);
 
         res.send(data);
      });
 } else {
-
   res.send('admin permossion required')
 }
 };

@@ -6,6 +6,7 @@ crypto = require('crypto'),
 multiparty = require('multiparty'),
 util = require('util'),
 fs = require("fs");
+modelParse = require('/common').modelParse;
 
 
 module.exports = {
@@ -40,7 +41,6 @@ function getAchivmentDetail(req, res, next) {
 
 function addFile(req, res, next) {
     var form = new multiparty.Form();
-    var file = {};
     var uploadFile = {uploadPath: '', type: '', size: 0},
     maxSize = 2 * 1024 * 1024,
     supportMimeTypes = config.types,
@@ -69,6 +69,7 @@ function addFile(req, res, next) {
     });
 
       form.on('part', function(part) {
+
         if(part.filename) {
 
             uploadFile.size = part.byteCount;
@@ -80,29 +81,27 @@ function addFile(req, res, next) {
             uploadFile.path = config.path + req.params.id + '/' + fileNameHash;
             uploadFile.link = config.link + req.params.id + '/' + fileNameHash;
 
-        //проверяем размер файла, он не должен быть больше максимального размера
             if(uploadFile.size > maxSize) {
                 errors.push('File size is ' + uploadFile.size + '. Limit is' + (maxSize / 1024 / 1024) + 'MB.');
             }
 
-        //проверяем является ли тип поддерживаемым
             // if(supportMimeTypes.indexOf(uploadFile.type == -1)) {
             //     errors.push('Unsupported mimetype ' + uploadFile.type);
             // }
 
-        //если нет ошибок то создаем поток для записи файла
             if(errors.length == 0) {
-                console.log('no one error');
                 var studentFolder = config.path + req.params.id;
-                console.log(studentFolder);
+
                 if (!fs.existsSync(studentFolder)) {
                     fs.mkdirSync(studentFolder);
-                    console.log('created dir');
-
                 } 
-                var out = fs.createWriteStream(uploadFile.path);
-                part.pipe(out);
-                file = uploadFile.link;
+
+                if(fs.existsSync(uploadFile.path)) {
+                    fs.unlinkSync(uploadFile.path);
+                }
+
+                var outStream = fs.createWriteStream(uploadFile.path);
+                part.pipe(outStream);
             }
                 else {
                     part.resume();
@@ -121,29 +120,27 @@ function newAchivment(req, res, next) {
     }
 
  var fields = req.body;
+
  Object.getOwnPropertyNames(fields).forEach(function(key) {
     achivment[key] = fields[key];
- })
- console.log(achivment);
-         Student.findById(req.params.id, function(err, doc) {
-            if(err) res.send(err);
+ });
 
-                    if(achivment.organization == 'МИСиС') {
-                        achivment.checked = true;
-                    };
-                    doc.achivments.push(achivment);
-                    console.log(doc);
-                    doc.save(function(err, data) {
-                        if(err) {
-                            res.send(err);
-                        } else {
-                            console.log({status: 'ok',
-                                data: data});
-                            res.send({status: 'ok',
-                                data: data.achivments[data.achivments.length - 1]});
-                    }
-                })
-            }) 
+ console.log(achivment);
+
+ Student.findById(req.params.id, function(err, doc) {
+    if(err) res.send(err);
+    doc.achivments.push(achivment);
+    doc.save(function(err, data) {
+        if(err) {
+            res.send(err);
+        } else {
+
+        res.send({status: 'ok',
+        data: data.achivments[data.achivments.length - 1]});
+    }
+})
+
+    }) 
 };
     
     

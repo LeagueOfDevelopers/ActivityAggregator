@@ -1,10 +1,10 @@
-var 
-	Student = require('../db/mongoose').models.Student,
-	fs = require("fs"),
-	config = require('../config').files.students,
-	path = require("path"),
-	util = require('util'),
-	multiparty = require('multiparty');
+var Student = require('../db/mongoose').models.Student;
+var fs = require("fs");
+var config = require('../config').files.students;
+var path = require("path");
+var util = require('util');
+var multiparty = require('multiparty');
+var modelParse = require('/common').modelParse;
 
 module.exports = {
 	isAuth: isAuth,
@@ -112,7 +112,6 @@ function getLast(req, res, next) {
 	})
 };	
 	
-
 function getStudentDetail(req, res, next) {
 		Student.findById(req.params.id,'-hashPasswod', function(err, data) {
 			if(!err) {
@@ -133,7 +132,8 @@ function getStudentsList(req, res, next) {
 						console.log('Internal error(%d): %s',res.statusCode,err.message);
 						res.send({ error: 'Server error' });
 				}
-		});
+	});
+};
 
 function getStudentListLimit(req, res, next) {
 	Student.find({'achivments.checked': true}).select('-hashPassword').limit(req.params.number).exec(function(err, data) {
@@ -142,10 +142,6 @@ function getStudentListLimit(req, res, next) {
 			res.send(data);
 		}
 	})
-}
-
-
-
 };
 
 function getStudentsListByCategory(req, res, next) {
@@ -171,15 +167,14 @@ function getStudentsListByName(req, res, next) {
 							{'department' : q},
 							{'group' : q}
 						]
-				}, 
-				'-hashPassword',
-					function (err, data) {
+				}).select('-hashPassword')
+				  .exec(function(err, data) {
 						if (!err) {
-									res.send(data);
+							res.send(data);
 						 } else {
 							 res.statusCode = 500;
 							 console.log('Internal error(%d): %s',res.statusCode,err.message);
-								res.send({ error: 'Server error' });
+							 res.send({ error: 'Server error' });
 							}
 		});
 
@@ -199,15 +194,16 @@ function changeAvatar(req, res, next) {
 		var savePath, fileName;
 		var form = new multiparty.Form();
 		var supportedTypes = config.avatar.types;
-		form.on('close', function() {
 
+		form.on('close', function() {
 			Student.findById(req.params.id, function(err, student) {
 				student.photoUri = config.avatar.link + req.params.id + fileName;
 				student.save(function(resp) {
 					res.send(resp);
 				});
 			})
-		})
+		});
+
 		form.on('part', function(part) {
 			console.log(part);
 			if(false) {
@@ -226,7 +222,6 @@ function changeAvatar(req, res, next) {
 				part.pipe(out);
 			} 
 		})
-		form.parse(req);
 
-		
+		form.parse(req);	
 };

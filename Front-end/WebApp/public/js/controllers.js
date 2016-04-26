@@ -44,7 +44,6 @@ angular.module('app.controllers.partials',
         
       })
       
-    
   }])
 
   .controller('studentsBaseCtrl',

@@ -54,10 +54,6 @@ angular.module('app.controllers.main',
 
       $scope.showMobileMenu = false;
       angular.element(document.querySelector('.mobile_nav_bar_background')).css('visibility', 'visible');
-
-      
-
-
       $scope.$on('needAuth', function (e, args) {
            if(!$scope.currentUser) {
             $state.go('auth');

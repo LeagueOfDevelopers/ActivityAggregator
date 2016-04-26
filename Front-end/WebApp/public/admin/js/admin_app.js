@@ -37,7 +37,6 @@
        	}
        })
 
-
        .state('student', {
          url: '/admin/student/:id',
          views: {
@@ -60,10 +59,9 @@
              templateUrl: 'admin/partials/achivment.html',
              controller: 'achCtrl'
              }
-          },
-                   
-           
+          },   
        })
+       
        .state('registryAdmin', {
         url: '/admin/registryAdmin/:code',
         views: {

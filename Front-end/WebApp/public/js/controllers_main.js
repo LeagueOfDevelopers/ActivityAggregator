@@ -23,8 +23,6 @@ angular.module('app.controllers.main',
         bad: false
       }
      };
-     $scope.bad = false;
-     $scope.good = false;
      $scope.currentUser = {};
      $scope.onLoad = {
             common: false,
