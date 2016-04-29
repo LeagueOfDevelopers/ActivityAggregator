@@ -4,7 +4,9 @@ var config = require('../config').files.students;
 var path = require("path");
 var util = require('util');
 var multiparty = require('multiparty');
-var modelParse = require('/common').modelParse;
+var userStrategy = require('./user');
+
+var User = new userStrategy(Student);
 
 module.exports = {
 	isAuth: isAuth,
@@ -50,18 +52,29 @@ function updateSession(req, res, next) {
 	if(!req.session.user) {
 
 		res.send('logout')
+
 	} else {
 
 	 Student.findById({_id: req.session.user._id}, function(err, student) {
+
 			if(err) {
 
 				console.log(err)
-			} 
+			}; 
+
 			req.session.user = student;
 			res.send('session updated');
 		})
 	}
 
+};
+
+function isStudent(req, res, next) {
+	if(req.session.user && req.session.user.group) {
+		next();
+	} else {
+		res.send('auth required')
+	}
 };
 
 function isAuth(req, res, next) {
@@ -98,9 +111,6 @@ function addStudent(req, res, next) {
 				res.send(err);
 			}
 		})
-		
-	
-
 };
 
 function getLast(req, res, next) {
@@ -124,7 +134,7 @@ function getStudentDetail(req, res, next) {
 
 function getStudentsList(req, res, next) {
 
-	Student.find('-hashPassword').limit(10).exec(function (err, data) {
+	Student.find('-hashPassword').limit(10).exec(function(err, data) {
 				if (!err) {
 						 res.send(data);
 				} else {
@@ -152,7 +162,7 @@ function getStudentsListByCategory(req, res, next) {
 				} else {
 						res.statusCode = 500;
 						console.log('Internal error(%d): %s',res.statusCode,err.message);
-						 res.send({ error: 'Server error' });
+						res.send({ error: 'Server error' });
 				}
 		});
 
@@ -183,8 +193,8 @@ function getStudentsListByName(req, res, next) {
 
 function updateStudentDetail(req, res, next) {
 	Student.findById(req.params.id, function(err, student) {
-		student.about = req.body.about;
-		student.save(function(data) {
+			student.about = req.body.about;
+			student.save(function(data) {
 			res.send('about updated');
 		})
 	})
@@ -197,8 +207,8 @@ function changeAvatar(req, res, next) {
 
 		form.on('close', function() {
 			Student.findById(req.params.id, function(err, student) {
-				student.photoUri = config.avatar.link + req.params.id + fileName;
-				student.save(function(resp) {
+					student.photoUri = config.avatar.link + req.params.id + fileName;
+					student.save(function(resp) {
 					res.send(resp);
 				});
 			})
@@ -210,18 +220,26 @@ function changeAvatar(req, res, next) {
 				res.send({status: 'bad'});
 			} else {
 				 savePath = config.avatar.path + req.params.id;
+
 				if(!fs.existsSync(savePath)) {
+
 						fs.mkdir(savePath);
+
 					};
+
 				 fileName = '/avatar.jpg';
+
 				 if(fs.existsSync(savePath + fileName)) {
-				fs.unlinkSync(savePath + fileName);
-			 }
+
+					fs.unlinkSync(savePath + fileName);
+
+				 };
+
 				var out = fs.createWriteStream(savePath + fileName);
 				console.log(fileName);
 				part.pipe(out);
 			} 
-		})
+		});
 
 		form.parse(req);	
 };

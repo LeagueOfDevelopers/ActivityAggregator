@@ -6,7 +6,6 @@ crypto = require('crypto'),
 multiparty = require('multiparty'),
 util = require('util'),
 fs = require("fs");
-modelParse = require('/common').modelParse;
 
 
 module.exports = {
@@ -110,7 +109,7 @@ function addFile(req, res, next) {
     });
 
       form.parse(req);
-}
+};
 
 function newAchivment(req, res, next) {
 	

@@ -331,7 +331,7 @@
 			"file": "api/achivments.js",
 			"settings":
 			{
-				"buffer_size": 3839,
+				"buffer_size": 3796,
 				"line_ending": "Windows"
 			}
 		},
@@ -339,24 +339,57 @@
 			"file": "api/admin.js",
 			"settings":
 			{
-				"buffer_size": 4425,
+				"buffer_size": 4388,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "api/common.js",
+			"file": "db/mongoose.js",
 			"settings":
 			{
-				"buffer_size": 292,
+				"buffer_size": 888,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "db/schemas/achivment.js",
+			"settings":
+			{
+				"buffer_size": 638,
 				"line_ending": "Windows",
-				"name": "common.js"
+				"name": "achivment.js"
+			}
+		},
+		{
+			"file": "db/schemas/student.js",
+			"settings":
+			{
+				"buffer_size": 1293,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "db/schemas/admin.js",
+			"settings":
+			{
+				"buffer_size": 946,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "db/schemas/commonMethods.js",
+			"settings":
+			{
+				"buffer_size": 538,
+				"line_ending": "Windows",
+				"name": "commonMethods.js"
 			}
 		},
 		{
 			"file": "api/students.js",
 			"settings":
 			{
-				"buffer_size": 5058,
+				"buffer_size": 5241,
 				"line_ending": "Windows"
 			}
 		},
@@ -364,7 +397,50 @@
 			"file": "api/user.js",
 			"settings":
 			{
-				"buffer_size": 723,
+				"buffer_size": 1099,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "",
+			"file": "db/models/student.js",
+			"file_size": 12,
+			"file_write_time": 131061772711724063,
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows",
+				"name": "student.js"
+			}
+		},
+		{
+			"contents": "",
+			"file": "db/models/admin.js",
+			"file_size": 8,
+			"file_write_time": 131061772797544046,
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows",
+				"name": "admin.js"
+			}
+		},
+		{
+			"file": "public/js/services.js",
+			"settings":
+			{
+				"buffer_size": 4949,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "var router = require('express').Router();\nvar admin = require('../api/admin');\nvar students = require('../api/students');\nvar achivments = require('../api/achivments');\nvar multiparty = require('multiparty');\n\nrouter.get('/students/', students.getStudentsList);\nrouter.get('/students/:id', students.getStudentDetail);\nrouter.get('/students/search_by_category/:searchParams', students.getStudentsListByCategory);\nrouter.get('/students/search_by_name/:searchParams', students.getStudentsListByName);\nrouter.get('/students/:student_id/achivments', achivments.getAchivmentsList);\nrouter.get('/students/:student_id/achivments/:ach_id', achivments.getAchivmentDetail);\n\nrouter.get('/adm/requests', admin.getUncheckedRequests);\nrouter.get('/auth/update', students.updateSession);\nrouter.get('/admin/registryRequests', admin.getUncheckedStudents);\nrouter.get('/studentsL/last', students.getLast);\n\nrouter.post('/admin/registry/', admin.registryByInvite)\nrouter.post('/admin/invite/:id', admin.getInviteCode)\nrouter.post('/admin/confirm/:id', admin.confirmAchivment)\nrouter.post('/admin/unconfirm/:id', admin.unConfirmAchivment)\nrouter.post('/admin/confirmStudent/:id', admin.confirmStudent)\nrouter.post('/admin/rejectStudent/:id', admin.rejectStudent)\nrouter.post('/admin/login', admin.login);\nrouter.post('/admin', admin.newAdmin);	\nrouter.post('/auth/isAuth', students.isAuth);\nrouter.post('/auth/logout', students.logout);\nrouter.post('/login', students.login);\nrouter.post('/students/', students.addStudent);\nrouter.post('/students/:id/avatar', students.changeAvatar);\nrouter.post('/students/:id', students.updateStudentDetail);\nrouter.post('/students/:id/achivments', achivments.newAchivment);\nrouter.post('/students/:id/achivments/file', achivments.addFile);\n\n\n\nmodule.exports = router;\n",
+			"file": "routes/api.js",
+			"file_size": 1821,
+			"file_write_time": 131057947221224765,
+			"settings":
+			{
+				"buffer_size": 1785,
 				"line_ending": "Windows"
 			}
 		},
@@ -373,14 +449,6 @@
 			"settings":
 			{
 				"buffer_size": 11658,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/js/services.js",
-			"settings":
-			{
-				"buffer_size": 4949,
 				"line_ending": "Windows"
 			}
 		},
@@ -524,14 +592,12 @@
 	[
 		"/C/Users/user pc/Desktop/test",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/_test",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js"
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles"
 	],
 	"file_history":
 	[
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/common.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/controllers_main.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/controllers.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/addAchivment.html",
@@ -658,8 +724,7 @@
 		"/C/Users/user pc/Documents/GitHub/Movie-Extended/Front-End/WebApp/public/js/controllers.js",
 		"/C/Users/user pc/Documents/GitHub/Movie-Extended/Front-End/WebApp/public/partials/profile/cinemas/cinemas_list.html",
 		"/C/Users/user pc/Documents/GitHub/Movie-Extended/Front-End/WebApp/public/partials/profile/about_movie.html",
-		"/C/Users/user pc/Documents/GitHub/Movie-Extended/Front-End/WebApp/routes/api.js",
-		"/C/Users/user pc/Documents/GitHub/Movie-Extended/Front-End/WebApp/storage/storage.js"
+		"/C/Users/user pc/Documents/GitHub/Movie-Extended/Front-End/WebApp/routes/api.js"
 	],
 	"find":
 	{
@@ -780,7 +845,7 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -789,31 +854,31 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3839,
+						"buffer_size": 3796,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3753,
-								3753
+								57,
+								57
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 4,
-							"tabs_extra_last_activated": 1461676861.58,
+							"tabs_extra_last_activated": 1461863361.25,
 							"tabs_extra_last_activated_sheet_index": 0,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1561.0,
+						"translation.y": 281.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
@@ -822,28 +887,28 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4425,
+						"buffer_size": 4388,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2908,
-								2908
+								4188,
+								4188
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
-							"tabs_extra_last_activated": 1461676799.33,
+							"tabs_extra_last_activated": 1461924329.53,
 							"tabs_extra_last_activated_sheet_index": 1,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2093.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 6,
@@ -851,42 +916,168 @@
 				},
 				{
 					"buffer": 2,
-					"file": "api/common.js",
+					"file": "db/mongoose.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 292,
+						"buffer_size": 888,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								292,
-								292
+								322,
+								322
 							]
 						],
 						"settings":
 						{
-							"auto_name": "common.js",
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1461676891.9,
-							"tabs_extra_last_activated_sheet_index": 2
+							"tabs_extra_last_activated": 1461927866.34,
+							"tabs_extra_last_activated_sheet_index": 2,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "db/schemas/achivment.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 638,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								604,
+								604
+							]
+						],
+						"settings":
+						{
+							"auto_name": "achivment.js",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tabs_extra_last_activated": 1461927806.81,
+							"tabs_extra_last_activated_sheet_index": 3,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 477.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 4,
+					"file": "db/schemas/student.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1293,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1266,
+								1266
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tabs_extra_last_activated": 1461927847.83,
+							"tabs_extra_last_activated_sheet_index": 4,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 820.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "db/schemas/admin.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 946,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								130,
+								130
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tabs_extra_last_activated": 1461927824.13,
+							"tabs_extra_last_activated_sheet_index": 5,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 504.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "db/schemas/commonMethods.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 538,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								347,
+								347
+							]
+						],
+						"settings":
+						{
+							"auto_name": "commonMethods.js",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tabs_extra_last_activated": 1461927856.12,
+							"tabs_extra_last_activated_sheet_index": 6
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
 					"file": "api/students.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5058,
+						"buffer_size": 5241,
 						"regions":
 						{
 							"bookmarks":
@@ -896,8 +1087,8 @@
 								"regions":
 								[
 									[
-										1463,
-										1463
+										1638,
+										1638
 									]
 								],
 								"scope": "bookmarks"
@@ -906,32 +1097,63 @@
 						"selection":
 						[
 							[
-								1406,
-								1460
+								1871,
+								1871
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1461676892.76,
-							"tabs_extra_last_activated_sheet_index": 3,
+							"tabs_extra_last_activated": 1461924296.19,
+							"tabs_extra_last_activated_sheet_index": 5,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2942.0,
+						"translation.y": 1061.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 8,
 					"file": "api/user.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 723,
+						"buffer_size": 1099,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1046,
+								1046
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tabs_extra_last_activated": 1461924330.41,
+							"tabs_extra_last_activated_sheet_index": 6,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 28.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "db/models/student.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
 						"regions":
 						{
 						},
@@ -944,55 +1166,53 @@
 						],
 						"settings":
 						{
+							"auto_name": "student.js",
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1461676901.26,
-							"tabs_extra_last_activated_sheet_index": 4,
-							"tabs_extra_spawned": true
+							"tabs_extra_last_activated": 1461924080.98,
+							"tabs_extra_last_activated_sheet_index": 5
 						},
-						"translation.x": -0.0,
+						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "public/js/controllers.js",
+					"buffer": 10,
+					"file": "db/models/admin.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11658,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8748,
-								8748
+								0,
+								0
 							]
 						],
 						"settings":
 						{
+							"auto_name": "admin.js",
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1461676942.74,
-							"tabs_extra_last_activated_sheet_index": 6,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
+							"tabs_extra_last_activated": 1461924080.25,
+							"tabs_extra_last_activated_sheet_index": 6
 						},
 						"translation.x": 0.0,
-						"translation.y": 2153.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 11,
 					"file": "public/js/services.js",
-					"semi_transient": true,
+					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 4949,
@@ -1010,18 +1230,84 @@
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
+							"tabs_extra_last_activated": 1461831212.76,
+							"tabs_extra_last_activated_sheet_index": 6,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": -0.0,
-						"translation.y": 2105.0,
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 12,
+					"file": "routes/api.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1785,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								680,
+								680
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tabs_extra_last_activated": 1461712360.0,
+							"tabs_extra_last_activated_sheet_index": 7,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 215.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "public/js/controllers.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11658,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								700,
+								700
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1461794583.29,
+							"tabs_extra_last_activated_sheet_index": 9,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2724.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
 					"file": "public/js/controllers_main.js",
 					"semi_transient": false,
 					"settings":
@@ -1041,20 +1327,20 @@
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
-							"tabs_extra_last_activated": 1461664934.66,
-							"tabs_extra_last_activated_sheet_index": 6,
+							"tabs_extra_last_activated": 1461831209.44,
+							"tabs_extra_last_activated_sheet_index": 10,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1494.0,
+						"translation.y": 1400.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 15,
 					"file": "public/styles/main.scss",
 					"semi_transient": false,
 					"settings":
@@ -1088,11 +1374,11 @@
 						"translation.y": 26291.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 16,
 					"file": "public/styles/main.css",
 					"semi_transient": false,
 					"settings":
@@ -1121,11 +1407,11 @@
 						"translation.y": 20473.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 19,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 17,
 					"file": "public/styles/load.css",
 					"semi_transient": false,
 					"settings":
@@ -1154,11 +1440,11 @@
 						"translation.y": 305.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 18,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 18,
 					"file": "public/partials/profile.html",
 					"semi_transient": false,
 					"settings":
@@ -1188,11 +1474,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 19,
 					"file": "_test/test-helper.js",
 					"semi_transient": false,
 					"settings":
@@ -1219,7 +1505,7 @@
 						"translation.y": 7.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 15,
 					"type": "text"
 				}
 			]
@@ -1397,7 +1683,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 255.0,
+	"side_bar_width": 246.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

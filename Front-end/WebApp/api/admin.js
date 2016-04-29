@@ -2,7 +2,7 @@ var fs = require('fs');
 var path = require('path');
 var Admin = require('../db/mongoose').models.Admin;
 var Student = require('../db/mongoose').models.Student;
-var modelParse = require('/common').modelParse;
+
 
 module.exports = {
   login: login,
@@ -112,7 +112,7 @@ function getUncheckedRequests(req, res, next) {
                 res.send(data);
           });
        } else {
-        res.send('admin permossion required')
+        res.send('admin permissions required')
        }
 };
 
@@ -133,7 +133,7 @@ function confirmAchivment(req, res, next) {
         res.send(data);
      });
 } else {
-  res.send('admin permossion required')
+  res.send('admin permissions required')
 }
 };
 
@@ -150,7 +150,6 @@ function unConfirmAchivment(req, res, next) {
    function(err, data) {
 
     if(err) res.send(err);
-
     res.send(data);
    });
  } else {
@@ -170,7 +169,7 @@ function confirmStudent(req, res, next) {
       }
     
   })
-}
+};
 
 function rejectStudent(req, res, next) {
    Student.findById(req.params.id, function(err, student) {
@@ -179,12 +178,13 @@ function rejectStudent(req, res, next) {
       student.status = 2;
       student.save(function(data) {
         res.send('ok')
-      }) } else {
+      }) 
+    } else {
         res.send('student not found');
       }
-    })
+    });
     
-}
+};
 
 function getUncheckedStudents(req, res, next) {
   Student.find({'status': 0}, '-hashPassword', function(err, data) {
@@ -193,4 +193,4 @@ function getUncheckedStudents(req, res, next) {
       res.send(data);
     }
   })
-}
+};

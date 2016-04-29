@@ -7,13 +7,17 @@ var UserStrategy = function(model) {
 		this.model.findOne({'email': email})
 				  .exec(function(err, user) {
 						if(err) {
-						callback({error: 'login error ' + this.model})	
-						console.log('login error ' + this.model + ' ' + err);
-					}
-						else if(user && user.passwordIsCorrect(pass)) {
+
+							callback({error: 'login error ' + this.model});
+
+					 	} else if(user && user.passwordIsCorrect(pass)) {
+
 							callback({user: user});
+
 						} else {
-							callback({error: 'creditionals uncorrect'})						
+
+							callback({error: 'bad creditionals'})	
+
 						}
 					});
 	};
@@ -23,12 +27,38 @@ var UserStrategy = function(model) {
 		callback('session destroyed');
 	};
 
-	this.do = function(callback) {
-		var currentUser = req.session.user || null;
-		if(currentUser) {
-			callback();
+	this.current = function() {
+		return req.session.user || null;
+	};
+
+	this.update = function() {
+		var curUser = this.current();
+
+		if(curUser) {
+
+			 this.model.findById({_id: curUser._id}, function(err, updatedUser) {
+
+				if(err) res.send(err);
+				else if(updatedUser) {
+
+					req.session.user = updatedUser;
+					res.send('session updated');
+
+				} else {
+
+					res.send('user not found by current session');
+
+				}
+			})
 		}
 	};
 
+	this.changePassword = function(newPass) {
+
+		this.model.hashPassword = newPass;
+	};
+
+	return this;
 }
 
+module.exports = UserStrategy;
