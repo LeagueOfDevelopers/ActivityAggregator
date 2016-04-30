@@ -1,50 +1,38 @@
-var SMTPConnection = require('smtp-connection');
-
-var options = {
-	port: 25,
-	host: 'smtp.yandex.ru'
-}
-
-var connection = new SMTPConnection(options);
-
-connection.on('error', function(err) {
-	console.log(err);
-});
-
-connection.connect(function() {
-
-	connection.login({
-
-		user: 'aggregator@lod-misis.ru',
-		pass: '1qaz2wsx#EDC'
-
-	} , function(err) {
-
-		console.log(err || 'connect to smtp');
-		console.log(connection.authenticated ? 'smtp authorized' : 'not authorized');
-
-	})
-});
+var nodemailer = require('nodemailer');
 
 module.exports = {
 	testSend: testSend
 }
+ 
+// create reusable transporter object using the default SMTP transport 
+var transporter = nodemailer.createTransport(
+	{
+		port: 25,
+		host: 'smtp.yandex.ru',
+		auth: {
+	        user: 'aggregator@lod-misis.ru',
+	        pass: '1qaz2wsx#EDC'
+    	}
+	});
+ 
+
 
 function testSend(req, res, next) {
 
-		connection.send({
-			from: 'aggregator@lod-misis.ru', 
-			to: 'aggregator@lod-misis.ru'
-		}, 
-		req.params.text, 
-		function(err, info) {
+		var mailOptions = {
+		    from: '"Fred Foo 👥" <aggregator@lod-misis.ru>', // sender address 
+		    to: 'skyteether@gmail.com', // list of receivers 
+		    subject: 'Hello ✔', // Subject line 
+		    text: 'Hello world 🐴', // plaintext body 
+		    html: '<b>Hello world 🐴</b>' // html body 
+		};
+ 
 
-			if(err) res.send(err);
-			else {
+transporter.sendMail(mailOptions, function(error, info){
+    if(error){
+        res.send(error);
+    }
+    res.send(info);
+});
 
-				res.send(info);
-
-			}
-
-		})
 }
