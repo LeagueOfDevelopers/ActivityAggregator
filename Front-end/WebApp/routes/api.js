@@ -3,6 +3,7 @@ var admin = require('../api/admin');
 var students = require('../api/students');
 var achivments = require('../api/achivments');
 var multiparty = require('multiparty');
+var mail = require('../api/mail');
 
 router.get('/students/', students.getStudentsList);
 router.get('/students/:id', students.getStudentDetail);
@@ -10,6 +11,7 @@ router.get('/students/search_by_category/:searchParams', students.getStudentsLis
 router.get('/students/search_by_name/:searchParams', students.getStudentsListByName);
 router.get('/students/:student_id/achivments', achivments.getAchivmentsList);
 router.get('/students/:student_id/achivments/:ach_id', achivments.getAchivmentDetail);
+
 router.get('/adm/requests', admin.getUncheckedRequests);
 router.get('/auth/update', students.updateSession);
 router.get('/admin/registryRequests', admin.getUncheckedStudents);
@@ -32,6 +34,6 @@ router.post('/students/:id', students.updateStudentDetail);
 router.post('/students/:id/achivments', achivments.newAchivment);
 router.post('/students/:id/achivments/file', achivments.addFile);
 
-
+router.post('/mailTest/:text', mail.testSend);
 
 module.exports = router;

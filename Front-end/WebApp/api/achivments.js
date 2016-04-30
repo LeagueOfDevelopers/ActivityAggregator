@@ -91,7 +91,7 @@ function addFile(req, res, next) {
             if(errors.length == 0) {
                 var studentFolder = config.path + req.params.id;
 
-                if (!fs.existsSync(studentFolder)) {
+                if (!fs.exists(studentFolder)) {
                     fs.mkdirSync(studentFolder);
                 } 
 

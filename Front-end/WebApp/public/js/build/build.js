@@ -146,7 +146,6 @@ angular.module('app.controllers.partials',
         
       })
       
-    
   }])
 
   .controller('studentsBaseCtrl',
@@ -276,7 +275,7 @@ angular.module('app.controllers.partials',
      $scope.student = {};
      $scope.$emit('loadData', {field: 'common'});
      $http.get('/api/students/' + $stateParams.id).success(function(data) {
-      console.log(data);
+     console.log(data);
      $scope.student = data;
      $scope.$emit('loadData_done', {field: 'common'});
      })
@@ -352,7 +351,8 @@ angular.module('app.controllers.partials',
      '$state',
     function($scope, $http, $timeout, Upload, $state) {
 
-    $scope.newAch = {};    $scope.type = 'Наука';
+    $scope.newAch = {};    
+    $scope.type = 'Наука';
     $scope.files = [];
     $scope.selectedFiles = [];
     $scope.$watch('type', function() {
@@ -497,8 +497,6 @@ angular.module('app.controllers.main',
         bad: false
       }
      };
-     $scope.bad = false;
-     $scope.good = false;
      $scope.currentUser = {};
      $scope.onLoad = {
             common: false,

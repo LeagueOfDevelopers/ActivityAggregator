@@ -4,7 +4,7 @@
 		 	<div class="projectName_wrap">
 		 		<p class="projectName_title">Онлайн портфолио активных студентов НИТУ МИСиС</p>
 			</div>
-		 	<div class="small-12 medium-12 columns shortList_wrap">
+		 	<div class="small-12 medium-8 columns shortList_wrap">
 		 		<span class="shortList_title">Последние достижения</span>
 		 		<ul class="shortList_list">
 		 			<li class="shortList_item" ng-repeat="student in lastStudents">
@@ -14,8 +14,8 @@
 		 				<li class="studItem_name" ng-bind="student.firstName + ' ' + student.lastName"></li>
 		 				<li ng-bind="student.department + ' ' + student.course + ' курс ' + student.group"></li>
 		 				</ul>
-		 				<a ui-sref="achivment_detail({achToShow: student.achivments[0], owner: student})" class="studItem_achivment" ng-bind="student.achivments[0].name.slice(0, 30)"></a>
 		 				</a>
+		 				<a ui-sref="achivment_detail({achToShow: student.achivments[0], owner: student})" class="studItem_achivment" ng-bind="student.achivments[0].name.slice(0, 30)"></a>
 		 			</li>
 		 		</ul>
 		 	</div>

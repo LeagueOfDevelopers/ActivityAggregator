@@ -1,4 +1,7 @@
 var commonMethods = require('./commonMethods.js');
+var mongoose = require('mongoose');
+
+var	schema = mongoose.Schema;
 
 var admin = new schema({
 	role: {
@@ -38,7 +41,7 @@ var admin = new schema({
 	hashPassword: {
 		type: String,
 		required: true,
-		set: setPassword
+		set: commonMethods.setPassword
 	}
 
 });

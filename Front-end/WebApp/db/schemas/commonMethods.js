@@ -1,6 +1,8 @@
-module.exports.encryptData = function(pass) {
+var	crypto = require('crypto');
+
+module.exports.encryptData = function(str) {
 	var hash = crypto.createHmac('sha256', this.salt)
-                   .update(pass)
+                   .update(str)
                    .digest('hex');
 	return hash;
 };

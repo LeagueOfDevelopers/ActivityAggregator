@@ -1,5 +1,8 @@
 var achivmentSchema = require('./achivment');
 var commonMethods = require('./commonMethods.js');
+var mongoose = require('mongoose');
+
+var	schema = mongoose.Schema;
 
 var student = new schema({
 	firstName: {

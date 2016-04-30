@@ -29,7 +29,7 @@ html {
   height: 100% !important; }
 
 body {
-  font-family: Calibri, Helvetica, sans-serif !important;
+  font-family: Calibri, sans-serif !important;
   height: 100%  !important;
   background-color: #fafafa !important;
   overflow-x: hidden; }
@@ -379,11 +379,13 @@ body {
   -webkit-transition: all .2s;
   -o-transition: all .2s;
   transition: all .2s;
-  -webkit-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  box-shadow: 2px 3px 13px -4px rgba(0, 0, 0, 0.5);
-  -webkit-animation: fadeIn .2s ease-out;
-  -o-animation: fadeIn .2s ease-out;
+  -webkit-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  border-radius: 7px;
   animation: fadeIn .2s ease-out; }
 
 .ach.unchecked {
@@ -445,7 +447,8 @@ body {
   left: 80px;
   color: #fff;
   line-height: normal;
-  font-size: 18px;
+  font-weight: bold;
+  font-size: 16px;
   width: 180px; }
 
 .students_base_container {
@@ -737,12 +740,6 @@ body {
 .form_card input.ng-valid.ng-dirty {
   border: 1px solid green; }
 
-.form_card input {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border-radius: 5px; }
-
 textaria {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -991,6 +988,7 @@ textaria {
   box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
   border-radius: 7px;
   border-left: 4px solid #87b1cd;
+  color: #59595b;
   -webkit-animation: fadeIn .2s ease-out;
   -o-animation: fadeIn .2s ease-out;
   animation: fadeIn .2s ease-out; }
@@ -1073,8 +1071,9 @@ textaria {
   margin-top: 10px; }
 
 .projectName_title {
+  font-family: DaysSans;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 25px;
   display: block; }
 
 .shortList_wrap {
@@ -1132,17 +1131,20 @@ textaria {
 .studItem_achivment {
   color: #009fdf !important;
   display: block;
-  border-bottom: 1px dotted #009fdf;
+  font-size: 16px;
+  font-weight: bold;
   opacity: .8; }
 
-.studItem_achivment :hover {
+.studItem_achivment:hover {
   cursor: pointer;
-  opacity: 1; }
+  opacity: 1;
+  text-decoration: underline !important; }
 
 .sB_loadMoreBtn {
   display: block;
   margin: 0 auto;
   margin-bottom: 20px;
+  background: transparent;
   padding: 10px;
   color: #009fdf;
   font-size: 18px;

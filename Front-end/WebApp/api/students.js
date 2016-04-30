@@ -83,6 +83,7 @@ function isAuth(req, res, next) {
 
 function logout(req, res, next) {
 	req.session.destroy();
+	console.log('session destroyed');
 	res.send('session destroyed');
 };
 

@@ -5,8 +5,8 @@ var	crypto = require('crypto');
 var studentSchema = require('./schemas/student');
 var adminSchema = require('./schemas/admin');
 var achivmentSchema = require('./schemas/achivment');
-var Admin = require('./schemas/admin');
-var Achivment = require('./schemas/achivment')
+
+
 
 mongoose.connect(config.string);
 var db = mongoose.connection;
