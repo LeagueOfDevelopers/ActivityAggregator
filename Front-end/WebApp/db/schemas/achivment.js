@@ -1,3 +1,6 @@
+var mongoose = require('mongoose');
+var	schema = mongoose.Schema;
+
 
 var achivment = new schema({
 	name: {
