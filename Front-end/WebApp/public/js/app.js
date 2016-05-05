@@ -58,13 +58,13 @@ angular.module('ActivityAggregator',
        })
 
        .state('add_achivment', {
-        url: '/account/:user_id/new_achivment',
-        views: {
-          'page_content': {
-           templateUrl: 'partials/addAchivment.html',
-           controller: 'newAchCtrl'
-          }
-        }
+  `        url: '/account/:user_id/new_achivment',
+            views: {
+            'page_content': {
+             templateUrl: 'partials/addAchivment.html',
+             controller: 'newAchCtrl'
+            }
+          }`
        })
 
        .state('achivment_detail', {
@@ -98,4 +98,5 @@ angular.module('ActivityAggregator',
              }
            }
        })
-     }]);
+
+}]);

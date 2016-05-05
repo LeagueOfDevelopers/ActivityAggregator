@@ -54,10 +54,12 @@ angular.module('app.controllers.partials',
    function ($scope, $http, API, avatar) {
 
       $scope.$emit('changeTitle', {title: 'База активистов НИТУ МИСиС'});
+      $scope.$emit('loadData', {field: 'common'});
+
       $scope.avatar = avatar;
       var studentsList;
       var viewItemCount = 5;
-       $scope.$emit('loadData', {field: 'common'});
+
       API.query('students.get', null, true).then(function(result) {
         studentsList = result.data.reverse();
         var cropArr = studentsList;
@@ -79,10 +81,9 @@ angular.module('app.controllers.partials',
 
         }
          
-
         $scope.getStudentsList({name: '', category: category});
         
-      })
+       })
 
       $scope.getMoreStudents = function() {
         console.log(studentsList);
@@ -94,7 +95,7 @@ angular.module('app.controllers.partials',
 
       $scope.getStudentsList = function(searchParams) {
          $scope.$emit('loadData', {field: 'common'});
-        $scope.searchResults = {};
+         $scope.searchResults = {};
         API.query('students.search', {searchParams: searchParams}, true).then(function(result) {
           studentsList = result.data;
           var cropArr = studentsList;
@@ -102,7 +103,6 @@ angular.module('app.controllers.partials',
            $scope.$emit('loadData_done', {field: 'common'});
         });
       };
-
     }
   ]) 
 

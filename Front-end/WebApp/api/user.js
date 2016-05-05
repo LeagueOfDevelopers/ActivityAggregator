@@ -31,7 +31,7 @@ var UserStrategy = function(model) {
 		return req.session.user || null;
 	};
 
-	this.update = function() {
+	this.update = function(callback) {
 		var curUser = this.current();
 
 		if(curUser) {
@@ -42,11 +42,11 @@ var UserStrategy = function(model) {
 				else if(updatedUser) {
 
 					req.session.user = updatedUser;
-					res.send('session updated');
+					callback('session updated');
 
 				} else {
 
-					res.send('user not found by current session');
+					callback('user not found by current session');
 
 				}
 			})

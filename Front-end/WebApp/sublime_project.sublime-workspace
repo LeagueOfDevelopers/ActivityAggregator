@@ -328,6 +328,30 @@
 	"buffers":
 	[
 		{
+			"file": "db/mongoose.js",
+			"settings":
+			{
+				"buffer_size": 1114,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "api/mailer.js",
+			"settings":
+			{
+				"buffer_size": 616,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "api/students.js",
+			"settings":
+			{
+				"buffer_size": 5280,
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "api/achivments.js",
 			"settings":
 			{
@@ -336,175 +360,45 @@
 			}
 		},
 		{
-			"file": "api/admin.js",
-			"settings":
-			{
-				"buffer_size": 4388,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "var mongoose = require('mongoose');\nvar	schema = mongoose.Schema;\nvar	config = require('../config').db;\nvar studentSchema = require('./schemas/student');\nvar adminSchema = require('./schemas/admin');\nvar achivmentSchema = require('./schemas/achivment');\n\n\n\nmongoose.connect(config.string);\nvar db = mongoose.connection;\n\ndb.on('error', function (err) {\n    console.log('connection error:', err.message);\n});\n\ndb.once('open', function callback () {\n    console.log(\"Connected to DB!\");\n});\n\n\nvar Admin = mongoose.model('Admin', adminSchema);\nvar Achivment = mongoose.model('Achivment', achivmentSchema);\nvar Student = mongoose.model('Student', studentSchema);\n\nmodule.exports = {\n	connection: db,\n	models: {\n		Student: Student,\n		Admin: Admin,\n		Achivment: Achivment\n	}\n\n}",
-			"file": "db/mongoose.js",
-			"file_size": 837,
-			"file_write_time": 131064130743144231,
-			"settings":
-			{
-				"buffer_size": 771,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "db/schemas/achivment.js",
-			"settings":
-			{
-				"buffer_size": 668,
-				"line_ending": "Windows",
-				"name": "achivment.js"
-			}
-		},
-		{
 			"file": "db/schemas/student.js",
 			"settings":
 			{
-				"buffer_size": 1323,
+				"buffer_size": 1927,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "db/schemas/admin.js",
+			"file": "db/schemas/emailReceiver.js",
 			"settings":
 			{
-				"buffer_size": 976,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "db/schemas/commonMethods.js",
-			"settings":
-			{
-				"buffer_size": 569,
+				"buffer_size": 221,
 				"line_ending": "Windows",
-				"name": "commonMethods.js"
+				"name": "emailReceivers.js"
 			}
 		},
 		{
-			"file": "api/students.js",
+			"file": "db/schemas/emailTemplate.js",
 			"settings":
 			{
-				"buffer_size": 5241,
-				"line_ending": "Windows"
+				"buffer_size": 354,
+				"line_ending": "Windows",
+				"name": "emailTemplate.js"
 			}
 		},
 		{
 			"file": "api/user.js",
 			"settings":
 			{
-				"buffer_size": 1099,
+				"buffer_size": 1107,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "",
-			"file": "db/models/student.js",
-			"file_size": 12,
-			"file_write_time": 131061772711724063,
+			"file": "public/admin/js/admin_controllers.js",
 			"settings":
 			{
-				"buffer_size": 0,
-				"line_ending": "Windows",
-				"name": "student.js"
-			}
-		},
-		{
-			"contents": "",
-			"file": "db/models/admin.js",
-			"file_size": 8,
-			"file_write_time": 131061772797544046,
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Windows",
-				"name": "admin.js"
-			}
-		},
-		{
-			"file": "public/js/services.js",
-			"settings":
-			{
-				"buffer_size": 4949,
+				"buffer_size": 6225,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "var router = require('express').Router();\nvar admin = require('../api/admin');\nvar students = require('../api/students');\nvar achivments = require('../api/achivments');\nvar multiparty = require('multiparty');\n\nrouter.get('/students/', students.getStudentsList);\nrouter.get('/students/:id', students.getStudentDetail);\nrouter.get('/students/search_by_category/:searchParams', students.getStudentsListByCategory);\nrouter.get('/students/search_by_name/:searchParams', students.getStudentsListByName);\nrouter.get('/students/:student_id/achivments', achivments.getAchivmentsList);\nrouter.get('/students/:student_id/achivments/:ach_id', achivments.getAchivmentDetail);\n\nrouter.get('/adm/requests', admin.getUncheckedRequests);\nrouter.get('/auth/update', students.updateSession);\nrouter.get('/admin/registryRequests', admin.getUncheckedStudents);\nrouter.get('/studentsL/last', students.getLast);\n\nrouter.post('/admin/registry/', admin.registryByInvite)\nrouter.post('/admin/invite/:id', admin.getInviteCode)\nrouter.post('/admin/confirm/:id', admin.confirmAchivment)\nrouter.post('/admin/unconfirm/:id', admin.unConfirmAchivment)\nrouter.post('/admin/confirmStudent/:id', admin.confirmStudent)\nrouter.post('/admin/rejectStudent/:id', admin.rejectStudent)\nrouter.post('/admin/login', admin.login);\nrouter.post('/admin', admin.newAdmin);	\nrouter.post('/auth/isAuth', students.isAuth);\nrouter.post('/auth/logout', students.logout);\nrouter.post('/login', students.login);\nrouter.post('/students/', students.addStudent);\nrouter.post('/students/:id/avatar', students.changeAvatar);\nrouter.post('/students/:id', students.updateStudentDetail);\nrouter.post('/students/:id/achivments', achivments.newAchivment);\nrouter.post('/students/:id/achivments/file', achivments.addFile);\n\n\n\nmodule.exports = router;\n",
-			"file": "routes/api.js",
-			"file_size": 1821,
-			"file_write_time": 131057947221224765,
-			"settings":
-			{
-				"buffer_size": 1785,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/js/controllers.js",
-			"settings":
-			{
-				"buffer_size": 11658,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/js/controllers_main.js",
-			"settings":
-			{
-				"buffer_size": 3278,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/styles/main.scss",
-			"settings":
-			{
-				"buffer_size": 35294,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/styles/main.css",
-			"settings":
-			{
-				"buffer_size": 35992,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/styles/load.css",
-			"settings":
-			{
-				"buffer_size": 1101,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "  <section class=\"page_content\">\n      <div class=\"container\">\n      \n        <div class=\"row profile_info\">\n          <div class=\"profile_info_card small-12 medium-7 columns\">\n            <div class=\"user_main_info\">\n              <div class=\"user_avatar_profile\" style=\"{{avatar(userDetail)}}\">\n              <div type=\"file\" ngf-select=\"uploadAvatar($file)\" ngf-pattern=\"'image/*'\"  ngf-accept=\"'image/*'\"  class=\"avatar_file_input\"></div>\n            </div><span class=\"user_name_profile\" ng-bind=\"userDetail.firstName + ' ' + userDetail.lastName\"></span>\n              <span class=\"user_course_profile\" ng-bind=\"userDetail.department +' '+ userDetail.course + ' курс ' + userDetail.level + ' ' + userDetail.group\"></span>\n            </div>\n            <div class=\"user_detail\"><span>O ceбе</span>\n              <p ng-bind=\"userDetail.about\"></p>\n              <div class=\"row\">\n              <textarea name=\"name\" class=\"about_edit_field\" rows=\"8\"  ng-if=\"showEditField\" ng-model=\"$parent.newUserDetail\"></textarea>\n              </div>\n            </div>\n            <button  class=\"btn_ghost profCard_btn\" ng-click=\"applyChanges()\" ng-if=\"showEditField\">Применить</button>\n            <button class=\"btn_ghost profCard_btn\" ng-if=\"showEditField\" ng-click=\"notApplyChanges()\" >Отмена</button>\n            <button class=\"btn_ghost profCard_btn\" ng-if=\"!showEditField\" ng-click=\"editUserDetail()\" >Редактировать</button>\n          </div>\n          <div class=\"help small-12 medium-5 columns\">\n            <span class=\"help_title small-12\">Это ваш профиль студента</span>\n            <p class=\"help_content small-12\">Здесь вы можете добавить свои достижения, которые отобразятся после подтверждения администрацией вуза </p>\n          </div>\n        </div>\n          <div class=\"row achivments_profile\" ng-cloak>\n            <span>Достижения</span>\n            <button class=\"btn_add_achivment\" ui-sref=\"add_achivment(currentUser.id)\">+</button>\n          </div>\n        <div class=\"achivments_list\">\n          <ul class=\"small-12\">\n            <li  ng-repeat='ach in userDetail.achivments'>\n              <a ui-sref=\"achivment_detail({achId : ach._id, studentId: currentUser._id})\">\n              <div class=\"ach \" ng-class='{unchecked: !ach.checked}'>\n                <div class=\"ach_icon {{ach.type}}\"></div>\n                <div class=\"ach_title\" ng-bind=\"ach.name.slice(0, 30)\"></div>\n              </div>\n              </a>\n            </li>\n          </ul>\n        </div>\n      </div>\n    </section>\n",
-			"file": "public/partials/profile.html",
-			"file_size": 2700,
-			"file_write_time": 131057970582419870,
-			"settings":
-			{
-				"buffer_size": 2510,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "_test/test-helper.js",
-			"settings":
-			{
-				"buffer_size": 527,
-				"line_ending": "Windows",
-				"name": "test-helper.js"
 			}
 		}
 	],
@@ -595,52 +489,64 @@
 	[
 		"/C/Users/user pc/Desktop/test",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas"
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/lib",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/storage",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles"
 	],
 	"file_history":
 	[
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/models/admin.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/achivments.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/models/student.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/mongoose.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/profile.html",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/controllers_main.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/app.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/controllers.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles/main.scss",
+		"/C/Users/user pc/Desktop/ыв/Новый текстовый документ.txt",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/admin.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/admin.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/achivment.html",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/config.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/auth.html",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/achivment.html",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/mail.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/routes/api.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/services.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/main.html",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/user.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/students.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/_test/test-helper.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles/load.css",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/achivment.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/student.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/commonMethods.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles/main.css",
 		"/C/Users/user pc/Google Диск/AU_15/2 семестр/ООП/Практика/9 норматив/n9_s3_52.txt",
 		"/C/Users/user pc/Google Диск/AU_15/2 семестр/ООП/Практика/9 норматив/n9_s3_47.txt",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/common.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/controllers_main.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/controllers.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/addAchivment.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/profile_another.html",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/achivment.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/views/index.jade",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/studentsBase.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/registry.html",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/auth.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/controllers_main.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/admin_controllers.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/admin_app.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/admin.js",
 		"/C/Users/user pc/Dropbox/repos/Movie-Extended/WA/routes/index.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/main.html",
 		"/C/Users/user pc/Downloads/of_v0.9.3_vs_release/INSTALL.md",
 		"/C/Users/user pc/Downloads/My Project-c9ecec05a342.json",
 		"/C/Users/user pc/Google Диск/AU_15/2 семестр/ООП/Практика/8 норматив/n8_s3_9.txt",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/students.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles/main.css",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles/ring.css",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles/main.scss",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/admin_inbox.html",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/services.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/app.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/achivment.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/profile.html",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/profile.html",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/routes/api.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/app.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/mongoose.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/routes/index.js",
 		"/C/Program Files/iisnode/www/helloworld/web.config",
 		"/C/Program Files/iisnode/www/helloworld/hello.js",
 		"/C/Program Files/iisnode/www/express/web.config",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/bin/www",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/achivments.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/config.js",
 		"/C/Program Files/iisnode/www/express/hello.js",
 		"/C/Program Files/iisnode/README.md",
 		"/C/Program Files/iisnode/www/configuration/web.config",
@@ -658,7 +564,6 @@
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/invite.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/build/build.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/registry_admin.html",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/user.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/config.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/build/build.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/views/admin.jade",
@@ -717,17 +622,7 @@
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/jade/index.html",
 		"/C/Users/user pc/Documents/GitHub/Movie-Extended/Front-End/WebApp/views/header.jade",
 		"/C/Users/user pc/Documents/GitHub/Movie-Extended/Front-End/WebApp/views/footer.jade",
-		"/C/Users/user pc/Documents/GitHub/Movie-Extended/Front-End/WebApp/views/registry.jade",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/jade/main.css",
-		"/C/Users/user pc/Documents/GitHub/Movie-Extended/Front-End/WebApp/sass/style.scss",
-		"/C/Users/user pc/Desktop/arr.txt",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/bower_components/angular/bower.json",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/bower_components/angular/index.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/package.json",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/bower_components/angular/README.md",
-		"/C/Users/user pc/Desktop/Мой диск – Google Диск.html",
-		"/C/Users/user pc/Documents/GitHub/Movie-Extended/Front-End/WebApp/public/js/controllers.js",
-		"/C/Users/user pc/Documents/GitHub/Movie-Extended/Front-End/WebApp/public/partials/profile/cinemas/cinemas_list.html"
+		"/C/Users/user pc/Documents/GitHub/Movie-Extended/Front-End/WebApp/views/registry.jade"
 	],
 	"find":
 	{
@@ -746,6 +641,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"		\n",
+			"projectName_title",
+			"ach",
+			"input",
+			"shortList_ite\n",
+			"shortList_item\n",
 			">\n",
 			"studItem",
 			"texta",
@@ -848,13 +749,108 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "api/achivments.js",
+					"file": "db/mongoose.js",
 					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1114,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1111,
+								1111
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tabs_extra_last_activated": 1462456081.99,
+							"tabs_extra_last_activated_sheet_index": 0,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "api/mailer.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 616,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								257,
+								257
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tabs_extra_last_activated": 1462456409.39,
+							"tabs_extra_last_activated_sheet_index": 2,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "api/students.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5280,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1743,
+								2245
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tabs_extra_last_activated": 1462456411.56,
+							"tabs_extra_last_activated_sheet_index": 3,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 284.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "api/achivments.js",
+					"semi_transient": true,
 					"settings":
 					{
 						"buffer_size": 3796,
@@ -864,49 +860,16 @@
 						"selection":
 						[
 							[
-								57,
-								57
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 4,
-							"tabs_extra_last_activated": 1461863361.25,
-							"tabs_extra_last_activated_sheet_index": 0,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 281.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "api/admin.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4388,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4188,
-								4188
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1461924329.53,
-							"tabs_extra_last_activated_sheet_index": 1,
+							"tabs_extra_last_activated": 1462456418.93,
+							"tabs_extra_last_activated_sheet_index": 3,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
 						},
@@ -914,31 +877,31 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "db/mongoose.js",
+					"buffer": 4,
+					"file": "db/schemas/student.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 771,
+						"buffer_size": 1927,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								65,
-								36
+								770,
+								770
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1461939615.45,
-							"tabs_extra_last_activated_sheet_index": 2,
+							"tabs_extra_last_activated": 1462456048.03,
+							"tabs_extra_last_activated_sheet_index": 3,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": false
 						},
@@ -950,170 +913,95 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "db/schemas/achivment.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 668,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								30,
-								30
-							]
-						],
-						"settings":
-						{
-							"auto_name": "achivment.js",
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1461939631.4,
-							"tabs_extra_last_activated_sheet_index": 3,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "db/schemas/student.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1323,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								126,
-								126
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1461939638.75,
-							"tabs_extra_last_activated_sheet_index": 4,
-							"tabs_extra_spawned": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
 					"buffer": 5,
-					"file": "db/schemas/admin.js",
+					"file": "db/schemas/emailReceiver.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 976,
+						"buffer_size": 221,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								80,
-								80
+								221,
+								221
 							]
 						],
 						"settings":
 						{
+							"auto_name": "emailReceivers.js",
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1461945308.69,
-							"tabs_extra_last_activated_sheet_index": 5,
-							"tabs_extra_spawned": true
+							"tabs_extra_last_activated": 1462456045.41,
+							"tabs_extra_last_activated_sheet_index": 4
 						},
 						"translation.x": -0.0,
-						"translation.y": 136.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 6,
-					"file": "db/schemas/commonMethods.js",
+					"file": "db/schemas/emailTemplate.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 569,
+						"buffer_size": 354,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								525,
-								525
+								241,
+								241
 							]
 						],
 						"settings":
 						{
-							"auto_name": "commonMethods.js",
+							"auto_name": "emailTemplate.js",
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1461939638.06,
-							"tabs_extra_last_activated_sheet_index": 6
+							"tabs_extra_last_activated": 1462456038.98,
+							"tabs_extra_last_activated_sheet_index": 5
 						},
-						"translation.x": 0.0,
+						"translation.x": -0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
 					"buffer": 7,
-					"file": "api/students.js",
+					"file": "api/user.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5241,
+						"buffer_size": 1107,
 						"regions":
 						{
-							"bookmarks":
-							{
-								"flags": 144,
-								"icon": "bookmark",
-								"regions":
-								[
-									[
-										1638,
-										1638
-									]
-								],
-								"scope": "bookmarks"
-							}
 						},
 						"selection":
 						[
 							[
-								1871,
-								1871
+								296,
+								296
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1461924296.19,
-							"tabs_extra_last_activated_sheet_index": 5,
+							"tabs_extra_closing": true,
+							"tabs_extra_last_activated": 1462455681.75,
+							"tabs_extra_last_activated_sheet_index": 6,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 0.0,
-						"translation.y": 1061.0,
+						"translation.x": -0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 7,
@@ -1121,394 +1009,35 @@
 				},
 				{
 					"buffer": 8,
-					"file": "api/user.js",
+					"file": "public/admin/js/admin_controllers.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1099,
+						"buffer_size": 6225,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1046,
-								1046
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1461924330.41,
-							"tabs_extra_last_activated_sheet_index": 6,
-							"tabs_extra_spawned": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 28.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "db/models/student.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_name": "student.js",
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1461924080.98,
-							"tabs_extra_last_activated_sheet_index": 5
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "db/models/admin.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_name": "admin.js",
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1461924080.25,
-							"tabs_extra_last_activated_sheet_index": 6
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "public/js/services.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4949,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
+								6055,
+								6058
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
-							"tabs_extra_last_activated": 1461831212.76,
-							"tabs_extra_last_activated_sheet_index": 6,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "routes/api.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1785,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								680,
-								680
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1461712360.0,
-							"tabs_extra_last_activated_sheet_index": 7,
-							"tabs_extra_spawned": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 215.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 14,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "public/js/controllers.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 11658,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								700,
-								700
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1461794583.29,
-							"tabs_extra_last_activated_sheet_index": 9,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2724.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 13,
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "public/js/controllers_main.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3278,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								541,
-								541
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1461831209.44,
-							"tabs_extra_last_activated_sheet_index": 10,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1400.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 15,
-					"file": "public/styles/main.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 35294,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								31055,
-								31055
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1461659821.09,
-							"tabs_extra_last_activated_sheet_index": 1,
-							"tabs_extra_moving":
-							[
-								2,
-								0
-							],
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 26291.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 16,
-					"type": "text"
-				},
-				{
-					"buffer": 16,
-					"file": "public/styles/main.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 35992,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1461525217.6,
+							"tabs_extra_last_activated": 1462454051.91,
 							"tabs_extra_last_activated_sheet_index": 2,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 20473.0,
+						"translation.y": 1694.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 19,
-					"type": "text"
-				},
-				{
-					"buffer": 17,
-					"file": "public/styles/load.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1101,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								284,
-								284
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1461664932.66,
-							"tabs_extra_last_activated_sheet_index": 9,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 305.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 18,
-					"type": "text"
-				},
-				{
-					"buffer": 18,
-					"file": "public/partials/profile.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2510,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1563,
-								1563
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_closing": true,
-							"tabs_extra_last_activated": 1461664932.57,
-							"tabs_extra_last_activated_sheet_index": 10,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 17,
-					"type": "text"
-				},
-				{
-					"buffer": 19,
-					"file": "_test/test-helper.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 527,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								23,
-								23
-							]
-						],
-						"settings":
-						{
-							"auto_name": "test-helper.js",
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1461664932.49,
-							"tabs_extra_last_activated_sheet_index": 11
-						},
-						"translation.x": 0.0,
-						"translation.y": 7.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 15,
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
@@ -1589,7 +1118,7 @@
 	"project": "sublime_project.sublime-project",
 	"replace":
 	{
-		"height": 82.0
+		"height": 62.0
 	},
 	"save_all_on_build": true,
 	"select_file":

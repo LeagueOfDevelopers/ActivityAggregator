@@ -237,8 +237,6 @@ body {
   border-bottom: 0px solid #fff;
 }
 
-
-
 .index_header {
   height: 85px;
 }
@@ -340,7 +338,6 @@ body {
   opacity: 1;
   cursor: pointer;
 }
-
 
 .user_name_profile {
   position: absolute;
@@ -512,7 +509,6 @@ body {
   @include cardShadow();
 }
 
-
 .ach_icon:after {
   position: absolute;
   align: center;
@@ -522,7 +518,6 @@ body {
   width: 55px;
   height: 55px;
 }
-
 
 .ach_icon.science:after {
 
@@ -566,12 +561,11 @@ body {
   width: 180px;
 }
 
-
-
  .students_base_container {
   margin: 0 auto;
   max-width: 800px;
 }
+
 .students_base_header {
   width: 100%;
   min-height: 100px;
@@ -589,6 +583,7 @@ body {
     position: fixed;
   }
 }*/
+
 .students_base_title {
   display: block;
   margin-top: 15px;
@@ -603,14 +598,12 @@ body {
   max-width: 800px !important;
 }
 
-
 .search_student_input {
   padding: 7px;
   max-height: 35px;
   border: 1px solid $mainColor;
   font-size: 16px;
 }
-
 
 .btn_start_search {
   width: 30px;
@@ -625,7 +618,6 @@ body {
   -o-transition: all .2s;
   transition: all .2s;
 }
-
 
 .btn_start_search:hover {
   cursor: pointer;
@@ -650,9 +642,11 @@ body {
   font-size: 16px;
   border-radius: 0;
 }
+
 .students_list {
   padding-top: 300px;
 }
+
 @media (min-width: 640px) {
   .students_list {
     padding-top: 200px;
@@ -690,7 +684,6 @@ body {
     }
 }
 
-
 .avatar {
   background-image: url(../img/default-avatar.gif);
   background-size: cover;
@@ -714,7 +707,6 @@ body {
 .course {
   font-size: 18px;
 }
-
 
 .btn_profile_link {
   margin-top: 15px;
@@ -749,6 +741,7 @@ body {
 }
 
 }
+
 .achivment_link a  {
   opacity: .8;
   color: $mainColor;
@@ -756,6 +749,7 @@ body {
   font-weight: bold;
   border-bottom: 1px dotted $mainColor;
 }
+
 .achivment_link a:hover {
   cursor: pointer;
   color: #028ec7;
@@ -773,6 +767,7 @@ body {
   font-weight: bold;
   text-decoration: underline;
 }
+
 .achivments_count i {
   margin-left: 3px;
   font-size: 20px;
@@ -797,9 +792,11 @@ body {
   overflow-x: hidden;
   z-index: 500;
 }
+
 #achivments_popup li {
   margin-bottom: 3px;
 }
+
  .form_card {
    margin-top: 50px;
    background-color: #fff;
@@ -816,7 +813,6 @@ body {
   }
 }
  
-
  .achivment_detail_card {
    margin-top: 100px;
    width: 300px;
@@ -829,19 +825,18 @@ body {
   -webkit-animation: fadeInScale .2s ease-out;
   -o-animation: fadeInScale .2s ease-out;
   animation: fadeInScale .2s ease-out;
-   }
+ }
 
-   .achivment_detail_card p {
-    display: block;
-    height: auto;
-    max-width: 60%;
-   }
+ .achivment_detail_card p {
+  display: block;
+  height: auto;
+  max-width: 60%;
+ }
 
-   .achivment_detail {
-    padding-left: 20px;
-    padding-top: 10px;
-   }
-
+ .achivment_detail {
+  padding-left: 20px;
+  padding-top: 10px;
+ }
 
  .detail_label {
   font-weight: bold !important;
@@ -853,9 +848,8 @@ body {
  color: $fontColor;
  text-align: center;
  display: block;
-
-
 }
+
 .login_form {
   padding: 10px;
   padding-left: 100px;
@@ -873,9 +867,11 @@ body {
   margin: 5px auto;
 
 }
+
 .login_form a {
   color: $mainColor;
 }
+
  .submit_form {
   text-align: center;
   font-weight: bold;
@@ -886,6 +882,7 @@ body {
   color: $mainColor;
   transition: all .2s;
 }
+
 .submit_form:hover {
   background: $mainColor;
   color: #fff;
@@ -929,6 +926,7 @@ textaria {
   opacity: .8;
 
 }
+
 .achivment_owner:hover {
   opacity: 1;
 }
@@ -940,6 +938,7 @@ textaria {
   text-align: center;
   background-color: $softBlue;
 }
+
 .achivment_title.unchecked {
   background-color: #ddd !important;
 }
@@ -948,9 +947,11 @@ textaria {
   font-size: 16px;
   color: $fontColor;
 }
+
 .achivment_detail span {
   display: block;
 }
+
 .achivment_detail_description {
   font-size: 18px;
   color: $fontColor;
@@ -995,12 +996,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   position: relative;
   }
 
-  .third_block {
-    display: none;
-    visibility: hidden;
-  }
-
-  
+.third_block {
+  display: none;
+  visibility: hidden;
+}
 
 .project_name p {
   padding: 5px;
@@ -1016,6 +1015,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   font-size: 16px;
   margin-top: 10px;
 }
+
 #thirdB {
   display: none;
 }
@@ -1027,23 +1027,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 
 .third_block {
-     display: inline-block;
-     visibility: visible;
-     }
-
+  display: inline-block;
+  visibility: visible;
+}
 
 .short_info p {
   font-size: 18px;
   margin-top: 20px;
 }
 
-  }
+}
 
 .short_info {
   background: $mainColor;
   color: #fff;
   position: relative;
-
 }
 
 .short_info button  {
@@ -1062,15 +1060,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   color: $mainColor;
   background: #fff;
   @include cardShadow();
-
 }
 
 #logout {
-
   -webkit-transition: all .2s;
   -o-transition: all .2s;
   transition: all .2s;
 }
+
 #logout:hover {
  cursor: pointer;
  text-decoration: underline;
@@ -1098,9 +1095,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   background: $softBlue;
   border-radius: 7px 7px 0 0;
   @include cardShadow;
-  
-  
- 
 }
 
 .nt_label {
@@ -1110,13 +1104,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   padding: 15px;
  }
 
-  .msg  p {
-    margin-top: 10px;
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    height: 100%;
-  }
+.msg  p {
+  margin-top: 10px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  height: 100%;
+}
 
 .nt_label .bad {
   display: block;
@@ -1163,13 +1157,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   animation: popupIn .1s ease-out;
 }
 
-
-
 .notification_popup.popupOut {
   -webkit-animation: popupOut .2s ease-out;
   -o-animation: popupOut .2s ease-out;
   animation: popupOut .2s ease-out;
-
 }
 
 .pList_list_h {
@@ -1210,8 +1201,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   -o-animation: fadeIn .2s ease-out;
   animation: fadeIn .2s ease-out;}
 
-
-
 .achD_title {
   margin-top: 10px;
   margin-bottom: 8px;
@@ -1220,7 +1209,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   padding-left: 8px;
 }
 
-
 .achD_ownerLink {
   color: $mainColor;
   font-weight: bold;
@@ -1228,7 +1216,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   opacity: .8;
   margin-left: 20px;  
   border-bottom: 1px dotted $mainColor;
-
 }
 
 .achD_ownerLink :hover {
@@ -1247,7 +1234,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   background: red;
   color: #fff;
 }
-
 
 .achD_description {
   margin-top: 10px;
@@ -1357,7 +1343,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   cursor: pointer;
 }
 
-
 .studItem_avatar {
   box-sizing: border-box;
   height: 50px;
@@ -1378,7 +1363,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   position: absolute;
   top: 0;
   left: 60px;
-
 }
 
 .studItem_details li {
@@ -1414,7 +1398,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   @include trans(.2s, ease-out);
 }
 
-
 .sB_loadMoreBtn :hover {
   background: $mainColor;
   color: #fff;
@@ -1441,6 +1424,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     transform: rotate(360deg);
   }
 }
+
 @-webkit-keyframes uil-ring-anim {
   0% {
     -ms-transform: rotate(0deg);
@@ -1457,6 +1441,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     transform: rotate(360deg);
   }
 }
+
 @-moz-keyframes uil-ring-anim {
   0% {
     -ms-transform: rotate(0deg);
@@ -1473,6 +1458,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     transform: rotate(360deg);
   }
 }
+
 @-ms-keyframes uil-ring-anim {
   0% {
     -ms-transform: rotate(0deg);
@@ -1489,6 +1475,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     transform: rotate(360deg);
   }
 }
+
 @-moz-keyframes uil-ring-anim {
   0% {
     -ms-transform: rotate(0deg);
@@ -1505,6 +1492,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     transform: rotate(360deg);
   }
 }
+
 @-webkit-keyframes uil-ring-anim {
   0% {
     -ms-transform: rotate(0deg);
@@ -1521,6 +1509,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     transform: rotate(360deg);
   }
 }
+
 @-o-keyframes uil-ring-anim {
   0% {
     -ms-transform: rotate(0deg);
@@ -1537,6 +1526,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     transform: rotate(360deg);
   }
 }
+
 @keyframes uil-ring-anim {
   0% {
     -ms-transform: rotate(0deg);
@@ -1631,6 +1621,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     transform: rotate(360deg);
   }
 }
+
 @-ms-keyframes uil-ring-anim {
   0% {
     -ms-transform: rotate(0deg);
@@ -1647,6 +1638,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     transform: rotate(360deg);
   }
 }
+
 @-moz-keyframes uil-ring-anim {
   0% {
     -ms-transform: rotate(0deg);
@@ -1663,6 +1655,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     transform: rotate(360deg);
   }
 }
+
 @-webkit-keyframes uil-ring-anim {
   0% {
     -ms-transform: rotate(0deg);
@@ -1679,6 +1672,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     transform: rotate(360deg);
   }
 }
+
 @-o-keyframes uil-ring-anim {
   0% {
     -ms-transform: rotate(0deg);
@@ -1695,6 +1689,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     transform: rotate(360deg);
   }
 }
+
 @keyframes uil-ring-anim {
   0% {
     -ms-transform: rotate(0deg);
@@ -1755,11 +1750,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   background-color: $mainColor;
   background-size: cover;
 }
+
 .nAch_filePreloader {
   display: inline-block;
 }
-
-
 
 .loader-wrapper {
     position: relative; 
@@ -1783,43 +1777,43 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 
 .loader {
-    display: block;
-    position: relative;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 4px solid transparent;
-    border-top-color: $mainColor;
-    -webkit-animation: spin-l 1s linear infinite; 
-    animation: spin-l 1s linear infinite; 
+  display: block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-top-color: $mainColor;
+  -webkit-animation: spin-l 1s linear infinite; 
+  animation: spin-l 1s linear infinite; 
 }
  
 .loader:before {
-    content: "";
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
-    border-radius: 50%;
-    border: 5px solid transparent;
-    border-top-color: $mainColor;
-    -webkit-animation: spin-r 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
-      animation: spin-r 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  border: 5px solid transparent;
+  border-top-color: $mainColor;
+  -webkit-animation: spin-r 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+  animation: spin-r 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
 }
  
 .loader:after {
-    content: "";
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    right: 15px;
-    bottom: 15px;
-    border-radius: 50%;
-    border: 5px solid transparent;
-    border-top-color: $mainColor;
-    -webkit-animation: spin-l 1s ease-out infinite; 
-    animation: spin-l 1s ease-out infinite; 
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  border: 5px solid transparent;
+  border-top-color: $mainColor;
+  -webkit-animation: spin-l 1s ease-out infinite; 
+  animation: spin-l 1s ease-out infinite; 
 }
  
 @-webkit-keyframes spin-l {
@@ -1834,6 +1828,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
         transform: rotate(-360deg);  /* Firefox 16+, IE 10+, Opera */
     }
 }
+
 @keyframes spin-l {
     0%   {
         -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
@@ -1847,8 +1842,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     }
 }
 
-
-
 @-webkit-keyframes spin-r {
     0%   {
         -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
@@ -1861,6 +1854,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
         transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
     }
 }
+
 @keyframes spin-r {
     0%   {
         -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */

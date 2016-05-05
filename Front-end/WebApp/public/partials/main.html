@@ -15,7 +15,7 @@
 		 				<li ng-bind="student.department + ' ' + student.course + ' курс ' + student.group"></li>
 		 				</ul>
 		 				</a>
-		 				<a ui-sref="achivment_detail({achToShow: student.achivments[0], owner: student})" class="studItem_achivment" ng-bind="student.achivments[0].name.slice(0, 30)"></a>
+		 				<a ui-sref="achivment_detail({achId: student.achivments[0]._id, owner: st})" class="studItem_achivment" ng-bind="student.achivments[0].name.slice(0, 30)"></a>
 		 			</li>
 		 		</ul>
 		 	</div>

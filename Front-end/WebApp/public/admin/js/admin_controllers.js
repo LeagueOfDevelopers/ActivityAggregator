@@ -19,7 +19,7 @@ angular.module('admin.controllers',
 			$scope.studentsList = res.data || null;
 		});
     API.query('students.requests', null, true).then(function(res) {
-      $scope.registryRequests = res.data;
+      $scope.registryRequests = res.data || null;
     })
 	
 }])

@@ -93,19 +93,19 @@ function addFile(req, res, next) {
 
                 if (!fs.exists(studentFolder)) {
                     fs.mkdirSync(studentFolder);
-                } 
+                };
 
                 if(fs.existsSync(uploadFile.path)) {
                     fs.unlinkSync(uploadFile.path);
-                }
+                };
 
                 var outStream = fs.createWriteStream(uploadFile.path);
                 part.pipe(outStream);
-            }
+            };
                 else {
                     part.resume();
                 }
-           }
+           };
     });
 
       form.parse(req);
@@ -116,7 +116,7 @@ function newAchivment(req, res, next) {
   var achivment = {
         checked: false,
         updated: new Date()
-    }
+    };
 
  var fields = req.body;
 

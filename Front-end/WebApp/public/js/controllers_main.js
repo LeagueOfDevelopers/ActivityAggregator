@@ -11,7 +11,7 @@ angular.module('app.controllers.main',
    'API',
   function ($scope, $state, UserManager, $timeout, API) {
 
-      //define default vars and consts
+    //define default vars and consts
      $scope.starting = true;
      $scope.BASE_URI = 'http://localhost:3000/';
      $scope.title = 'Онлайн портфолио активных студентов НИТУ МИСиС';
@@ -110,7 +110,6 @@ angular.module('app.controllers.main',
        $timeout(function() {
         $scope.starting = false;
        }, 2500)
-
 }])
 
 .controller('pageCtrl',

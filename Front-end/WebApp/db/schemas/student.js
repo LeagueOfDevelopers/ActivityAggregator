@@ -1,6 +1,6 @@
 var achivmentSchema = require('./achivment');
-var commonMethods = require('./commonMethods.js');
 var mongoose = require('mongoose');
+var commonMethods = require('./commonMethods.js');
 
 var	schema = mongoose.Schema;
 
@@ -83,6 +83,33 @@ student.methods.confirm = function() {
 
 student.methods.reject = function() {
 	this.status = 2;
+};
+
+student.methods.add = function(fields, callback) {
+
+	var newStudent = new Student ({
+			firstName: fields.firstName,
+			lastName: fields.lastName,
+			middleName: fields.middleName,
+			email: fields.email,
+			hashPassword: fields.password,
+			department: fields.department,
+			course: fields.course,
+			group: fields.group,
+			about: fields.about,
+			level: fields.level,
+			registered: new Date(),
+			status: 0,
+			number: fields.number
+		});
+
+		newStudent.save(function(err) {
+			if(!err) {
+				callback('student added')
+			} else {
+				callback(err);
+			}
+		})
 };
 
 module.exports = student;

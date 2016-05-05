@@ -89,6 +89,7 @@ function logout(req, res, next) {
 
 function addStudent(req, res, next) {
 		var fields = req.body;
+		
 		var student = new Student ({
 			firstName: fields.firstName,
 			lastName: fields.lastName,
@@ -103,7 +104,7 @@ function addStudent(req, res, next) {
 			registered: new Date(),
 			status: 0,
 			number: fields.number
-	});
+		});
 
 		student.save(function(err) {
 			if(!err) {

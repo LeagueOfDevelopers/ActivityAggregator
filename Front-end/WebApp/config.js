@@ -18,3 +18,11 @@ module.exports.db = {
 }
 
 module.exports.BASE_URL = 'localhost:3000';
+
+module.exports.smtp = {
+	login: 'aggregator@lod-misis.ru',
+	password: '1qaz2wsx#EDC',
+	port: 25,
+	host: 'smtp.yandex.ru',
+	sender: '"Аггрегатор МИСиС" <aggregator@lod-misis.ru>'
+}

@@ -3,7 +3,6 @@ var path = require('path');
 var Admin = require('../db/mongoose').models.Admin;
 var Student = require('../db/mongoose').models.Student;
 
-
 module.exports = {
   login: login,
   newAdmin: newAdmin,
@@ -132,8 +131,8 @@ function confirmAchivment(req, res, next) {
 
         res.send(data);
      });
-} else {
-  res.send('admin permissions required')
+  } else {
+    res.send('admin permissions required')
 }
 };
 
@@ -194,3 +193,4 @@ function getUncheckedStudents(req, res, next) {
     }
   })
 };
+
