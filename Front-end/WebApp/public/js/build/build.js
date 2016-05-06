@@ -58,13 +58,13 @@ angular.module('ActivityAggregator',
        })
 
        .state('add_achivment', {
-        url: '/account/:user_id/new_achivment',
-        views: {
-          'page_content': {
-           templateUrl: 'partials/addAchivment.html',
-           controller: 'newAchCtrl'
+          url: '/account/:user_id/new_achivment',
+            views: {
+            'page_content': {
+             templateUrl: 'partials/addAchivment.html',
+             controller: 'newAchCtrl'
+            }
           }
-        }
        })
 
        .state('achivment_detail', {
@@ -98,7 +98,8 @@ angular.module('ActivityAggregator',
              }
            }
        })
-     }]);
+
+}]);
 
 
 /* Controllers */
@@ -156,16 +157,13 @@ angular.module('app.controllers.partials',
    function ($scope, $http, API, avatar) {
 
       $scope.$emit('changeTitle', {title: 'База активистов НИТУ МИСиС'});
+      $scope.$emit('loadData', {field: 'common'});
+
       $scope.avatar = avatar;
       var studentsList;
       var viewItemCount = 5;
-       $scope.$emit('loadData', {field: 'common'});
-      API.query('students.get', null, true).then(function(result) {
-        studentsList = result.data.reverse();
-        var cropArr = studentsList;
-        $scope.searchResults = cropArr.slice(0, 4);
-         $scope.$emit('loadData_done', {field: 'common'});
-      })
+
+      getAllStudents();
 
       $scope.$watch('searchParams.category', function() {
         $scope.searchParams.name = '';
@@ -178,13 +176,12 @@ angular.module('app.controllers.partials',
           case 'Учеба' : category = 'study'; break;
           case 'Предпринимательство' : category = 'business'; break;
           case 'Межкультурный диалог' : category = 'international'; break;
-
+          case 'Все' : category = ''; break;
         }
          
-
         $scope.getStudentsList({name: '', category: category});
         
-      })
+       })
 
       $scope.getMoreStudents = function() {
         console.log(studentsList);
@@ -196,16 +193,31 @@ angular.module('app.controllers.partials',
 
       $scope.getStudentsList = function(searchParams) {
          $scope.$emit('loadData', {field: 'common'});
-        $scope.searchResults = {};
-        API.query('students.search', {searchParams: searchParams}, true).then(function(result) {
-          studentsList = result.data;
+         $scope.searchResults = {};
+
+         if(searchParams.category == '' && searchParams.name == '' ) {
+            getAllStudents();
+         } else {
+          API.query('students.search', {searchParams: searchParams}, true).then(function(result) {
+            studentsList = result.data;
+            var cropArr = studentsList;
+            $scope.searchResults = cropArr.slice(0, 4);
+            $scope.$emit('loadData_done', {field: 'common'});
+          })
+        }
+      };
+
+      function getAllStudents() { 
+
+        API.query('students.get', null, true).then(function(result) {
+          studentsList = result.data.reverse();
           var cropArr = studentsList;
           $scope.searchResults = cropArr.slice(0, 4);
            $scope.$emit('loadData_done', {field: 'common'});
-        });
-      };
-
+        })
+      }
     }
+
   ]) 
 
   .controller('accountCtrl',
@@ -485,7 +497,7 @@ angular.module('app.controllers.main',
    'API',
   function ($scope, $state, UserManager, $timeout, API) {
 
-      //define default vars and consts
+    //define default vars and consts
      $scope.starting = true;
      $scope.BASE_URI = 'http://localhost:3000/';
      $scope.title = 'Онлайн портфолио активных студентов НИТУ МИСиС';
@@ -548,7 +560,8 @@ angular.module('app.controllers.main',
       function auth() {
           UserManager.Current().then(function (result) {
             if(!result) $scope.currentUser = null;
-            else $scope.currentUser = result;
+            else $scope.currentUser = result.data.user;
+            console.log($scope.currentUser);
         });
       };
 
@@ -578,13 +591,12 @@ angular.module('app.controllers.main',
         if(!$scope.onLoad[args.field]) console.log('field' + args.field + 'is not defined');
 
         $scope.onLoad[args.field] = false;
-        console.log(args.field);
+        
       };
 
        $timeout(function() {
         $scope.starting = false;
        }, 2500)
-
 }])
 
 .controller('pageCtrl',
@@ -612,218 +624,214 @@ angular.module('app.directives', [])
 angular.module('app.services', [])
 
   .service('API', 
-    ['$rootScope',
-    '$q',
-    '$http',
-   function($rootScope, $q, $http){
+  ['$rootScope',
+  '$q',
+  '$http',
+  function($rootScope, $q, $http){
 
-        
-      var config = { 
-        
-        apiUrls : {
+  var config = {
 
-      user: {
+         apiUrls : {
 
-        get: {
-          method: 'POST',
-          url: function(params) {
-            return '/api' + '/isAuth';
+          user: {
+
+            get: {
+              method: 'POST',
+              url: function(params) {
+                return '/api/auth' + '/isAuth';
+              }
+            },
+
+            logout: {
+              method: 'POST',
+              url: function(params) {
+                return '/api' + '/logout';
+              }
+            }
+          },
+
+        students: {
+
+            add: {
+             method: 'POST',
+             url: function() {
+              return '/api' + '/students/';
+             }
+            }, 
+
+            get: {
+             method: 'GET',
+             url: function() {
+              return '/api' + '/students/';
+             }
+            }, 
+
+            getDetail: {
+              method: 'GET',
+              url: function(params) {    // get
+              return '/api'  + '/students/' + params.studentId;
+            }
+          },
+
+            updateDetail: {
+              method: 'POST',
+              url: function(params) {    // post
+              return '/api'  + '/students/' + params.studentId;
+            }
+          },
+
+            search: { 
+              method: 'GET',
+              url: function(params) {   //get
+              return '/api'  + '/students/' + ((params.searchParams.name == '') ? 
+                                              'search_by_category/' + params.searchParams.category : 
+                                              'search_by_name/' + params.searchParams.name);
+            }
+          },
+            getLast: {
+              method: 'GET',
+              url: function() {    // post
+              return '/api'  + '/studentsL/last';
+            }
+            
           }
-        },
 
-        logout: {
-          method: 'POST',
-          url: function(params) {
-            return '/api' + '/logout';
+      },
+
+      achivments: {
+
+            add: {
+            method: 'POST',
+            url: function(params) { //post
+              return '/api' + '/students/' + params.studentId + '/achivments';
+            }
+          },
+
+            getDetail: {
+            method: 'GET',
+            url: function(params) { //get
+              return '/api' + '/students/' + params.studentId + '/achivments/' + params.achId;
+            }
           }
-        }
-      },
-
-      students: {
-
-        add: {
-         method: 'POST',
-         url: function() {
-          return '/api' + '/students/';
-         }
-        }, 
-
-        get: {
-         method: 'GET',
-         url: function() {
-          return '/api' + '/students/';
-         }
-        }, 
-
-        getDetail: {
-          method: 'GET',
-          url: function(params) {    // get
-          return '/api'  + '/students/' + params.studentId;
-        }
-      },
-
-        updateDetail: {
-          method: 'POST',
-          url: function(params) {    // post
-          return '/api'  + '/students/' + params.studentId;
-        }
-      },
-
-        search: { 
-          method: 'GET',
-          url: function(params) {   //get
-          return '/api'  + '/students/' + ((params.searchParams.name == '') ? 
-                                          'search_by_category/' + params.searchParams.category : 
-                                          'search_by_name/' + params.searchParams.name);
-        }
-      },
-        getLast: {
-          method: 'GET',
-          url: function() {    // post
-          return '/api'  + '/studentsL/last';
-        }
-        
       }
+    }
 
-    },
-
-        achivments: {
-
-          add: {
-          method: 'POST',
-          url: function(params) { //post
-            return '/api' + '/students/' + params.studentId + '/achivments';
-          }
-        },
-
-          getDetail: {
-          method: 'GET',
-          url: function(params) { //get
-            return '/api' + '/students/' + params.studentId + '/achivments/' + params.achId;
-          }
-        }
-      }
-
-      
-    } 
+    
   };
 
-  config.BASE_URL = '';
+  function parsePath(pathString, obj) {
+    var path = pathString.split('.');
+    if(Array.isArray(path)) {
+      for (var i = 0, l = path.length; i < l; i++) {
+        var item = path[i];
+        if(obj[item]) {
+          obj = obj[item]
+        } else {
+          console.log('apiUrl error ' + item);
+          return 
+        }
+      } 
+      return obj;
+    } else {
+      return obj[path];
+    }
+  };
 
-    function parsePath(pathString, obj) {
-      var path = pathString.split('.');
-      if(Array.isArray(path)) {
-        for (var i = 0, l = path.length; i < l; i++) {
-          var item = path[i];
-          if(obj[item]) {
-            obj = obj[item]
-          } else {
-            console.log('apiUrl error ' + item);
-            return 
-          }
-        } 
-        return obj;
-      } else {
-        return obj[path];
-      }
-    };
+  function query(path, params, log) {
 
-    function query(path, params, log) {
+    var apiMethod = parsePath(path, this.apiUrls);
+    return $q.when(send(apiMethod, params)).then(function(result) {
+      if(log) {
+        console.log(result);
+        }
+     return result;
+  });
 
-      
-      var apiMethod = parsePath(path, this.apiUrls);
-      return $q.when(send(apiMethod, params)).then(function(result) {
-        if(log) {
-          console.log(result);
-          }
-          return result;
-
-      });
-
-      function send(apiMethod, params) {
-        if(log) {
-          console.log(apiMethod.url(params));
-        };
-        return $http({
-                        method: apiMethod.method,
-                        url   : apiMethod.url(params),
-                        data  : params && params.data ? params.data : null
-                    })
-                      .success(function(res) {
-                          return {
-                                  data: res,
-                                  method: apiMethod
-                                 };
-                      });
+  function send(apiMethod, params) {
+      if(log) {
+        console.log(apiMethod.url(params));
       };
-
+      return $http({
+                      method: apiMethod.method,
+                      url   : apiMethod.url(params),
+                      data  : params && params.data ? params.data : null
+                  })
+                    .success(function(res) {
+                        return {
+                                data: res,
+                                method: apiMethod
+                               };
+                    });
     };
+  };
+
+  function getConfig() {
+
+    var getConfigQuery = function() {
+
+      $http.get('/api/front_config').success(function(res) {
+        return res;
+      })
+    };
+
+    return $q.when(getConfigQuery()).then(function(res) {
+            return res;
+           });
+  }
 
     return {
       query: query.bind(config),
-      config: config
+      apiUrls: config.apiUrls,
+      getConfig: getConfig
     }
 
-
   }])
 
-  .service('avatar',
-    [ 
-    function() {
-    return  function(student) {
-       return student.photoUri ? 'background-image: url(' + student.photoUri + ')' : ''; 
-      }
-  }])
+.service('avatar',
+[ 
+function() {
+return  function(student) {
+   return student.photoUri ? 'background-image: url(' + student.photoUri + ')' : ''; 
+  }
+}])
 
-  .service('UserManager',
-   ['$rootScope',
-    '$q',
-    '$http',
-    'API',
-   function ($rootScope, $q, $http) {
-        
-        var apiUrl = '/api';
+.service('UserManager',
+['$rootScope',
+'$q',
+'$http',
+'API',
+function ($rootScope, $q, $http, API) {
+    
 
+    function Current() {
+      return API.query('user.get', null, false).then(function(res) {
+        return res;
+      })
+    };
 
-        function Current() {
-            return $q.when(getUser()).then(function (result) {
-                return  result.data.user || result;
-            });
+   function update() {
+      return $q.when(updateUser()).then(function(res) {
+        return res;
+      })
+    };
+  
+    function updateUser() {
+      return $http.get('/api/auth/update').success(function(result) {
+        console.log('ok');
+        return result.data;
+     })
+    };
 
-        }
-
-        function getUser() {
-          var reqUrl = apiUrl + '/auth/isAuth';
-            return $http.post(reqUrl).success(function (data) {
-                    return data.user;
-            });
-        }
-
-       function update() {
-        return $q.when(updateUser()).then(function(res) {
-          return res;
+    function logout() {
+        return API.query('user.logout').then(function(res) {
+          return res
         })
-        } 
-      
-        function updateUser() {
-          return $http.get('/api/auth/update').success(function(result) {
-            console.log('ok');
-            return result.data;
-         })
-        };
+    }
 
-        function logout() {
-            return $http.post('/api/auth/logout').success(function (data) {
-                var defaultAction = true;
-                return data && data.result
-                    ? data.result : defaultAction;
-            });
-        }
-
-        return {
-            Current: Current,
-            logout: logout,
-            update: update
-        }
-    }])
+    return {
+        Current: Current,
+        logout: logout,
+        update: update
+    }
+}])
 

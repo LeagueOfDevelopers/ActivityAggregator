@@ -74,7 +74,8 @@ angular.module('app.controllers.main',
       function auth() {
           UserManager.Current().then(function (result) {
             if(!result) $scope.currentUser = null;
-            else $scope.currentUser = result;
+            else $scope.currentUser = result.data.user;
+            console.log($scope.currentUser);
         });
       };
 
@@ -104,7 +105,7 @@ angular.module('app.controllers.main',
         if(!$scope.onLoad[args.field]) console.log('field' + args.field + 'is not defined');
 
         $scope.onLoad[args.field] = false;
-        console.log(args.field);
+        
       };
 
        $timeout(function() {

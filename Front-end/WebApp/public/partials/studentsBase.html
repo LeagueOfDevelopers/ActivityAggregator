@@ -15,6 +15,7 @@
               <option>Общественная деятельность</option>
               <option>Предпринимательство</option>
               <option>Межкультурный диалог</option>
+              <option>Все</option>
             </select>
         </form>
       </div>
@@ -23,6 +24,8 @@
 
       <ul class="students_list students_base_container" ng-if="searchResults.length != 0 && !loadData.common" ng-cloak>
         <li class="student_card ng-cloak" ng-repeat='student in searchResults' ng-cloak>
+        <div class="row">
+        <div class=" small-12 medium-4 columns">
           <div class="avatar" style="{{avatar(student)}}"></div>
           <ul class="profile_detail">
             <li class="first_name" ng-bind="student.firstName + ' ' + student.lastName"></li>
@@ -32,14 +35,14 @@
               <button class="btn_profile_link" ui-sref='profile({id : student._id})'>Профиль</button>
             </li>
           </ul>
-          <ul class="short_achivments_list">
+          </div>
+          <ul class="short_achivments_list small-7 columns">
             <li class="achivment_link" ng-if='student.achivments[0] && student.achivments[0].checked '><a ui-sref='achivment_detail({achId: student.achivments[0]._id, studentId: student._id})' ng-bind='student.achivments[0].name.slice(0, 30) '></a></li>
             <li class="achivment_link" ng-if='student.achivments[1]  && student.achivments[1].checked'><a ui-sref='achivment_detail({achId: student.achivments[1]._id, studentId: student._id})' ng-bind='student.achivments[1].name.slice(0, 30) '></a></li>
             <li class="achivment_link" ng-if='student.achivments[2]  && student.achivments[2].checked'><a ui-sref='achivment_detail({achId: student.achivments[2]._id, studentId: student._id})' ng-bind='student.achivments[2].name.slice(0, 30) '></a></li>
             <li class="achivment_link" ng-if='student.achivments[3]  && student.achivments[3].checked'><a  ui-sref='achivment_detail({achId: student.achivments[3]._id, studentId: student._id})' ng-bind='student.achivments[3].name.slice(0, 30) '></a></li>
-
           </ul>
-            
+          </div>
         </li>
       </ul>
       <div class="preloader_wrapper sB_preloader" ng-if="onLoad.common">

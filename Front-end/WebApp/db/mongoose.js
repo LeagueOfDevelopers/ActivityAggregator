@@ -34,7 +34,6 @@ module.exports = {
 		Achivment: Achivment,
 		EmailReceiver: EmailReceiver,
 		EmailTemplate: EmailTemplate
-
-	};
+	}
 
 }

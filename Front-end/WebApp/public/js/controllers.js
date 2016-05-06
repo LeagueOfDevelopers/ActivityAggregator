@@ -60,12 +60,7 @@ angular.module('app.controllers.partials',
       var studentsList;
       var viewItemCount = 5;
 
-      API.query('students.get', null, true).then(function(result) {
-        studentsList = result.data.reverse();
-        var cropArr = studentsList;
-        $scope.searchResults = cropArr.slice(0, 4);
-         $scope.$emit('loadData_done', {field: 'common'});
-      })
+      getAllStudents();
 
       $scope.$watch('searchParams.category', function() {
         $scope.searchParams.name = '';
@@ -78,7 +73,7 @@ angular.module('app.controllers.partials',
           case 'Учеба' : category = 'study'; break;
           case 'Предпринимательство' : category = 'business'; break;
           case 'Межкультурный диалог' : category = 'international'; break;
-
+          case 'Все' : category = ''; break;
         }
          
         $scope.getStudentsList({name: '', category: category});
@@ -96,14 +91,30 @@ angular.module('app.controllers.partials',
       $scope.getStudentsList = function(searchParams) {
          $scope.$emit('loadData', {field: 'common'});
          $scope.searchResults = {};
-        API.query('students.search', {searchParams: searchParams}, true).then(function(result) {
-          studentsList = result.data;
+
+         if(searchParams.category == '' && searchParams.name == '' ) {
+            getAllStudents();
+         } else {
+          API.query('students.search', {searchParams: searchParams}, true).then(function(result) {
+            studentsList = result.data;
+            var cropArr = studentsList;
+            $scope.searchResults = cropArr.slice(0, 4);
+            $scope.$emit('loadData_done', {field: 'common'});
+          })
+        }
+      };
+
+      function getAllStudents() { 
+
+        API.query('students.get', null, true).then(function(result) {
+          studentsList = result.data.reverse();
           var cropArr = studentsList;
           $scope.searchResults = cropArr.slice(0, 4);
            $scope.$emit('loadData_done', {field: 'common'});
-        });
-      };
+        })
+      }
     }
+
   ]) 
 
   .controller('accountCtrl',

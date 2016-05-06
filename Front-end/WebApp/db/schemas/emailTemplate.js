@@ -24,3 +24,5 @@ var emailTemplate = new schema({
 		required: true
 	}
 });
+
+module.exports = emailTemplate;

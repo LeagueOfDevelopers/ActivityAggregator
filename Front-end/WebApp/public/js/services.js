@@ -6,14 +6,16 @@ angular.module('app.services', [])
   '$http',
   function($rootScope, $q, $http){
 
-  var  = apiUrls : {
+  var config = {
+
+         apiUrls : {
 
           user: {
 
             get: {
               method: 'POST',
               url: function(params) {
-                return '/api' + '/isAuth';
+                return '/api/auth' + '/isAuth';
               }
             },
 
@@ -89,6 +91,7 @@ angular.module('app.services', [])
             }
           }
       }
+    }
 
     
   };
@@ -155,7 +158,7 @@ angular.module('app.services', [])
 
     return {
       query: query.bind(config),
-      apiUrls: apiUrls,
+      apiUrls: config.apiUrls,
       getConfig: getConfig
     }
 

@@ -101,7 +101,7 @@ function addFile(req, res, next) {
 
                 var outStream = fs.createWriteStream(uploadFile.path);
                 part.pipe(outStream);
-            };
+            }
                 else {
                     part.resume();
                 }

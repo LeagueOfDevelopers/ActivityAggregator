@@ -3,7 +3,7 @@ var admin = require('../api/admin');
 var students = require('../api/students');
 var achivments = require('../api/achivments');
 var multiparty = require('multiparty');
-var mail = require('../api/mail');
+var mail = require('../api/mailer');
 
 router.post('/auth/isAuth', students.isAuth);
 router.post('/auth/logout', students.logout);

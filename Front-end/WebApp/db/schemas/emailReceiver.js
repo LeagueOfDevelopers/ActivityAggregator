@@ -10,7 +10,9 @@ var receiver = new schema({
 	}, 
 	email: {
 		type: String,
-		required: true
+		required: true,
 		unique: true
 	}
 });
+
+module.exports = receiver;

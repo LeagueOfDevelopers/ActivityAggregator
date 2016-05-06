@@ -660,6 +660,7 @@ body {
   min-height: 100px;
   margin-bottom: 20px;
   padding: 15px;
+  padding-left: 5px;
   line-height: normal;
   @include cardShadow();
   -webkit-animation: fadeIn .2s ease-out;
@@ -733,10 +734,8 @@ body {
 @media (min-width: 640px) {
   .short_achivments_list {
   visibility: visible;
-  margin-left: 50px;
   display: inline-block;
   vertical-align: top;
-  width: 300px;
   line-height: 25px;
 }
 
@@ -1260,6 +1259,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   height: 70px;
   width: 70px;
   margin-right: 3px;
+  margin-top: 10px;
   border: 2px solid $mainColor;
 }
 
