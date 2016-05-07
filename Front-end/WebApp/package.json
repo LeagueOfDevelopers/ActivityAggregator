@@ -17,8 +17,8 @@
     "morgan": "*",
     "multiparty": "*",
     "ng-file-upload": "*",
-    "serve-favicon": "*",
-    "smtp-connection": "^2.4.0"
+    "nodemailer": "^2.3.2",
+    "serve-favicon": "*"
   },
   "devDependencies": {
     "chai": "^3.5.0",
