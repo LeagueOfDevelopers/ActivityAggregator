@@ -1,33 +1,42 @@
 <section class="page_content">
 	<div class="main_page_header">
-		 <div class="project_name small-12 medium-5 columns">
-		 	<div class="projectName_wrap">
-		 		<p class="projectName_title">Онлайн портфолио активных студентов НИТУ МИСиС</p>
-			</div>
-		 	<div class="small-12 medium-8 columns shortList_wrap">
-		 		<span class="shortList_title">Последние достижения</span>
-		 		<ul class="shortList_list">
-		 			<li class="shortList_item" ng-repeat="student in lastStudents">
-		 			<a ui-sref="profile({id: student._id})" class="shortList_itemLink">
-		 				<div class="studItem_avatar" style="{{avatar(student)}}"></div>
-		 				<ul class="studItem_details">
-		 				<li class="studItem_name" ng-bind="student.firstName + ' ' + student.lastName"></li>
-		 				<li ng-bind="student.department + ' ' + student.course + ' курс ' + student.group"></li>
-		 				</ul>
-		 				</a>
-		 				<a ui-sref="achivment_detail({achId: student.achivments[0]._id, owner: st})" class="studItem_achivment" ng-bind="student.achivments[0].name.slice(0, 30)"></a>
-		 			</li>
+		 <div class="project_name">
+		 		<div class="projectName_title">Онлайн портфолио активных студентов НИТУ МИСиС</div>
+		 <div class="short_info small-12 medium-7 columns">
+		 	<h1>Расскажите о своих лучших достижениях</h1>
+		 	<p class="shortInfo_description">Официальная база активистов университета МИСиС позволяет рассказывать о своих успехах в учебе, спорте, культуре и науке. <br> Кроме того, все достижения проверяются администрацией вуза и после подтверждения могут обеспечить вам повышенную стипендию.</p>
+
+		 		<ul class="shortInfo_steps row">
+		 			<li class="small-4 columns"><div class="shortInfo_icon"><div class="fa fa-user-plus"></div></div><div>Зарегистрируйтесь</div></li>
+		 			<li class="small-4 columns"><div class="shortInfo_icon"><div class="fa fa-trophy"></div></div><div>Добавьте достижения</div></li>
+		 			<li class="small-4 columns"><div class="shortInfo_icon"><div class="fa fa-check"></div></div><div>Получите подтверждение</div></li>
 		 		</ul>
+		 	
 		 	</div>
-		 </div>
-
-		 <div class="short_info small-12 medium-7 large-4 columns">
-		 	<h1>Расскажите о своих лучших достижениях и следите за самыми выдающимися студентами</h1>
-		 	<button class="mp_btn_registry" ui-sref='registry' ng-if="!(currentUser._id)">Регистрация</button>
-		 	<p>Официальная база активистов университета МИСиС позволяет рассказывать о своих успехах в учебе, спорте, культуре и науке. Кроме того, все достижения проверяются администрацией вуза и после подтверждения могут обеспечить вам повышенную стипендию.</p>
+		 	<div class="small-12 medium-5 columns mp_secondBlock">
+		 	<div class="row">
+		 	<div class="shortList_wrap small-12 columns">
+ 		<span class="shortList_title">Следите за выдающимися</span>
+ 		<ul class="shortList_list">
+ 			<li class="shortList_item" ng-repeat="student in lastStudents">
+ 			<a ui-sref="profile({id: student._id})" class="shortList_itemLink">
+ 				<div class="studItem_avatar" style="{{avatar(student)}}"></div>
+ 				<ul class="studItem_details">
+ 				<li class="studItem_name" ng-bind="student.firstName + ' ' + student.lastName"></li>
+ 				<li ng-bind="student.department + ' ' + student.course + ' курс ' + student.group"></li>
+ 				<li><a ui-sref="achivment_detail({achId: student.achivments[0]._id, owner: student})" class="studItem_achivment" ng-bind="student.achivments[0].name.slice(0, 30)"></a></li>
+ 				</ul>
+ 				</a>
+ 			</li>
+ 		</ul>
+ 		</div>
+		</div>
+		 	<div class="mp_ca" ng-if="!(currentUser._id)">
+		 	<span>Начните сейчас</span>
+		 	<button class="mp_btn_registry" ui-sref='registry' ng-if="!(currentUser._id)">Рассказать о себе</button>
 		 	</div>
 
-		 <div class="project_name third_block small-12 large-3 columns">
+		 	</div>
 		 </div>
 		
 	</div>

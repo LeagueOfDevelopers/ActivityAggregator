@@ -162,7 +162,6 @@ angular.module('app.controllers.partials',
       $scope.avatar = avatar;
       var studentsList;
       var viewItemCount = 5;
-
       getAllStudents();
 
       $scope.$watch('searchParams.category', function() {
@@ -184,10 +183,9 @@ angular.module('app.controllers.partials',
        })
 
       $scope.getMoreStudents = function() {
-        console.log(studentsList);
         var cropArr = studentsList;
         var newElems = cropArr.slice($scope.searchResults.length, $scope.searchResults.length + 3);
-        console.log(newElems);
+        
         $scope.searchResults = $scope.searchResults.concat(newElems);
       }
 
@@ -498,7 +496,7 @@ angular.module('app.controllers.main',
   function ($scope, $state, UserManager, $timeout, API) {
 
     //define default vars and consts
-     $scope.starting = true;
+     $scope.starting = false;
      $scope.BASE_URI = 'http://localhost:3000/';
      $scope.title = 'Онлайн портфолио активных студентов НИТУ МИСиС';
      $scope.showMessage = false;
@@ -581,16 +579,15 @@ angular.module('app.controllers.main',
 
       function startLoad(e, args) {
 
-        if(!$scope.onLoad[args.field]) console.log('field' + args.field + 'is not defined');
-        console.log(args.field);
-        $scope.onLoad[args.field] = true;
+        if(!$scope.onLoad[args.field]) console.log('field' + args.field + ' is not defined');
+        else $scope.onLoad[args.field] = true;
+
       };
 
       function stopLoad(e, args) {
 
         if(!$scope.onLoad[args.field]) console.log('field' + args.field + 'is not defined');
-
-        $scope.onLoad[args.field] = false;
+        else $scope.onLoad[args.field] = false;
         
       };
 
@@ -645,7 +642,7 @@ angular.module('app.services', [])
             logout: {
               method: 'POST',
               url: function(params) {
-                return '/api' + '/logout';
+                return '/api/auth' + '/logout';
               }
             }
           },

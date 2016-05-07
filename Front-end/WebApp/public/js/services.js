@@ -22,7 +22,7 @@ angular.module('app.services', [])
             logout: {
               method: 'POST',
               url: function(params) {
-                return '/api' + '/logout';
+                return '/api/auth' + '/logout';
               }
             }
           },

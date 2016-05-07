@@ -12,7 +12,7 @@ angular.module('app.controllers.main',
   function ($scope, $state, UserManager, $timeout, API) {
 
     //define default vars and consts
-     $scope.starting = true;
+     $scope.starting = false;
      $scope.BASE_URI = 'http://localhost:3000/';
      $scope.title = 'Онлайн портфолио активных студентов НИТУ МИСиС';
      $scope.showMessage = false;
@@ -95,16 +95,15 @@ angular.module('app.controllers.main',
 
       function startLoad(e, args) {
 
-        if(!$scope.onLoad[args.field]) console.log('field' + args.field + 'is not defined');
-        console.log(args.field);
-        $scope.onLoad[args.field] = true;
+        if(!$scope.onLoad[args.field]) console.log('field' + args.field + ' is not defined');
+        else $scope.onLoad[args.field] = true;
+
       };
 
       function stopLoad(e, args) {
 
         if(!$scope.onLoad[args.field]) console.log('field' + args.field + 'is not defined');
-
-        $scope.onLoad[args.field] = false;
+        else $scope.onLoad[args.field] = false;
         
       };
 

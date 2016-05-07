@@ -41,7 +41,7 @@ function getAchivmentDetail(req, res, next) {
 function addFile(req, res, next) {
     var form = new multiparty.Form();
     var uploadFile = {uploadPath: '', type: '', size: 0},
-    maxSize = 2 * 1024 * 1024,
+    maxSize = config.maxSize,
     supportMimeTypes = config.types,
     errors = [];
 

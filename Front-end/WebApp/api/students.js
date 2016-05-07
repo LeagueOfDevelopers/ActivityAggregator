@@ -5,6 +5,7 @@ var path = require("path");
 var util = require('util');
 var multiparty = require('multiparty');
 var userStrategy = require('./user');
+var mailer = require('./mailer');
 
 var User = new userStrategy(Student);
 
@@ -20,7 +21,8 @@ module.exports = {
 	changeAvatar: changeAvatar,
 	updateStudentDetail: updateStudentDetail,
 	updateSession: updateSession,
-	getLast: getLast
+	getLast: getLast,
+	isStudent: isStudent
 };
 
 function login(req, res, next) {
@@ -71,6 +73,7 @@ function updateSession(req, res, next) {
 
 function isStudent(req, res, next) {
 	if(req.session.user && req.session.user.group) {
+		console.log('is student');
 		next();
 	} else {
 		res.send('auth required')
@@ -108,7 +111,7 @@ function addStudent(req, res, next) {
 
 		student.save(function(err) {
 			if(!err) {
-				res.end('student added')
+				res.end('student added');
 			} else {
 				res.send(err);
 			}

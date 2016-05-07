@@ -7,7 +7,7 @@
           <input type="text" name="name" max-lenght="15" value="" placeholder="Найти студента" class="search_student_input small-12 medium-4 columns" ng-model='searchParams.name'/>
           <button type=submit class="columns medium-1 btn_start_search" ng-click='getStudentsList(searchParams)'><i class=" fa fa-search"></i></button>
 
-          <span class="category_label columns medium-2">По категории</span>
+          <span class="category_label columns medium-2"></span>
             <select name="category" class="select_category small-12 medium-5 columns" ng-model='searchParams.category'>
               <option>Спорт</option>
               <option>Культура</option>
@@ -25,7 +25,7 @@
       <ul class="students_list students_base_container" ng-if="searchResults.length != 0 && !loadData.common" ng-cloak>
         <li class="student_card ng-cloak" ng-repeat='student in searchResults' ng-cloak>
         <div class="row">
-        <div class=" small-12 medium-4 columns">
+        <div class=" small-12 medium-5 columns">
           <div class="avatar" style="{{avatar(student)}}"></div>
           <ul class="profile_detail">
             <li class="first_name" ng-bind="student.firstName + ' ' + student.lastName"></li>

@@ -2,6 +2,7 @@ var fs = require('fs');
 var path = require('path');
 var Admin = require('../db/mongoose').models.Admin;
 var Student = require('../db/mongoose').models.Student;
+var mailer = require('./mailer');
 
 module.exports = {
   login: login,
@@ -128,8 +129,9 @@ function confirmAchivment(req, res, next) {
     }).exec(function(err, data) {
 
       if(err) res.send(err);
-
+      else {
         res.send(data);
+      }
      });
   } else {
     res.send('admin permissions required')
@@ -161,8 +163,12 @@ function confirmStudent(req, res, next) {
     if(err) res.send(err);
     else if(student) {
       student.status = 1;
+      mailer.send({receiver: student.email, subject: 'Регистрация на платформе', text: 'Ваша регистрация одобрена'}, function(err, info) {
+        console.log(err);
+        console.log(info);
+      });
       student.save(function(data) {
-        res.send('ok')
+        res.send('ok');
       }) } else {
         res.send('student not found');
       }

@@ -2,7 +2,7 @@ var config = require('../config.js').smtp;
 var nodemailer = require('nodemailer');
 
 module.exports = {
-	testSend: testSend
+	send: send
 };
  
 var transporter = nodemailer.createTransport(
@@ -15,20 +15,19 @@ var transporter = nodemailer.createTransport(
     	}
 });
  
-function testSend(params, callback) {
+function send(params, callback) {
 
 	var mailOptions = {
 	    from: config.sender, 
-	    to: params.to, 
+	    to: params.receiver, 
 	    subject: params.subject,  
 	    text: params.text, 
-	    html: params.html 
+	    html: params.html || null 
 	};
 	 
 
 	transporter.sendMail(mailOptions, function(err, info){
-	    if(err) callback(err)
-	    else callback(info);
+	    callback(err, info);
 	});
 
 };

@@ -59,7 +59,6 @@ angular.module('app.controllers.partials',
       $scope.avatar = avatar;
       var studentsList;
       var viewItemCount = 5;
-
       getAllStudents();
 
       $scope.$watch('searchParams.category', function() {
@@ -81,10 +80,9 @@ angular.module('app.controllers.partials',
        })
 
       $scope.getMoreStudents = function() {
-        console.log(studentsList);
         var cropArr = studentsList;
         var newElems = cropArr.slice($scope.searchResults.length, $scope.searchResults.length + 3);
-        console.log(newElems);
+        
         $scope.searchResults = $scope.searchResults.concat(newElems);
       }
 

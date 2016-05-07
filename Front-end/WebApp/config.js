@@ -2,7 +2,8 @@ module.exports.files = {
 	achivmentsDocs: {
 		path: './public/storage/students/',
 		link: './storage/students/',
-		types: ['image/png', 'image/jpg', 'image/jpeg', 'application/pdf']
+		types: ['image/png', 'image/jpg', 'image/jpeg', 'application/pdf'],
+		maxSize: 1024 * 1024 * 2
 	},
 	students: {
 		avatar : {

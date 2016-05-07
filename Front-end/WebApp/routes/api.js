@@ -17,6 +17,7 @@ router.get('/students/:student_id/achivments/:ach_id', achivments.getAchivmentDe
 router.post('/students/', students.addStudent);
 
 router.post('/login', students.login);
+router.post('/students/:id/*', students.isStudent);
 router.post('/students/:id/avatar', students.changeAvatar);
 router.post('/students/:id', students.updateStudentDetail);
 router.post('/students/:id/achivments', achivments.newAchivment);
@@ -36,6 +37,6 @@ router.post('/admin/invite/:id', admin.getInviteCode)
 router.post('/admin/login', admin.login);
 router.post('/admin', admin.newAdmin);	
 
-router.post('/mailTest/:text', mail.testSend);
+router.post('/mailTest/:text', mail.send);
 
 module.exports = router;

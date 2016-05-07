@@ -70,7 +70,7 @@ html {
 }
 
 body {
-  font-family:  Calibri, sans-serif !important;
+  font-family:  Calibri, Ubuntu, sans-serif !important;
   height: 100%  !important;
   background-color: $bodyColor !important;
   overflow-x: hidden;
@@ -217,7 +217,7 @@ body {
   height: 100%;
   box-sizing: border-box;
   color: #fff;
-  font-size: 18px;
+  font-size: 20px;
   border-bottom: 0px solid rgba(255, 255, 255, 0);
   border-button-width: 0px;
   @include trans(.2s, ease-out);
@@ -588,7 +588,7 @@ body {
   display: block;
   margin-top: 15px;
   color: $fontColor;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: bold;
 
 }
@@ -990,7 +990,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 
 .project_name {
   background: #fff;
-  background-image: url(../img/main_bg.png);
   background-size: cover;
   position: relative;
   }
@@ -1001,18 +1000,53 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 
 .project_name p {
-  padding: 5px;
+  padding: 15px;
   color: $fontColor;
   display: block;
   font-size: 30px;
   font-weight: bold;
   line-height: 50px;
   background: #fff;
+  background-image: url(../img/main_bg.png);
+  background-size: cover;
+}
+
+.short_info {
+  height: auto;
 }
 
 .short_info p {
-  font-size: 16px;
+  font-size: 22px;
   margin-top: 10px;
+  background: transparent;
+  color: #fff;
+  line-height: 28px;
+  font-weight: normal;
+}
+
+.short_info h1{
+  text-align: center;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 10px;
+  margin-top: 10px;
+}
+
+
+.shortInfo_steps {
+  margin: 40px auto;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.shortInfo_icon {
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
+  font-size: 60px;
+}
+
+.shortInfo_steps li {
+  text-align: center;
 }
 
 #thirdB {
@@ -1021,19 +1055,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 
 @media only screen and (min-width: 960px) {
 
-.project_name p {
-  margin-right: -15p;
-}
 
-.third_block {
-  display: inline-block;
-  visibility: visible;
-}
-
-.short_info p {
-  font-size: 18px;
-  margin-top: 20px;
-}
 
 }
 
@@ -1041,20 +1063,23 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   background: $mainColor;
   color: #fff;
   position: relative;
+  padding-bottom: 20px;
+  @include cardShadow();
 }
 
-.short_info button  {
+.mp_btn_registry  {
   color: #fff;
   border: 2px solid #fff;
-  padding: 10px 14px;
+  padding: 16px 14px !important;
   font-size: 18px;
   border-radius: 7px;
   margin-left: 10px;
   font-weight: bold;
   @include trans(.2s, ease-out);
+  margin-top: 10px;
 }
 
-.short_info button:hover {
+.mp_btn_registry:hover {
   cursor: pointer;
   color: $mainColor;
   background: #fff;
@@ -1295,34 +1320,62 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .projectName_wrap {
   position: relative;
   background: #fff;
-  padding: 5px;
   margin-top: 10px;
-
 }
 
 .projectName_title {
-  font-family:  DaysSans;
+  font-family:  sans-serif;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 26px;
   display: block;
+  background: #fff;
+  padding: 15px;
+  text-align: center;
+}
+
+.mp_ca {
+  background: $mainColor;
+  color: #fff;
+  margin-top: 10px;
+  height: 120px;
+  @include cardShadow();
+}
+
+.mp_ca span {
+  display: block;
+  font-size: 24px;
+  margin-left: 10px;
 }
 
 .shortList_wrap {
   background: #fff;
-  border-radius: 8px;
-  padding: 10px;
   height: auto;
-  max-height: 320px;
-  margin-top: 30px;
+  max-height: 330px;
+  width: 100%;
+  padding: 0 !important;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  @include cardShadow();
+}
+
+.mp_btn_registry {
+  padding: 5px;
+  border: 2px solid #fff;
+  @include border-r(7px);
 }
 
 .shortList_title {
   font-weight: bold;
-  font-size: 24px;
-  color: $fontColor;
+  color: #fff;
+  font-size: 26px;
+  padding: 15px;
+  background-color: $mainColor;
   margin: 0 auto;
+  width: 100%;
   margin-bottom: 8px;
   display: block;
+  text-align: center;
+
 }
 
 .shortList_list {
@@ -1333,10 +1386,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   position: relative;
   margin: 5px;
   display: block;
+  background: #fafafa;
+  padding: 5px;
 }
+
+.circled {
+  @include border-r(7px);
+}
+
 .shortList_item  a {
   display: block;
-  color: #000;
+  color: #000; 
 }
 
 .shortList_item  a:hover{
@@ -1345,8 +1405,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 
 .studItem_avatar {
   box-sizing: border-box;
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
   display: inline-block;
   clear: both;
   background-size: cover;
@@ -1362,7 +1422,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .studItem_details {
   position: absolute;
   top: 0;
-  left: 60px;
+  left: 70px;
 }
 
 .studItem_details li {
