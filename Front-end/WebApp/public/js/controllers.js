@@ -196,17 +196,20 @@ angular.module('app.controllers.partials',
       '$stateParams',
       '$window',
      function($scope, $state, API, $stateParams, $window){
+      
         var ach = {};
         var owner = {};
         $scope.visiblePhoto = false;
         $scope.$emit('loadData', {field: 'common'});
+
         API.query('achivments.getDetail', 
+
                   {
+
                     achId: $stateParams.achId, 
                     studentId: $stateParams.studentId 
 
                   }).then(function(res) {
-                    console.log(res);
                     if(res.data) {
                       ach = res.data.achivment;
                       owner = res.data.owner;
@@ -222,7 +225,7 @@ angular.module('app.controllers.partials',
                         case 'study' : type = 'Учеба'; break;
                         case 'business' : type = 'Предпринимательство'; break;
                         case 'international' : type = 'Межкультурный диалог'; break;
-                      }
+                      };
 
                       var cr = new Date();
                       cr.setTime(Date.parse(ach.created));
@@ -232,6 +235,37 @@ angular.module('app.controllers.partials',
                       $scope.achivment.owner = owner;
                       $scope.achivment.created =  cr.getDate() + '.' + (cr.getMonth() + 1) + '.' + cr.getFullYear();
                       $scope.$emit('loadData_done', {field: 'common'});
+
+                      var details = {
+                        type: {
+                          title: "категория"
+                        },
+                        level: {
+                          title: "уровень"
+                        },
+                        created: {
+                          title: "получено"
+                        },
+                        organization: {
+                          title: "организация"
+                        },
+                        result: {
+                          title: "результат"
+                        },
+                        checked: {
+                          title: "подтверждено"
+                        }
+                      };
+
+                      $scope.details = {};
+
+                      details.forEach(function(item, key) {
+                        $scope.details[key] = {};
+                        $scope.details[key].title = item.title;
+                        $scope.details[key].value = $scope.achivment[key];
+                      });
+
+                      console.log($scope.details);
                   });
         
 
@@ -244,7 +278,7 @@ angular.module('app.controllers.partials',
             $scope.photoToShow = photo;
             $scope.visiblePhoto = true;
           } else {
-            var url = 'http://162.243.78.140' + photo.slice(1, photo.length);
+            var url = $scope.BASE_URL + photo.slice(1, photo.length);
             $window.open(url);
           }
          }
@@ -338,8 +372,7 @@ angular.module('app.controllers.partials',
 
     $scope.submit = function() {
       if($scope.auth.$valid) {
-      console.log($scope.auth);
-      console.log($scope.auth.$valid);
+
       $http.post('/api/login', $scope.auth).success(function(res) {
         console.log(res); 
         if(res.data) {

@@ -124,8 +124,6 @@ function newAchivment(req, res, next) {
     achivment[key] = fields[key];
  });
 
- console.log(achivment);
-
  Student.findById(req.params.id, function(err, doc) {
     if(err) res.send(err);
     doc.achivments.push(achivment);

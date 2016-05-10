@@ -13,7 +13,7 @@ angular.module('app.controllers.main',
 
     //define default vars and consts
      $scope.starting = false;
-     $scope.BASE_URI = 'http://localhost:3000/';
+     $scope.BASE_URI = API.baseUrl;
      $scope.title = 'Онлайн портфолио активных студентов НИТУ МИСиС';
      $scope.showMessage = false;
      $scope.msg = {

@@ -8,6 +8,8 @@ angular.module('app.services', [])
 
   var config = {
 
+        baseUrl: 'http://162.243.78.140',
+
          apiUrls : {
 
           user: {
@@ -158,6 +160,7 @@ angular.module('app.services', [])
 
     return {
       query: query.bind(config),
+      baseUrl: config.baseUrl,
       apiUrls: config.apiUrls,
       getConfig: getConfig
     }

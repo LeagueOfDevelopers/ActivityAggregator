@@ -340,123 +340,13 @@
 			}
 		},
 		{
-			"file": "api/mailer.js",
+			"contents": "\n   <section class=\"page_content\">\n    <div class=\"vertical_offset\">\n    <div class=\"row\">\n        <div class=\"achD_card small-12 medium-9 medium-centered columns\">\n\n        <div class=\"row\">\n            <div class=\"preloader_wrapper sB_preloader\" ng-if=\"onLoad.common\">\n      <div class=\"preloader\"></div>\n      <div class=\"preloader_circle\"></div>\n      </div>\n\n            <div class=\"achD_title small-12 columns\"ng-bind=\"achivment.name\"></div>\n            <a ui-sref=\"profile({id: achivment.owner._id})\" class=\"achD_ownerLink\" ng-bind=\"achivment.owner.firstName + ' ' + achivment.owner.lastName\"></a>\n        </div>\n        \n\n            <div class=\"row\" ng-if=\"!onLoad.common\">\n            <div class=\"achD_details small-12 medium-8 columns\">\n                <ul class=\"achD_detailsList small-12 columns\">\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel small-4 columns\">Категория</span>\n                    <span class=\" achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.type\"></span>\n                    </li>\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel  small-4 columns\">Уровень</span>\n                    <span class=\"achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.level\"></span>\n                    </li>\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel  small-4 columns \">Организация</span>\n                    <span class=\"achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.organization\"></span>\n                    </li>\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel  small-4 columns\">Результат</span>\n                    <span class=\"achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.result\"></span>\n                    </li>\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel  small-4 columns\">Получено</span>\n                    <span class=\"achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.created\"></span>\n                    </li>\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel  small-4 columns\">Статус</span>\n                    <span class=\"achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.checked ? 'Подтверждено' : 'Не подтверждено'\"></span>\n                    </li>\n                </ul>\n            </div>\n\n            <div class=\"achD_files small-12 medium-3 columns\">\n                <ul class=\"achD_filesList\">\n                    <li ng-repeat=\"file in achivment.files\">\n                        <div class=\"achD_filePrev\" style=\"background-image: url({{isPdf(file) ? '../icons/interface.png' : file}}); background-size: cover;\" ng-click='$parent.showPhoto(file)'></div>\n                    </li>\n                </ul>\n            </div>\n\n            <div class=\"row\"></div>\n            <div class=\"achD_rejected small-12 columns\" ng-if=\"achivment.message\">\n                <p class=\"achD_rejectedMsg\"ng-bind=\"'Отказано: ' + achivment.message \"></p>\n            </div>\n\n            <div class=\"achD_description small-12 columns\">\n                <p class=\"achD_desctiptionP\" ng-bind=\"achivment.description\"></p>\n            </div>\n\n        </div>\n    </div>\n    </div>\n</section>\n\n<div class=\"fp_backdrop\" ng-if='visiblePhoto' ng-click='$parent.visiblePhoto = false'>\n<img class='small-centered columns' src=\"{{photoToShow}}\" alt=\"\">\n\n</div>",
+			"file": "public/partials/achivment.html",
+			"file_size": 3641,
+			"file_write_time": 131073483287613220,
 			"settings":
 			{
-				"buffer_size": 591,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "api/students.js",
-			"settings":
-			{
-				"buffer_size": 5367,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "api/admin.js",
-			"settings":
-			{
-				"buffer_size": 4650,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "db/schemas/student.js",
-			"settings":
-			{
-				"buffer_size": 1927,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "db/schemas/emailReceiver.js",
-			"settings":
-			{
-				"buffer_size": 250,
-				"line_ending": "Windows",
-				"name": "emailReceivers.js"
-			}
-		},
-		{
-			"file": "api/achivments.js",
-			"settings":
-			{
-				"buffer_size": 3794,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "config.js",
-			"settings":
-			{
-				"buffer_size": 684,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app.js",
-			"settings":
-			{
-				"buffer_size": 2146,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "routes/api.js",
-			"settings":
-			{
-				"buffer_size": 1918,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/partials/studentsBase.html",
-			"settings":
-			{
-				"buffer_size": 3491,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/js/controllers.js",
-			"settings":
-			{
-				"buffer_size": 11871,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/js/services.js",
-			"settings":
-			{
-				"buffer_size": 4813,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/js/controllers_main.js",
-			"settings":
-			{
-				"buffer_size": 3285,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/js/build/build.js",
-			"settings":
-			{
-				"buffer_size": 22406,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/js/app.js",
-			"settings":
-			{
-				"buffer_size": 2393,
+				"buffer_size": 3483,
 				"line_ending": "Windows"
 			}
 		},
@@ -464,57 +354,42 @@
 			"file": "public/styles/main.scss",
 			"settings":
 			{
-				"buffer_size": 36018,
+				"buffer_size": 35952,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "public/partials/main.html",
+			"contents": "\n/* Controllers */\nangular.module('app.controllers',\n[\n'app.controllers.main',\n'app.controllers.partials',\n'ui.router'\n]);\n\n\nangular.module('app.controllers.partials',\n[ \n  'ui.router'\n])\n  \n  .controller('indexCtrl',\n   ['$scope',\n    'API',\n    'avatar',\n   function($scope, API, avatar){\n\n      var studentsLimit = 3;\n      $scope.lastStudents = [];\n      $scope.avatar = avatar;\n      API.query('students.getLast', null, true).then(function(res) {\n        var result = res.data;\n         result = result.map(function(student) {\n          student.achivments = student.achivments.filter(function(ach) {\n            return ach.checked;\n          });\n          student.achivments = student.achivments.sort(function(a, b) {\n             var aCr = new Date();\n             aCr.setTime(Date.parse(a.created));\n             var bCr = new Date();\n             bCr.setTime(Date.parse(b.created));\n             return a > b ? 1 : -1\n          });\n          student.achivments = student.achivments.reverse();\n          return student;\n        });\n         console.log(result);\n        \n          $scope.lastStudents = result.slice(0, studentsLimit);\n        \n      })\n      \n  }])\n\n  .controller('studentsBaseCtrl',\n   ['$scope',\n    '$http',\n    'API',\n    'avatar',\n   function ($scope, $http, API, avatar) {\n\n      $scope.$emit('changeTitle', {title: 'База активистов НИТУ МИСиС'});\n      $scope.$emit('loadData', {field: 'common'});\n\n      $scope.avatar = avatar;\n      var studentsList;\n      var viewItemCount = 5;\n      getAllStudents();\n\n      $scope.$watch('searchParams.category', function() {\n        $scope.searchParams.name = '';\n        var category = '';\n        switch($scope.searchParams.category) {\n          case 'Наука' : category = 'science';  break;\n          case 'Общественная деятельность' : category = 'social'; break;\n          case 'Культура' : category = 'cultural'; break;\n          case 'Спорт' : category = 'sport'; break;\n          case 'Учеба' : category = 'study'; break;\n          case 'Предпринимательство' : category = 'business'; break;\n          case 'Межкультурный диалог' : category = 'international'; break;\n          case 'Все' : category = ''; break;\n        }\n         \n        $scope.getStudentsList({name: '', category: category});\n        \n       })\n\n      $scope.getMoreStudents = function() {\n        var cropArr = studentsList;\n        var newElems = cropArr.slice($scope.searchResults.length, $scope.searchResults.length + 3);\n        \n        $scope.searchResults = $scope.searchResults.concat(newElems);\n      }\n\n      $scope.getStudentsList = function(searchParams) {\n         $scope.$emit('loadData', {field: 'common'});\n         $scope.searchResults = {};\n\n         if(searchParams.category == '' && searchParams.name == '' ) {\n            getAllStudents();\n         } else {\n          API.query('students.search', {searchParams: searchParams}, true).then(function(result) {\n            studentsList = result.data;\n            var cropArr = studentsList;\n            $scope.searchResults = cropArr.slice(0, 4);\n            $scope.$emit('loadData_done', {field: 'common'});\n          })\n        }\n      };\n\n      function getAllStudents() { \n\n        API.query('students.get', null, true).then(function(result) {\n          studentsList = result.data.reverse();\n          var cropArr = studentsList;\n          $scope.searchResults = cropArr.slice(0, 4);\n           $scope.$emit('loadData_done', {field: 'common'});\n        })\n      }\n    }\n\n  ]) \n\n  .controller('accountCtrl',\n   ['$scope',\n    '$http',\n    '$state',\n    'Upload',\n    'avatar',\n   function ($scope, $http, $state, Upload, avatar) {\n\n    $scope.$emit('changeTitle', {title: 'Профиль студента'});    \n    $scope.$emit('needAuth');\n    $scope.avatar = avatar;\n    $scope.showEditField = false;\n    $scope.userDetail = $scope.currentUser; \n    $scope.oldAbout = '';\n    $scope.newUserDetail = '';\n\n    $scope.$on('userUpdated', function() {\n      $state.reload();\n    });\n\n      $scope.editUserDetail = function () {\n        $scope.showEditField= true;\n        $scope.newUserDetail = $scope.userDetail.about;\n        $scope.oldAbout = $scope.userDetail.about;\n        $scope.userDetail.about = '';\n      };\n\n      $scope.applyChanges = function () {    \n        console.log($scope.newUserDetail);\n        $scope.userDetail.about = $scope.newUserDetail;\n        $http.post('/api/students/' + $scope.currentUser._id, {about : $scope.newUserDetail}).success(function(data) {\n          $scope.$emit('showMessage', {msg: 'Информация успешно изменена',  type: 'good'});\n        });\n        $scope.showEditField = false;    \n      };\n\n      $scope.notApplyChanges = function () {\n          $scope.showEditField = false;\n          $scope.newUserDetail = '';\n          $scope.userDetail.about = $scope.oldAbout;\n      };\n\n      $scope.uploadAvatar = function(avatar) {\n        Upload.upload({\n            url: '/api/students/' + $scope.currentUser._id + '/avatar',\n            data: {avatar : avatar}\n          }).then(function(res) {\n            $scope.$emit('userUpdate');\n            $scope.$emit('showMessage', {msg: 'Аватар успешно изменен',  type: 'good'});\n           \n          })\n\n      };\n    }\n  ])\n  \n  .controller('profileCtrl',\n   ['$scope',\n    '$http',\n    '$stateParams',\n    'avatar',\n   function($scope, $http, $stateParams, avatar){\n\n     $scope.avatar = avatar;\n     $scope.student = {};\n     $scope.$emit('loadData', {field: 'common'});\n     $http.get('/api/students/' + $stateParams.id).success(function(data) {\n     console.log(data);\n     $scope.student = data;\n     $scope.$emit('loadData_done', {field: 'common'});\n     })\n\n  }])\n\n  .controller('achCtrl', \n    ['$scope', \n      '$state', \n      'API',\n      '$stateParams',\n      '$window',\n     function($scope, $state, API, $stateParams, $window){\n\n        var ach = {};\n        var owner = {};\n        $scope.visiblePhoto = false;\n        $scope.$emit('loadData', {field: 'common'});\n\n        API.query('achivments.getDetail', \n\n                  {\n\n                    achId: $stateParams.achId, \n                    studentId: $stateParams.studentId \n\n                  }).then(function(res) {\n                    if(res.data) {\n                      ach = res.data.achivment;\n                      owner = res.data.owner;\n                    }\n\n                    var type = '';\n\n                      switch(ach.type) {\n                        case 'science' : type = 'Наука';  break;\n                        case 'social' : type = 'Общественная деятельность'; break;\n                        case 'cultural' : type = 'Культура'; break;\n                        case 'sport' : type = 'Спорт'; break;\n                        case 'study' : type = 'Учеба'; break;\n                        case 'business' : type = 'Предпринимательство'; break;\n                        case 'international' : type = 'Межкультурный диалог'; break;\n                      };\n\n                      var cr = new Date();\n                      cr.setTime(Date.parse(ach.created));\n\n                      $scope.achivment = ach;\n                      $scope.achivment.type = type;\n                      $scope.achivment.owner = owner;\n                      $scope.achivment.created =  cr.getDate() + '.' + (cr.getMonth() + 1) + '.' + cr.getFullYear();\n                      $scope.$emit('loadData_done', {field: 'common'});\n\n                      var details = {\n                        type: {\n                          title: \"категория\"\n                        },\n                        level: {\n                          title: \"уровень\"\n                        },\n                        created: {\n                          title: \"получено\"\n                        },\n                        organization: {\n                          title: \"организация\"\n                        },\n                        result: {\n                          title: \"результат\"\n                        },\n                        checked: {\n                          title: \"подтверждено\"\n                        }\n                      };\n\n                      $scope.details = {};\n\n                      details.forEach(function(item, key) {\n                        $scope.details[key] = {};\n                        $scope.details[key].title = item.title;\n                        $scope.details[key].value = $scope.achivment[key];\n                      });\n\n                      console.log($scope.details);\n                  });\n        \n\n        $scope.isPdf = function(photo) {\n          return !(photo.split('.').indexOf('pdf') == -1);\n        }\n         \n        $scope.showPhoto = function(photo) {\n          if(!$scope.isPdf(photo)) {\n            $scope.photoToShow = photo;\n            $scope.visiblePhoto = true;\n          } else {\n            var url = $scope.BASE_URL + photo.slice(1, photo.length);\n            $window.open(url);\n          }\n         }\n       }])\n\n  .controller('newAchCtrl',\n    ['$scope',\n     '$http',\n     '$timeout',\n     'Upload',\n     '$state',\n    function($scope, $http, $timeout, Upload, $state) {\n\n    $scope.newAch = {};    \n    $scope.type = 'Наука';\n    $scope.files = [];\n    $scope.selectedFiles = [];\n    $scope.$watch('type', function() {\n\n      var category = '';\n        switch($scope.type) {\n          case 'Наука' : category = 'science';  break;\n          case 'Общественная деятельность' : category = 'social'; break;\n          case 'Культура' : category = 'cultural'; break;\n          case 'Спорт' : category = 'sport'; break;\n          case 'Учеба' : category = 'study' ; break;\n          case 'Предпринимательство' : category = 'business'; break;\n          case 'Межкультурный диалог' : category = 'international'; break;\n        }\n        $scope.newAch.type = category;\n    });\n     \n\n    $scope.isValid =  function () {\n            return ($scope.files.length != 0) \n            && $scope.newAch.name\n            && $scope.newAch.result\n            && $scope.newAch.organization;\n          };\n\n    $scope.uploadFile = function(file) {\n      console.log(file);\n      if(file.name && $scope.selectedFiles[file] != -1 ) {\n      $scope.$emit('loadData', {field: 'file'});\n      $scope.selectedFiles.push(file);\n      Upload.upload({\n        url: '/api/students/' + $scope.currentUser._id + '/achivments/file',\n        data: {file: file}\n          }).then(function(res) {\n            console.log(res);\n              $scope.$emit('loadData_done', {field: 'file'});\n            if(!res.data) {\n              $scope.$emit('showMessage', {msg: 'Произошла ошибка',  type: 'bad'});\n            } else {\n              $scope.$emit('showMessage', {msg: 'Файлы отправлены',  type: 'good'});\n              $scope.files.push(res.data.fileLink);\n            }\n         })\n        } else {\n          $scope.$emit('showMessage', {msg: 'Файл уже выбран',  type: 'bad'});\n        }\n\n         $scope.isPdf = function(photo) {\n          return !(photo.split('.').indexOf('pdf') == -1);\n        }\n    };      \n  \n    $scope.submit = function() {\n      if ($scope.isValid()) {\n        $scope.$emit('waiting')\n        $scope.newAch.owner_id = $scope.currentUser._id;\n        $scope.newAch.files = $scope.files;\n          $http.post('/api/students/' + $scope.currentUser._id + '/achivments/', $scope.newAch).success(function(res) {\n            $scope.$emit('showMessage', {msg: 'Достижение добавлено, ожидайте подтверждения',  type: 'good'});\n            $scope.$emit('userUpdate');\n            $state.go('studentsBase');\n          })\n      } else {\n        $scope.$emit('showMessage', {msg: 'Заполните все поля формы и добавьте подтверждающие документы',  type: 'bad'})\n      }\n\n    }\n  }])\n\n  .controller('authCtrl',\n   ['$scope',\n    '$http',\n    'UserManager', \n    '$state',\n   function($scope, $http, UserManager, $state){\n\n    $scope.submit = function() {\n      if($scope.auth.$valid) {\n\n      $http.post('/api/login', $scope.auth).success(function(res) {\n        console.log(res); \n        if(res.data) {\n          $scope.$emit('auth');\n          $state.go('studentsBase');\n        } else {\n          $scope.$emit('showMessage', {msg: 'Студент не найден, проверьте введенные данные', type: 'bad'});\n        }\n      })\n     }\n    };\n  }])\n\n  .controller('registryCtrl', \n    ['$scope', \n     '$state', \n     '$http', \n    function($scope, $state, $http){\n\n    $scope.newStudent = {};\n\n\n    $scope.submit = function() {\n      if($scope.newStudent.$valid && $scope.newStudent.password == $scope.checkPassword) {\n       $http({\n          method  : 'POST',\n          url     : '/api/students/',\n          data    : $scope.newStudent\n          \n         }).success(function(res) {\n          $scope.$emit('showMessage', {msg: 'Регистрация прошла успешно, ждите верификации', type: 'good'});\n          $state.go('auth')\n         })\n      \n    }\n    };\n\n  }])\n",
+			"file": "public/js/controllers.js",
+			"file_size": 13874,
+			"file_write_time": 131073495589743262,
 			"settings":
 			{
-				"buffer_size": 2199,
+				"buffer_size": 12842,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "public/partials/profile_another.html",
+			"file": "public/js/services.js",
 			"settings":
 			{
-				"buffer_size": 1892,
+				"buffer_size": 4887,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "db/schemas/receiverGroup.js",
+			"file": "public/js/controllers_main.js",
 			"settings":
 			{
-				"buffer_size": 245,
-				"line_ending": "Windows",
-				"name": "receiverGroups.js"
-			}
-		},
-		{
-			"file": "db/schemas/emailTemplate.js",
-			"settings":
-			{
-				"buffer_size": 387,
-				"line_ending": "Windows",
-				"name": "emailTemplate.js"
-			}
-		},
-		{
-			"file": "api/user.js",
-			"settings":
-			{
-				"buffer_size": 1107,
+				"buffer_size": 3272,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "public/admin/js/admin_controllers.js",
+			"file": "public/js/app.js",
 			"settings":
 			{
-				"buffer_size": 6225,
+				"buffer_size": 2361,
 				"line_ending": "Windows"
 			}
 		}
@@ -606,53 +481,58 @@
 	[
 		"/C/Users/user pc/Desktop/test",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/lib",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/routes"
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles/lib/font-awesome"
 	],
 	"file_history":
 	[
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/models/admin.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/admin_controllers.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/user.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/emailTemplate.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/receiverGroup.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/profile_another.html",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/main.html",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles/main.scss",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/app.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/build/build.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/controllers_main.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/services.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/node_modules/nodemailer/README.md",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/controllers.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/studentsBase.html",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/routes/api.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/app.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/package.json",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/achivments.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/emailReceiver.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/student.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/admin.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/students.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/mailer.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/config.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/models/admin.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/models/student.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/mongoose.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/profile.html",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/controllers_main.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/app.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/controllers.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles/main.scss",
 		"/C/Users/user pc/Desktop/ыв/Новый текстовый документ.txt",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/admin.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/admin.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/achivment.html",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/config.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/auth.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/achivment.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/mail.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/routes/api.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/services.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/main.html",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/user.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/students.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/_test/test-helper.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles/load.css",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/achivment.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/student.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/commonMethods.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles/main.css",
 		"/C/Users/user pc/Google Диск/AU_15/2 семестр/ООП/Практика/9 норматив/n9_s3_52.txt",
 		"/C/Users/user pc/Google Диск/AU_15/2 семестр/ООП/Практика/9 норматив/n9_s3_47.txt",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/common.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/addAchivment.html",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/profile_another.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/views/index.jade",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/studentsBase.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/registry.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/controllers_main.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/admin_controllers.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/admin_app.js",
 		"/C/Users/user pc/Dropbox/repos/Movie-Extended/WA/routes/index.js",
 		"/C/Users/user pc/Downloads/of_v0.9.3_vs_release/INSTALL.md",
@@ -661,7 +541,6 @@
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles/ring.css",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/admin_inbox.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/profile.html",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/app.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/routes/index.js",
 		"/C/Program Files/iisnode/www/helloworld/web.config",
 		"/C/Program Files/iisnode/www/helloworld/hello.js",
@@ -677,12 +556,10 @@
 		"/C/Program Files/iisnode/www/helloworld/helloClient.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/services.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/gulpfile.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/package.json",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/fullPhoto.html",
 		"/C/Users/user pc/AppData/Local/Programs/Python/Python35/README.txt",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/admin_inbox.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/invite.html",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/build/build.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/registry_admin.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/config.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/build/build.js",
@@ -737,12 +614,7 @@
 		"/C/Users/user pc/Google Диск/AU_15/Анькин калькулятро/калькулятор/WindowsFormsApplication1/bin/Debug/log_result.txt",
 		"/C/Users/user pc/Google Диск/AU_15/Анькин калькулятро/калькулятор/WindowsFormsApplication1/bin/Debug/log.txt",
 		"/C/Users/user pc/Desktop/results.txt",
-		"/C/Users/user pc/AppData/Local/Temp/Rar$DIa0.865/app.css",
-		"/C/Users/user pc/AppData/Local/Temp/Rar$DIa0.632/foundation.css",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/jade/index.html",
-		"/C/Users/user pc/Documents/GitHub/Movie-Extended/Front-End/WebApp/views/header.jade",
-		"/C/Users/user pc/Documents/GitHub/Movie-Extended/Front-End/WebApp/views/footer.jade",
-		"/C/Users/user pc/Documents/GitHub/Movie-Extended/Front-End/WebApp/views/registry.jade"
+		"/C/Users/user pc/AppData/Local/Temp/Rar$DIa0.865/app.css"
 	],
 	"find":
 	{
@@ -878,7 +750,7 @@
 	"groups":
 	[
 		{
-			"selected": 10,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -901,249 +773,189 @@
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1462602535.56,
+							"tabs_extra_last_activated": 1462802987.43,
 							"tabs_extra_last_activated_sheet_index": 0,
 							"tabs_extra_spawned": true
 						},
-						"translation.x": -0.0,
-						"translation.y": 10.0,
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "api/mailer.js",
+					"file": "public/partials/achivment.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 591,
+						"buffer_size": 3483,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								582,
-								582
+								1433,
+								1433
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1462619068.77,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"tabs_extra_last_activated": 1462875982.58,
 							"tabs_extra_last_activated_sheet_index": 1,
 							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": false
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 77.0,
+						"translation.y": 171.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "public/styles/main.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 35952,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								35363,
+								35363
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1462875991.88,
+							"tabs_extra_last_activated_sheet_index": 2,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 7348.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "api/students.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5367,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1511,
-								1511
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1462612666.15,
-							"tabs_extra_last_activated_sheet_index": 2,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 696.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
 					"buffer": 3,
-					"file": "api/admin.js",
+					"file": "public/js/controllers.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4650,
+						"buffer_size": 12842,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3983,
-								3983
+								5652,
+								5652
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
-							"tabs_extra_last_activated": 1462619837.1,
+							"tabs_extra_last_activated": 1462876219.77,
 							"tabs_extra_last_activated_sheet_index": 3,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1942.0,
+						"translation.y": 2871.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "public/js/services.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4887,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3910,
+								3910
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1462874693.95,
+							"tabs_extra_last_activated_sheet_index": 3,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1407.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "public/js/controllers_main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3272,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3244,
+								3221
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1462876183.98,
+							"tabs_extra_last_activated_sheet_index": 5,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 1531.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "db/schemas/student.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1927,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								770,
-								770
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1462601711.62,
-							"tabs_extra_last_activated_sheet_index": 4,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 19,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "db/schemas/emailReceiver.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 250,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								250,
-								250
-							]
-						],
-						"settings":
-						{
-							"auto_name": "emailReceivers.js",
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1462601749.58,
-							"tabs_extra_last_activated_sheet_index": 5
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 16,
-					"type": "text"
-				},
-				{
 					"buffer": 6,
-					"file": "api/achivments.js",
-					"semi_transient": false,
+					"file": "public/js/app.js",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 3794,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1180,
-								1180
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"tabs_extra_last_activated": 1462602287.49,
-							"tabs_extra_last_activated_sheet_index": 6,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 14,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "config.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 684,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								485,
-								485
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1462602335.93,
-							"tabs_extra_last_activated_sheet_index": 7,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 13,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2146,
+						"buffer_size": 2361,
 						"regions":
 						{
 						},
@@ -1158,469 +970,16 @@
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
+							"tabs_extra_last_activated": 1462876185.02,
+							"tabs_extra_last_activated_sheet_index": 6,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 15,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "routes/api.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1918,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1892,
-								1892
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1462618789.1,
-							"tabs_extra_last_activated_sheet_index": 9,
-							"tabs_extra_spawned": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 11.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "public/partials/studentsBase.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3491,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								634,
-								634
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1462620194.38,
-							"tabs_extra_last_activated_sheet_index": 10,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "public/js/controllers.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 11871,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2480,
-								2480
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1462615867.7,
-							"tabs_extra_last_activated_sheet_index": 11,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 758.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "public/js/services.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4813,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								476,
-								476
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1462607085.73,
-							"tabs_extra_last_activated_sheet_index": 12,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "public/js/controllers_main.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3285,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								279,
-								279
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1462612665.32,
-							"tabs_extra_last_activated_sheet_index": 13,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "public/js/build/build.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 22406,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5222,
-								5222
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1462573964.02,
-							"tabs_extra_last_activated_sheet_index": 9,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2604.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 21,
-					"type": "text"
-				},
-				{
-					"buffer": 15,
-					"file": "public/js/app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2393,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								217,
-								217
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1462574204.72,
-							"tabs_extra_last_activated_sheet_index": 12,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 378.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 20,
-					"type": "text"
-				},
-				{
-					"buffer": 16,
-					"file": "public/styles/main.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 36018,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								17778,
-								17778
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1462618772.28,
-							"tabs_extra_last_activated_sheet_index": 16,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 14577.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 17,
-					"file": "public/partials/main.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2199,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1790,
-								1790
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tabs_extra_last_activated": 1462620043.67,
-							"tabs_extra_last_activated_sheet_index": 17,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 18,
-					"file": "public/partials/profile_another.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1892,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								169,
-								169
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1462617986.81,
-							"tabs_extra_last_activated_sheet_index": 18,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 19,
-					"file": "db/schemas/receiverGroup.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 245,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								204,
-								204
-							]
-						],
-						"settings":
-						{
-							"auto_name": "receiverGroups.js",
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1462601723.35,
-							"tabs_extra_last_activated_sheet_index": 16
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 18,
-					"type": "text"
-				},
-				{
-					"buffer": 20,
-					"file": "db/schemas/emailTemplate.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 387,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								325,
-								325
-							]
-						],
-						"settings":
-						{
-							"auto_name": "emailTemplate.js",
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1462601724.3,
-							"tabs_extra_last_activated_sheet_index": 17
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 17,
-					"type": "text"
-				},
-				{
-					"buffer": 21,
-					"file": "api/user.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1107,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								593,
-								593
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_closing": true,
-							"tabs_extra_last_activated": 1462602527.5,
-							"tabs_extra_last_activated_sheet_index": 20,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 22,
-					"file": "public/admin/js/admin_controllers.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6225,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6055,
-								6058
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1462454051.91,
-							"tabs_extra_last_activated_sheet_index": 2,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1824.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 22,
 					"type": "text"
 				}
 			]

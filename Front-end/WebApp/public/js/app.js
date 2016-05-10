@@ -75,8 +75,6 @@ angular.module('ActivityAggregator',
              controller: 'achCtrl'
              }
           },
-                   
-           
        })
 
        .state('auth', {
