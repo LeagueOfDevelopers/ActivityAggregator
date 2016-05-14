@@ -21,11 +21,17 @@ html(lang='en', ng-app='ActivityAggregator.admin', ng-controller='appCtrl')
               a(ui-sref='inviteAdmin' ng-if='currentUser.firstName') Добавить администратора   
       section(ui-view='page_content')
       section(ui-view='footer')
-      section.notification_popup.small-12.medium-3.medium-offset-8.columns(ng-if='showMessage')
+      section.notification_popup.small-12.medium-3.medium-offset-8.columns.popupIn(ng-if="showMessage")
         div.row
-          div.small-4.columns.label
-          div.small-9.columns
-            p(ng-bind='msg')
+          div.small-3.columns.nt_label
+            span.bad(ng-show="msg.type.bad")
+            span.good(ng-show="msg.type.good")
+          div.small-9.columns.msg
+            p(ng-bind="msg.content")
+    .startScreen(ng-if="starting")
+        .loader-wrapper.start
+          .loader
+          .loader_circle 
     script(type='text/javascript', src='../admin/js/lib/angular.min.js')
     script(type='text/javascript', src='../admin/js/lib/angular-sanitize.min.js')
     script(type='text/javascript', src='../admin/js/lib/angular-ui-router.min.js')

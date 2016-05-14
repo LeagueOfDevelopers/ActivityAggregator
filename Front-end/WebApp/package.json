@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www && DEBUG=WebApp:*"
+    "start": "node ./bin/www && DEBUG=WebApp:*",
+    "tas": "node ./TaskApp/taskChecker && DEBUG=TaskApp:*"
   },
   "dependencies": {
     "body-parser": "*",
@@ -17,6 +18,7 @@
     "morgan": "*",
     "multiparty": "*",
     "ng-file-upload": "*",
+    "node-schedule": "^1.1.0",
     "nodemailer": "^2.3.2",
     "serve-favicon": "*"
   },

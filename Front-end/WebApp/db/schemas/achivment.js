@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var	schema = mongoose.Schema;
 
 
-var achivment = new schema({
+var achivment =  new schema({
 	name: {
 		type: String,
 		required: true

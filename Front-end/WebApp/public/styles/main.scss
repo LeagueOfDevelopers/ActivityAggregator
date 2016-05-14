@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,cyrillic-ext,cyrillic);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,500&subset=latin,cyrillic,cyrillic-ext);
 
 $mainColor: #009fdf;
 $softBlue: #87b1cd;
@@ -70,7 +70,7 @@ html {
 }
 
 body {
-  font-family:  Calibri, Ubuntu, sans-serif !important;
+  font-family:  Roboto, Ubuntu, sans-serif !important;
   height: 100%  !important;
   background-color: $bodyColor !important;
   overflow-x: hidden;
@@ -92,10 +92,8 @@ body {
 
 
 .page_content {
-  height: 100% !important;
   padding-top: 60px;
   padding-bottom: 60px;
-
 }
 
 .vertical_offset {
@@ -115,7 +113,6 @@ body {
   width: 100%; 
   height: 60px;
   line-height: 60px;
-  border-top: 2px solid $mainColor;
   background: #fff;
 }
 
@@ -127,6 +124,11 @@ body {
   background-size: cover;
   background: url(../icons/Misis_logo.png) no-repeat;
   float: right;
+}
+
+.lod_logo {
+  float: left;
+  margin-left: 10px;
 }
 
 .logo {
@@ -361,7 +363,6 @@ body {
   font-weight: bold;
   font-size: 18 px;
 }
-
 
 .user_detail {
   margin-top: 15px;
@@ -629,7 +630,7 @@ body {
   display: inline-block;
   color: $fontColor;
   font-weight: bold;
-  font-size: 17px;
+  font-size: 16px;
   padding: 7px;
   text-align: center;
 
@@ -1343,10 +1344,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
   height: auto;
   max-height: 330px;
   width: 100%;
-  padding: 0 !important;
   margin-top: 10px;
+  padding: 0 !important;
   margin-bottom: 10px;
   @include cardShadow();
+}
+
+@media only screen and (min-width: 670px) {
+
+  .shortList_wrap {
+    margin-top: 0;
+  }
 }
 
 .mp_btn_registry {

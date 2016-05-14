@@ -14,7 +14,8 @@ module.exports = {
   unConfirmAchivment: unConfirmAchivment,
   confirmStudent: confirmStudent,
   rejectStudent: rejectStudent,
-  getUncheckedStudents: getUncheckedStudents
+  getUncheckedStudents: getUncheckedStudents,
+  isAdmin: isAdmin
 };
 
 function login(req, res, next) {
@@ -30,6 +31,17 @@ function login(req, res, next) {
       	res.send('not found')
       }  
   });
+
+};
+
+function isAdmin(req, res, next) {
+
+  if(req.session.user && req.session.user.role == 1) {
+    console.log('is admin');
+    next();
+  } else {
+    res.send('auth required')
+  }
 
 };
 
@@ -70,7 +82,7 @@ function registryByInvite(req, res, next) {
 
   Admin.findOne({'invCodes' : req.body.code}, function(err, findedData) {
      if(findedData) {
-        console.log(findedData);
+      
       Admin.findOne({'code': req.body.code}, function(er, data) {
         if(err) res.send(err);
         else if(data) {
@@ -133,9 +145,10 @@ function confirmAchivment(req, res, next) {
         res.send(data);
       }
      });
+
   } else {
     res.send('admin permissions required')
-}
+  }
 };
 
 function unConfirmAchivment(req, res, next) {

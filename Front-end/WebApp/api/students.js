@@ -44,9 +44,7 @@ function login(req, res, next) {
 
 				res.send({status: 'not found'});
 
-			}
-		 
-		
+			} 
 	})
 };
 
@@ -206,6 +204,7 @@ function updateStudentDetail(req, res, next) {
 };
 
 function changeAvatar(req, res, next) {
+
 		var savePath, fileName;
 		var form = new multiparty.Form();
 		var supportedTypes = config.avatar.types;
@@ -220,7 +219,7 @@ function changeAvatar(req, res, next) {
 		});
 
 		form.on('part', function(part) {
-			console.log(part);
+		
 			if(false) {
 				res.send({status: 'bad'});
 			} else {
@@ -241,7 +240,7 @@ function changeAvatar(req, res, next) {
 				 };
 
 				var out = fs.createWriteStream(savePath + fileName);
-				console.log(fileName);
+				
 				part.pipe(out);
 			} 
 		});

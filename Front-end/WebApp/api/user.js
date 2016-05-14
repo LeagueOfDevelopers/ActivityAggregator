@@ -1,7 +1,9 @@
 
-var UserStrategy = function(model) {
+var UserStrategy = function(model, checkAuthPolicy) {
 
 	this.model = model;
+
+	this.isAuth = checkAuthPolicy;
 	
 	this.login = function(email, pass, callback) {
 		this.model.findOne({'email': email})
@@ -27,8 +29,8 @@ var UserStrategy = function(model) {
 		callback('session destroyed');
 	};
 
-	this.current = function() {
-		return req.session.user || null;
+	this.current = function(callback) {
+		callback(req.session.user || null);
 	};
 
 	this.update = function(callback) {
@@ -58,7 +60,12 @@ var UserStrategy = function(model) {
 		this.model.hashPassword = newPass;
 	};
 
+	this.checkAuth = function(callback) {
+		if(this.isAuth) callback()
+		else callback('identificate error')
+	};
+
 	return this;
-}
+};
 
 module.exports = UserStrategy;

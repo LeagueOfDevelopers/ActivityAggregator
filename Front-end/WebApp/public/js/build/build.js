@@ -33,6 +33,9 @@ angular.module('ActivityAggregator',
            'page_content': {
              templateUrl: 'partials/main.html',
              controller: 'indexCtrl'
+           },
+           'footer': {
+              templateUrl: 'partials/footer.html'
            }
          }
        })
@@ -123,12 +126,14 @@ angular.module('app.controllers.partials',
       var studentsLimit = 3;
       $scope.lastStudents = [];
       $scope.avatar = avatar;
+
       API.query('students.getLast', null, true).then(function(res) {
         var result = res.data;
          result = result.map(function(student) {
           student.achivments = student.achivments.filter(function(ach) {
             return ach.checked;
           });
+
           student.achivments = student.achivments.sort(function(a, b) {
              var aCr = new Date();
              aCr.setTime(Date.parse(a.created));
@@ -136,14 +141,16 @@ angular.module('app.controllers.partials',
              bCr.setTime(Date.parse(b.created));
              return a > b ? 1 : -1
           });
+
           student.achivments = student.achivments.reverse();
           return student;
         });
+
          console.log(result);
         
           $scope.lastStudents = result.slice(0, studentsLimit);
         
-      })
+      });
       
   }])
 
@@ -157,9 +164,18 @@ angular.module('app.controllers.partials',
       $scope.$emit('changeTitle', {title: 'База активистов НИТУ МИСиС'});
       $scope.$emit('loadData', {field: 'common'});
 
-      $scope.avatar = avatar;
-      var studentsList;
-      var viewItemCount = 5;
+      $scope.avatar = avatar
+      $scope.searchResults = [];
+
+      var studentsList = {
+          students: [],
+          generateShortAchList: generateShortAchList
+      };
+
+      var countOfItems = 5;
+      var appendingCount = 3;
+      var shortAchListLimit = 4;
+
       getAllStudents();
 
       $scope.$watch('searchParams.category', function() {
@@ -181,40 +197,67 @@ angular.module('app.controllers.partials',
        })
 
       $scope.getMoreStudents = function() {
-        var cropArr = studentsList;
-        var newElems = cropArr.slice($scope.searchResults.length, $scope.searchResults.length + 3);
-        
+        var cropArr = studentsList.students;
+
+        var newElems = cropArr.slice($scope.searchResults.length, $scope.searchResults.length + appendingCount);
         $scope.searchResults = $scope.searchResults.concat(newElems);
+        
       }
 
       $scope.getStudentsList = function(searchParams) {
+
          $scope.$emit('loadData', {field: 'common'});
          $scope.searchResults = {};
 
          if(searchParams.category == '' && searchParams.name == '' ) {
+
             getAllStudents();
+
          } else {
+
           API.query('students.search', {searchParams: searchParams}, true).then(function(result) {
-            studentsList = result.data;
-            var cropArr = studentsList;
+            studentsList.students = result.data;
+            studentsList.generateShortAchList();
+            var cropArr = studentsList.students;
             $scope.searchResults = cropArr.slice(0, 4);
+           
+
             $scope.$emit('loadData_done', {field: 'common'});
           })
         }
       };
 
+      $scope.needPagination = function()  {
+            return studentsList.students[$scope.searchResults.length + 1] ?
+                    true :
+                    false;
+      };
+
       function getAllStudents() { 
 
         API.query('students.get', null, true).then(function(result) {
-          studentsList = result.data.reverse();
-          var cropArr = studentsList;
-          $scope.searchResults = cropArr.slice(0, 4);
+          studentsList.students = result.data.reverse();
+          studentsList.generateShortAchList();
+          var cropArr = studentsList.students;
+          $scope.searchResults = cropArr.slice(0, countOfItems - 1);
            $scope.$emit('loadData_done', {field: 'common'});
+           console.log( studentsList);
         })
-      }
-    }
+      };
 
-  ]) 
+      function generateShortAchList() {
+
+        this.students.map(function(student) {
+
+            var shortAchList = student.achivments.filter(function(ach) {
+              return ach.checked;
+            });
+            student.shortAchList = shortAchList.slice(0, shortAchListLimit - 1);
+          return student;
+        })
+      };
+
+    }]) 
 
   .controller('accountCtrl',
    ['$scope',
@@ -234,14 +277,14 @@ angular.module('app.controllers.partials',
 
     $scope.$on('userUpdated', function() {
       $state.reload();
-    })
+    });
 
       $scope.editUserDetail = function () {
         $scope.showEditField= true;
         $scope.newUserDetail = $scope.userDetail.about;
         $scope.oldAbout = $scope.userDetail.about;
         $scope.userDetail.about = '';
-      }
+      };
 
       $scope.applyChanges = function () {    
         console.log($scope.newUserDetail);
@@ -250,13 +293,13 @@ angular.module('app.controllers.partials',
           $scope.$emit('showMessage', {msg: 'Информация успешно изменена',  type: 'good'});
         });
         $scope.showEditField = false;    
-      }
+      };
 
       $scope.notApplyChanges = function () {
           $scope.showEditField = false;
           $scope.newUserDetail = '';
           $scope.userDetail.about = $scope.oldAbout;
-      }
+      };
 
       $scope.uploadAvatar = function(avatar) {
         Upload.upload({
@@ -297,7 +340,7 @@ angular.module('app.controllers.partials',
       '$stateParams',
       '$window',
      function($scope, $state, API, $stateParams, $window){
-      
+
         var ach = {};
         var owner = {};
         $scope.visiblePhoto = false;
@@ -383,6 +426,7 @@ angular.module('app.controllers.partials',
             $window.open(url);
           }
          }
+
        }])
 
   .controller('newAchCtrl',
@@ -421,10 +465,11 @@ angular.module('app.controllers.partials',
           };
 
     $scope.uploadFile = function(file) {
-      console.log(file);
-      if(file.name && $scope.selectedFiles[file] != -1 ) {
+   
+      if(file.name && $scope.selectedFiles.indexOf(file.name) == -1) {
+
       $scope.$emit('loadData', {field: 'file'});
-      $scope.selectedFiles.push(file);
+      $scope.selectedFiles.push(file.name);
       Upload.upload({
         url: '/api/students/' + $scope.currentUser._id + '/achivments/file',
         data: {file: file}

@@ -23,17 +23,17 @@ router.post('/students/:id', students.updateStudentDetail);
 router.post('/students/:id/achivments', achivments.newAchivment);
 router.post('/students/:id/achivments/file', achivments.addFile);
 
-router.get('/adm/requests', admin.getUncheckedRequests);
-router.get('/auth/update', students.updateSession);
-router.get('/admin/registryRequests', admin.getUncheckedStudents);
+router.get('/adm/requests', admin.isAdmin, admin.getUncheckedRequests);
+router.get('/auth/update', admin.isAdmin, students.updateSession);
+router.get('/admin/registryRequests', admin.isAdmin, admin.getUncheckedStudents);
 router.get('/studentsL/last', students.getLast);
-router.post('/admin/confirm/:id', admin.confirmAchivment)
-router.post('/admin/unconfirm/:id', admin.unConfirmAchivment)
-router.post('/admin/confirmStudent/:id', admin.confirmStudent)
-router.post('/admin/rejectStudent/:id', admin.rejectStudent)
+router.post('/admin/confirm/:id', admin.isAdmin, admin.confirmAchivment);
+router.post('/admin/unconfirm/:id', admin.isAdmin, admin.unConfirmAchivment);
+router.post('/admin/confirmStudent/:id', admin.isAdmin, admin.confirmStudent);
+router.post('/admin/rejectStudent/:id', admin.isAdmin, admin.rejectStudent);
 
-router.post('/admin/registry/', admin.registryByInvite)
-router.post('/admin/invite/:id', admin.getInviteCode)
+router.post('/admin/registry/', admin.registryByInvite);
+router.post('/admin/invite/:id', admin.isAdmin, admin.getInviteCode);
 router.post('/admin/login', admin.login);
 router.post('/admin', admin.newAdmin);	
 

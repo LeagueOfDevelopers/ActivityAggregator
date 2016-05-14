@@ -7,12 +7,10 @@ multiparty = require('multiparty'),
 util = require('util'),
 fs = require("fs");
 
-
 module.exports = {
   	getAchivmentsList: getAchivmentsList,
   	getAchivmentDetail: getAchivmentDetail,
   	newAchivment: newAchivment,
-    getAchivmentsList: getAchivmentsList,
     addFile: addFile
 };
 
@@ -26,7 +24,7 @@ function getAchivmentsList(req, res, next) {
 };
 
 function getAchivmentDetail(req, res, next) {
-    console.log(req.params.ach_id);
+
  Student.findOne({'achivments._id': req.params.ach_id}, 'firstName lastName achivments.$', function(err, data) {
     if(err) res.send(err);
     if (data) {
@@ -45,17 +43,6 @@ function addFile(req, res, next) {
     supportMimeTypes = config.types,
     errors = [];
 
-    form.on('close', function() {
-
-        if(errors.length == 0) {
-    
-         res.send({fileLink: uploadFile.link})
-           
-        }
-        else {
-            res.send({status: 'bad', errors: errors});
-        }
-    });
 
       form.on('error', function(err){
 
@@ -82,16 +69,12 @@ function addFile(req, res, next) {
 
             if(uploadFile.size > maxSize) {
                 errors.push('File size is ' + uploadFile.size + '. Limit is' + (maxSize / 1024 / 1024) + 'MB.');
-            }
-
-            // if(supportMimeTypes.indexOf(uploadFile.type == -1)) {
-            //     errors.push('Unsupported mimetype ' + uploadFile.type);
-            // }
+            };
 
             if(errors.length == 0) {
                 var studentFolder = config.path + req.params.id;
 
-                if (!fs.exists(studentFolder)) {
+                if (!fs.existsSync(studentFolder)) {
                     fs.mkdirSync(studentFolder);
                 };
 
@@ -108,11 +91,23 @@ function addFile(req, res, next) {
            };
     });
 
-      form.parse(req);
+    form.on('close', function() {
+
+        if(errors.length == 0) {
+    
+         res.send({fileLink: uploadFile.link})
+           
+        }
+        else {
+            res.send({status: 'bad', errors: errors});
+        }
+    });
+
+    form.parse(req);
 };
 
 function newAchivment(req, res, next) {
-	
+    
   var achivment = {
         checked: false,
         updated: new Date()
@@ -137,7 +132,7 @@ function newAchivment(req, res, next) {
     }
 })
 
-    }) 
+ }) 
 };
     
     

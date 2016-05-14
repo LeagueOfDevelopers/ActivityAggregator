@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var	schema = mongoose.Schema;
 
 var emailTemplate = new schema({
-	templateName: {
+	name: {
 		type: String,
 		required: true
 	},
@@ -11,17 +11,12 @@ var emailTemplate = new schema({
 		type: String,
 		requird: true
 	},
-	title: {
-		type: String, 
-		required: true
-	},
 	text: {
 		type: String,
 		required: true
 	},
 	htmlTemplate: {
 		type: String, 
-		required: true
 	}
 });
 

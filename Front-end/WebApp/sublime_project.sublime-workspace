@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"shortAchList",
+				"shortAchListLimit"
+			],
+			[
 				"border",
 				"border-bottom"
 			],
@@ -332,11 +336,38 @@
 	"buffers":
 	[
 		{
-			"file": "db/mongoose.js",
+			"contents": "\nvar Student = require('../db/mongoose').models.Student,\nAchivment = require('../db/mongoose').models.Achivment,\nconfig = require('../config').files.achivmentsDocs,\ncrypto = require('crypto'),\nmultiparty = require('multiparty'),\nutil = require('util'),\nfs = require(\"fs\");\n\nmodule.exports = {\n  	getAchivmentsList: getAchivmentsList,\n  	getAchivmentDetail: getAchivmentDetail,\n  	newAchivment: newAchivment,\n    addFile: addFile\n};\n\nfunction getAchivmentsList(req, res, next) {\n  Achivments.find(function(err, data) {\n    if(err) {\n        res.send(err);\n    }\n    res.send(data);\n  })\n};\n\nfunction getAchivmentDetail(req, res, next) {\n\n Student.findOne({'achivments._id': req.params.ach_id}, 'firstName lastName achivments.$', function(err, data) {\n    if(err) res.send(err);\n    if (data) {\n        res.send({achivment: data.achivments[0], owner: data});\n        console.log(data);   \n    } else {\n        res.send('no data');\n    }\n })\n};\n\nfunction addFile(req, res, next) {\n    var form = new multiparty.Form();\n    var uploadFile = {uploadPath: '', type: '', size: 0},\n    maxSize = config.maxSize,\n    supportMimeTypes = config.types,\n    errors = [];\n\n\n      form.on('error', function(err){\n\n        if(fs.existsSync(uploadFile.path)) {\n\n            fs.unlinkSync(uploadFile.path);\n            errors.push(err);\n        }\n\n    });\n\n      form.on('part', function(part) {\n\n        if(part.filename) {\n\n            uploadFile.size = part.byteCount;\n            uploadFile.type = part.headers['content-type'];\n            var fileNameHash = crypto.createHmac('sha256', 'ach')\n                                     .update(part.filename)\n                                     .digest('hex')\n                                     .slice(0, 10) + '.' + uploadFile.type.split('/')[1];\n            uploadFile.path = config.path + req.params.id + '/' + fileNameHash;\n            uploadFile.link = config.link + req.params.id + '/' + fileNameHash;\n\n            if(uploadFile.size > maxSize) {\n                errors.push('File size is ' + uploadFile.size + '. Limit is' + (maxSize / 1024 / 1024) + 'MB.');\n            }\n\n            // if(supportMimeTypes.indexOf(uploadFile.type == -1)) {\n            //     errors.push('Unsupported mimetype ' + uploadFile.type);\n            // }\n\n            if(errors.length == 0) {\n                var studentFolder = config.path + req.params.id;\n\n                if (!fs.exists(studentFolder)) {\n                    fs.mkdirSync(studentFolder);\n                };\n\n                if(fs.existsSync(uploadFile.path)) {\n                    fs.unlinkSync(uploadFile.path);\n                };\n\n                var outStream = fs.createWriteStream(uploadFile.path);\n                part.pipe(outStream);\n            }\n                else {\n                    part.resume();\n                }\n           };\n    });\n\n    form.on('close', function() {\n\n        if(errors.length == 0) {\n    \n         res.send({fileLink: uploadFile.link})\n           \n        }\n        else {\n            res.send({status: 'bad', errors: errors});\n        }\n    });\n\n    form.parse(req);\n};\n\nfunction newAchivment(req, res, next) {\n    \n  var achivment = {\n        checked: false,\n        updated: new Date()\n    };\n\n var fields = req.body;\n\n Object.getOwnPropertyNames(fields).forEach(function(key) {\n    achivment[key] = fields[key];\n });\n\n Student.findById(req.params.id, function(err, doc) {\n    if(err) res.send(err);\n    doc.achivments.push(achivment);\n    doc.save(function(err, data) {\n        if(err) {\n            res.send(err);\n        } else {\n\n        res.send({status: 'ok',\n        data: data.achivments[data.achivments.length - 1]});\n    }\n})\n\n }) \n};\n    \n    \n\n\n",
+			"file": "api/achivments.js",
+			"file_size": 3831,
+			"file_write_time": 131073552462690978,
 			"settings":
 			{
-				"buffer_size": 1112,
+				"buffer_size": 3689,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "",
+			"file": "TaskApp/taskChecker.js",
+			"file_size": 14,
+			"file_write_time": 131073567197299244,
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows",
+				"name": "taskChecker.js"
+			}
+		},
+		{
+			"contents": "var mongoose = require('mongoose');\nvar	schema = mongoose.Schema;\n\nmodule.exports = new schema({\n	type: {\n		type: String,\n		required: true\n	},\n	targets: {\n		type: [String]\n	},\n	options: {\n		type: [String]\n	},\n	done: {\n		type: Boolean,\n		required: true\n	}\n});\n\n\n",
+			"file": "db/schemas/task.js",
+			"file_size": 280,
+			"file_write_time": 131073573166440848,
+			"settings":
+			{
+				"buffer_size": 261,
+				"line_ending": "Windows",
+				"name": "task.js"
 			}
 		},
 		{
@@ -351,45 +382,10 @@
 			}
 		},
 		{
-			"file": "public/styles/main.scss",
+			"file": "public/partials/addAchivment.html",
 			"settings":
 			{
-				"buffer_size": 35952,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "\n/* Controllers */\nangular.module('app.controllers',\n[\n'app.controllers.main',\n'app.controllers.partials',\n'ui.router'\n]);\n\n\nangular.module('app.controllers.partials',\n[ \n  'ui.router'\n])\n  \n  .controller('indexCtrl',\n   ['$scope',\n    'API',\n    'avatar',\n   function($scope, API, avatar){\n\n      var studentsLimit = 3;\n      $scope.lastStudents = [];\n      $scope.avatar = avatar;\n      API.query('students.getLast', null, true).then(function(res) {\n        var result = res.data;\n         result = result.map(function(student) {\n          student.achivments = student.achivments.filter(function(ach) {\n            return ach.checked;\n          });\n          student.achivments = student.achivments.sort(function(a, b) {\n             var aCr = new Date();\n             aCr.setTime(Date.parse(a.created));\n             var bCr = new Date();\n             bCr.setTime(Date.parse(b.created));\n             return a > b ? 1 : -1\n          });\n          student.achivments = student.achivments.reverse();\n          return student;\n        });\n         console.log(result);\n        \n          $scope.lastStudents = result.slice(0, studentsLimit);\n        \n      })\n      \n  }])\n\n  .controller('studentsBaseCtrl',\n   ['$scope',\n    '$http',\n    'API',\n    'avatar',\n   function ($scope, $http, API, avatar) {\n\n      $scope.$emit('changeTitle', {title: 'База активистов НИТУ МИСиС'});\n      $scope.$emit('loadData', {field: 'common'});\n\n      $scope.avatar = avatar;\n      var studentsList;\n      var viewItemCount = 5;\n      getAllStudents();\n\n      $scope.$watch('searchParams.category', function() {\n        $scope.searchParams.name = '';\n        var category = '';\n        switch($scope.searchParams.category) {\n          case 'Наука' : category = 'science';  break;\n          case 'Общественная деятельность' : category = 'social'; break;\n          case 'Культура' : category = 'cultural'; break;\n          case 'Спорт' : category = 'sport'; break;\n          case 'Учеба' : category = 'study'; break;\n          case 'Предпринимательство' : category = 'business'; break;\n          case 'Межкультурный диалог' : category = 'international'; break;\n          case 'Все' : category = ''; break;\n        }\n         \n        $scope.getStudentsList({name: '', category: category});\n        \n       })\n\n      $scope.getMoreStudents = function() {\n        var cropArr = studentsList;\n        var newElems = cropArr.slice($scope.searchResults.length, $scope.searchResults.length + 3);\n        \n        $scope.searchResults = $scope.searchResults.concat(newElems);\n      }\n\n      $scope.getStudentsList = function(searchParams) {\n         $scope.$emit('loadData', {field: 'common'});\n         $scope.searchResults = {};\n\n         if(searchParams.category == '' && searchParams.name == '' ) {\n            getAllStudents();\n         } else {\n          API.query('students.search', {searchParams: searchParams}, true).then(function(result) {\n            studentsList = result.data;\n            var cropArr = studentsList;\n            $scope.searchResults = cropArr.slice(0, 4);\n            $scope.$emit('loadData_done', {field: 'common'});\n          })\n        }\n      };\n\n      function getAllStudents() { \n\n        API.query('students.get', null, true).then(function(result) {\n          studentsList = result.data.reverse();\n          var cropArr = studentsList;\n          $scope.searchResults = cropArr.slice(0, 4);\n           $scope.$emit('loadData_done', {field: 'common'});\n        })\n      }\n    }\n\n  ]) \n\n  .controller('accountCtrl',\n   ['$scope',\n    '$http',\n    '$state',\n    'Upload',\n    'avatar',\n   function ($scope, $http, $state, Upload, avatar) {\n\n    $scope.$emit('changeTitle', {title: 'Профиль студента'});    \n    $scope.$emit('needAuth');\n    $scope.avatar = avatar;\n    $scope.showEditField = false;\n    $scope.userDetail = $scope.currentUser; \n    $scope.oldAbout = '';\n    $scope.newUserDetail = '';\n\n    $scope.$on('userUpdated', function() {\n      $state.reload();\n    });\n\n      $scope.editUserDetail = function () {\n        $scope.showEditField= true;\n        $scope.newUserDetail = $scope.userDetail.about;\n        $scope.oldAbout = $scope.userDetail.about;\n        $scope.userDetail.about = '';\n      };\n\n      $scope.applyChanges = function () {    \n        console.log($scope.newUserDetail);\n        $scope.userDetail.about = $scope.newUserDetail;\n        $http.post('/api/students/' + $scope.currentUser._id, {about : $scope.newUserDetail}).success(function(data) {\n          $scope.$emit('showMessage', {msg: 'Информация успешно изменена',  type: 'good'});\n        });\n        $scope.showEditField = false;    \n      };\n\n      $scope.notApplyChanges = function () {\n          $scope.showEditField = false;\n          $scope.newUserDetail = '';\n          $scope.userDetail.about = $scope.oldAbout;\n      };\n\n      $scope.uploadAvatar = function(avatar) {\n        Upload.upload({\n            url: '/api/students/' + $scope.currentUser._id + '/avatar',\n            data: {avatar : avatar}\n          }).then(function(res) {\n            $scope.$emit('userUpdate');\n            $scope.$emit('showMessage', {msg: 'Аватар успешно изменен',  type: 'good'});\n           \n          })\n\n      };\n    }\n  ])\n  \n  .controller('profileCtrl',\n   ['$scope',\n    '$http',\n    '$stateParams',\n    'avatar',\n   function($scope, $http, $stateParams, avatar){\n\n     $scope.avatar = avatar;\n     $scope.student = {};\n     $scope.$emit('loadData', {field: 'common'});\n     $http.get('/api/students/' + $stateParams.id).success(function(data) {\n     console.log(data);\n     $scope.student = data;\n     $scope.$emit('loadData_done', {field: 'common'});\n     })\n\n  }])\n\n  .controller('achCtrl', \n    ['$scope', \n      '$state', \n      'API',\n      '$stateParams',\n      '$window',\n     function($scope, $state, API, $stateParams, $window){\n\n        var ach = {};\n        var owner = {};\n        $scope.visiblePhoto = false;\n        $scope.$emit('loadData', {field: 'common'});\n\n        API.query('achivments.getDetail', \n\n                  {\n\n                    achId: $stateParams.achId, \n                    studentId: $stateParams.studentId \n\n                  }).then(function(res) {\n                    if(res.data) {\n                      ach = res.data.achivment;\n                      owner = res.data.owner;\n                    }\n\n                    var type = '';\n\n                      switch(ach.type) {\n                        case 'science' : type = 'Наука';  break;\n                        case 'social' : type = 'Общественная деятельность'; break;\n                        case 'cultural' : type = 'Культура'; break;\n                        case 'sport' : type = 'Спорт'; break;\n                        case 'study' : type = 'Учеба'; break;\n                        case 'business' : type = 'Предпринимательство'; break;\n                        case 'international' : type = 'Межкультурный диалог'; break;\n                      };\n\n                      var cr = new Date();\n                      cr.setTime(Date.parse(ach.created));\n\n                      $scope.achivment = ach;\n                      $scope.achivment.type = type;\n                      $scope.achivment.owner = owner;\n                      $scope.achivment.created =  cr.getDate() + '.' + (cr.getMonth() + 1) + '.' + cr.getFullYear();\n                      $scope.$emit('loadData_done', {field: 'common'});\n\n                      var details = {\n                        type: {\n                          title: \"категория\"\n                        },\n                        level: {\n                          title: \"уровень\"\n                        },\n                        created: {\n                          title: \"получено\"\n                        },\n                        organization: {\n                          title: \"организация\"\n                        },\n                        result: {\n                          title: \"результат\"\n                        },\n                        checked: {\n                          title: \"подтверждено\"\n                        }\n                      };\n\n                      $scope.details = {};\n\n                      details.forEach(function(item, key) {\n                        $scope.details[key] = {};\n                        $scope.details[key].title = item.title;\n                        $scope.details[key].value = $scope.achivment[key];\n                      });\n\n                      console.log($scope.details);\n                  });\n        \n\n        $scope.isPdf = function(photo) {\n          return !(photo.split('.').indexOf('pdf') == -1);\n        }\n         \n        $scope.showPhoto = function(photo) {\n          if(!$scope.isPdf(photo)) {\n            $scope.photoToShow = photo;\n            $scope.visiblePhoto = true;\n          } else {\n            var url = $scope.BASE_URL + photo.slice(1, photo.length);\n            $window.open(url);\n          }\n         }\n       }])\n\n  .controller('newAchCtrl',\n    ['$scope',\n     '$http',\n     '$timeout',\n     'Upload',\n     '$state',\n    function($scope, $http, $timeout, Upload, $state) {\n\n    $scope.newAch = {};    \n    $scope.type = 'Наука';\n    $scope.files = [];\n    $scope.selectedFiles = [];\n    $scope.$watch('type', function() {\n\n      var category = '';\n        switch($scope.type) {\n          case 'Наука' : category = 'science';  break;\n          case 'Общественная деятельность' : category = 'social'; break;\n          case 'Культура' : category = 'cultural'; break;\n          case 'Спорт' : category = 'sport'; break;\n          case 'Учеба' : category = 'study' ; break;\n          case 'Предпринимательство' : category = 'business'; break;\n          case 'Межкультурный диалог' : category = 'international'; break;\n        }\n        $scope.newAch.type = category;\n    });\n     \n\n    $scope.isValid =  function () {\n            return ($scope.files.length != 0) \n            && $scope.newAch.name\n            && $scope.newAch.result\n            && $scope.newAch.organization;\n          };\n\n    $scope.uploadFile = function(file) {\n      console.log(file);\n      if(file.name && $scope.selectedFiles[file] != -1 ) {\n      $scope.$emit('loadData', {field: 'file'});\n      $scope.selectedFiles.push(file);\n      Upload.upload({\n        url: '/api/students/' + $scope.currentUser._id + '/achivments/file',\n        data: {file: file}\n          }).then(function(res) {\n            console.log(res);\n              $scope.$emit('loadData_done', {field: 'file'});\n            if(!res.data) {\n              $scope.$emit('showMessage', {msg: 'Произошла ошибка',  type: 'bad'});\n            } else {\n              $scope.$emit('showMessage', {msg: 'Файлы отправлены',  type: 'good'});\n              $scope.files.push(res.data.fileLink);\n            }\n         })\n        } else {\n          $scope.$emit('showMessage', {msg: 'Файл уже выбран',  type: 'bad'});\n        }\n\n         $scope.isPdf = function(photo) {\n          return !(photo.split('.').indexOf('pdf') == -1);\n        }\n    };      \n  \n    $scope.submit = function() {\n      if ($scope.isValid()) {\n        $scope.$emit('waiting')\n        $scope.newAch.owner_id = $scope.currentUser._id;\n        $scope.newAch.files = $scope.files;\n          $http.post('/api/students/' + $scope.currentUser._id + '/achivments/', $scope.newAch).success(function(res) {\n            $scope.$emit('showMessage', {msg: 'Достижение добавлено, ожидайте подтверждения',  type: 'good'});\n            $scope.$emit('userUpdate');\n            $state.go('studentsBase');\n          })\n      } else {\n        $scope.$emit('showMessage', {msg: 'Заполните все поля формы и добавьте подтверждающие документы',  type: 'bad'})\n      }\n\n    }\n  }])\n\n  .controller('authCtrl',\n   ['$scope',\n    '$http',\n    'UserManager', \n    '$state',\n   function($scope, $http, UserManager, $state){\n\n    $scope.submit = function() {\n      if($scope.auth.$valid) {\n\n      $http.post('/api/login', $scope.auth).success(function(res) {\n        console.log(res); \n        if(res.data) {\n          $scope.$emit('auth');\n          $state.go('studentsBase');\n        } else {\n          $scope.$emit('showMessage', {msg: 'Студент не найден, проверьте введенные данные', type: 'bad'});\n        }\n      })\n     }\n    };\n  }])\n\n  .controller('registryCtrl', \n    ['$scope', \n     '$state', \n     '$http', \n    function($scope, $state, $http){\n\n    $scope.newStudent = {};\n\n\n    $scope.submit = function() {\n      if($scope.newStudent.$valid && $scope.newStudent.password == $scope.checkPassword) {\n       $http({\n          method  : 'POST',\n          url     : '/api/students/',\n          data    : $scope.newStudent\n          \n         }).success(function(res) {\n          $scope.$emit('showMessage', {msg: 'Регистрация прошла успешно, ждите верификации', type: 'good'});\n          $state.go('auth')\n         })\n      \n    }\n    };\n\n  }])\n",
-			"file": "public/js/controllers.js",
-			"file_size": 13874,
-			"file_write_time": 131073495589743262,
-			"settings":
-			{
-				"buffer_size": 12842,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/js/services.js",
-			"settings":
-			{
-				"buffer_size": 4887,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/js/controllers_main.js",
-			"settings":
-			{
-				"buffer_size": 3272,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/js/app.js",
-			"settings":
-			{
-				"buffer_size": 2361,
+				"buffer_size": 2762,
 				"line_ending": "Windows"
 			}
 		}
@@ -482,38 +478,40 @@
 		"/C/Users/user pc/Desktop/test",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles/lib/font-awesome"
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials"
 	],
 	"file_history":
 	[
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/admin_controllers.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/TaskApp/mailer.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/admin.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/user.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/emailTemplate.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/receiverGroup.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/profile_another.html",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/main.html",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/routes/api.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/achivment.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/studentsBase.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles/main.scss",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/students.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/profile_another.html",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/controllers.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/views/admin.jade",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/emailReceiver.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/receiverGroup.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/mongoose.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/services.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/controllers_main.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/admin_controllers.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/emailTemplate.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/main.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/app.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/build/build.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/controllers_main.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/services.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/node_modules/nodemailer/README.md",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/controllers.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/studentsBase.html",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/routes/api.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/app.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/package.json",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/achivments.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/emailReceiver.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/student.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/admin.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/students.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/mailer.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/config.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/models/admin.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/models/student.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/mongoose.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/profile.html",
 		"/C/Users/user pc/Desktop/ыв/Новый текстовый документ.txt",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/admin.js",
@@ -523,7 +521,6 @@
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/mail.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/_test/test-helper.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles/load.css",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/achivment.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/commonMethods.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles/main.css",
 		"/C/Users/user pc/Google Диск/AU_15/2 семестр/ООП/Практика/9 норматив/n9_s3_52.txt",
@@ -563,7 +560,6 @@
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/registry_admin.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/config.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/build/build.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/views/admin.jade",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/authAdmin.html",
 		"/C/Users/user pc/Downloads/ring.css",
 		"/C/Users/user pc/Documents/Movie-Extended/front-end/WebApp/node_modules/body-parser/node_modules/bytes/History.md",
@@ -613,8 +609,7 @@
 		"/C/Users/user pc/Documents/GitHub/extendedmovie/app/js/controllers.js",
 		"/C/Users/user pc/Google Диск/AU_15/Анькин калькулятро/калькулятор/WindowsFormsApplication1/bin/Debug/log_result.txt",
 		"/C/Users/user pc/Google Диск/AU_15/Анькин калькулятро/калькулятор/WindowsFormsApplication1/bin/Debug/log.txt",
-		"/C/Users/user pc/Desktop/results.txt",
-		"/C/Users/user pc/AppData/Local/Temp/Rar$DIa0.865/app.css"
+		"/C/Users/user pc/Desktop/results.txt"
 	],
 	"find":
 	{
@@ -633,6 +628,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"achivment",
 			"Зарегистрируйтесь",
 			"head",
 			"link",
@@ -755,207 +751,44 @@
 			[
 				{
 					"buffer": 0,
-					"file": "db/mongoose.js",
+					"file": "api/achivments.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1112,
+						"buffer_size": 3689,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1100,
-								1100
+								3564,
+								3564
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1462802987.43,
+							"tab_size": 4,
+							"tabs_extra_last_activated": 1463048589.16,
 							"tabs_extra_last_activated_sheet_index": 0,
-							"tabs_extra_spawned": true
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "public/partials/achivment.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3483,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1433,
-								1433
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"tabs_extra_last_activated": 1462875982.58,
-							"tabs_extra_last_activated_sheet_index": 1,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 171.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "public/styles/main.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 35952,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								35363,
-								35363
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1462875991.88,
-							"tabs_extra_last_activated_sheet_index": 2,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 7348.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "public/js/controllers.js",
+					"buffer": 1,
+					"file": "TaskApp/taskChecker.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 12842,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5652,
-								5652
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1462876219.77,
-							"tabs_extra_last_activated_sheet_index": 3,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2871.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "public/js/services.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4887,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3910,
-								3910
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1462874693.95,
-							"tabs_extra_last_activated_sheet_index": 3,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1407.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "public/js/controllers_main.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3272,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3244,
-								3221
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1462876183.98,
-							"tabs_extra_last_activated_sheet_index": 5,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": -0.0,
-						"translation.y": 1531.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "public/js/app.js",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 2361,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
@@ -968,10 +801,106 @@
 						],
 						"settings":
 						{
+							"auto_name": "taskChecker.js",
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tabs_extra_last_activated": 1463135442.03,
+							"tabs_extra_last_activated_sheet_index": 1,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "db/schemas/task.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 261,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								260,
+								260
+							]
+						],
+						"settings":
+						{
+							"auto_name": "task.js",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tabs_extra_last_activated": 1462883798.45,
+							"tabs_extra_last_activated_sheet_index": 3,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "public/partials/achivment.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3483,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2108,
+								2108
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"tabs_extra_last_activated": 1463135488.3,
+							"tabs_extra_last_activated_sheet_index": 3,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "public/partials/addAchivment.html",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 2762,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"tab_size": 2,
-							"tabs_extra_last_activated": 1462876185.02,
-							"tabs_extra_last_activated_sheet_index": 6,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
 						},
@@ -1157,7 +1086,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 246.0,
+	"side_bar_width": 275.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

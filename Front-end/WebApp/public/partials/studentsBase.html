@@ -36,18 +36,16 @@
             </li>
           </ul>
           </div>
-          <ul class="short_achivments_list small-7 columns">
-            <li class="achivment_link" ng-if='student.achivments[0] && student.achivments[0].checked '><a ui-sref='achivment_detail({achId: student.achivments[0]._id, studentId: student._id})' ng-bind='student.achivments[0].name.slice(0, 30) '></a></li>
-            <li class="achivment_link" ng-if='student.achivments[1]  && student.achivments[1].checked'><a ui-sref='achivment_detail({achId: student.achivments[1]._id, studentId: student._id})' ng-bind='student.achivments[1].name.slice(0, 30) '></a></li>
-            <li class="achivment_link" ng-if='student.achivments[2]  && student.achivments[2].checked'><a ui-sref='achivment_detail({achId: student.achivments[2]._id, studentId: student._id})' ng-bind='student.achivments[2].name.slice(0, 30) '></a></li>
-            <li class="achivment_link" ng-if='student.achivments[3]  && student.achivments[3].checked'><a  ui-sref='achivment_detail({achId: student.achivments[3]._id, studentId: student._id})' ng-bind='student.achivments[3].name.slice(0, 30) '></a></li>
+          <ul class="short_achivments_list small-7 columns" ng-if="student.shortAchList">
+            <li class="achivment_link" ng-repeat="ach in student.shortAchList"><a ui-sref='achivment_detail({achId: ach._id, studentId: student._id})' ng-bind='ach.name.slice(0, 30)'></a></li>
           </ul>
           </div>
         </li>
       </ul>
+      
       <div class="preloader_wrapper sB_preloader" ng-if="onLoad.common">
       <div class="preloader"></div>
       <div class="preloader_circle"></div>
       </div>
-      <button  ng-click='getMoreStudents()' class="sB_loadMoreBtn btn_ghost" ng-if="!onLoad.common">Загрузить еще</button>
+      <button  ng-click='getMoreStudents()' class="sB_loadMoreBtn btn_ghost" ng-if="!onLoad.common && needPagination()">Загрузить еще</button>
     </section>

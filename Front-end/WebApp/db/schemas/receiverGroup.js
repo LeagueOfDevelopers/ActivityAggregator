@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var receiverSchema = require('emailReceiver.js');
+var receiverSchema = require('./emailReceiver');
 var	schema = mongoose.Schema;
 
 var group = new schema({
