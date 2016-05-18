@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www && DEBUG=WebApp:*",
-    "tas": "node ./TaskApp/taskChecker && DEBUG=TaskApp:*"
+    "tas": "node ./TaskApp/taskChecker.js && DEBUG=TaskApp:*"
   },
   "dependencies": {
     "body-parser": "*",

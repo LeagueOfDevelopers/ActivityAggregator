@@ -19,3 +19,18 @@ module.exports.setPassword = function(password) {
       this.makeSalt();
       return this.encryptData(password);
 };
+
+module.exports.createRecoveryToken = function() {
+	var token = this.encryptData(this.lastName + new Date()).split(10, 30);
+	this.recoveryToken = token;
+	return token;
+};
+
+module.exports.useRecoveryToken = function(token) {
+	if(this.recoveryToken = token) {
+		this.recoveryToken = null;
+		return true;
+	} else {
+		return false;
+	}
+}

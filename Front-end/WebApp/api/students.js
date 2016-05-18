@@ -247,3 +247,68 @@ function changeAvatar(req, res, next) {
 
 		form.parse(req);	
 };
+
+function changePassword(req, res, next) {
+	if(req.session.user) {
+	if(req.body.newPass) {
+		Student.findById(req.params.id, function(err, student) {
+			if(err) res.send(err);
+			else if(student) {
+				student.hashPassword = req.body.newPass;
+				student.save(function(data) {
+					res.send(data);
+				})
+			}
+		})
+	} else {
+		res.send('request body parse error');
+	}
+}
+
+};
+
+function generateRecoveryToken(req, res, next) {
+
+	Student.find({"email": req.body.email}, function(err, data) {
+		if(err) res.send(err);
+		else if(data) {
+
+				var recoveryToken = student.createRecoveryToken;
+				student.save(function(data) {
+					console.log(data);
+					mailer.send({
+						to: data.email,
+						subject: 'Восстановление пароля',
+						text: 'Ваш код восстановления' + recoveryToken; 
+					});
+					res.send('token getted');
+				})
+			
+
+		} else {
+			res.send('student not found');
+		}
+
+	})
+};
+
+function recovery(req, res, next) {
+
+	Student.find({"email": req.body.email}, function(err, student) {
+		if(err) res.send(err);
+		else if(student) {
+			if(student.useRecoveryToken(req.body.token)) {
+				student.hashPassword = req.body.newPass;
+				res.send({text: 'ok', id: student._id});
+				student.save(function(data) {
+					console.log(data);
+				});
+			} else {
+				res.send('recovery token is not correct');
+			}
+		} else {
+			res.send('student not found');
+		}
+	})
+
+}

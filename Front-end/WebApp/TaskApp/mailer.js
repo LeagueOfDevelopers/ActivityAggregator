@@ -1,7 +1,7 @@
 var config = require('../config.js').smtp;
 var nodemailer = require('nodemailer');
-var emailTemplate = require('../db/schemas/emailTemplate');
-var receiverGroup = require('../db/schemas/receiverGroup');
+var EmailTemplate = require('../db/mongoose').models.EmailTemplate;
+var ReceiverGroup = require('../db/mongoose').models.ReceiverGroup;
 var async = require('async');
 
 
@@ -38,28 +38,30 @@ function send(params, callback) {
 
 };
 
-function getReceivers(task) {
+function getReceivers(task, callback) {
 	if(task.receiverGroup) {
-		receiverGroup.find({"name": task.receiverGroup}, function(err, receivers) {
-			if(err) return err;
+		ReceiverGroup.findOne({"name": task.receiverGroup}, function(err, receivers) {
+			if(err) callback(err);
 			else if(receivers) {
-				return receivers;
+				console.log(receivers.map(function(item) { return item.email}));
+				callback(null, receivers.map(function(item) { return item.email}));
 			} else {
-				return null
+				callback(null)
 			}
 		})
 	} else {
-		return task.receiver;
+		 callback(null, task.receiver);
 	}
 };
 
-function generateMessageByTemplate(task) {
-	 emailTemplate.findOne({"name": task.templateName}, function(err, template) {
-	 	if(err) return err;
+function generateMessageByTask(task, callback) {
+	 EmailTemplate.findOne({"name": task.templateName}, function(err, template) {
+	 	if(err) callback(err);
 	 	else if(template) {
-	 		return template.generate(task.text);
+	 		console.log(template.generate(task.text));
+	 		callback(null, template.generate(task.text));
 	 	} else {
-	 		return null
+	 		callback(null);
 	 	}
 	 })
 };
@@ -67,19 +69,26 @@ function generateMessageByTemplate(task) {
 function perform(task, doneCallback) {
 	async.series({
 		receivers: function(callback) {
-			var receivers = getReceivers(task);
-			if(receivers) {
-				callback(null, receivers)
-			}
+			getReceivers(task, function(err, receivers) {
+				callback(err, receivers);
+				console.log(err);
+				console.log(receivers);
+			})
 		},
 		message: function(callback) {
-			callback(generateMessageByTemplate(task.text));
+			generateMessageByTask(task, function(err, message) {
+				console.log(err);
+				console.log(message);
+				callback(err, message);
+			})
 		}
 	},
 	//callback
 	 function(err, params) {
-		if(err) console.log(err);
+		if(err) doneCallback(err);
 		else if(params.receivers && params.message) {
+			console.log('params');
+			console.log(params);
 			send({
 				receivers: params.receivers,
 			    subject: params.message.subject,
@@ -92,7 +101,7 @@ function perform(task, doneCallback) {
 				}
 			})
 		} else {
-			console.log("task params error");
+			doneCallback('task params error')
 		}
 	});
 };

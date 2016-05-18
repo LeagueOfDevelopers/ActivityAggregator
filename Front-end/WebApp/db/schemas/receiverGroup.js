@@ -5,7 +5,8 @@ var	schema = mongoose.Schema;
 var group = new schema({
 	name: {
 		type: String,
-		required: true
+		required: true,
+		unique: true
 	},
 	receivers: [receiverSchema]
 })

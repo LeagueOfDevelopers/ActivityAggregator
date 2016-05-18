@@ -37,7 +37,7 @@ function createModels() {
 	var Student = mongoose.model('Student', studentSchema);
 	var EmailTemplate = mongoose.model('EmailTemplate', emailTemplateSchema);
 	var EmailReceiver = mongoose.model('EmailReceiver', emailReceiverSchema);
-	var RecivierGroup =  mongoose.model('recivierGroup', recivierGroupSchema);
+	var ReceiverGroup =  mongoose.model('recivierGroup', recivierGroupSchema);
 	var Task = mongoose.model('Task', taskSchema);
 
 return {
@@ -46,7 +46,7 @@ return {
 	Achivment: Achivment,
 	EmailReceiver: EmailReceiver,
 	EmailTemplate: EmailTemplate,
-	RecivierGroup: RecivierGroup,
+	ReceiverGroup: ReceiverGroup,
 	Task: Task
 };
 };

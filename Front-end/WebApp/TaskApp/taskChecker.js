@@ -18,9 +18,15 @@ function checkTasks() {
 
 function perform(task) {
 	if(task.type == 'mail') {
-		mailer.perform(task, function() {
+		mailer.perform(task, function(err) {
+			if(!err) {
 			task.done = true;
 			task.save();
+		}
+
 		});
 	}
 };
+
+
+module.exports.checkTasks = checkTasks;

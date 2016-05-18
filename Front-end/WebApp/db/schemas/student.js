@@ -68,6 +68,9 @@ var student = new schema({
 	registered: {
 		type: Date
 	},
+	recoveryToken: {
+		type: String
+	},
 	achivments: [achivmentSchema]
 });
 
@@ -111,5 +114,10 @@ student.methods.add = function(fields, callback) {
 			}
 		})
 };
+
+student.methods.createRecoveryToken = commonMethods.createRecoveryToken;
+student.methods.encryptData = commonMethods.useRecoveryToken;
+
+
 
 module.exports = student;
