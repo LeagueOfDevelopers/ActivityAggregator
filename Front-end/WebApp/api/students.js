@@ -279,7 +279,7 @@ function generateRecoveryToken(req, res, next) {
 					mailer.send({
 						to: data.email,
 						subject: 'Восстановление пароля',
-						text: 'Ваш код восстановления' + recoveryToken; 
+						text: 'Ваш код восстановления' + recoveryToken
 					});
 					res.send('token getted');
 				})

@@ -27,7 +27,7 @@ function createConnection() {
 	    console.log("Connected to DB!");
 	});
 
-return db;
+	return db;
 };
 
 function createModels() {

@@ -6,7 +6,7 @@ var task = new schema({
 		type: String,
 		required: true
 	},
-	receiversGroup: String,
+	receiverGroup: String,
 	receiver: {
 		type: String
 	},

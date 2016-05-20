@@ -8,6 +8,7 @@ var mail = require('../api/mailer');
 router.post('/auth/isAuth', students.isAuth);
 router.post('/auth/logout', students.logout);
 
+
 router.get('/students/', students.getStudentsList);
 router.get('/students/:id', students.getStudentDetail);
 router.get('/students/search_by_category/:searchParams', students.getStudentsListByCategory);

@@ -22,7 +22,7 @@ var emailTemplate = new schema({
 });
 
 emailTemplate.methods.generate = function(text) {
-	jade.compileFile(this.htmlTemplate, text);
+	return jade.compileFile(this.htmlTemplate)(text);
 };
 
 module.exports = emailTemplate;

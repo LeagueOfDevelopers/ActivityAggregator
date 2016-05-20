@@ -40,17 +40,20 @@ function send(params, callback) {
 
 function getReceivers(task, callback) {
 	if(task.receiverGroup) {
-		ReceiverGroup.findOne({"name": task.receiverGroup}, function(err, receivers) {
+		ReceiverGroup.findOne({"name": task.receiverGroup}, function(err, receiverGroup) {
 			if(err) callback(err);
-			else if(receivers) {
-				console.log(receivers.map(function(item) { return item.email}));
-				callback(null, receivers.map(function(item) { return item.email}));
+			else if(receiverGroup) {
+				console.log(receiverGroup.receivers);
+				console.log("res");
+				callback(null, receiverGroup.receivers.map(function(item) { return item.email}));
 			} else {
 				callback(null)
+				console.log("not res");
 			}
 		})
 	} else {
 		 callback(null, task.receiver);
+
 	}
 };
 
@@ -58,8 +61,11 @@ function generateMessageByTask(task, callback) {
 	 EmailTemplate.findOne({"name": task.templateName}, function(err, template) {
 	 	if(err) callback(err);
 	 	else if(template) {
-	 		console.log(template.generate(task.text));
-	 		callback(null, template.generate(task.text));
+	 		var message = {
+	 			template: template.generate(task.text),
+	 			subject: template.subject
+	 		};
+	 		callback(null, message);
 	 	} else {
 	 		callback(null);
 	 	}
@@ -71,14 +77,10 @@ function perform(task, doneCallback) {
 		receivers: function(callback) {
 			getReceivers(task, function(err, receivers) {
 				callback(err, receivers);
-				console.log(err);
-				console.log(receivers);
 			})
 		},
 		message: function(callback) {
 			generateMessageByTask(task, function(err, message) {
-				console.log(err);
-				console.log(message);
 				callback(err, message);
 			})
 		}
@@ -92,7 +94,7 @@ function perform(task, doneCallback) {
 			send({
 				receivers: params.receivers,
 			    subject: params.message.subject,
-			    text: params.message.text
+			    html: params.message.template
 			}, function(err, info) {
 				if(err) console.log(err);
 				else  {					//all ok

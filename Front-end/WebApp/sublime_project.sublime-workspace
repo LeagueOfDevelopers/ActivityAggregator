@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"c",
+				"cover"
+			],
+			[
 				"shortAchList",
 				"shortAchListLimit"
 			],
@@ -142,10 +146,6 @@
 			[
 				"so",
 				"softBlue"
-			],
-			[
-				"c",
-				"color"
 			],
 			[
 				"inl",
@@ -336,132 +336,21 @@
 	"buffers":
 	[
 		{
-			"file": "api/achivments.js",
+			"contents": "var mongoose = require('mongoose');\nvar jade = require('jade');\nvar	schema = mongoose.Schema;\n\nvar emailTemplate = new schema({\n	name: {\n		type: String,\n		required: true,\n		unique: true\n	},\n	subject: {\n		type: String,\n		requird: true\n	},\n	text: {\n		type: String,\n		required: true\n	},\n	htmlTemplate: {\n		type: String, \n	}\n});\n\nemailTemplate.methods.generate = function(text) {\n	jade.compileFile(this.htmlTemplate, text);\n};\n\nmodule.exports = emailTemplate;",
+			"file": "db/schemas/emailTemplate.js",
+			"file_size": 482,
+			"file_write_time": 131080600130376808,
 			"settings":
 			{
-				"buffer_size": 3532,
+				"buffer_size": 455,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "views/index.jade",
+			"file": "app.js",
 			"settings":
 			{
-				"buffer_size": 3134,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "footer.html",
-			"settings":
-			{
-				"buffer_size": 11,
-				"line_ending": "Windows",
-				"name": "footer.html"
-			}
-		},
-		{
-			"file": "public/partials/footer.html",
-			"settings":
-			{
-				"buffer_size": 103,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/js/app.js",
-			"settings":
-			{
-				"buffer_size": 2448,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "db/schemas/task.js",
-			"settings":
-			{
-				"buffer_size": 371,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/js/controllers.js",
-			"settings":
-			{
-				"buffer_size": 13778,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "package.json",
-			"settings":
-			{
-				"buffer_size": 672,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "",
-			"file": "postDefaulModels.js",
-			"file_size": 19,
-			"file_write_time": 131076976840924120,
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,500&subset=latin,cyrillic,cyrillic-ext);\n\n$mainColor: #009fdf;\n$softBlue: #87b1cd;\n$fontColor: #59595b;\n$bodyColor: #fafafa;\n$achivmentsIcons: url(../icons/achivments_icons.png);\n\n@mixin border-r($radius) {\n  -webkit-border-radius: $radius;\n     -moz-border-radius: $radius;\n      -ms-border-radius: $radius;\n          border-radius: $radius;\n}\n\n@mixin cardShadow() {\n  -webkit-box-shadow: 3px 4px 5px -4px rgba(0,0,0,0.5);\n     -moz-box-shadow: 3px 4px 5px -4px rgba(0,0,0,0.5);\n          box-shadow: 3px 4px 5px -4px rgba(0,0,0,0.5);\n}\n\n@mixin headerShadow() {\n   -webkit-box-shadow: 3px 4px 5px -4px rgba(0,0,0,0.5);\n     -moz-box-shadow: 3px 4px 5px -4px rgba(0,0,0,0.5);\n          box-shadow: 3px 4px 5px -4px rgba(0,0,0,0.5);\n}\n\n@mixin trans($t, $func) {\n  -webkit-transition: all $t $func;\n  -o-transition: all $t $func;\n  transition: all $t $func;\n}\n\n* {\n  margin: 0;\n  padding: 0;\n}\n\n\n[ng\\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {\n  display: none !important;\n}\n\n\n\na {\n  text-decoration: none;\n}\n\n\nul {\n  list-style: none;\n}\n\n@font-face {\n  font-family: Calibri;\n  src: url(../fonts/calibri.ttf);\n}\n@font-face {\n  font-family: Calibrib;\n  src: url(../fonts/calibrib.ttf);\n}\n@font-face {\n  font-family: DaysSans;\n  src:url(../fonts/DaysSansBlack.otf);\n}\n\nhtml {\n  height: 100% !important;\n}\n\nbody {\n  font-family:  Roboto, Ubuntu, sans-serif !important;\n  height: 100%  !important;\n  background-color: $bodyColor !important;\n  overflow-x: hidden;\n}\n\n.wrapper {\n  height: 100% !important;\n  position: relative;\n}\n\n.header {\n  height: 60px;\n  line-height: 60px;\n  background-color: $mainColor;\n  z-index: 1000;\n  position: fixed;\n  @include headerShadow();\n}\n\n\n.page_content {\n  padding-top: 60px;\n  padding-bottom: 60px;\n}\n\n.vertical_offset {\n  margin-top: 40px;\n  margin-bottom: 40px;\n}\n\n@media only screen and (min-width: 960px) {\n  .vertical_offset {\n  margin-top: 100px;\n  margin-bottom: 100px;\n}\n}\n\n\n.footer {\n  width: 100%; \n  height: 60px;\n  line-height: 60px;\n  background: #fff;\n}\n\n.misis_logo {\n  margin-right: 10px;\n  margin-top: 7px;\n  width: 120px;\n  height: 50px;\n  background-size: cover;\n  background: url(../icons/Misis_logo.png) no-repeat;\n  float: right;\n}\n\n.lod_logo {\n  float: left;\n  margin-left: 10px;\n  height: 50px;\n  width: 50px;\n  background-size: cover;\n  background: url(../icons/);\n}\n\n.logo {\n  width: 200px;\n  margin-left: -15px;\n  height: 60px;\n  float: left;\n  background-position: center;\n  background: url(../icons/logo.png) no-repeat;\n  -webkit-background-size: cover;\n  background-size: cover;\n}\n\n.nav_bar {\n  float: right;\n  height: 100%;\n   display: none;\n  isibility: none;\n\n}\n\n.burger {\n  float: right;\n  color: #fff;\n  font-size: 30px;\n  display: inline-block;\n  visibility: visible;\n}\n\n@media only screen and (min-width: 670px) {\n  .burger {\n    display: none;\n    visibility: none;\n  }\n    .nav_bar {\n  float: right;\n  height: 100%;\n  display: inline-block;\n  visibility: visible;\n}\n}\n\n.mobile_nav_bar_background {\n  top: 60px;\n  display: block;\n  visibility: visible;\n  background: $mainColor;\n  position: fixed;\n  z-index: 800;\n}\n\n.mobile_nav_bar {\n  font-weight: bold;\n  font-size: 22px;\n  text-align: center;\n}\n\n.mobile_nav_bar ul {\n  margin-top: 10px;\n  width: 100%;\n}\n\n.mobile_nav_bar a {\n  color: #fff;\n\n}\n \n.mobile_nav_bar li {\n  width: 100%;\n  @include trans(.2s, ease-in)\n}\n\n.mobile_nav_bar li:hover {\n  background: #fff;\n  a {\n    color: $mainColor;\n  }\n}\n\n.nav_bar ul {\n	height: 100%;\n}\n\n.nav_bar li {\n  display: inline-block;\n  color: #fff;\n  margin-right: 25px;\n  height: 100%;\n  box-sizing: border-box;\n  color: #fff;\n  font-size: 20px;\n  border-bottom: 0px solid rgba(255, 255, 255, 0);\n  border-button-width: 0px;\n  @include trans(.2s, ease-out);\n\n}\n\n.nav_bar li:hover {\n	 border-bottom: 4px solid rgba(255, 255, 255, 1);\n}\n\n\n.nav_bar a {\n  display: inline-block;\n  height: 100%;\n  color: #fff;\n  font-family: Calibrib;\n  border-bottom: 0px solid #fff;\n}\n\n.index_header {\n  height: 85px;\n}\n\n.index_title {\n  display: inline-block;\n  font-family: DaysSans;\n  font-size: 18px;\n  color: rgb(39, 40, 38);\n  padding-left: 40px;\n  line-height: 1.5;\n  width: 560px;\n}\n\n.container {\n  max-width: 960px;\n  margin: 0 auto;\n}\n\n.profile_info {\n  margin-top: 20px;\n}\n\n.profile_info_card {\n  box-sizing: border-box;\n  display: inline-block;\n  background: #fff;\n  @include cardShadow();\n  padding: 20px;\n  color: $fontColor;\n  overflow: hidden;\n  -webkit-animation: fadeIn .2s ease-out;\n  -o-animation: fadeIn .2s ease-out;\n  animation: fadeIn .2s ease-out;\n  border-radius: 5px;\n}\n\n.about_edit_field {\n  height: 100%;\n  width: 100%;\n  display: block;\n}\n\n.user_main_info {\n  position: relative;\n  height: 120px;\n\n}\n\n.avatar_profile {\n  display: inline-block;\n  position: relative;\n  width: 120px;\n  height: 120px;\n  background-color: #8c9397;\n  background-size: cover;\n  background-image: url(../img/default-avatar.gif)\n\n}\n\n.user_avatar_profile {\n  display: inline-block;\n  position: relative;\n  width: 120px;\n  height: 120px;\n  background-color: #8c9397;\n  background-size: cover;\n  background-image: url(../img/default-avatar.gif)\n\n}\n\n.user_avatar_profile:after {\n  display: block;\n  content: \"Загрузить фото\";\n  width: 120px;\n  height: 120px;\n  color: #fff;\n  text-align: center;\n  line-height: 120px;\n  font-size: 16px;\n  background: rgba(0, 0, 0, 0.5);;\n  opacity: 0;\n  -webkit-transition: all .2s;\n  -o-transition: all .2s;\n  transition: all .2s;\n  z-index: 299;\n}\n\n.avatar_file_input {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    opacity: 0;\n    cursor: pointer;\n    z-index: 500;\n  }\n\n.user_avatar_profile:hover:after  {\n  opacity: 1;\n  cursor: pointer;\n}\n\n.user_name_profile {\n  position: absolute;\n  left: 133px;\n  font-weight: bold;\n  font-size: 20px;\n}\n\n.user_course_profile {\n  position: absolute;\n  left: 133px;\n  top: 30px;\n  font-weight: bold;\n  font-size: 18 px;\n}\n\n.user_number_profile {\n  position: absolute;\n  left: 133px;\n  top: 60px;\n  font-weight: bold;\n  font-size: 18 px;\n}\n\n.user_detail {\n  margin-top: 15px;\n}\n\n.user_detail span {\n  font-weight: bold;\n  font-size: 20px;\n}\n\n.user_detail p {\n  margin-top: 7px;\n  font-size: 18px;\n}\n\n.btn_ghost {\n  background: #fff;\n  padding: 8px 10px;\n  color: $mainColor;\n  font-size: 14px;\n  border: 1px solid $mainColor;\n  @include trans(.2s, ease-out);\n}\n\n.btn_ghost:hover {\n  color: #fff;\n  background: $mainColor;\n}\n\n.btn_ghost:hover {\n  cursor: pointer;\n}\n\n.achCard_btn {\n  float: right;\n  margin: 5px;\n  text-decoration: underline;\n}\n\n.btn_add_achivment {\n  margin-left: 10px;\n  padding: 3px 12px;\n  border-radius: 50%;\n  border: 2px solid $mainColor;\n  background: transparent;\n  opacity: 1;\n  background: #fff;\n  color: $mainColor;\n  @include cardShadow();\n  font-size: 24px;\n  line-height: normal !important;\n  -webkit-transition: all .2s;\n  -o-transition: all .2s;\n  transition: all .2s;\n}\n\n.btn_add_achivment:hover {\n  cursor: pointer;\n  background: $mainColor;\n  color: #fff;\n}\n\n.help {\n  margin-top: 10px;\n  display: inline-block;\n  width: 440px;\n  text-align: left;\n  color: #8c9397;\n  vertical-align: top;\n}\n\n.help_title {\n  font-weight: bold;\n  font-size: 18px;\n  text-align: center;\n}\n\n.help_content {\n  margin-top: 5px;\n  font-size: 18px;\n  width: 350px;\n}\n\n.achivments_profile {\n  margin-top: 30px;\n}\n\n.achivments_profile span {\n  color: $fontColor;\n  font-size: 20px;\n  font-weight: bold;\n}\n\n.achivments_list {\n  margin-bottom: 100px;\n}\n\n.achivments_list ul {\n  margin: 20px auto;\n}\n\n.achivments_list li {\n  display: inline-block;\n  margin: 5px;\n}\n\n.ach {\n	height: 70px;\n  width: 250px;\n	background-color: $softBlue;\n	opacity: 1;\n	position: relative;\n	-webkit-transition: all .2s;\n	-o-transition: all .2s;\n	transition: all .2s;\n	@include cardShadow();\n  @include border-r(7px);\n  animation: fadeIn .2s ease-out;\n}\n\n.ach.unchecked {\n  background-color: #ccc !important;\n  color: #fafafa;\n\n.ach_icon:after {\n  visibility:  hidden;\n}\n\n}\n\n.ach:hover {\n	opacity: 1;\n  cursor: pointer;\n  background: #78a0ba;\n}\n\n.ach_icon {\n	position: absolute;\n	top: 7px;\n	left: 7px;\n	width: 55px;\n	height: 55px;\n	border-radius: 50%;\n	background-color: #fff;\n  @include cardShadow();\n}\n\n.ach_icon:after {\n  position: absolute;\n  align: center;\n  content: \"\";\n  display: block;\n  background-repeat: no-repeat;\n  width: 55px;\n  height: 55px;\n}\n\n.ach_icon.science:after {\n\n  background: $achivmentsIcons -59px  no-repeat;\n\n}\n\n.ach_icon.cultural:after {\n  background: $achivmentsIcons 11px  no-repeat;\n}\n\n.ach_icon.social:after {\n  background: $achivmentsIcons -130px no-repeat;\n}\n\n.ach_icon.sport:after {\n  background: $achivmentsIcons -200px no-repeat;\n}\n\n.ach_icon.study:after {\n  background: $achivmentsIcons -256px no-repeat;\n}\n\n.ach_icon.business:after {\n  background: $achivmentsIcons -379px no-repeat;\n}\n\n.ach_icon.international:after {\n  background: $achivmentsIcons -312px no-repeat;\n}\n\n\n.ach_title {\n	position: absolute;\n	top: 7px;\n	left: 80px;\n	color: #fff;\n  line-height: normal;\n  font-weight: bold;\n  font-size: 16px;\n  width: 180px;\n}\n\n .students_base_container {\n  margin: 0 auto;\n  max-width: 800px;\n}\n\n.students_base_header {\n  width: 100%;\n  min-height: 100px;\n  padding-bottom: 15px;\n  position: absolute;\n  top: 60px;\n  background: #fff;\n  z-index: 200;\n  \n  @include cardShadow();\n}\n\n/*@media (min-width: 600px) {\n  .students_base_header {\n    position: fixed;\n  }\n}*/\n\n.students_base_title {\n  display: block;\n  margin-top: 15px;\n  color: $fontColor;\n  font-size: 24px;\n  font-weight: bold;\n\n}\n\n.search_params  {\n  margin-top: 20px;\n  max-width: 800px !important;\n}\n\n.search_student_input {\n  padding: 7px;\n  max-height: 35px;\n  border: 1px solid $mainColor;\n  font-size: 16px;\n}\n\n.btn_start_search {\n  width: 30px;\n  height: 35px;\n  background: transparent;\n  border: transparent;\n  border-radius: 0;\n  color: #fff;\n  background: $mainColor;\n  font-size: 20px;\n  -webkit-transition: all .2s;\n  -o-transition: all .2s;\n  transition: all .2s;\n}\n\n.btn_start_search:hover {\n  cursor: pointer;\n  color: #fff;\n  background: $mainColor;\n}\n\n.category_label {\n  display: inline-block;\n  color: $fontColor;\n  font-weight: bold;\n  font-size: 16px;\n  padding: 7px;\n  text-align: center;\n\n}\n\n.select_category {\n  display: inline-block;\n  padding: 6px;\n  border: 1px solid $mainColor;\n  font-size: 16px;\n  border-radius: 0;\n}\n\n.students_list {\n  padding-top: 300px;\n}\n\n@media (min-width: 640px) {\n  .students_list {\n    padding-top: 200px;\n  }\n}\n\n.student_card {\n  position: relative;\n  background: #fff;\n  width: 100%;\n  min-height: 100px;\n  margin-bottom: 20px;\n  padding: 15px;\n  padding-left: 5px;\n  line-height: normal;\n  @include cardShadow();\n  -webkit-animation: fadeIn .2s ease-out;\n  -o-animation: fadeIn .2s ease-out;\n  animation: fadeIn .2s ease-out;\n  border-radius: 5px;\n}\n\n@keyframes fadeIn {\n  from {transform: translateY(20px);}\n  to {transform: translateY(0px)}\n}\n\n@keyframes fadeInScale {\n  from {\n    transform: translateY(20px);\n    transform: scale(0.8);\n  }\n  to {\n    transform: scale(1);\n    transform: translateY(0px);\n    }\n}\n\n.avatar {\n  background-image: url(../img/default-avatar.gif);\n  background-size: cover;\n  width: 100px;\n  height: 100px;\n  display: inline-block;\n}\n\n.profile_detail {\n  vertical-align: top;\n  margin-left: 10px;\n  display: inline-block;\n  color: $fontColor;\n}\n\n.first_name, .last_name {\n  font-size: 18px;\n  font-weight: bold;\n}\n\n.course {\n  font-size: 18px;\n}\n\n.btn_profile_link {\n  margin-top: 15px;\n  background: #fff;\n  color: $mainColor;\n  font-size: 16px;\n  font-weight: bold;\n  padding-bottom: 2px;\n  opacity: .8;\n  border-bottom: 1px dotted $mainColor;\n}\n\n.btn_profile_link:hover {\n  cursor: pointer;\n  opacity: 1;\n\n}\n\n.short_achivments_list {\n display: none;\n visibility: hidden;\n}\n\n@media (min-width: 640px) {\n  .short_achivments_list {\n  visibility: visible;\n  display: inline-block;\n  vertical-align: top;\n  line-height: 25px;\n}\n\n}\n\n.achivment_link a  {\n  opacity: .8;\n  color: $mainColor;\n  font-size: 16px;\n  font-weight: bold;\n  border-bottom: 1px dotted $mainColor;\n}\n\n.achivment_link a:hover {\n  cursor: pointer;\n  color: #028ec7;\n  opacity: 1;\n}\n\n.achivments_count {\n  border: none;\n  background: transparent;\n  position: absolute;\n  top: 15px;\n  right: 20px;\n  color: #000;\n  font-size: 18px;\n  font-weight: bold;\n  text-decoration: underline;\n}\n\n.achivments_count i {\n  margin-left: 3px;\n  font-size: 20px;\n}\n\n.achivments_count:hover {\n  color: $mainColor;\n  cursor: pointer;\n}\n\n#achivments_popup {\n  background: #fff;\n  padding: 5px 15px;\n  position: fixed;\n  top: 300px;\n  left: 700px;\n  height: 300px;\n  width: auto;\n  border-top: 10px solid $mainColor;\n  border-bottom: 10px solid $mainColor;\n  overflow-y: auto;\n  overflow-x: hidden;\n  z-index: 500;\n}\n\n#achivments_popup li {\n  margin-bottom: 3px;\n}\n\n .form_card {\n   margin-top: 50px;\n   background-color: #fff;\n   @include cardShadow();\n   -webkit-animation: fadeIn .2s ease-out;\n  -o-animation: fadeIn .2s ease-out;\n  animation: fadeIn .2s ease-out;\n  border-radius: 5px;\n }\n\n@media only screen and (min-width: 670px) {\n  .form_card {\n    width: 600px;\n  }\n}\n \n .achivment_detail_card {\n   margin-top: 100px;\n   width: 300px;\n   height: auto;\n   background-color: #fff;\n   @include cardShadow;\n   -webkit-animation: fadeIn .2s ease-out;\n  -o-animation: fadeIn .2s ease-out;\n  animation: fadeIn .2s ease-out;\n  -webkit-animation: fadeInScale .2s ease-out;\n  -o-animation: fadeInScale .2s ease-out;\n  animation: fadeInScale .2s ease-out;\n }\n\n .achivment_detail_card p {\n  display: block;\n  height: auto;\n  max-width: 60%;\n }\n\n .achivment_detail {\n  padding-left: 20px;\n  padding-top: 10px;\n }\n\n .detail_label {\n  font-weight: bold !important;\n }\n\n.form_title {\n font-size: 18px;\n font-weight: bold;\n color: $fontColor;\n text-align: center;\n display: block;\n}\n\n.login_form {\n  padding: 10px;\n  padding-left: 100px;\n}\n\n.login_form label {\n  display: block;\n  margin-bottom: 5px;\n  font-size: 16px;\n\n}\n.login_form input {\n  width: 100%;\n  padding: 8px;\n  margin: 5px auto;\n\n}\n\n.login_form a {\n  color: $mainColor;\n}\n\n .submit_form {\n  text-align: center;\n  font-weight: bold;\n  background: transparent;\n  width: 100%;\n  padding: 10px;\n  border: 1px solid $mainColor !important;\n  color: $mainColor;\n  transition: all .2s;\n}\n\n.submit_form:hover {\n  background: $mainColor;\n  color: #fff;\n}\n\n.form_card {\n\ninput.ng-invalid.ng-dirty {\n  border: 1px solid red;\n}\n\ninput.ng-valid.ng-dirty {\n  border: 1px solid green;\n}\n\ninput {\n  \n}\n\n}\n\ntextaria {\n @include border-r(5px)\n}\n\n.file_field {\n  height: 50px;\n  color: $mainColor;\n}\n\n.file_field:hover {\n  cursor: pointer;\n}\n\n.achivment_owner {\n  display: block;\n  color: $mainColor;\n  font-size: 18px;\n  font-weight: bold;\n  text-align: right;\n  opacity: .8;\n\n}\n\n.achivment_owner:hover {\n  opacity: 1;\n}\n\n.achivment_title {\n  color: #fff;\n  font-size: 20px;\n  font-weight: bold;\n  text-align: center;\n  background-color: $softBlue;\n}\n\n.achivment_title.unchecked {\n  background-color: #ddd !important;\n}\n\n.achivment_detail {\n  font-size: 16px;\n  color: $fontColor;\n}\n\n.achivment_detail span {\n  display: block;\n}\n\n.achivment_detail_description {\n  font-size: 18px;\n  color: $fontColor;\n  margin-top: 10px;\n}\n\n.achivment_detail {\n  height: 115px;\n  position: relative;\n  font-size: 18px;\n}\n\n.main_page_header {\n  height: 100%;\n}\n\n.main_page_header div.columns {\n  height: 600px;\n}\n\n.grad {\ntop: 50%;\nheight: 50%;\nwidth: 98%;\nposition: absolute;\nbackground: rgba(246,246,246,1);\nopacity: .5;\nbackground: rgba(255,255,255,0.03);\nbackground: -moz-linear-gradient(top, rgba(255,255,255,0.03) 20%, rgba(255,255,255,0.03) 33%, rgba(255,255,255,0.19) 41%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 100%);\nbackground: -webkit-gradient(left top, left bottom, color-stop(20%, rgba(255,255,255,0.03)), color-stop(33%, rgba(255,255,255,0.03)), color-stop(41%, rgba(255,255,255,0.19)), color-stop(81%, rgba(255,255,255,1)), color-stop(100%, rgba(255,255,255,1)));\nbackground: -webkit-linear-gradient(top, rgba(255,255,255,0.03) 20%, rgba(255,255,255,0.03) 33%, rgba(255,255,255,0.19) 41%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 100%);\nbackground: -o-linear-gradient(top, rgba(255,255,255,0.03) 20%, rgba(255,255,255,0.03) 33%, rgba(255,255,255,0.19) 41%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 100%);\nbackground: -ms-linear-gradient(top, rgba(255,255,255,0.03) 20%, rgba(255,255,255,0.03) 33%, rgba(255,255,255,0.19) 41%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 100%);\nbackground: linear-gradient(to bottom, rgba(255,255,255,0.03) 20%, rgba(255,255,255,0.03) 33%, rgba(255,255,255,0.19) 41%, rgba(255,255,255,1) 81%, rgba(255,255,255,1) 100%);\nfilter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 );\n}\n\n.project_name {\n  background: #fff;\n  background-size: cover;\n  position: relative;\n  }\n\n.third_block {\n  display: none;\n  visibility: hidden;\n}\n\n.project_name p {\n  padding: 15px;\n  color: $fontColor;\n  display: block;\n  font-size: 30px;\n  font-weight: bold;\n  line-height: 50px;\n  background: #fff;\n  background-image: url(../img/main_bg.png);\n  background-size: cover;\n}\n\n.short_info {\n  height: auto;\n}\n\n.short_info p {\n  font-size: 22px;\n  margin-top: 10px;\n  background: transparent;\n  color: #fff;\n  line-height: 28px;\n  font-weight: normal;\n}\n\n.short_info h1{\n  text-align: center;\n  border-bottom: 2px solid #fff;\n  padding-bottom: 10px;\n  margin-top: 10px;\n}\n\n\n.shortInfo_steps {\n  margin: 40px auto;\n  font-size: 18px;\n  font-weight: bold;\n}\n\n.shortInfo_icon {\n  height: 100px;\n  width: 100px;\n  margin: 0 auto;\n  font-size: 60px;\n}\n\n.shortInfo_steps li {\n  text-align: center;\n}\n\n#thirdB {\n  display: none;\n}\n\n@media only screen and (min-width: 960px) {\n\n}\n\n.short_info {\n  background: $mainColor;\n  color: #fff;\n  position: relative;\n  padding-bottom: 20px;\n  @include cardShadow();\n}\n\n.mp_btn_registry  {\n  color: #fff;\n  border: 2px solid #fff;\n  padding: 16px 14px !important;\n  font-size: 18px;\n  border-radius: 7px;\n  margin-left: 10px;\n  font-weight: bold;\n  @include trans(.2s, ease-out);\n  margin-top: 10px;\n}\n\n.mp_btn_registry:hover {\n  cursor: pointer;\n  color: $mainColor;\n  background: #fff;\n  @include cardShadow();\n}\n\n#logout {\n  -webkit-transition: all .2s;\n  -o-transition: all .2s;\n  transition: all .2s;\n}\n\n#logout:hover {\n cursor: pointer;\n text-decoration: underline;\n}\n\n.not_found_msg {\n  position: absolute;\n  color: $fontColor;\n  font-size: 24px;\n  top: 200px;\n  text-align: center;\n}\n\n@media (min-height: 400px) {\n  .notification_popup {\n    top: 85% !important;\n  }\n}\n\n.notification_popup {\n  z-index: 1000;\n  position: fixed;\n  bottom: 50px;\n  height: 90px;\n  background: $softBlue;\n  border-radius: 7px 7px 0 0;\n  @include cardShadow;\n}\n\n.nt_label {\n  height: 90px;\n  margin-left: -15px;\n  line-height: 90px;\n  padding: 15px;\n }\n\n.msg  p {\n  margin-top: 10px;\n  color: #fff;\n  font-size: 16px;\n  font-weight: bold;\n  height: 100%;\n}\n\n.nt_label .bad {\n  display: block;\n  background-image: url(../icons/bad.png);\n  height: 64px;\n  width: 64px;\n  background-size: cover;\n}\n\n.nt_label .good {\n  display: block;\n  background-image: url(../icons/good.png);\n  height: 64px;\n  width: 64px;\n  background-size: cover;\n}\n\n.nt_label i {\n  font-size: 30px;\n  color: #fff;\n }\n\n@keyframes popupIn {\n  from {\n    transform: translateY(100px);\n  }\n  to {\n    transform: translateY(0px);\n  }\n}\n\n@keyframes popupOut {\n  from {\n    transform: translateY(0px);\n  }\n  to {\n    transform: translateY(100px);\n  }\n}\n\n.notification_popup.popupIn {\n  -webkit-animation: popupIn .1s ease-out;\n  -o-animation: popupIn .1s ease-out;\n  animation: popupIn .1s ease-out;\n}\n\n.notification_popup.popupOut {\n  -webkit-animation: popupOut .2s ease-out;\n  -o-animation: popupOut .2s ease-out;\n  animation: popupOut .2s ease-out;\n}\n\n.pList_list_h {\n  li {\n    display: inline-block;\n    margin-right: 2px;\n    box-sizing: border-box;\n    width: 100px;\n    height: 100px;\n  }\n\n  li:hover {\n    border: 3px solid $mainColor;\n  }\n}\n\n.fp_backdrop {\n  z-index: 2000;\n  position: fixed;\n  left: 0;\n  top: 0;\n  height: 100%;\n  width: 100%;\n  background: rgba(0,0,0, .5);\n  overflow: auto;\n}\n\n.achD_card {\n	position: relative;\n  margin: 0 auto;\n  min-height: 200px;\n  background: #fff;\n  @include cardShadow;\n  border-radius: 7px;\n  border-left: 4px solid $softBlue;\n  color: $fontColor;\n  -webkit-animation: fadeIn .2s ease-out;\n  -o-animation: fadeIn .2s ease-out;\n  animation: fadeIn .2s ease-out;}\n\n.achD_title {\n  margin-top: 10px;\n  margin-bottom: 8px;\n	font-size: 24px;\n	font-weight: bold;\n  padding-left: 8px;\n}\n\n.achD_ownerLink {\n  color: $mainColor;\n  font-weight: bold;\n  margin-bottom: 30px;\n  opacity: .8;\n  margin-left: 20px;  \n  border-bottom: 1px dotted $mainColor;\n}\n\n.achD_ownerLink :hover {\n  cursor: pointer;\n  opacity: 1;\n}\n\n.achD_detailsList li {\n	border-bottom: 1px dotted $mainColor;\n  width:  auto;\n  max-width: 350px\n}\n\n.achD_rejected {\n  padding: 10px;\n  background: red;\n  color: #fff;\n}\n\n.achD_description {\n  margin-top: 10px;\n  margin-bottom: 8px;\n  padding: 5px;\n}\n\n.achD_descriptionP {\n  display: block;\n  width: 70%;\n  font-size: 18px;\n}\n\n.achD_files {\n  padding: 0;\n  width: 100%;\n  margin-bottom: 8px;\n}\n\n.achD_filesList li {\n  display: inline-block;\n  box-sizing: border-box;\n  border: 0;\n  height: 70px;\n  width: 70px;\n  margin-right: 3px;\n  margin-top: 10px;\n  border: 2px solid $mainColor;\n}\n\n.achD_filesList li:hover {\n  cursor: pointer;\n  border: 4px solid $mainColor;\n}\n\n.achD_filePrev {\n  height: 100%;\n  width: 100%;\n  background: $mainColor;\n}\n\n.achD_detailsListLabel {\n	display: inline-block;\n  font-weight: bold;\n}\n\n.profCard_btn {\n  float: right;\n  margin-top: 10px; \n  margin-left: 5px; \n}\n\n.projectName_wrap {\n  position: relative;\n  background: #fff;\n  margin-top: 10px;\n}\n\n.projectName_title {\n  font-family:  sans-serif;\n  font-weight: bold;\n  font-size: 26px;\n  display: block;\n  background: #fff;\n  padding: 15px;\n  text-align: center;\n}\n\n.mp_ca {\n  background: $mainColor;\n  color: #fff;\n  margin-top: 10px;\n  height: 120px;\n  @include cardShadow();\n}\n\n.mp_ca span {\n  display: block;\n  font-size: 24px;\n  margin-left: 10px;\n}\n\n.shortList_wrap {\n  background: #fff;\n  height: auto;\n  max-height: 330px;\n  width: 100%;\n  margin-top: 10px;\n  padding: 0 !important;\n  margin-bottom: 10px;\n  @include cardShadow();\n}\n\n@media only screen and (min-width: 670px) {\n\n  .shortList_wrap {\n    margin-top: 0;\n  }\n}\n\n.mp_btn_registry {\n  padding: 5px;\n  border: 2px solid #fff;\n  @include border-r(7px);\n}\n\n.shortList_title {\n  font-weight: bold;\n  color: #fff;\n  font-size: 26px;\n  padding: 15px;\n  background-color: $mainColor;\n  margin: 0 auto;\n  width: 100%;\n  margin-bottom: 8px;\n  display: block;\n  text-align: center;\n\n}\n\n.shortList_item {\n  position: relative;\n  margin: 5px;\n  display: block;\n  background: #fafafa;\n  padding: 5px;\n}\n\n.circled {\n  @include border-r(7px);\n}\n\n.shortList_item  a {\n  display: block;\n  color: #000; \n}\n\n.shortList_item  a:hover{\n  cursor: pointer;\n}\n\n.studItem_avatar {\n  box-sizing: border-box;\n  height: 60px;\n  width: 60px;\n  display: inline-block;\n  clear: both;\n  background-size: cover;\n  background-image: url(../img/default-avatar.gif);\n\n}\n\n.studItem_name {\n  display: inline-block;\n  font-weight: bold;\n}\n\n.studItem_details {\n  position: absolute;\n  top: 0;\n  left: 70px;\n}\n\n.studItem_details li {\n  margin-bottom: 0px !important;\n  padding: 0;\n  display: block;\n  font-size: 16px;\n}\n\n.studItem_achivment {\n  color: $mainColor !important;\n  display: block;\n  font-size: 16px;\n  font-weight: bold;\n  opacity: .8;\n}\n\n.studItem_achivment:hover {\n  cursor: pointer;\n  opacity: 1;\n  text-decoration: underline !important;\n}\n\n.sB_loadMoreBtn {\n  display: block;\n  margin: 0 auto;\n  margin-bottom: 20px;\n  background: transparent;\n  padding: 10px;\n  color: $mainColor;\n  font-size: 18px;\n  border: 1px solid $mainColor;\n  @include trans(.2s, ease-out);\n}\n\n.sB_loadMoreBtn :hover {\n  background: $mainColor;\n  color: #fff;\n}\n\n.sB_preloader {\n  margin: 0 auto;\n  margin-top: 80px;\n}\n\n@-webkit-keyframes uil-ring-anim {\n  0% {\n    -ms-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -ms-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n\n@-webkit-keyframes uil-ring-anim {\n  0% {\n    -ms-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -ms-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n\n@-moz-keyframes uil-ring-anim {\n  0% {\n    -ms-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -ms-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n\n@-ms-keyframes uil-ring-anim {\n  0% {\n    -ms-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -ms-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n\n@-moz-keyframes uil-ring-anim {\n  0% {\n    -ms-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -ms-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n\n@-webkit-keyframes uil-ring-anim {\n  0% {\n    -ms-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -ms-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n\n@-o-keyframes uil-ring-anim {\n  0% {\n    -ms-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -ms-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n\n@keyframes uil-ring-anim {\n  0% {\n    -ms-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -ms-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n\n.uil-ring-css {\n  background: none;\n  position: relative;\n  width: 200px;\n  height: 200px;\n}\n\n.uil-ring-css > div {\n  position: absolute;\n  display: block;\n  width: 160px;\n  height: 160px;\n  top: 20px;\n  left: 20px;\n  border-radius: 80px;\n  box-shadow: 0 6px 0 0 $mainColor;\n  -ms-animation: uil-ring-anim .5s linear infinite;\n  -moz-animation: uil-ring-anim .5s linear infinite;\n  -webkit-animation: uil-ring-anim .5s linear infinite;\n  -o-animation: uil-ring-anim .5s linear infinite;\n  animation: uil-ring-anim .5s linear infinite;\n}\n\n.admAch_btn {\n  margin-bottom: 10px;\n}\n\n@-webkit-keyframes uil-ring-anim {\n  0% {\n    -ms-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -ms-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n\n@-webkit-keyframes uil-ring-anim {\n  0% {\n    -ms-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -ms-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n\n@-moz-keyframes uil-ring-anim {\n  0% {\n    -ms-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -ms-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n\n@-ms-keyframes uil-ring-anim {\n  0% {\n    -ms-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -ms-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n\n@-moz-keyframes uil-ring-anim {\n  0% {\n    -ms-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -ms-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n\n@-webkit-keyframes uil-ring-anim {\n  0% {\n    -ms-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -ms-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n\n@-o-keyframes uil-ring-anim {\n  0% {\n    -ms-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -ms-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n\n@keyframes uil-ring-anim {\n  0% {\n    -ms-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -ms-transform: rotate(360deg);\n    -moz-transform: rotate(360deg);\n    -webkit-transform: rotate(360deg);\n    -o-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n\n.preloader_wrapper {\n    position: relative;\n    width: 100px;\n    height: 100px;\n    z-index: 1000;\n}\n\n.preloader_circle{\n  height: 20px; \n  width: 20px;  \n  background: $mainColor;\n  border-radius: 50%;\n  position: absolute;\n  top: 30px;  \n  left: 40px; \n  -webkit-animation: pulse 1s linear infinite; \n    animation: pulse 1s linear infinite; \n}\n\n.preloader {\n    display: block;\n    position: relative;\n    width: 40px;\n    height: 40px;\n    position: absolute;\n    top: 18%;  \n    left: 30%;\n    border-radius: 50%;\n    border: 4px solid transparent;\n    border-top-color: $mainColor;\n    -webkit-animation: spin-l .5s linear infinite; \n    animation: spin-l .5s linear infinite; \n}\n\n.link {\n  border-bottom: 1px dotted $mainColor;\n  font-weight:  bold;\n}\n\n.nAch_uploadedList {\n  background-color: $mainColor;\n  background-size: cover;\n}\n\n.nAch_filePreloader {\n  display: inline-block;\n}\n\n.loader-wrapper {\n    position: relative; \n    top: 0;\n    left: 0;\n    width: 100px;\n    height: 100px;\n    z-index: 1000;\n}\n\n.loader_circle {\n  height: 20px; \n  width: 20px;  \n  background: $mainColor;\n  border-radius: 50%;\n  position: absolute;\n  top: 30px;  \n  left: 30px; \n  -webkit-animation: pulse 1s linear infinite; \n    animation: pulse 1s linear infinite; \n}\n\n.loader {\n  display: block;\n  position: relative;\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  border: 4px solid transparent;\n  border-top-color: $mainColor;\n  -webkit-animation: spin-l 1s linear infinite; \n  animation: spin-l 1s linear infinite; \n}\n \n.loader:before {\n  content: \"\";\n  position: absolute;\n  top: 5px;\n  left: 5px;\n  right: 5px;\n  bottom: 5px;\n  border-radius: 50%;\n  border: 5px solid transparent;\n  border-top-color: $mainColor;\n  -webkit-animation: spin-r 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */\n  animation: spin-r 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */\n}\n \n.loader:after {\n  content: \"\";\n  position: absolute;\n  top: 15px;\n  left: 15px;\n  right: 15px;\n  bottom: 15px;\n  border-radius: 50%;\n  border: 5px solid transparent;\n  border-top-color: $mainColor;\n  -webkit-animation: spin-l 1s ease-out infinite; \n  animation: spin-l 1s ease-out infinite; \n}\n \n@-webkit-keyframes spin-l {\n    0%   {\n        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */\n        -ms-transform: rotate(0deg);  /* IE 9 */\n        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */\n    }\n    100% {\n        -webkit-transform: rotate(-360deg);  /* Chrome, Opera 15+, Safari 3.1+ */\n        -ms-transform: rotate(-360deg);  /* IE 9 */\n        transform: rotate(-360deg);  /* Firefox 16+, IE 10+, Opera */\n    }\n}\n\n@keyframes spin-l {\n    0%   {\n        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */\n        -ms-transform: rotate(0deg);  /* IE 9 */\n        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */\n    }\n    100% {\n        -webkit-transform: rotate(-360deg);  /* Chrome, Opera 15+, Safari 3.1+ */\n        -ms-transform: rotate(-360deg);  /* IE 9 */\n        transform: rotate(-360deg);  /* Firefox 16+, IE 10+, Opera */\n    }\n}\n\n@-webkit-keyframes spin-r {\n    0%   {\n        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */\n        -ms-transform: rotate(0deg);  /* IE 9 */\n        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */\n    }\n    100% {\n        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */\n        -ms-transform: rotate(360deg);  /* IE 9 */\n        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */\n    }\n}\n\n@keyframes spin-r {\n    0%   {\n        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */\n        -ms-transform: rotate(0deg);  /* IE 9 */\n        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */\n    }\n    100% {\n        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */\n        -ms-transform: rotate(360deg);  /* IE 9 */\n        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */\n    }\n}\n\n@-webkit-keyframes pulse {\n    0%   {\n        -webkit-transform: scale(.6);  /* Chrome, Opera 15+, Safari 3.1+ */\n        -ms-transform: scale(.6);  /* IE 9 */\n        transform: scale(.6);  /* Firefox 16+, IE 10+, Opera */\n    }\n    100% {\n        -webkit-transform: scale(1);  /* Chrome, Opera 15+, Safari 3.1+ */\n        -ms-transform: scale(1);  /* IE 9 */\n        transform: scale(1);  /* Firefox 16+, IE 10+, Opera */\n    }\n}\n\n@keyframes pulse {\n    0%   {\n        -webkit-transform: scale(.6);  /* Chrome, Opera 15+, Safari 3.1+ */\n        -ms-transform: scale(.6);  /* IE 9 */\n        transform: scale(.6);  /* Firefox 16+, IE 10+, Opera */\n    }\n    100% {\n        -webkit-transform: scale(1);  /* Chrome, Opera 15+, Safari 3.1+ */\n        -ms-transform: scale(1);  /* IE 9 */\n        transform: scale(1);  /* Firefox 16+, IE 10+, Opera */\n    }\n}\n\n.startScreen {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 1500;\n  background: rgba(255,255,255, .8);\n  height: 100% !important; \n  width: 100% !important; \n\n}\n\n.loader-wrapper.start {\n  margin: 0 auto;\n  margin-top: 20%;  \n}\n",
-			"file": "public/styles/main.scss",
-			"file_size": 38008,
-			"file_write_time": 131077053354066494,
-			"settings":
-			{
-				"buffer_size": 36116,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/styles/main.css",
-			"settings":
-			{
-				"buffer_size": 37544,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/partials/studentsBase.html",
-			"settings":
-			{
-				"buffer_size": 2723,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "routes/api.js",
-			"settings":
-			{
-				"buffer_size": 2044,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "TaskApp/mailer.js",
-			"settings":
-			{
-				"buffer_size": 2007,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "\n   <section class=\"page_content\">\n    <div class=\"vertical_offset\">\n    <div class=\"row\">\n        <div class=\"achD_card small-12 medium-9 medium-centered columns\">\n\n        <div class=\"row\">\n            <div class=\"preloader_wrapper sB_preloader\" ng-if=\"onLoad.common\">\n      <div class=\"preloader\"></div>\n      <div class=\"preloader_circle\"></div>\n      </div>\n\n            <div class=\"achD_title small-12 columns\"ng-bind=\"achivment.name\"></div>\n            <a ui-sref=\"profile({id: achivment.owner._id})\" class=\"achD_ownerLink\" ng-bind=\"achivment.owner.firstName + ' ' + achivment.owner.lastName\"></a>\n        </div>\n        \n\n            <div class=\"row\" ng-if=\"!onLoad.common\">\n            <div class=\"achD_details small-12 medium-8 columns\">\n                <ul class=\"achD_detailsList small-12 columns\">\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel small-4 columns\">Категория</span>\n                    <span class=\" achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.type\"></span>\n                    </li>\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel  small-4 columns\">Уровень</span>\n                    <span class=\"achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.level\"></span>\n                    </li>\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel  small-4 columns \">Организация</span>\n                    <span class=\"achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.organization\"></span>\n                    </li>\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel  small-4 columns\">Результат</span>\n                    <span class=\"achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.result\"></span>\n                    </li>\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel  small-4 columns\">Получено</span>\n                    <span class=\"achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.created\"></span>\n                    </li>\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel  small-4 columns\">Статус</span>\n                    <span class=\"achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.checked ? 'Подтверждено' : 'Не подтверждено'\"></span>\n                    </li>\n                </ul>\n            </div>\n\n            <div class=\"achD_files small-12 medium-3 columns\">\n                <ul class=\"achD_filesList\">\n                    <li ng-repeat=\"file in achivment.files\">\n                        <div class=\"achD_filePrev\" style=\"background-image: url({{isPdf(file) ? '../icons/interface.png' : file}}); background-size: cover;\" ng-click='$parent.showPhoto(file)'></div>\n                    </li>\n                </ul>\n            </div>\n\n            <div class=\"row\"></div>\n            <div class=\"achD_rejected small-12 columns\" ng-if=\"achivment.message\">\n                <p class=\"achD_rejectedMsg\"ng-bind=\"'Отказано: ' + achivment.message \"></p>\n            </div>\n\n            <div class=\"achD_description small-12 columns\">\n                <p class=\"achD_desctiptionP\" ng-bind=\"achivment.description\"></p>\n            </div>\n\n        </div>\n    </div>\n    </div>\n</section>\n\n<div class=\"fp_backdrop\" ng-if='visiblePhoto' ng-click='$parent.visiblePhoto = false'>\n<img class='small-centered columns' src=\"{{photoToShow}}\" alt=\"\">\n\n</div>",
-			"file": "public/partials/achivment.html",
-			"file_size": 3641,
-			"file_write_time": 131073483287613220,
-			"settings":
-			{
-				"buffer_size": 3483,
+				"buffer_size": 2146,
 				"line_ending": "Windows"
 			}
 		}
@@ -551,45 +440,46 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/user pc/Desktop/test",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/bin",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/TaskApp"
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles"
 	],
 	"file_history":
 	[
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/emailTemplates/newStudent.jade",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/receiverGroup.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/task.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/mongoose.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/postDefaulModels.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/TaskApp/taskChecker.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/package.json",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/task.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/emailTemplate.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/TaskApp/mailer.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/admin.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/user.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/routes/api.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/achivment.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/studentsBase.html",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles/main.scss",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/students.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/profile_another.html",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles/main.scss",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/achivment.html",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/routes/api.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/commonMethods.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/requirerMiddleWare.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/student.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/user.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/studentsBase.html",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/emailTemplate.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/package.json",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/controllers.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/app.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/footer.html",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/views/index.jade",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/achivments.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/admin.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/achivment.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/profile_another.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/views/admin.jade",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/emailReceiver.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/receiverGroup.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/mongoose.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/services.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/controllers_main.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/admin_controllers.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/main.html",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/app.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js/build/build.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/node_modules/nodemailer/README.md",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/app.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/achivments.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/student.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/mailer.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/config.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/models/admin.js",
@@ -599,17 +489,14 @@
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/admin.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials/achivment.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/auth.html",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/achivment.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/mail.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/_test/test-helper.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles/load.css",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/commonMethods.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles/main.css",
 		"/C/Users/user pc/Google Диск/AU_15/2 семестр/ООП/Практика/9 норматив/n9_s3_52.txt",
 		"/C/Users/user pc/Google Диск/AU_15/2 семестр/ООП/Практика/9 норматив/n9_s3_47.txt",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/common.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/addAchivment.html",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/views/index.jade",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/registry.html",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/controllers_main.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/admin_app.js",
@@ -685,14 +572,11 @@
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/jade/gulpfile.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/jade/bower_components/font-awesome/css/font-awesome.css",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/jade/bower_components/font-awesome/HELP-US-OUT.txt",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/jade/bower_components/gulp/.bower.json",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/jade/bower_components/font-awesome/css/font-awesome.min.css",
-		"/C/Users/user pc/Documents/GitHub/extendedmovie/app/js/services.js",
-		"/C/Users/user pc/Documents/GitHub/extendedmovie/app/js/controllers.js"
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/jade/bower_components/gulp/.bower.json"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 21.0
 	},
 	"find_in_files":
 	{
@@ -707,6 +591,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"bvalidationMethods",
+			"validationPolicies",
 			"mp_secondBlock",
 			"footer",
 			"info",
@@ -806,6 +692,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"validationMethods",
+			"bvalidationMethods",
 			"btn_ghost",
 			"newAdmin",
 			"newAch.info.",
@@ -828,326 +716,33 @@
 	"groups":
 	[
 		{
-			"selected": 10,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "api/achivments.js",
+					"file": "db/schemas/emailTemplate.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3532,
+						"buffer_size": 455,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2465,
-								2465
+								419,
+								419
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"tabs_extra_last_activated": 1463230725.95,
-							"tabs_extra_last_activated_sheet_index": 0,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 725.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "views/index.jade",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3134,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2267,
-								2267
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1463225550.79,
+							"tabs_extra_last_activated": 1463779775.8,
 							"tabs_extra_last_activated_sheet_index": 1,
 							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 314.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 13,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 11,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								11,
-								11
-							]
-						],
-						"settings":
-						{
-							"auto_name": "footer.html",
-							"default_dir": "C:\\Users\\user pc\\Documents\\GitHub\\ActivityAggregator\\Front-end\\WebApp\\public\\partials",
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tabs_extra_last_activated": 1463225590.66,
-							"tabs_extra_last_activated_sheet_index": 2,
-							"tabs_extra_spawned": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "public/partials/footer.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 103,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								69,
-								69
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tabs_extra_last_activated": 1463225593.21,
-							"tabs_extra_last_activated_sheet_index": 3,
-							"tabs_extra_spawned": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "public/js/app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2448,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								929,
-								929
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1463229432.06,
-							"tabs_extra_last_activated_sheet_index": 4,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 107.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "db/schemas/task.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 371,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								346,
-								346
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1463230155.94,
-							"tabs_extra_last_activated_sheet_index": 6,
-							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "public/js/controllers.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 13778,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3636,
-								3636
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1463233596.62,
-							"tabs_extra_last_activated_sheet_index": 6,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": -0.0,
-						"translation.y": 2241.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "package.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 672,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								168,
-								168
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_closing": true,
-							"tabs_extra_last_activated": 1463485309.58,
-							"tabs_extra_last_activated_sheet_index": 7,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "postDefaulModels.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1463233767.45,
-							"tabs_extra_last_activated_sheet_index": 8,
-							"tabs_extra_spawned": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "public/styles/main.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 36116,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								924,
-								924
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1463485312.53,
-							"tabs_extra_last_activated_sheet_index": 10,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1157,12 +752,12 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
-					"file": "public/styles/main.css",
+					"buffer": 1,
+					"file": "app.js",
 					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 37544,
+						"buffer_size": 2146,
 						"regions":
 						{
 						},
@@ -1175,147 +770,18 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
-							"tabs_extra_last_activated": 1463485332.72,
-							"tabs_extra_last_activated_sheet_index": 10,
+							"tabs_extra_last_activated": 1463779781.52,
+							"tabs_extra_last_activated_sheet_index": 1,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
+						"translation.x": -0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "public/partials/studentsBase.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2723,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								589,
-								603
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1463233586.75,
-							"tabs_extra_last_activated_sheet_index": 10,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "routes/api.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2044,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1436,
-								1436
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1463229432.05,
-							"tabs_extra_last_activated_sheet_index": 6,
-							"tabs_extra_spawned": true
-						},
-						"translation.x": -0.0,
-						"translation.y": 68.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "TaskApp/mailer.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2007,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1351,
-								1351
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1463229794.49,
-							"tabs_extra_last_activated_sheet_index": 9,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "public/partials/achivment.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3483,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								831,
-								831
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"tabs_extra_last_activated": 1463224928.71,
-							"tabs_extra_last_activated_sheet_index": 3,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 14,
 					"type": "text"
 				}
 			]
@@ -1333,7 +799,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 23.0
+		"height": 21.0
 	},
 	"input":
 	{
@@ -1493,7 +959,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 304.0,
+	"side_bar_width": 383.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

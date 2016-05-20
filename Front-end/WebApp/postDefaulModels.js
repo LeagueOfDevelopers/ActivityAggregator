@@ -9,7 +9,7 @@ taskChecker.checkTasks();
 
 // var task = new Task({
 // 	type: 'mail',
-// 	receiversGroup: 'testGroup',
+// 	receiverGroup: 'testGroup',
 // 	templateName: 'newStudent',
 // 	text: {
 // 		id: '1',
