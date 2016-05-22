@@ -36,10 +36,10 @@ angular.module('admin.controllers',
 		$scope.submit = function() {
 			API.query('admin.login', {data: $scope.auth}).then(function(res) {
         if(res.data != 'not found') {
-				$scope.$emit('userUpdate');
+				$scope.$emit('auth');
 				$state.go('inbox');
       } else {
-        $scope.$emit('showMessage', {msg: 'Введены неверные данные'})
+        $scope.$emit('showMessage', {msg: 'Введены неверные данные', type: 'bad'})
       }
 			})
 		}
@@ -61,14 +61,14 @@ angular.module('admin.controllers',
       API.query('admin.registry', {data: $scope.newAdmin}, true).then(function(res) {
         switch(res.data) {
           case 
-          '0': $scope.$emit('showMessage', {msg: 'код уже использован!'});  
+          '0': $scope.$emit('showMessage', {msg: 'код уже использован!', type: 'bad'});  
             break;
           case '1':
-             $scope.$emit('showMessage', {msg: 'код не подходит'}); 
+             $scope.$emit('showMessage', {msg: 'код не подходит', type: 'bad'}); 
             break;
           default: 
           $scope.$emit('userUpdate');
-          $scope.$emit('showMessage', {msg: 'Администратор успешно зарегестрирован'});
+          $scope.$emit('showMessage', {msg: 'Администратор успешно зарегестрирован', type: 'good'});
           $scope.go('auth');
             break;
         }
@@ -94,7 +94,7 @@ angular.module('admin.controllers',
 
       $scope.confirm = function() {
         API.query('students.confirm', {studentId: $stateParams.id}, true).then(function(res) {
-            $scope.$emit('showMessage', {msg: 'Студент верифицирован'});
+            $scope.$emit('showMessage', {msg: 'Студент верифицирован', type: 'good'});
             API.query('students.getDetail', {studentId : $stateParams.id}, true).then(function(res) {
               $scope.student = res.data || null;
             });
@@ -102,7 +102,7 @@ angular.module('admin.controllers',
       }
       $scope.reject = function() {
         API.query('students.reject', {studentId: $stateParams.id}, true).then(function(res) {
-            $scope.$emit('showMessage', {msg: 'Заявка отклонена'});
+            $scope.$emit('showMessage', {msg: 'Заявка отклонена', type: 'good'});
             API.query('students.getDetail', {studentId : $stateParams.id}, true).then(function(res) {
               $scope.student = res.data || null;
             });
@@ -118,7 +118,8 @@ angular.module('admin.controllers',
       '$stateParams',
       'ngDialog',
       '$window',
-     function($scope, $state, $http, $stateParams, ngDialog, $window){
+      'API',
+     function($scope, $state, $http, $stateParams, ngDialog, $window, API){
 
          $scope.$emit('changeTitle', {title: $stateParams.achToShow.name}); 
          $scope.showEditField = false;
@@ -160,7 +161,7 @@ angular.module('admin.controllers',
 
         $scope.confirm = function() {
           $http.post('api/admin/confirm/' + ach._id).success(function(result) {
-            $scope.$emit('showMessage',  {msg: 'Достижение подтверждено'})
+            $scope.$emit('showMessage',  {msg: 'Достижение подтверждено', type: 'good'})
           })
 
         }
@@ -169,7 +170,7 @@ angular.module('admin.controllers',
           if($scope.message != '') {
           $scope.showTextaria = false;
           $http.post('api/admin/unconfirm/' + ach._id, {message: $scope.message}).success(function(result) {
-            $scope.$emit('showMessage', {msg: 'Отказ отправлен'})
+            $scope.$emit('showMessage', {msg: 'Отказ отправлен', type: 'good'})
           })
         }
          }
@@ -183,9 +184,9 @@ angular.module('admin.controllers',
             $scope.photoToShow = photo;
             $scope.visiblePhoto = true;
           } else {
-            var url = 'http://162.243.78.140' + photo.slice(1, photo.length);
+            var url = API.baseUrl + photo.slice(1, photo.length);
             $window.open(url);
-          }
+          } 
          }
 }])
 

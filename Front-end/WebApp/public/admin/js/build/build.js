@@ -37,7 +37,6 @@
        	}
        })
 
-
        .state('student', {
          url: '/admin/student/:id',
          views: {
@@ -60,10 +59,9 @@
              templateUrl: 'admin/partials/achivment.html',
              controller: 'achCtrl'
              }
-          },
-                   
-           
+          },   
        })
+       
        .state('registryAdmin', {
         url: '/admin/registryAdmin/:code',
         views: {
@@ -83,6 +81,7 @@
              }
           }
        })
+       
 
 
    }])
@@ -107,10 +106,12 @@ angular.module('admin.controllers',
 			$scope.studentsList = res.data || null;
 		});
     API.query('students.requests', null, true).then(function(res) {
-      $scope.registryRequests = res.data;
+      $scope.registryRequests = res.data || null;
     })
 	
-}]).controller('authCtrl',
+}])
+
+.controller('authCtrl',
 	 [
 	 '$scope',
 	 '$state',
@@ -122,10 +123,10 @@ angular.module('admin.controllers',
 		$scope.submit = function() {
 			API.query('admin.login', {data: $scope.auth}).then(function(res) {
         if(res.data != 'not found') {
-				$scope.$emit('userUpdate');
+				$scope.$emit('auth');
 				$state.go('inbox');
       } else {
-        $scope.$emit('showMessage', {msg: 'Введены неверные данные'})
+        $scope.$emit('showMessage', {msg: 'Введены неверные данные', type: 'bad'})
       }
 			})
 		}
@@ -147,14 +148,14 @@ angular.module('admin.controllers',
       API.query('admin.registry', {data: $scope.newAdmin}, true).then(function(res) {
         switch(res.data) {
           case 
-          '0': $scope.$emit('showMessage', {msg: 'код уже использован!'});  
+          '0': $scope.$emit('showMessage', {msg: 'код уже использован!', type: 'bad'});  
             break;
           case '1':
-             $scope.$emit('showMessage', {msg: 'код не подходит'}); 
+             $scope.$emit('showMessage', {msg: 'код не подходит', type: 'bad'}); 
             break;
           default: 
           $scope.$emit('userUpdate');
-          $scope.$emit('showMessage', {msg: 'Администратор успешно зарегестрирован'});
+          $scope.$emit('showMessage', {msg: 'Администратор успешно зарегестрирован', type: 'good'});
           $scope.go('auth');
             break;
         }
@@ -180,7 +181,7 @@ angular.module('admin.controllers',
 
       $scope.confirm = function() {
         API.query('students.confirm', {studentId: $stateParams.id}, true).then(function(res) {
-            $scope.$emit('showMessage', {msg: 'Студент верифицирован'});
+            $scope.$emit('showMessage', {msg: 'Студент верифицирован', type: 'good'});
             API.query('students.getDetail', {studentId : $stateParams.id}, true).then(function(res) {
               $scope.student = res.data || null;
             });
@@ -188,7 +189,7 @@ angular.module('admin.controllers',
       }
       $scope.reject = function() {
         API.query('students.reject', {studentId: $stateParams.id}, true).then(function(res) {
-            $scope.$emit('showMessage', {msg: 'Заявка отклонена'});
+            $scope.$emit('showMessage', {msg: 'Заявка отклонена', type: 'good'});
             API.query('students.getDetail', {studentId : $stateParams.id}, true).then(function(res) {
               $scope.student = res.data || null;
             });
@@ -204,7 +205,8 @@ angular.module('admin.controllers',
       '$stateParams',
       'ngDialog',
       '$window',
-     function($scope, $state, $http, $stateParams, ngDialog, $window){
+      'API',
+     function($scope, $state, $http, $stateParams, ngDialog, $window, API){
 
          $scope.$emit('changeTitle', {title: $stateParams.achToShow.name}); 
          $scope.showEditField = false;
@@ -246,7 +248,7 @@ angular.module('admin.controllers',
 
         $scope.confirm = function() {
           $http.post('api/admin/confirm/' + ach._id).success(function(result) {
-            $scope.$emit('showMessage',  {msg: 'Достижение подтверждено'})
+            $scope.$emit('showMessage',  {msg: 'Достижение подтверждено', type: 'good'})
           })
 
         }
@@ -255,7 +257,7 @@ angular.module('admin.controllers',
           if($scope.message != '') {
           $scope.showTextaria = false;
           $http.post('api/admin/unconfirm/' + ach._id, {message: $scope.message}).success(function(result) {
-            $scope.$emit('showMessage', {msg: 'Отказ отправлен'})
+            $scope.$emit('showMessage', {msg: 'Отказ отправлен', type: 'good'})
           })
         }
          }
@@ -269,16 +271,13 @@ angular.module('admin.controllers',
             $scope.photoToShow = photo;
             $scope.visiblePhoto = true;
           } else {
-            var url = 'http://162.243.78.140' + photo.slice(1, photo.length);
+            var url = API.baseUrl + photo.slice(1, photo.length);
             $window.open(url);
-          }
+          } 
          }
-    
+}])
 
-    
-       }])
-
-       .controller('inviteCtrl', ['$scope', '$http', function($scope, $http) {
+.controller('inviteCtrl', ['$scope', '$http', function($scope, $http) {
                     $scope.inviteCode = 'код';
                     $scope.inviteLink = 'ссылка';
                     $scope.secret = null;
@@ -307,40 +306,108 @@ angular.module('app.controllers.main',
    '$state',
    'UserManager',
    '$timeout',
-  function ($scope, $state, UserManager, $timeout) {
+   'API',
+  function ($scope, $state, UserManager, $timeout, API) {
 
+     //define default vars and consts
+     $scope.starting = false;
+     $scope.BASE_URI = API.baseUrl;
      $scope.title = 'Онлайн портфолио активных студентов НИТУ МИСиС';
+     $scope.showMessage = false;
+     $scope.msg = {
+      content: '',
+      type: {
+        good: false,
+        bad: false
+      }
+     };
+     $scope.currentUser = {};
+     $scope.onLoad = {
+            common: false,
+            studentDetail: false,
+            avatar: false,
+            achivments: false,
+            file: false
+          };
+
+     auth();
+
+    //event listeners
+
      $scope.$on('changeTitle', function(e, args) {
       $scope.title = args.title;
-     })
+     });
 
-     $scope.currentUser = {};
-      updateUserData();
+      $scope.$on('auth', function (e, args) {
+           auth();
+           $scope.$broadcast('userUpdated');
+      });     
 
+      $scope.$on('userUpdate', function (e, args) {
+           UserManager.update().then(function() {
+            $scope.$emit('auth');
+           })
+      });   
 
-      function updateUserData() {
+      $scope.$on('showMessage', function(e, args) {
+         showMessage(e, args);
+      });
 
-        UserManager.getCurrentUser().then(function (result) {
-          $scope.currentUser = result;
+      $scope.$on('loadData', function(e, args) {
+        startLoad(e, args);
+      });
+
+      $scope.$on('loadData_done', function(e, args) {
+        stopLoad(e, args);
+      });
+
+      //describe functions
+
+      $scope.logout = function() {
+          UserManager.logout();
+          $scope.$emit('userUpdate');
+          $state.go('auth');
+        };
+
+      function auth() {
+          UserManager.Current().then(function (result) {
+            if(!result) $scope.currentUser = null;
+            else $scope.currentUser = result.data.user;
+            console.log($scope.currentUser);
         });
       };
 
-      $scope.$on('showMessage', function(e, args) {
+      function showMessage(e , args) {
         $scope.showMessage = true;
-        $scope.msg = args.msg;
-        angular.element(document.querySelector('.notification_popup')).addClass('.popupIn');
+        $scope.msg.type[args.type] = true;
+        $scope.msg.content = args.msg;
+        console.log($scope.msg);
+
         $timeout(function() {
         angular.element(document.querySelector('.notification_popup')).removeClass('.popupIn').addClass('.popupOut');
-        $scope.showMessage = false;
-        $scope.msg = '';
+             $scope.showMessage = false;
+              $scope.msg.type[args.type] = false;
+              $scope.msg.content = '';
         }, 5000);
-      })
+      };
 
+      function startLoad(e, args) {
 
+        if(!$scope.onLoad[args.field]) console.log('field' + args.field + ' is not defined');
+        else $scope.onLoad[args.field] = true;
 
-      $scope.$on('userUpdate', function (e, args) {
-           updateUserData();
-      })      
+      };
+
+      function stopLoad(e, args) {
+
+        if(!$scope.onLoad[args.field]) console.log('field' + args.field + 'is not defined');
+        else $scope.onLoad[args.field] = false;
+        
+      };
+
+       $timeout(function() {
+        $scope.starting = false;
+       }, 2500)
 
     }])
 
@@ -353,10 +420,6 @@ angular.module('app.controllers.main',
 
       $scope.showMobileMenu = false;
       angular.element(document.querySelector('.mobile_nav_bar_background')).css('visibility', 'visible');
-
-      
-
-
       $scope.$on('needAuth', function (e, args) {
            if(!$scope.currentUser) {
             $state.go('auth');
@@ -375,6 +438,8 @@ angular.module('app.services', [])
 
         
       var config = { 
+
+         baseUrl: 'http://achievements.lod-misis.ru',
         
         apiUrls : {
 
@@ -383,7 +448,7 @@ angular.module('app.services', [])
         get: {
           method: 'POST',
           url: function(params) {
-            return '/api' + '/isAuth';
+            return '/api/auth' + '/isAuth';
           }
         },
 
@@ -419,7 +484,7 @@ angular.module('app.services', [])
       },
       requests: {
         method: 'GET',
-        url: function() {
+        url: function() { 
           return '/api/admin/registryRequests'
           }
         },
@@ -501,7 +566,9 @@ angular.module('app.services', [])
     };
 
     return {
-      query: query.bind(config)
+      query: query.bind(config),
+      baseUrl: config.baseUrl,
+      apiUrls: config.apiUrls,
     }
 
 
@@ -521,27 +588,34 @@ angular.module('app.services', [])
    ['$rootScope',
     '$q',
     '$http',
-   function ($rootScope, $q, $http) {
+    'API',
+   function ($rootScope, $q, $http, API) {
         
         var apiUrl = '/api';
         var curUser = null;
 
         var userDetail = null;
-        function getCurrentUser(params) {
-            params = params || { cache: true };
-            return $q.when(curUser && params.cache ? curUser : getUser()).then(function (result) {
-                return result.status ? result.data.user : result;
-            });
 
-            function getUser() {
-              var reqUrl = apiUrl + '/auth/isAuth';
-                return $http.post(reqUrl).success(function (data) {
-                        curUser = data.user;
-                    
-                    return curUser;
-                });
-            }
-        }
+        function Current() {
+              return API.query('user.get', null, false).then(function(res) {
+            return res;
+            })
+          };
+
+        
+
+         function update() {
+            return $q.when(updateUser()).then(function(res) {
+          return res;
+           })
+         };
+    
+      function updateUser() {
+        return $http.get('/api/admin/update').success(function(result) {
+          console.log('ok');
+          return result.data;
+       })
+      };
 
        
 
@@ -555,8 +629,9 @@ angular.module('app.services', [])
         }
 
         return {
-            getCurrentUser: getCurrentUser,
+            Current: Current,
             logout: logout,
+            update: update
         }
     }])
 

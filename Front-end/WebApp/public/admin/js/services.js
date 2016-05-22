@@ -8,6 +8,8 @@ angular.module('app.services', [])
 
         
       var config = { 
+
+         baseUrl: 'http://achievements.lod-misis.ru',
         
         apiUrls : {
 
@@ -16,7 +18,7 @@ angular.module('app.services', [])
         get: {
           method: 'POST',
           url: function(params) {
-            return '/api' + '/isAuth';
+            return '/api/auth' + '/isAuth';
           }
         },
 
@@ -52,7 +54,7 @@ angular.module('app.services', [])
       },
       requests: {
         method: 'GET',
-        url: function() {
+        url: function() { 
           return '/api/admin/registryRequests'
           }
         },
@@ -134,7 +136,9 @@ angular.module('app.services', [])
     };
 
     return {
-      query: query.bind(config)
+      query: query.bind(config),
+      baseUrl: config.baseUrl,
+      apiUrls: config.apiUrls,
     }
 
 
@@ -154,27 +158,34 @@ angular.module('app.services', [])
    ['$rootScope',
     '$q',
     '$http',
-   function ($rootScope, $q, $http) {
+    'API',
+   function ($rootScope, $q, $http, API) {
         
         var apiUrl = '/api';
         var curUser = null;
 
         var userDetail = null;
-        function getCurrentUser(params) {
-            params = params || { cache: true };
-            return $q.when(curUser && params.cache ? curUser : getUser()).then(function (result) {
-                return result.status ? result.data.user : result;
-            });
 
-            function getUser() {
-              var reqUrl = apiUrl + '/auth/isAuth';
-                return $http.post(reqUrl).success(function (data) {
-                        curUser = data.user;
-                    
-                    return curUser;
-                });
-            }
-        }
+        function Current() {
+              return API.query('user.get', null, false).then(function(res) {
+            return res;
+            })
+          };
+
+        
+
+         function update() {
+            return $q.when(updateUser()).then(function(res) {
+          return res;
+           })
+         };
+    
+      function updateUser() {
+        return $http.get('/api/admin/update').success(function(result) {
+          console.log('ok');
+          return result.data;
+       })
+      };
 
        
 
@@ -188,8 +199,9 @@ angular.module('app.services', [])
         }
 
         return {
-            getCurrentUser: getCurrentUser,
+            Current: Current,
             logout: logout,
+            update: update
         }
     }])
 

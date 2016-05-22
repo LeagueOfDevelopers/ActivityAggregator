@@ -71,7 +71,7 @@ var student = new schema({
 	recoveryToken: {
 		type: String
 	},
-	achivments: [achivmentSchema]
+	achivments: [achivmentSchema],
 });
 
 student.methods.encryptData = commonMethods.encryptData;

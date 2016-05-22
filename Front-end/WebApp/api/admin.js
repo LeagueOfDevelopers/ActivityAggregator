@@ -15,7 +15,8 @@ module.exports = {
   confirmStudent: confirmStudent,
   rejectStudent: rejectStudent,
   getUncheckedStudents: getUncheckedStudents,
-  isAdmin: isAdmin
+  isAdmin: isAdmin,
+  updateSession: updateSession
 };
 
 function login(req, res, next) {
@@ -45,6 +46,27 @@ function isAdmin(req, res, next) {
 
 };
 
+function updateSession(req, res, next) {
+  if(!req.session.user) {
+
+    res.send('logout')
+
+  } else {
+
+   Admin.findById({_id: req.session.user._id}, function(err, admin) {
+
+      if(err) {
+
+        console.log(err)
+      }; 
+
+      req.session.user = admin;
+      res.send('session updated');
+    })
+  }
+
+};
+
 function newAdmin(req, res, next) {
 
 	var admin = new Admin({
@@ -58,7 +80,6 @@ function newAdmin(req, res, next) {
 
 	admin.save(function(data) {
 		res.send(data);
-		console.log(new Date());
 	});
 
 };

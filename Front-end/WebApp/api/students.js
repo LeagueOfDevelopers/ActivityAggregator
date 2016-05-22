@@ -33,7 +33,7 @@ function login(req, res, next) {
 
 			res.send(err);
 
-		} else if (student && student.passwordIsCorrect(req.body.password)) {
+		} else if (student && student.passwordIsCorrect(req.body.password && student.status == 1)) {
 
 			req.session.user = student;
 			res.send({
@@ -137,7 +137,7 @@ function getStudentDetail(req, res, next) {
 
 function getStudentsList(req, res, next) {
 
-	Student.find('-hashPassword').limit(10).exec(function(err, data) {
+	Student.find({"status": 1}).select('-hashPassword').limit(10).exec(function(err, data) {
 				if (!err) {
 						 res.send(data);
 				} else {

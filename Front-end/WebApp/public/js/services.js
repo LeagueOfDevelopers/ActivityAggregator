@@ -8,7 +8,7 @@ angular.module('app.services', [])
 
   var config = {
 
-        baseUrl: 'http://162.243.78.140',
+        baseUrl: 'http://achievements.lod-misis.ru',
 
          apiUrls : {
 
