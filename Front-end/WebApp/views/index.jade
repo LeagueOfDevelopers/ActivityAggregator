@@ -11,6 +11,7 @@ html(lang='en', ng-app='ActivityAggregator', ng-controller='appCtrl')
     link(rel='stylesheet', href='../styles/lib/foundation.min.css')
     link(rel="stylesheet", href="../styles/lib/ring.css")
   body(ng-controller='pageCtrl')
+    .wrapper(ng-cloak='')
       section.header.small-12.columns
         a.logo(ui-sref="mainPage")
         a.burger(ng-cloak, ng-click='showMobileMenu = !showMobileMenu')

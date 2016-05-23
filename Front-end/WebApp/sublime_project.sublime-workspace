@@ -4,28 +4,16 @@
 		"selected_items":
 		[
 			[
-				"border",
-				"border-top"
-			],
-			[
-				"max",
-				"max-height"
-			],
-			[
-				"font",
-				"font-size"
-			],
-			[
-				"U",
-				"uppercase"
-			],
-			[
 				"c",
 				"cover"
 			],
 			[
 				"shortAchList",
 				"shortAchListLimit"
+			],
+			[
+				"border",
+				"border-bottom"
 			],
 			[
 				"unl",
@@ -94,6 +82,14 @@
 			[
 				"ht",
 				"http.Client();"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"max",
+				"max-width"
 			],
 			[
 				"co",
@@ -372,10 +368,7 @@
 			}
 		},
 		{
-			"contents": "doctype html\nhtml(lang='en', ng-app='ActivityAggregator', ng-controller='appCtrl')\n  head\n    base(href=\"/\")\n    meta(charset='UTF-8')\n    meta(name='viewport', content='width=device-width, initial-scale=1.0')\n    title(ng-bind='title')\n    link(href='https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css')\n    link(rel='stylesheet', href='../styles/main.css')\n    link(rel='stylesheet', href='../styles/lib/font-awesome/css/font-awesome.min.css')\n    link(rel='stylesheet', href='../styles/lib/foundation.min.css')\n    link(rel=\"stylesheet\", href=\"../styles/lib/ring.css\")\n  body(ng-controller='pageCtrl')\n    .wrapper(ng-cloak='')\n      section.header.small-12.columns\n        a.logo(ui-sref=\"mainPage\")\n        a.burger(ng-cloak, ng-click='showMobileMenu = !showMobileMenu')\n          i.fa.fa-bars\n        nav.nav_bar(ng-cloak='')\n          ul\n            li\n              a(ui-sref='mainPage') Информация\n            li\n              a(ui-sref='studentsBase') База активистов\n            li\n              a(ui-sref='auth', ng-if='!(currentUser._id)') Вход\n              a#profile_link(ui-sref='account(currentUser._id)', ng-if='(currentUser._id && !currentUser.role )', ng-bind=\"currentUser.firstName + ' ' + currentUser.lastName\")\n              a#profile_link(href='admin', ng-if='(currentUser.role)') Вы зашли как администратор  \n            li(ng-if='currentUser._id')\n              a#logout(ng-click='logout()')\n                i.fa.fa-sign-out\n      section.mobile_nav_bar_background.small-12.columns(ng-if='showMobileMenu', ng-cloak, style=\"{visibility: hidden}\")\n        nav.mobile_nav_bar\n          ul.small-12.columns\n            li.small-12.columns\n              a(ui-sref='mainPage', ng-click='showMobileMenu = false') Информация\n            li.small-12.columns\n              a(ui-sref='studentsBase', ng-click='showMobileMenu = false') База активистов\n            li.small-12.columns\n              a(ui-sref='auth', ng-if='!(currentUser._id)') Рассказать о себе\n              a#profile_link(ui-sref='account(currentUser._id)', ng-if='(currentUser._id)', ng-bind=\"currentUser.firstName + ' ' + currentUser.lastName\")\n      section(ui-view='page_content')\n      section(ui-view='footer')\n      section.notification_popup.small-12.medium-3.medium-offset-8.columns.popupIn(ng-if=\"showMessage\")\n        div.row\n          div.small-3.columns.nt_label\n            span.bad(ng-show=\"msg.type.bad\")\n            span.good(ng-show=\"msg.type.good\")\n          div.small-9.columns.msg\n            p(ng-bind=\"msg.content\")\n    .startScreen(ng-if=\"starting\")\n        .loader-wrapper.start\n          .loader\n          .loader_circle \n    script(type='text/javascript', src='../js/lib/angular.min.js')\n    script(type='text/javascript', src='../js/lib/angular-sanitize.min.js')\n    script(type='text/javascript', src='../js/lib/angular-ui-router.min.js')\n    script(type='text/javascript', src='../js/lib/ng-file-upload.js')\n    script(type='text/javascript', src='../js/lib/ng-file-upload-shim.js')\n    script(type='text/javascript', src='../js/build/build.js')\n",
 			"file": "views/index.jade",
-			"file_size": 3257,
-			"file_write_time": 131085100713879861,
 			"settings":
 			{
 				"buffer_size": 3134,
@@ -406,57 +399,6 @@
 			"settings":
 			{
 				"buffer_size": 3725,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/styles/main.scss",
-			"settings":
-			{
-				"buffer_size": 36226,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/js/app.js",
-			"settings":
-			{
-				"buffer_size": 2535,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/partials/main.html",
-			"settings":
-			{
-				"buffer_size": 2199,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/partials/footer.html",
-			"settings":
-			{
-				"buffer_size": 114,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "<div class=\"page_content\">\n	<div class=\"row\">\n  <div class=\"form_card small-centered medium-6 medium-centered large-5 large-centered columns\">\n    <form name='auth'>\n      <div class=\"row column login_form\">\n\n        <span class=\"form_title\">Вход на платформу</span>\n\n        <label>Электронная почта</label>\n          <input type=\"email\" placeholder=\"jambul@example.com\" ng-model='auth.email' required>\n\n        <label>Пароль</label>\n          <input type=\"password\" placeholder=\"********\" ng-model=\"auth.password\" required>\n\n          <span class=\"form_warningLabel\" ng-show='auth.$invalid && auth.$dirty'>Заполните форму корректно</span>\n\n          <input type=\"submit\" class=\"submit_form\" value=\"Войти\" ng-click=\"submit()\">\n					<a ui-sref=\"registry\" class=\"link\">Регистрация</a>\n          <a href=\"#\" class=\"auth_recoveryLink\">Забыли пароль?</a>\n          \n      </div>\n    </form>\n  </div>\n</div>\n</div>\n",
-			"file": "public/partials/auth.html",
-			"file_size": 1024,
-			"file_write_time": 131085094925298211,
-			"settings":
-			{
-				"buffer_size": 910,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/partials/studentsBase.html",
-			"settings":
-			{
-				"buffer_size": 2706,
 				"line_ending": "Windows"
 			}
 		},
@@ -612,9 +554,13 @@
 	[
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/build",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/routes",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/TaskApp",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/views"
@@ -767,10 +713,6 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"ca",
-			"short_in",
-			"mp_secondBlock",
-			"link",
 			"bvalidationMethods",
 			"validationPolicies",
 			"mp_secondBlock",
@@ -896,7 +838,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 7,
 			"sheets":
 			[
 				{
@@ -928,7 +870,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 19,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
@@ -960,7 +902,7 @@
 						"translation.y": 1082.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 20,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
@@ -990,7 +932,7 @@
 						"translation.y": 913.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -1022,7 +964,7 @@
 						"translation.y": 350.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 17,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
@@ -1038,24 +980,24 @@
 						"selection":
 						[
 							[
-								906,
-								906
+								1525,
+								1420
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
 							"tab_size": 2,
-							"tabs_extra_last_activated": 1464036585.75,
+							"tabs_extra_last_activated": 1463944079.14,
 							"tabs_extra_last_activated_sheet_index": 4,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 373.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
@@ -1088,7 +1030,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 16,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -1121,7 +1063,7 @@
 						"translation.y": 1221.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -1145,215 +1087,20 @@
 						{
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"tab_size": 4,
-							"tabs_extra_last_activated": 1464030088.01,
+							"tabs_extra_last_activated": 1463954064.26,
 							"tabs_extra_last_activated_sheet_index": 7,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 586.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 8,
-					"file": "public/styles/main.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 36226,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2096,
-								2096
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1464036422.75,
-							"tabs_extra_last_activated_sheet_index": 8,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 790.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "public/js/app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2535,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								728,
-								728
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1464031149.28,
-							"tabs_extra_last_activated_sheet_index": 9,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 165.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "public/partials/main.html",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 2199,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2035,
-								2035
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tabs_extra_last_activated": 1464035758.56,
-							"tabs_extra_last_activated_sheet_index": 10,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 94.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "public/partials/footer.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 114,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								99,
-								99
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tabs_extra_last_activated": 1464030779.4,
-							"tabs_extra_last_activated_sheet_index": 9,
-							"tabs_extra_spawned": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "public/partials/auth.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 910,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								717,
-								717
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1464035960.13,
-							"tabs_extra_last_activated_sheet_index": 12,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "public/partials/studentsBase.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2706,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1880,
-								1880
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1464030089.09,
-							"tabs_extra_last_activated_sheet_index": 9,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 113.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 14,
 					"file": "public/admin/js/admin_controllers.js",
 					"semi_transient": false,
 					"settings":
@@ -1382,11 +1129,11 @@
 						"translation.y": 288.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 15,
+					"buffer": 9,
 					"file": "public/admin/js/services.js",
 					"semi_transient": false,
 					"settings":
@@ -1415,11 +1162,11 @@
 						"translation.y": 2507.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 16,
+					"buffer": 10,
 					"file": "public/admin/js/build/build.js",
 					"semi_transient": false,
 					"settings":
@@ -1448,11 +1195,11 @@
 						"translation.y": 6446.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 17,
+					"buffer": 11,
 					"file": "routes/api.js",
 					"semi_transient": false,
 					"settings":
@@ -1479,11 +1226,11 @@
 						"translation.y": 128.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 18,
+					"buffer": 12,
 					"file": "public/js/services.js",
 					"semi_transient": false,
 					"settings":
@@ -1508,15 +1255,15 @@
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
+						"translation.x": -0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 19,
+					"buffer": 13,
 					"file": "api/admin.js",
 					"semi_transient": false,
 					"settings":
@@ -1545,11 +1292,11 @@
 						"translation.y": 487.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 20,
+					"buffer": 14,
 					"file": "db/schemas/task.js",
 					"semi_transient": false,
 					"settings":
@@ -1577,11 +1324,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 18,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 21,
+					"buffer": 15,
 					"file": "postDefaulModels.js",
 					"semi_transient": false,
 					"settings":
@@ -1608,7 +1355,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 21,
+					"stack_index": 15,
 					"type": "text"
 				}
 			]
