@@ -65,7 +65,7 @@ body {
   width: 100%;
   height: 60px;
   line-height: 60px;
-  background: #fff; }
+  background: #000; }
 
 .misis_logo {
   margin-right: 10px;
@@ -172,7 +172,8 @@ body {
   display: inline-block;
   height: 100%;
   color: #fff;
-  font-family: Calibrib;
+  font-size: 18px;
+  font-weight: bold;
   border-bottom: 0px solid #fff; }
 
 .index_header {
@@ -517,7 +518,7 @@ body {
   display: inline-block;
   color: #59595b;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 15px;
   padding: 7px;
   text-align: center; }
 
@@ -577,7 +578,8 @@ body {
   vertical-align: top;
   margin-left: 10px;
   display: inline-block;
-  color: #59595b; }
+  color: #59595b;
+  font-size: 15px; }
 
 .first_name, .last_name {
   font-size: 18px;
@@ -587,14 +589,16 @@ body {
   font-size: 18px; }
 
 .btn_profile_link {
-  margin-top: 15px;
+  margin-top: 25px;
   background: #fff;
   color: #009fdf;
-  font-size: 16px;
-  font-weight: bold;
-  padding-bottom: 2px;
+  font-size: 15px;
+  font-weight: normal;
   opacity: .8;
-  border-bottom: 1px dotted #009fdf; }
+  text-transform: uppercase;
+  -webkit-transition: all 0.2 ease-out;
+  -o-transition: all 0.2 ease-out;
+  transition: all 0.2 ease-out; }
 
 .btn_profile_link:hover {
   cursor: pointer;
@@ -614,9 +618,8 @@ body {
 .achivment_link a {
   opacity: .8;
   color: #009fdf;
-  font-size: 16px;
-  font-weight: bold;
-  border-bottom: 1px dotted #009fdf; }
+  font-size: 15px;
+  font-weight: bold; }
 
 .achivment_link a:hover {
   cursor: pointer;
@@ -800,7 +803,7 @@ textaria {
   height: 100%; }
 
 .main_page_header div.columns {
-  height: 600px; }
+  height: 100%; }
 
 .grad {
   top: 50%;
@@ -839,7 +842,7 @@ textaria {
   background-size: cover; }
 
 .short_info {
-  height: auto; }
+  height: 100%; }
 
 .short_info p {
   font-size: 22px;
@@ -857,12 +860,12 @@ textaria {
 
 .shortInfo_steps {
   margin: 40px auto;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold; }
 
 .shortInfo_icon {
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
   margin: 0 auto;
   font-size: 60px; }
 
@@ -1111,7 +1114,7 @@ textaria {
   background: #009fdf;
   color: #fff;
   margin-top: 10px;
-  height: 120px;
+  height: 100%;
   -webkit-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
   box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5); }
@@ -1119,7 +1122,8 @@ textaria {
 .mp_ca span {
   display: block;
   font-size: 24px;
-  margin-left: 10px; }
+  margin-left: 10px;
+  font-weight: bold; }
 
 .shortList_wrap {
   background: #fff;
@@ -1514,8 +1518,15 @@ textaria {
   animation: spin-l .5s linear infinite; }
 
 .link {
-  border-bottom: 1px dotted #009fdf;
-  font-weight: bold; }
+  font-weight: bold;
+  font-size: 15px; }
+
+.auth_recoveryLink {
+  float: right; }
+
+.form_warningLabel {
+  color: red;
+  font-size: 15px; }
 
 .nAch_uploadedList {
   background-color: #009fdf;

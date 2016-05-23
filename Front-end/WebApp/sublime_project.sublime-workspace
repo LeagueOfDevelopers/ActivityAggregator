@@ -360,14 +360,6 @@
 			}
 		},
 		{
-			"file": "api/mailer.js",
-			"settings":
-			{
-				"buffer_size": 591,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "db/schemas/student.js",
 			"settings":
 			{
@@ -376,13 +368,85 @@
 			}
 		},
 		{
-			"contents": "var fs = require('fs');\nvar path = require('path');\nvar Admin = require('../db/mongoose').models.Admin;\nvar Student = require('../db/mongoose').models.Student;\nvar mailer = require('./mailer');\n\nmodule.exports = {\n  login: login,\n  newAdmin: newAdmin,\n  getInviteCode: getInviteCode,\n  registryByInvite: registryByInvite,\n  getUncheckedRequests: getUncheckedRequests,\n  confirmAchivment: confirmAchivment,\n  unConfirmAchivment: unConfirmAchivment,\n  confirmStudent: confirmStudent,\n  rejectStudent: rejectStudent,\n  getUncheckedStudents: getUncheckedStudents,\n  isAdmin: isAdmin\n};\n\nfunction login(req, res, next) {\n\n  Admin.findOne({email: req.body.email}, function(err, admin) {\n    if(err) {\n      res.send(err)\n    } else \n      if(admin && admin.passwordIsCorrect(req.body.password)) {\n      	req.session.user = admin;\n      	res.send(admin);\n      } else if (!admin) {\n      	res.send('not found')\n      }  \n  });\n\n};\n\nfunction isAdmin(req, res, next) {\n\n  if(req.session.user && req.session.user.role == 1) {\n    console.log('is admin');\n    next();\n  } else {\n    res.send('auth required')\n  }\n\n};\n\nfunction newAdmin(req, res, next) {\n\n	var admin = new Admin({\n		firstName : 'Админ',\n		lastName: 'Админ',\n		middleName: 'Админ',\n		email: 'adm@mail.ru',\n		hashPassword: '11111',\n    code: 'parent'\n	});\n\n	admin.save(function(data) {\n		res.send(data);\n	});\n\n};\n\nfunction getInviteCode(req, res, next) {\n\n  Admin.findById(req.params.id, function(err, admin) {\n    if(err) res.send(err);\n    else if(admin) {\n      var secret = req.body.secret || Math.Random();\n      var code = admin.generateInviteCode(secret);\n      res.send({data : code}); \n      admin.save(function(result) {\n      console.log(result);\n    });\n  }\n  })\n};\n\nfunction registryByInvite(req, res, next) {\n\n  Admin.findOne({'invCodes' : req.body.code}, function(err, findedData) {\n     if(findedData) {\n      \n      Admin.findOne({'code': req.body.code}, function(er, data) {\n        if(err) res.send(err);\n        else if(data) {\n          res.send('0'); //code already used\n        } else if(!data) {\n\n          var admin = new Admin({\n            firstName : req.body.firstName,\n            lastName: req.body.lastName,\n            middleName: req.body.middleName,\n            email: req.body.email,\n            hashPassword: req.body.password,\n            code: req.body.code\n          });\n\n          admin.save(function(result) {\n            res.send('2');\n          })\n          \n        }\n      })\n\n      } else {\n        res.send('1')\n      }\n      \n    })\n};\n\nfunction getUncheckedRequests(req, res, next) {\n\n  if(req.session.user && req.session.user.role) {\n\n  Student.find({'achivments.checked': false})\n         .exec(function(err, data) {\n                if(err){\n                  res.send(err);\n                }\n                res.send(data);\n          });\n       } else {\n        res.send('admin permissions required')\n       }\n};\n\nfunction confirmAchivment(req, res, next) {\n  \n  if(req.session.user && req.session.user.role) {\n\n    Student.update({'achivments._id' : req.params.id},\n    {\n      '$set' : {\n        'achivments.$.checked' : true,\n        'achivments.$.message' : null\n      }\n    }).exec(function(err, data) {\n\n      if(err) res.send(err);\n      else {\n        res.send(data);\n      }\n     });\n\n  } else {\n    res.send('admin permissions required')\n  }\n};\n\nfunction unConfirmAchivment(req, res, next) {\n  if(req.session.user && req.session.user.role) {\n   Student.update({'achivments._id' : req.params.id},\n  \n  {\n    '$set' : {\n      'achivments.$.checked' : false,\n      'achivments.$.message' : req.body.message\n    }\n  }, \n   function(err, data) {\n\n    if(err) res.send(err);\n    res.send(data);\n   });\n } else {\n  res.send('admin permossion required')\n }\n};\n\nfunction confirmStudent(req, res, next) {\n  Student.findById(req.params.id, function(err, student) {\n    if(err) res.send(err);\n    else if(student) {\n      student.status = 1;\n      mailer.send({receiver: student.email, subject: 'Регистрация на платформе', text: 'Ваша регистрация одобрена'}, function(err, info) {\n        console.log(err);\n        console.log(info);\n      });\n      student.save(function(data) {\n        res.send('ok');\n      }) } else {\n        res.send('student not found');\n      }\n    \n  })\n};\n\nfunction rejectStudent(req, res, next) {\n   Student.findById(req.params.id, function(err, student) {\n    if(err) res.send(err);\n    else if(student) {\n      student.status = 2;\n      student.save(function(data) {\n        res.send('ok')\n      }) \n    } else {\n        res.send('student not found');\n      }\n    });\n    \n};\n\nfunction getUncheckedStudents(req, res, next) {\n  Student.find({'status': 0}, '-hashPassword', function(err, data) {\n    if(err) res.send(err);\n    else {\n      res.send(data);\n    }\n  })\n};\n\n",
-			"file": "api/admin.js",
-			"file_size": 5104,
-			"file_write_time": 131076082544247983,
+			"file": "views/index.jade",
 			"settings":
 			{
-				"buffer_size": 4802,
+				"buffer_size": 3134,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "views/admin.jade",
+			"settings":
+			{
+				"buffer_size": 1907,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/admin/js/controllers_main.js",
+			"settings":
+			{
+				"buffer_size": 3252,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "\n   <section class=\"page_content\">\n    <div class=\"vertical_offset\">\n    <div class=\"row\">\n        <div class=\"achD_card small-12 medium-9 medium-centered columns\">\n        <div class=\"row\">\n            <div class=\"achD_title small-12 medium-8 columns\"ng-bind=\"achivment.title\"></div>\n            <a ui-sref=\"profile({id: achivment.owner._id})\" class=\"achD_ownerLink small-12 columns\" ng-bind=\"achivment.owner.firstName + ' ' + achivment.owner.lastName\"></a>\n        </div>\n            <div class=\"row\">\n            <div class=\"achD_details small-12 medium-8 columns\">\n                <ul class=\"achD_detailsList small-12 columns\">\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel small-4 columns\">Категория</span>\n                    <span class=\" achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.type\"></span>\n                    </li>\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel  small-4 columns \">Уровень</span>\n                    <span class=\"achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.level\"></span>\n                    </li>\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel  small-4 columns  \">Организация</span>\n                    <span class=\"achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.organization\"></span>\n                    </li>\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel  small-4 columns\">Результат</span>\n                    <span class=\"achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.result\"></span>\n                    </li>\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel  small-4 columns\">Получено</span>\n                    <span class=\"achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.created\"></span>\n                    </li>\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel  small-4 columns\">Статус</span>\n                    <span class=\"achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.checked ? 'Подтверждено' : 'Не подтверждено'\"></span>\n                    </li>\n                </ul>\n            </div>\n            <div class=\"achD_files small-12 medium-3 columns\">\n                <ul class=\"achD_filesList\">\n                    <li ng-repeat=\"file in achivment.files\">\n                        <div class=\"achD_filePrev\" style=\"background-image: url({{isPdf(file) ? 'dsd' : file}}); background-size: cover;\" ng-click='$parent.showPhoto(file)'></div>\n                    </li>\n                </ul>\n            </div>\n            <div class=\"row\"></div>\n            <div class=\"achD_rejected small-12 columns\" ng-if=\"achivment.message\">\n                <p class=\"achD_rejectedMsg\"ng-bind=\"'Отказано: ' + achivment.message \"></p>\n            </div>\n            <div class=\"achD_description small-12 columns\">\n                <p class=\"achD_desctiptionP\" ng-bind=\"achivment.description\"></p>\n            </div>\n        </div>\n        \n    <textarea class='small-12 columns' cols=\"10\" ng-if=\"showTextaria\"  ng-model=\"$parent.message\"></textarea>\n    <button class='btn_ghost admAch_btn' ng-click='confirm()'>Подтвердить</button>\n    <button class='btn_ghost admAch_btn' ng-click='showTextaria = !showTextaria' ng-bind=\"showTextaria ? 'Отмена' :'Отказать'\"></button>\n    <button class='btn_ghost admAch_btn' ng-click='unconfirm()' ng-if=\"showTextaria\">Отправить</button>\n    </div>\n    </div>\n</section>\n\n<div class=\"fp_backdrop\" ng-if='visiblePhoto' ng-click='$parent.visiblePhoto = false'>\n<img class='small-centered columns' src=\"{{photoToShow}}\" alt=\"\">\n</div>",
+			"file": "public/admin/partials/achivment.html",
+			"file_size": 3897,
+			"file_write_time": 131058730767053335,
+			"settings":
+			{
+				"buffer_size": 3725,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/admin/js/admin_controllers.js",
+			"settings":
+			{
+				"buffer_size": 6335,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/admin/js/services.js",
+			"settings":
+			{
+				"buffer_size": 4268,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/admin/js/build/build.js",
+			"settings":
+			{
+				"buffer_size": 15825,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "routes/api.js",
+			"settings":
+			{
+				"buffer_size": 2080,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/js/services.js",
+			"settings":
+			{
+				"buffer_size": 4898,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "api/admin.js",
+			"settings":
+			{
+				"buffer_size": 5145,
 				"line_ending": "Windows"
 			}
 		},
@@ -490,10 +554,16 @@
 	[
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/js/build",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/admin/partials",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/routes",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/TaskApp"
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/TaskApp",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/views"
 	],
 	"file_history":
 	[
@@ -768,7 +838,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 7,
 			"sheets":
 			[
 				{
@@ -800,7 +870,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
@@ -832,7 +902,7 @@
 						"translation.y": 1082.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
@@ -848,57 +918,25 @@
 						"selection":
 						[
 							[
-								2886,
-								2886
+								1644,
+								1644
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1463938131.14,
+							"tabs_extra_last_activated": 1463945641.8,
 							"tabs_extra_last_activated_sheet_index": 2
 						},
 						"translation.x": 0.0,
-						"translation.y": 2968.0,
+						"translation.y": 913.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "api/mailer.js",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 591,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1463937254.05,
-							"tabs_extra_last_activated_sheet_index": 3,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "db/schemas/student.js",
 					"semi_transient": false,
 					"settings":
@@ -917,8 +955,8 @@
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1463937173.82,
-							"tabs_extra_last_activated_sheet_index": 3,
+							"tabs_extra_last_activated": 1463943637.32,
+							"tabs_extra_last_activated_sheet_index": 4,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": false
 						},
@@ -926,44 +964,339 @@
 						"translation.y": 350.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "api/admin.js",
+					"buffer": 4,
+					"file": "views/index.jade",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4802,
+						"buffer_size": 3134,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3279,
-								3275
+								1525,
+								1420
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1463944079.14,
+							"tabs_extra_last_activated_sheet_index": 4,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 373.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "views/admin.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1907,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1014,
+								1014
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1463944088.04,
+							"tabs_extra_last_activated_sheet_index": 5,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "public/admin/js/controllers_main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3252,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1595,
+								1595
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 2,
-							"tabs_extra_last_activated": 1463937253.17,
-							"tabs_extra_last_activated_sheet_index": 5,
+							"tabs_extra_last_activated": 1463946285.56,
+							"tabs_extra_last_activated_sheet_index": 6,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 9.0,
-						"translation.y": 0.0,
+						"translation.x": 0.0,
+						"translation.y": 1221.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "public/admin/partials/achivment.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3725,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1798,
+								1798
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"tabs_extra_last_activated": 1463954064.26,
+							"tabs_extra_last_activated_sheet_index": 7,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 586.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "public/admin/js/admin_controllers.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6335,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								952,
+								952
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1463946073.1,
+							"tabs_extra_last_activated_sheet_index": 7,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 288.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "public/admin/js/services.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4268,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3983,
+								4107
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1463946184.56,
+							"tabs_extra_last_activated_sheet_index": 8,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2507.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 10,
+					"file": "public/admin/js/build/build.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 15825,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11929,
+								11929
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1463946053.34,
+							"tabs_extra_last_activated_sheet_index": 9,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 6446.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "routes/api.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2080,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								258,
+								258
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tabs_extra_last_activated": 1463946028.28,
+							"tabs_extra_last_activated_sheet_index": 10,
+							"tabs_extra_spawned": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 128.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "public/js/services.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4898,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								355,
+								355
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1463946099.76,
+							"tabs_extra_last_activated_sheet_index": 12,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "api/admin.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5145,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1242,
+								1242
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1463946097.61,
+							"tabs_extra_last_activated_sheet_index": 13,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 487.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
 					"file": "db/schemas/task.js",
 					"semi_transient": false,
 					"settings":
@@ -991,11 +1324,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 15,
 					"file": "postDefaulModels.js",
 					"semi_transient": false,
 					"settings":
@@ -1022,7 +1355,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 15,
 					"type": "text"
 				}
 			]
