@@ -51,7 +51,7 @@
           <label>Пароль еще раз</label>
           <input type="password" ng-minlength="5" ng-maxlength="20" placeholder="********" ng-model='newStudent.password' required='true'>
           <span ng-if='newStudent.$valid && (newStudent.password != checkPassword)'>Пароли не совпадают</span>
-          <span ng-if='newStudent.$invalid'>Заполните форму корректно</span>
+          <span class="form_warningLabel" ng-if='newStudent.$invalid newStudent.$dirty'>Заполните форму корректно</span>
 					<input type="submit" class="submit_form" ng-click='submit()' value="Регистрация">
 					<a ui-sref="auth" class="link">Вход</a>
       </div>
