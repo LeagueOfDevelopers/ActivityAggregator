@@ -1,9 +1,10 @@
 var Task = require('../db/mongoose').models.Task;
 var async = require('async');
 var mailer = require('./mailer');
+var Student = require('./db/mongoose').models.Student;
 
 function checkTasks() {
-	Task.find({"done": false}, function(err, data) {
+	Task.find({"done": false, type: 'simple'}, function(err, data) {
 		if(err) console.log(err);
 		else if(data) {
 
@@ -17,7 +18,7 @@ function checkTasks() {
 };
 
 function perform(task) {
-	if(task.type == 'mail') {
+
 		mailer.perform(task, function(err) {
 			if(!err) {
 			task.done = true;
@@ -25,8 +26,7 @@ function perform(task) {
 		}
 
 		});
-	}
-};
 
+};
 
 module.exports.checkTasks = checkTasks;

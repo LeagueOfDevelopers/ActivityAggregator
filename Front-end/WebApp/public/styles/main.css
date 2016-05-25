@@ -68,21 +68,18 @@ body {
   background: #fff; }
 
 .misis_logo {
-  margin-right: 10px;
+  margin-left: 10px;
   margin-top: 7px;
   width: 120px;
   height: 50px;
   background-size: cover;
   background: url(../icons/Misis_logo.png) no-repeat;
-  float: right; }
+  float: left; }
 
 .lod_logo {
-  float: left;
-  margin-left: 10px;
-  height: 50px;
-  width: 200px;
-  background-size: cover;
-  background-image: url(../icons/2p0342rm.png); }
+  float: right;
+  margin-right: 10px;
+  color: #009fdf !important; }
 
 .logo {
   width: 200px;
@@ -321,7 +318,7 @@ body {
 
 .btn_add_achivment {
   margin-left: 10px;
-  padding: 5px 12px;
+  padding: 5px 13px;
   border-radius: 50%;
   background: #009fdf;
   opacity: .8;
@@ -788,6 +785,7 @@ textaria {
   font-size: 18px; }
 
 .main_page_header {
+  margin-top: 15px;
   height: 580px; }
 
 .main_page_header div.columns {
@@ -1214,13 +1212,13 @@ textaria {
   padding: 10px;
   color: #009fdf;
   font-size: 18px;
-  border: 1px solid #009fdf;
   -webkit-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out; }
 
 .sB_loadMoreBtn :hover {
   background: #009fdf;
+  opacity: .2;
   color: #fff; }
 
 .sB_preloader {

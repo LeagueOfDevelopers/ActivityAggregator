@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 html
 	.content 
-		span Новая заявка на регистрацию:
-		.a(href="http://localhost:3000/admin/") #{name}
+		span Новые заявки на регитсрацию:
+		.count Всего #{count}
+			ul
+			each student in students
+				li #{student.firstName} #{student.lastName} #{student.middleName}
 	

@@ -72,7 +72,7 @@ function generateMessageByTask(task, callback) {
 	 })
 };
 
-function perform(task, doneCallback) {
+function perform(task, doneCallback) { //require task.templateName task.receiver || receiverGroup task.text
 	async.series({
 		receivers: function(callback) {
 			getReceivers(task, function(err, receivers) {
