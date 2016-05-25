@@ -19,12 +19,16 @@ function generatePackageNotifications(templateName) {
                         if (!receiverGroups.group[task.receiverGroup]) receiverGroups.group[task.receiverGroup] = [];
 
                                 receiverGroups.group[task.receiverGroup].push(task.text);
+                                // task.done = true;
+                                // task.save();
 
                     } else if(task.receiver) {
 
                         if (!receiverGroups.receivers[task.receiver]) receiverGroups.receivers[task.receiver] = [];
 
                                  receiverGroups.receivers[task.receiver].push(task.text);
+                                task.done = true;
+                                task.save();
 
                     }
                 });
@@ -37,7 +41,7 @@ function generatePackageNotifications(templateName) {
 
         receiverGroups.receivers.forEach(sendToReceiver);
         receiverGroups.groups.forEach(sendToGroup);
-        
+
     });
 
 };

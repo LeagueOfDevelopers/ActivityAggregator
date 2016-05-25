@@ -6,6 +6,7 @@ crypto = require('crypto'),
 multiparty = require('multiparty'),
 util = require('util'),
 fs = require("fs");
+var Task = require('../db/mongoose').models.Task;
 
 module.exports = {
   	getAchivmentsList: getAchivmentsList,
@@ -126,6 +127,14 @@ function newAchivment(req, res, next) {
         if(err) {
             res.send(err);
         } else {
+
+            var task = new Task({
+                type: 'package',
+                templateName: 'newAchivment',
+                text: fields,
+                receiverGroup: 'admins'
+            });
+            task.save();
 
         res.send({status: 'ok',
         data: data.achivments[data.achivments.length - 1]});

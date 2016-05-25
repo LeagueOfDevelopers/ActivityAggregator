@@ -6,6 +6,7 @@ var util = require('util');
 var multiparty = require('multiparty');
 var userStrategy = require('./user');
 var mailer = require('./mailer');
+var Task = require('../db/mpngoose').models.Task;
 
 var User = new userStrategy(Student);
 
@@ -116,6 +117,14 @@ function addStudent(req, res, next) {
 				res.send({text: 'student added', code: 2});
 			} else {
 				res.send({err: err, code: 3});
+                var task = new Task({
+                    type: 'package',
+                    templateName: 'newStudent',
+                    text: fields,
+                    receiverGroup: 'admins'
+                });
+                task.save();
+
 			}
 		})
 };
