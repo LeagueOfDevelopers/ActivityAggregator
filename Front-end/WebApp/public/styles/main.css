@@ -297,11 +297,12 @@ body {
   font-size: 18px; }
 
 .btn_ghost {
-  background: #fff;
+  background: transparent;
   padding: 8px 10px;
   color: #009fdf;
-  font-size: 14px;
-  border: 1px solid #009fdf;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   -webkit-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out; }
@@ -320,13 +321,12 @@ body {
 
 .btn_add_achivment {
   margin-left: 10px;
-  padding: 3px 12px;
+  padding: 5px 12px;
   border-radius: 50%;
-  border: 2px solid #009fdf;
-  background: transparent;
-  opacity: 1;
-  background: #fff;
-  color: #009fdf;
+  background: #009fdf;
+  opacity: .8;
+  border: 3px solid #009fdf;
+  color: #fff;
   -webkit-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
   box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
@@ -338,8 +338,7 @@ body {
 
 .btn_add_achivment:hover {
   cursor: pointer;
-  background: #009fdf;
-  color: #fff; }
+  opacity: 1; }
 
 .help {
   margin-top: 10px;
@@ -589,20 +588,9 @@ body {
   font-size: 18px; }
 
 .btn_profile_link {
-  margin-top: 25px;
+  margin-top: 15px;
   background: #fff;
-  color: #009fdf;
-  font-size: 15px;
-  font-weight: normal;
-  opacity: .8;
-  text-transform: uppercase;
-  -webkit-transition: all 0.2 ease-out;
-  -o-transition: all 0.2 ease-out;
-  transition: all 0.2 ease-out; }
-
-.btn_profile_link:hover {
-  cursor: pointer;
-  opacity: 1; }
+  color: #009fdf; }
 
 .short_achivments_list {
   display: none;

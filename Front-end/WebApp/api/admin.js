@@ -175,7 +175,6 @@ function confirmAchivment(req, res, next) {
 function unConfirmAchivment(req, res, next) {
   if(req.session.user && req.session.user.role) {
    Student.update({'achivments._id' : req.params.id},
-  
   {
     '$set' : {
       'achivments.$.checked' : false,
