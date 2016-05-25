@@ -61,4 +61,7 @@ function sendToGroup(dataForReceiver, receiverGroup) {
 };
 
 
+generatePackageNotifications('newStudent');
+
+
 module.exports.sendPackageNotifications = generatePackageNotifications;
