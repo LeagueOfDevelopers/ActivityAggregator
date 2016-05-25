@@ -92,6 +92,16 @@ angular.module('ActivityAggregator',
             }
            }
        })
+
+           .state('recovery', {
+               url: '/recovery',
+               views: {
+                   'page_content': {
+                       templateUrl: 'partials/recovery.html',
+                       controller: 'recoveryCtrl'
+                   }
+               }
+           })
        
        .state('registry', {
           url: '/registry',

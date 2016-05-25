@@ -18,8 +18,12 @@ router.get('/students/:student_id/achivments', achivments.getAchivmentsList);
 router.get('/students/:student_id/achivments/:ach_id', achivments.getAchivmentDetail);
 router.post('/students/', students.addStudent);
 
+router.post('/students/recovery', students.generateRecoveryToken);
+router.post('/students/newPassword', students.recovery);
+router.post('/students/checkRecoveryToken', students.checkRecoveryToken);
 router.post('/login', students.login);
 router.post('/students/:id/*', students.isStudent);
+router.post('/students/:id/newPassword', students.changePassword);
 router.post('/students/:id/avatar', students.changeAvatar);
 router.post('/students/:id', students.updateStudentDetail);
 router.post('/students/:id/achivments', achivments.newAchivment);

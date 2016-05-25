@@ -22,7 +22,11 @@ module.exports = {
 	updateStudentDetail: updateStudentDetail,
 	updateSession: updateSession,
 	getLast: getLast,
-	isStudent: isStudent
+	isStudent: isStudent,
+    generateRecoveryToken: generateRecoveryToken,
+    recovery: recovery,
+    changePassword: changePassword,
+    checkRecoveryToken: checkRecoveryToken
 };
 
 function login(req, res, next) {
@@ -33,7 +37,7 @@ function login(req, res, next) {
 
 			res.send(err);
 
-		} else if (student && student.passwordIsCorrect(req.body.password && student.status == 1)) {
+		} else if (student && student.passwordIsCorrect(req.body.password) && student.status == 1) {
 
 			req.session.user = student;
 			res.send({
@@ -109,9 +113,9 @@ function addStudent(req, res, next) {
 
 		student.save(function(err) {
 			if(!err) {
-				res.end('student added');
+				res.send({text: 'student added', code: 2});
 			} else {
-				res.send(err);
+				res.send({err: err, code: 3});
 			}
 		})
 };
@@ -195,8 +199,9 @@ function getStudentsListByName(req, res, next) {
 };
 
 function updateStudentDetail(req, res, next) {
+	var updatetingParam = 'about';
 	Student.findById(req.params.id, function(err, student) {
-			student.about = req.body.about;
+			student[updatetingParam] = req.body.about;
 			student.save(function(data) {
 			res.send('about updated');
 		})
@@ -211,7 +216,7 @@ function changeAvatar(req, res, next) {
 
 		form.on('close', function() {
 			Student.findById(req.params.id, function(err, student) {
-					student.photoUri = config.avatar.link + req.params.id + fileName;
+					student.photoUri = config.updatetingParamavatar.link + req.params.id + fileName;
 					student.save(function(resp) {
 					res.send(resp);
 				});
@@ -269,19 +274,19 @@ function changePassword(req, res, next) {
 
 function generateRecoveryToken(req, res, next) {
 
-	Student.find({"email": req.body.email}, function(err, data) {
+	Student.findOne({"email": req.body.email}, function(err, student) {
 		if(err) res.send(err);
-		else if(data) {
-
-				var recoveryToken = student.createRecoveryToken;
+		else if(student) {
+				var recoveryToken = student.createRecoveryToken();
 				student.save(function(data) {
 					console.log(data);
 					mailer.send({
-						to: data.email,
+						to: student.email,
 						subject: 'Восстановление пароля',
 						text: 'Ваш код восстановления' + recoveryToken
-					});
-					res.send('token getted');
+					}, function () {
+                        res.send({text: 'token getted', recoveryToken: recoveryToken});
+                    });
 				})
 			
 
@@ -292,22 +297,38 @@ function generateRecoveryToken(req, res, next) {
 	})
 };
 
+function checkRecoveryToken(req, res, next) {
+    Student.findOne({"email": req.body.email}, function(err, student) {
+        if(err) res.send(err);
+        else if(student) {
+            if(student.recoveryToken == req.body.token) {
+                res.send({text: 'ok', code: 2});
+            } else {
+                res.send({text: 'token is not currect', code: 1});
+            }
+        } else {
+            res.send({text: 'student not found', code: 0});
+        }
+    })
+}
+
 function recovery(req, res, next) {
 
-	Student.find({"email": req.body.email}, function(err, student) {
-		if(err) res.send(err);
+	Student.findOne({"email": req.body.email}, function(err, student) {
+		if(err) res.send({err: err, code: 3});
 		else if(student) {
-			if(student.useRecoveryToken(req.body.token)) {
+			if(student.recoveryToken == req.body.token) {
+                student.useRecoveryToken();
 				student.hashPassword = req.body.newPass;
-				res.send({text: 'ok', id: student._id});
 				student.save(function(data) {
 					console.log(data);
+					res.send({text: 'ok', id: student._id, code: 2});
 				});
 			} else {
-				res.send('recovery token is not correct');
+				res.send({text: 'recovery token is not correct', code: 1});
 			}
 		} else {
-			res.send('student not found');
+			res.send({text: 'student not found', code: 0});
 		}
 	})
 

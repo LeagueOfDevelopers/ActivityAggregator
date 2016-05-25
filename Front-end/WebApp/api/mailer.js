@@ -24,7 +24,8 @@ function send(params, callback) {
 	    text: params.text, 
 	    html: params.html || null 
 	};
-	 
+	
+		 
 
 	transporter.sendMail(mailOptions, function(err, info){
 	    callback(err, info);

@@ -92,6 +92,16 @@ angular.module('ActivityAggregator',
             }
            }
        })
+
+           .state('recovery', {
+               url: '/recovery',
+               views: {
+                   'page_content': {
+                       templateUrl: 'partials/recovery.html',
+                       controller: 'recoveryCtrl'
+                   }
+               }
+           })
        
        .state('registry', {
           url: '/registry',
@@ -552,14 +562,72 @@ angular.module('app.controllers.partials',
           data    : $scope.newStudent
           
          }).success(function(res) {
-          $scope.$emit('showMessage', {msg: 'Регистрация прошла успешно, ждите верификации', type: 'good'});
-          $state.go('auth')
+           console.log(res);
+           if(!res.err) {
+               $scope.$emit('showMessage', {msg: 'Регистрация прошла успешно, ждите верификации', type: 'good'});
+               $state.go('auth');
+           } else {
+               $scope.$emit('showMessage', {msg: 'Пользователь с такими данными уже зарегестрирован', type: 'bad'});
+           }
          })
       
     }
     };
 
   }])
+
+.controller('recoveryCtrl',
+['$scope',
+ 'API',
+ '$state',
+function($scope, API, $state) {
+    $scope.tokenCorrect = false;
+    $scope.tokenGetted = false;
+
+    $scope.startRecovery = function () {
+        if($scope.recovery.email) {
+            API.query('user.getRecoveryToken', { data: {email: $scope.recovery.email }}, true).then(function (res) {
+                $scope.tokenGetted = true;
+            })
+        }
+    };
+
+    $scope.checkRecoveryToken = function () {
+        if($scope.recovery.email && $scope.recovery.token) {
+            API.query('user.checkRecoveryToken', {
+                data: {
+                    email: $scope.recovery.email,
+                    token: $scope.recovery.token
+                }
+            }, true).then(function(res) {
+                if(res.data.code == 2) {
+                    $scope.tokenCorrect = true;
+                } else {
+                    $scope.$emit('showMessage', {msg: 'Код неверен', type: 'bad'});
+                }
+            })
+        }
+    };
+
+    $scope.submitNewPassword = function () {
+        if($scope.newPassword.newPass == $scope.checkPassword) {
+            API.query('user.newPasswordByRecovery', {
+                data: {
+                    email: $scope.recovery.email,
+                    token: $scope.recovery.token,
+                    newPass: $scope.newPassword.newPass
+                }
+            }, true).then(function(res) {
+                if(res.data.code == 2) {
+                    $scope.$emit('showMessage', {msg: 'Пароль успешно изменен', type: 'good'});
+                    $state.go('auth');
+                } else {
+                    $scope.$emit('showMessage', {msg: 'Код восстановления неверен', type: 'bad'});
+                }
+            })
+        }
+    }
+}])
 
 angular.module('app.controllers.main',
  [
@@ -725,7 +793,27 @@ angular.module('app.services', [])
               url: function(params) {
                 return '/api/auth' + '/logout';
               }
-            }
+            },
+
+              getRecoveryToken: {
+                  method: 'POST',
+                  url: function(params) {
+                      return '/api/students/recovery';
+                  }
+              },
+              checkRecoveryToken: {
+                  method: 'POST',
+                  url: function(params) {
+                      return '/api/students/checkRecoveryToken';
+                  }
+              },
+              newPasswordByRecovery: {
+                  method: 'POST',
+                  url: function(params) {
+                      return '/api/students/newPassword';
+                  }
+              }
+
           },
 
         students: {

@@ -359,7 +359,7 @@
 			"file": "api/students.js",
 			"settings":
 			{
-				"buffer_size": 6728,
+				"buffer_size": 7551,
 				"line_ending": "Windows"
 			}
 		},
@@ -367,7 +367,7 @@
 			"file": "db/schemas/student.js",
 			"settings":
 			{
-				"buffer_size": 2103,
+				"buffer_size": 2203,
 				"line_ending": "Windows"
 			}
 		},
@@ -391,6 +391,14 @@
 			}
 		},
 		{
+			"file": "public/js/app.js",
+			"settings":
+			{
+				"buffer_size": 2826,
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "public/admin/js/controllers_main.js",
 			"settings":
 			{
@@ -401,8 +409,8 @@
 		{
 			"contents": "\n   <section class=\"page_content\">\n    <div class=\"vertical_offset\">\n    <div class=\"row\">\n        <div class=\"achD_card small-12 medium-9 medium-centered columns\">\n        <div class=\"row\">\n            <div class=\"achD_title small-12 medium-8 columns\"ng-bind=\"achivment.title\"></div>\n            <a ui-sref=\"profile({id: achivment.owner._id})\" class=\"achD_ownerLink small-12 columns\" ng-bind=\"achivment.owner.firstName + ' ' + achivment.owner.lastName\"></a>\n        </div>\n            <div class=\"row\">\n            <div class=\"achD_details small-12 medium-8 columns\">\n                <ul class=\"achD_detailsList small-12 columns\">\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel small-4 columns\">Категория</span>\n                    <span class=\" achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.type\"></span>\n                    </li>\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel  small-4 columns \">Уровень</span>\n                    <span class=\"achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.level\"></span>\n                    </li>\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel  small-4 columns  \">Организация</span>\n                    <span class=\"achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.organization\"></span>\n                    </li>\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel  small-4 columns\">Результат</span>\n                    <span class=\"achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.result\"></span>\n                    </li>\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel  small-4 columns\">Получено</span>\n                    <span class=\"achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.created\"></span>\n                    </li>\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel  small-4 columns\">Статус</span>\n                    <span class=\"achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.checked ? 'Подтверждено' : 'Не подтверждено'\"></span>\n                    </li>\n                </ul>\n            </div>\n            <div class=\"achD_files small-12 medium-3 columns\">\n                <ul class=\"achD_filesList\">\n                    <li ng-repeat=\"file in achivment.files\">\n                        <div class=\"achD_filePrev\" style=\"background-image: url({{isPdf(file) ? 'dsd' : file}}); background-size: cover;\" ng-click='$parent.showPhoto(file)'></div>\n                    </li>\n                </ul>\n            </div>\n            <div class=\"row\"></div>\n            <div class=\"achD_rejected small-12 columns\" ng-if=\"achivment.message\">\n                <p class=\"achD_rejectedMsg\"ng-bind=\"'Отказано: ' + achivment.message \"></p>\n            </div>\n            <div class=\"achD_description small-12 columns\">\n                <p class=\"achD_desctiptionP\" ng-bind=\"achivment.description\"></p>\n            </div>\n        </div>\n        \n    <textarea class='small-12 columns' cols=\"10\" ng-if=\"showTextaria\"  ng-model=\"$parent.message\"></textarea>\n    <button class='btn_ghost admAch_btn' ng-click='confirm()'>Подтвердить</button>\n    <button class='btn_ghost admAch_btn' ng-click='showTextaria = !showTextaria' ng-bind=\"showTextaria ? 'Отмена' :'Отказать'\"></button>\n    <button class='btn_ghost admAch_btn' ng-click='unconfirm()' ng-if=\"showTextaria\">Отправить</button>\n    </div>\n    </div>\n</section>\n\n<div class=\"fp_backdrop\" ng-if='visiblePhoto' ng-click='$parent.visiblePhoto = false'>\n<img class='small-centered columns' src=\"{{photoToShow}}\" alt=\"\">\n</div>",
 			"file": "public/admin/partials/achivment.html",
-			"file_size": 3897,
-			"file_write_time": 131058730767053335,
+			"file_size": 4104,
+			"file_write_time": 131086454797971831,
 			"settings":
 			{
 				"buffer_size": 3725,
@@ -413,15 +421,7 @@
 			"file": "public/styles/main.scss",
 			"settings":
 			{
-				"buffer_size": 36227,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "public/js/app.js",
-			"settings":
-			{
-				"buffer_size": 2535,
+				"buffer_size": 36272,
 				"line_ending": "Windows"
 			}
 		},
@@ -445,7 +445,7 @@
 			"file": "public/partials/auth.html",
 			"settings":
 			{
-				"buffer_size": 895,
+				"buffer_size": 905,
 				"line_ending": "Windows"
 			}
 		},
@@ -454,6 +454,14 @@
 			"settings":
 			{
 				"buffer_size": 2706,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/partials/registry.html",
+			"settings":
+			{
+				"buffer_size": 3256,
 				"line_ending": "Windows"
 			}
 		},
@@ -485,7 +493,7 @@
 			"file": "routes/api.js",
 			"settings":
 			{
-				"buffer_size": 2080,
+				"buffer_size": 2345,
 				"line_ending": "Windows"
 			}
 		},
@@ -493,7 +501,7 @@
 			"file": "public/js/services.js",
 			"settings":
 			{
-				"buffer_size": 4898,
+				"buffer_size": 5526,
 				"line_ending": "Windows"
 			}
 		},
@@ -501,7 +509,7 @@
 			"file": "api/admin.js",
 			"settings":
 			{
-				"buffer_size": 5145,
+				"buffer_size": 5142,
 				"line_ending": "Windows"
 			}
 		},
@@ -610,11 +618,7 @@
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/routes",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/TaskApp",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/views"
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials"
 	],
 	"file_history":
 	[
@@ -749,7 +753,7 @@
 	],
 	"find":
 	{
-		"height": 21.0
+		"height": 22.0
 	},
 	"find_in_files":
 	{
@@ -764,6 +768,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"main_pa",
 			"ca",
 			"short_in",
 			"mp_secondBlock",
@@ -893,7 +898,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 9,
 			"sheets":
 			[
 				{
@@ -925,7 +930,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 19,
+					"stack_index": 20,
 					"type": "text"
 				},
 				{
@@ -954,10 +959,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1082.0,
+						"translation.y": 1010.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 20,
+					"stack_index": 21,
 					"type": "text"
 				},
 				{
@@ -966,15 +971,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6728,
+						"buffer_size": 7551,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1644,
-								1644
+								0,
+								0
 							]
 						],
 						"settings":
@@ -984,10 +989,10 @@
 							"tabs_extra_last_activated_sheet_index": 2
 						},
 						"translation.x": 0.0,
-						"translation.y": 913.0,
+						"translation.y": 853.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
@@ -996,15 +1001,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2103,
+						"buffer_size": 2203,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1065,
-								1065
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1016,10 +1021,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 350.0,
+						"translation.y": 327.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 17,
+					"stack_index": 18,
 					"type": "text"
 				},
 				{
@@ -1035,24 +1040,24 @@
 						"selection":
 						[
 							[
-								906,
-								906
+								2289,
+								2289
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
 							"tab_size": 2,
-							"tabs_extra_last_activated": 1464037348.43,
+							"tabs_extra_last_activated": 1464089863.28,
 							"tabs_extra_last_activated_sheet_index": 4,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 165.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -1085,11 +1090,44 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 16,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
 					"buffer": 6,
+					"file": "public/js/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2826,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1464089971.17,
+							"tabs_extra_last_activated_sheet_index": 9,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 154.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
 					"file": "public/admin/js/controllers_main.js",
 					"semi_transient": false,
 					"settings":
@@ -1115,14 +1153,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1221.0,
+						"translation.y": 1140.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "public/admin/partials/achivment.html",
 					"semi_transient": false,
 					"settings":
@@ -1151,73 +1189,40 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 9,
 					"file": "public/styles/main.scss",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 36227,
+						"buffer_size": 36272,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2096,
-								2096
+								15347,
+								15347
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/CSS/CSS.sublime-syntax",
 							"tab_size": 2,
-							"tabs_extra_last_activated": 1464036422.75,
-							"tabs_extra_last_activated_sheet_index": 8,
-							"tabs_extra_spawned": true,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 790.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "public/js/app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2535,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								728,
-								728
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"tabs_extra_last_activated": 1464031149.28,
+							"tabs_extra_last_activated": 1464177617.13,
 							"tabs_extra_last_activated_sheet_index": 9,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 165.0,
+						"translation.y": 21389.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -1233,23 +1238,23 @@
 						"selection":
 						[
 							[
-								2035,
-								2035
+								110,
+								127
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tabs_extra_last_activated": 1464035758.56,
+							"tabs_extra_last_activated": 1464092596.08,
 							"tabs_extra_last_activated_sheet_index": 10,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 94.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -1280,7 +1285,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -1289,23 +1294,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 895,
+						"buffer_size": 905,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								717,
-								717
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"tab_size": 2,
-							"tabs_extra_last_activated": 1464035960.13,
-							"tabs_extra_last_activated_sheet_index": 12,
+							"tabs_extra_last_activated": 1464090086.66,
+							"tabs_extra_last_activated_sheet_index": 11,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
 						},
@@ -1313,7 +1318,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1337,20 +1342,53 @@
 						{
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"tab_size": 2,
-							"tabs_extra_last_activated": 1464030089.09,
-							"tabs_extra_last_activated_sheet_index": 9,
+							"tabs_extra_last_activated": 1464090426.74,
+							"tabs_extra_last_activated_sheet_index": 13,
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 113.0,
+						"translation.y": 329.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 14,
+					"file": "public/partials/registry.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3256,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3040,
+								3040
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"tabs_extra_last_activated": 1464090093.34,
+							"tabs_extra_last_activated_sheet_index": 13,
+							"tabs_extra_spawned": true,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
 					"file": "public/admin/js/admin_controllers.js",
 					"semi_transient": false,
 					"settings":
@@ -1376,14 +1414,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 288.0,
+						"translation.y": 269.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 15,
+					"buffer": 16,
 					"file": "public/admin/js/services.js",
 					"semi_transient": false,
 					"settings":
@@ -1409,14 +1447,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2507.0,
+						"translation.y": 2340.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 16,
+					"buffer": 17,
 					"file": "public/admin/js/build/build.js",
 					"semi_transient": false,
 					"settings":
@@ -1442,27 +1480,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6446.0,
+						"translation.y": 6017.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 17,
+					"buffer": 18,
 					"file": "routes/api.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2080,
+						"buffer_size": 2345,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								258,
-								258
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1473,19 +1511,19 @@
 							"tabs_extra_spawned": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 128.0,
+						"translation.y": 120.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
-					"buffer": 18,
+					"buffer": 19,
 					"file": "public/js/services.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4898,
+						"buffer_size": 5526,
 						"regions":
 						{
 						},
@@ -1509,24 +1547,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 19,
+					"buffer": 20,
 					"file": "api/admin.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5145,
+						"buffer_size": 5142,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1242,
-								1242
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1538,15 +1576,15 @@
 							"tabs_extra_spawned": true,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": -0.0,
-						"translation.y": 487.0,
+						"translation.x": 0.0,
+						"translation.y": 455.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 20,
+					"buffer": 21,
 					"file": "db/schemas/task.js",
 					"semi_transient": false,
 					"settings":
@@ -1574,11 +1612,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 18,
+					"stack_index": 19,
 					"type": "text"
 				},
 				{
-					"buffer": 21,
+					"buffer": 22,
 					"file": "postDefaulModels.js",
 					"semi_transient": false,
 					"settings":
@@ -1605,7 +1643,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 21,
+					"stack_index": 22,
 					"type": "text"
 				}
 			]
@@ -1623,7 +1661,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 21.0
+		"height": 22.0
 	},
 	"input":
 	{

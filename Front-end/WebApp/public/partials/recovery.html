@@ -1,0 +1,40 @@
+<div class="page_content">
+    <div class="row">
+        <div class="form_card small-centered medium-6 medium-centered large-5 large-centered columns">
+
+            <span class="form_title">Восстановление пароля</span>
+
+                 <form name='recovery'>
+                <div class="row column login_form">
+
+
+                    <label>Введите свою электроную почту</label>
+                    <input type="email" placeholder="jambul@example.com" ng-model='recovery.email' required>
+
+                    <label ng-if="tokenGetted">Введите код восстановления</label>
+                    <input ng-if="tokenGetted" type="text"  ng-model="recovery.token" required>
+
+                    <input type="submit" class="submit_form" value="Начать" ng-if="!tokenGetted" ng-click="startRecovery()">
+                    <input type="submit" class="submit_form" value="Проверить" ng-if="!tokenCorrect && tokenGetted" ng-click="checkRecoveryToken()">
+
+                </div>
+            </form>
+
+            <form name='newPassword' ng-if="tokenCorrect">
+                <div class="row column login_form">
+
+                    <label>Новый пароль</label>
+                    <input type="password"  ng-minlength="5" ng-maxlength="20" placeholder="********" required ng-model='$parent.checkPassword'>
+                    <label>Пароль еще раз</label>
+                    <input type="password" ng-minlength="5" ng-maxlength="20" placeholder="********" ng-model='$parent.newPassword.newPass' required>
+
+                    <span ng-if='newPassword.$valid && (newPassword.newPass != checkPassword)'>Пароли не совпадают</span>
+
+                    <input type="submit" class="submit_form" value="Применить" ng-click="submitNewPassword()">
+                    <a ui-sref="auth" class="link">Отмена</a>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

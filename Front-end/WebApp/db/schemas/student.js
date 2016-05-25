@@ -71,6 +71,9 @@ var student = new schema({
 	recoveryToken: {
 		type: String
 	},
+	emailConfirmToken: {
+		type: String
+	},
 	achivments: [achivmentSchema],
 });
 
@@ -103,7 +106,8 @@ student.methods.add = function(fields, callback) {
 			level: fields.level,
 			registered: new Date(),
 			status: 0,
-			number: fields.number
+			number: fields.number,
+			emailConfirmToken: this.encryptData(fields.email)
 		});
 
 		newStudent.save(function(err) {
@@ -116,7 +120,7 @@ student.methods.add = function(fields, callback) {
 };
 
 student.methods.createRecoveryToken = commonMethods.createRecoveryToken;
-student.methods.encryptData = commonMethods.useRecoveryToken;
+student.methods.useRecoveryToken = commonMethods.useRecoveryToken;
 
 
 

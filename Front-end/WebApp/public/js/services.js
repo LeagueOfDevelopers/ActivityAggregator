@@ -26,7 +26,27 @@ angular.module('app.services', [])
               url: function(params) {
                 return '/api/auth' + '/logout';
               }
-            }
+            },
+
+              getRecoveryToken: {
+                  method: 'POST',
+                  url: function(params) {
+                      return '/api/students/recovery';
+                  }
+              },
+              checkRecoveryToken: {
+                  method: 'POST',
+                  url: function(params) {
+                      return '/api/students/checkRecoveryToken';
+                  }
+              },
+              newPasswordByRecovery: {
+                  method: 'POST',
+                  url: function(params) {
+                      return '/api/students/newPassword';
+                  }
+              }
+
           },
 
         students: {
