@@ -6,7 +6,7 @@ var util = require('util');
 var multiparty = require('multiparty');
 var userStrategy = require('./user');
 var mailer = require('./mailer');
-var Task = require('../db/mpngoose').models.Task;
+var Task = require('../db/mongoose').models.Task;
 
 var User = new userStrategy(Student);
 
@@ -225,7 +225,7 @@ function changeAvatar(req, res, next) {
 
 		form.on('close', function() {
 			Student.findById(req.params.id, function(err, student) {
-					student.photoUri = config.updatetingParamavatar.link + req.params.id + fileName;
+					student.photoUri = config.avatar.link + req.params.id + fileName;
 					student.save(function(resp) {
 					res.send(resp);
 				});
@@ -287,13 +287,15 @@ function generateRecoveryToken(req, res, next) {
 		if(err) res.send(err);
 		else if(student) {
 				var recoveryToken = student.createRecoveryToken();
+				var email = student.email;
 				student.save(function(data) {
 					console.log(data);
 					mailer.send({
-						to: student.email,
+						receiver: email,
 						subject: 'Восстановление пароля',
 						text: 'Ваш код восстановления' + recoveryToken
-					}, function () {
+					}, function (data) {
+						console.log(data);
                         res.send({text: 'token getted', recoveryToken: recoveryToken});
                     });
 				})

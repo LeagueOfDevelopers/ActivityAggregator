@@ -153,7 +153,7 @@ function confirmAchivment(req, res, next) {
   
   if(req.session.user && req.session.user.role) {
 
-    Student.update({'achivments._id' : req.params.id},
+    Student.update({'achivments._id' : req.params.id}, ({'achivments._id' : req.params.id},
     {
       '$set' : {
         'achivments.$.checked' : true,
@@ -163,6 +163,7 @@ function confirmAchivment(req, res, next) {
 
       if(err) res.send(err);
       else {
+          console.log(data);
         res.send(data);
       }
      });
@@ -215,7 +216,11 @@ function rejectStudent(req, res, next) {
     else if(student) {
       student.status = 2;
       student.save(function(data) {
-        res.send('ok')
+          mailer.send({receiver: student.email, subject: 'Регистрация на платформе', text: 'Вам отказано в регисстрации'}, function(err, info) {
+              console.log(err);
+              console.log(info);
+          });
+        res.send('ok');
       }) 
     } else {
         res.send('student not found');

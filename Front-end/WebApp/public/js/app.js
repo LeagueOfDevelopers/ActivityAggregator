@@ -23,9 +23,6 @@ angular.module('ActivityAggregator',
            'page_content': {
              templateUrl: 'partials/studentsBase.html',
              controller: 'studentsBaseCtrl'
-           },
-           'footer': {
-              templateUrl: 'partials/footer.html'
            }
          }
        })

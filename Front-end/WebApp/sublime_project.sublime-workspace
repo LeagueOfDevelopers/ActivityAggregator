@@ -351,7 +351,7 @@
 			"file": "api/students.js",
 			"settings":
 			{
-				"buffer_size": 7970,
+				"buffer_size": 8013,
 				"line_ending": "Windows"
 			}
 		},
@@ -386,7 +386,7 @@
 			"file": "public/js/app.js",
 			"settings":
 			{
-				"buffer_size": 2826,
+				"buffer_size": 2739,
 				"line_ending": "Windows"
 			}
 		},
@@ -401,8 +401,8 @@
 		{
 			"contents": "\n   <section class=\"page_content\">\n    <div class=\"vertical_offset\">\n    <div class=\"row\">\n        <div class=\"achD_card small-12 medium-9 medium-centered columns\">\n        <div class=\"row\">\n            <div class=\"achD_title small-12 medium-8 columns\"ng-bind=\"achivment.title\"></div>\n            <a ui-sref=\"profile({id: achivment.owner._id})\" class=\"achD_ownerLink small-12 columns\" ng-bind=\"achivment.owner.firstName + ' ' + achivment.owner.lastName\"></a>\n        </div>\n            <div class=\"row\">\n            <div class=\"achD_details small-12 medium-8 columns\">\n                <ul class=\"achD_detailsList small-12 columns\">\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel small-4 columns\">Категория</span>\n                    <span class=\" achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.type\"></span>\n                    </li>\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel  small-4 columns \">Уровень</span>\n                    <span class=\"achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.level\"></span>\n                    </li>\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel  small-4 columns  \">Организация</span>\n                    <span class=\"achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.organization\"></span>\n                    </li>\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel  small-4 columns\">Результат</span>\n                    <span class=\"achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.result\"></span>\n                    </li>\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel  small-4 columns\">Получено</span>\n                    <span class=\"achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.created\"></span>\n                    </li>\n                    <li class=\"row\">\n                    <span class=\"achD_detailsListLabel  small-4 columns\">Статус</span>\n                    <span class=\"achD_detailsListDesc small-8 columns\" ng-bind=\"achivment.checked ? 'Подтверждено' : 'Не подтверждено'\"></span>\n                    </li>\n                </ul>\n            </div>\n            <div class=\"achD_files small-12 medium-3 columns\">\n                <ul class=\"achD_filesList\">\n                    <li ng-repeat=\"file in achivment.files\">\n                        <div class=\"achD_filePrev\" style=\"background-image: url({{isPdf(file) ? 'dsd' : file}}); background-size: cover;\" ng-click='$parent.showPhoto(file)'></div>\n                    </li>\n                </ul>\n            </div>\n            <div class=\"row\"></div>\n            <div class=\"achD_rejected small-12 columns\" ng-if=\"achivment.message\">\n                <p class=\"achD_rejectedMsg\"ng-bind=\"'Отказано: ' + achivment.message \"></p>\n            </div>\n            <div class=\"achD_description small-12 columns\">\n                <p class=\"achD_desctiptionP\" ng-bind=\"achivment.description\"></p>\n            </div>\n        </div>\n        \n    <textarea class='small-12 columns' cols=\"10\" ng-if=\"showTextaria\"  ng-model=\"$parent.message\"></textarea>\n    <button class='btn_ghost admAch_btn' ng-click='confirm()'>Подтвердить</button>\n    <button class='btn_ghost admAch_btn' ng-click='showTextaria = !showTextaria' ng-bind=\"showTextaria ? 'Отмена' :'Отказать'\"></button>\n    <button class='btn_ghost admAch_btn' ng-click='unconfirm()' ng-if=\"showTextaria\">Отправить</button>\n    </div>\n    </div>\n</section>\n\n<div class=\"fp_backdrop\" ng-if='visiblePhoto' ng-click='$parent.visiblePhoto = false'>\n<img class='small-centered columns' src=\"{{photoToShow}}\" alt=\"\">\n</div>",
 			"file": "public/admin/partials/achivment.html",
-			"file_size": 4104,
-			"file_write_time": 131086454797971831,
+			"file_size": 4112,
+			"file_write_time": 131089491752692872,
 			"settings":
 			{
 				"buffer_size": 3725,
@@ -488,7 +488,7 @@
 			"file": "public/admin/js/admin_controllers.js",
 			"settings":
 			{
-				"buffer_size": 6335,
+				"buffer_size": 6342,
 				"line_ending": "Windows"
 			}
 		},
@@ -504,7 +504,7 @@
 			"file": "public/admin/js/build/build.js",
 			"settings":
 			{
-				"buffer_size": 15825,
+				"buffer_size": 15832,
 				"line_ending": "Windows"
 			}
 		},
@@ -528,7 +528,7 @@
 			"file": "api/admin.js",
 			"settings":
 			{
-				"buffer_size": 5142,
+				"buffer_size": 5396,
 				"line_ending": "Windows"
 			}
 		},
@@ -651,7 +651,7 @@
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/schemas/task.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/db/mongoose.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/postDefaulModels.js",
-		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/TaskApp/taskCheckers.js",
+		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/TaskApp/taskChecker.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/api/students.js",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/styles/main.scss",
 		"/C/Users/user pc/Documents/GitHub/ActivityAggregator/Front-end/WebApp/public/partials/achivment.html",
@@ -959,7 +959,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7970,
+						"buffer_size": 8013,
 						"regions":
 						{
 						},
@@ -973,7 +973,7 @@
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1464452509.84,
+							"tabs_extra_last_activated": 1464477163.8,
 							"tabs_extra_last_activated_sheet_index": 1
 						},
 						"translation.x": 0.0,
@@ -1087,7 +1087,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2826,
+						"buffer_size": 2739,
 						"regions":
 						{
 						},
@@ -1475,15 +1475,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6335,
+						"buffer_size": 6342,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								952,
-								952
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1541,7 +1541,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 15825,
+						"buffer_size": 15832,
 						"regions":
 						{
 						},
@@ -1638,7 +1638,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5142,
+						"buffer_size": 5396,
 						"regions":
 						{
 						},

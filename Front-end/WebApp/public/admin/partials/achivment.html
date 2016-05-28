@@ -3,16 +3,17 @@
     <div class="vertical_offset">
     <div class="row">
         <div class="achD_card small-12 medium-9 medium-centered columns">
-        <div class="row">
 
-                      <div class="preloader_wrapper sB_preloader" ng-if="onLoad.common">
+            <div class="row">
+
+                <div class="preloader_wrapper sB_preloader" ng-if="onLoad.common">
                     <div class="preloader"></div>
                     <div class="preloader_circle"></div>
+                </div>
 
-
-            <div class="achD_title small-12 medium-8 columns"ng-bind="achivment.title"></div>
-            <a ui-sref="profile({id: achivment.owner._id})" class="achD_ownerLink small-12 columns" ng-bind="achivment.owner.firstName + ' ' + achivment.owner.lastName"></a>
-        </div>
+                <div class="achD_title small-12 columns" ng-bind="achivment.name"></div>
+                <a ui-sref="student({id: achivment.owner._id})" class="achD_ownerLink" ng-bind="achivment.owner.firstName + ' ' + achivment.owner.lastName"></a>
+            </div>
 
             <div class="row">
             <div class="achD_details small-12 medium-8 columns">

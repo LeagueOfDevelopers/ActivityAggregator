@@ -90,7 +90,7 @@ angular.module('admin.controllers',
    		$scope.avatar = avatar;
    		API.query('students.getDetail', {studentId : $stateParams.id}, true).then(function(res) {
    			$scope.student = res.data || null;
-   		})
+   		});
 
       $scope.confirm = function() {
         API.query('students.confirm', {studentId: $stateParams.id}, true).then(function(res) {
@@ -99,7 +99,8 @@ angular.module('admin.controllers',
               $scope.student = res.data || null;
             });
         })
-      }
+      };
+
       $scope.reject = function() {
         API.query('students.reject', {studentId: $stateParams.id}, true).then(function(res) {
             $scope.$emit('showMessage', {msg: 'Заявка отклонена', type: 'good'});
@@ -148,7 +149,7 @@ angular.module('admin.controllers',
         $scope.achivment = {
           owner: $stateParams.owner,
           type: type,
-          title: ach.name,
+          name: ach.name,
           organization: ach.organization,
           result: ach.result,
           checked: ach.checked,
@@ -157,14 +158,14 @@ angular.module('admin.controllers',
           message: ach.message,
           files: ach.files,
           level: ach.level
-        }
+        };
 
         $scope.confirm = function() {
           $http.post('api/admin/confirm/' + ach._id).success(function(result) {
             $scope.$emit('showMessage',  {msg: 'Достижение подтверждено', type: 'good'})
           })
 
-        }
+        };
 
         $scope.unconfirm = function() {
           if($scope.message != '') {
@@ -173,11 +174,11 @@ angular.module('admin.controllers',
             $scope.$emit('showMessage', {msg: 'Отказ отправлен', type: 'good'})
           })
         }
-         }
+         };
 
          $scope.isPdf = function(photo) {
           return !(photo.split('.').indexOf('pdf') == -1);
-        }
+        };
 
        $scope.showPhoto = function(photo) {
           if(!$scope.isPdf(photo)) {
@@ -207,4 +208,4 @@ angular.module('admin.controllers',
                   }
                 
       
-    }])
+    }]);
