@@ -1,32 +1,23 @@
-var Task = require('../db/mongoose').models.Task;
+
 var async = require('async');
 var mailer = require('./mailer');
 var Student = require('./db/mongoose').models.Student;
+var packageNootificationGenerator = require('./packageNotificationGenerator');
+var taskChekers = require('./taskCheckers');
 
-function checkTasks() {
-	Task.find({"done": false, type: 'simple'}, function(err, data) {
-		if(err) console.log(err);
-		else if(data) {
 
-		data.forEach(function(item) {
-			perform(item);
-		})
-		} else {
-			console.log("No new tasks");
-		}
-	})
-};
+function performSimpleTask(task, markDone) {
 
-function perform(task) {
-
-		mailer.perform(task, function(err) {
+		mailer.performTask(task, function(err) {
 			if(!err) {
-			task.done = true;
+			task.done = markDone;
 			task.save();
 		}
 
 		});
 
-};
+}
 
-module.exports.checkTasks = checkTasks;
+
+
+module.exports.checkSimpleTasks = checkSimpleTasks;

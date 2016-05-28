@@ -77,6 +77,7 @@ angular.module('app.controllers.partials',
       $scope.$watch('searchParams.category', function() {
         $scope.searchParams.name = '';
         var category = '';
+          
         switch($scope.searchParams.category) {
           case 'Наука' : category = 'science';  break;
           case 'Общественная деятельность' : category = 'social'; break;
@@ -86,7 +87,7 @@ angular.module('app.controllers.partials',
           case 'Предпринимательство' : category = 'business'; break;
           case 'Межкультурный диалог' : category = 'international'; break;
           case 'Все' : category = ''; break;
-        }
+        };
          
         $scope.getStudentsList({name: '', category: category});
         

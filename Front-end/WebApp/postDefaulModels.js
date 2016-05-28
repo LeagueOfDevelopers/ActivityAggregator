@@ -5,7 +5,7 @@ var Task = require('./db/mongoose').models.Task;
 var Admin = require('./db/mongoose').models.Admin;
 var Student = require("./db/mongoose").models.Student;
 
-var taskChecker = require('./TaskApp/mailTaskPerformer');
+var taskChecker = require('./MaiManager/mailTaskPerformer');
 
 taskChecker.checkTasks();
 

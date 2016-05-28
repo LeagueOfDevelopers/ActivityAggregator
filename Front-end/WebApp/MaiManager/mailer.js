@@ -7,7 +7,7 @@ var async = require('async');
 
 module.exports = {
 	send: send,
-	perform: perform
+	performTask: performTask
 };
  
 var transporter = nodemailer.createTransport(
@@ -18,7 +18,7 @@ var transporter = nodemailer.createTransport(
 	        user: config.login,
 	        pass: config.password
     	}
-});
+})
 
  
 function send(params, callback) {
@@ -36,7 +36,7 @@ function send(params, callback) {
 	    callback(err, info);
 	});
 
-};
+}
 
 function getReceivers(task, callback) {
 	if(task.receiverGroup) {
@@ -55,7 +55,7 @@ function getReceivers(task, callback) {
 		 callback(null, task.receiver);
 
 	}
-};
+}
 
 function generateMessageByTask(task, callback) {
 	 EmailTemplate.findOne({"name": task.templateName}, function(err, template) {
@@ -70,9 +70,9 @@ function generateMessageByTask(task, callback) {
 	 		callback(null);
 	 	}
 	 })
-};
+}
 
-function perform(task, doneCallback) { //require task.templateName task.receiver || receiverGroup task.text
+function performTask(task, doneCallback) { //require task.templateName task.receiver || receiverGroup task.text
 	async.series({
 		receivers: function(callback) {
 			getReceivers(task, function(err, receivers) {
@@ -85,7 +85,7 @@ function perform(task, doneCallback) { //require task.templateName task.receiver
 			})
 		}
 	},
-	//callback
+		//callback
 	 function(err, params) {
 		if(err) doneCallback(err);
 		else if(params.receivers && params.message) {
@@ -106,5 +106,5 @@ function perform(task, doneCallback) { //require task.templateName task.receiver
 			doneCallback('task params error')
 		}
 	});
-};
+}
 

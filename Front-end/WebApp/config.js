@@ -26,4 +26,4 @@ module.exports.smtp = {
 	port: 25,
 	host: 'smtp.yandex.ru',
 	sender: '"Аггрегатор МИСиС" <aggregator@lod-misis.ru>'
-}
+};
