@@ -214,6 +214,7 @@ angular.module('admin.controllers',
          $scope.showPhotos = false;
          $scope.fullPhoto = null;
          $scope.message = '';
+         $scope.wasAction = false;
          // var ach = {};
          // $http.get('api/achivments/' + $stateParams.achToShow._id).success(function(res) {
          //   ach = res.data.achivments[0];
@@ -249,7 +250,9 @@ angular.module('admin.controllers',
 
         $scope.confirm = function() {
           $http.post('api/admin/confirm/' + ach._id).success(function(result) {
-            $scope.$emit('showMessage',  {msg: 'Достижение подтверждено', type: 'good'})
+            $scope.$emit('showMessage',  {msg: 'Достижение подтверждено', type: 'good'});
+              $scope.wasAction = true;
+
           })
 
         };
@@ -258,7 +261,8 @@ angular.module('admin.controllers',
           if($scope.message != '') {
           $scope.showTextaria = false;
           $http.post('api/admin/unconfirm/' + ach._id, {message: $scope.message}).success(function(result) {
-            $scope.$emit('showMessage', {msg: 'Отказ отправлен', type: 'good'})
+            $scope.$emit('showMessage', {msg: 'Отказ отправлен', type: 'good'});
+              $scope.wasAction = true;
           })
         }
          };

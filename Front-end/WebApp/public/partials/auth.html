@@ -12,7 +12,7 @@
         <label>Пароль</label>
           <input type="password" placeholder="********" ng-model="auth.password" required>
 
-          <span class="form_warningLabel" ng-show='auth.$invalid'>Заполните форму корректно</span>
+          <span class="form_warningLabel" ng-show='auth.$invalid && auth.$dirty'>Заполните форму корректно</span>
 
           <input type="submit" class="submit_form" value="Войти" ng-click="submit()">
 					<a ui-sref="registry" class="link">Регистрация</a>

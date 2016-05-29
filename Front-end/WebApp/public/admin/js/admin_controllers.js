@@ -127,6 +127,7 @@ angular.module('admin.controllers',
          $scope.showPhotos = false;
          $scope.fullPhoto = null;
          $scope.message = '';
+         $scope.wasAction = false;
          // var ach = {};
          // $http.get('api/achivments/' + $stateParams.achToShow._id).success(function(res) {
          //   ach = res.data.achivments[0];
@@ -162,7 +163,9 @@ angular.module('admin.controllers',
 
         $scope.confirm = function() {
           $http.post('api/admin/confirm/' + ach._id).success(function(result) {
-            $scope.$emit('showMessage',  {msg: 'Достижение подтверждено', type: 'good'})
+            $scope.$emit('showMessage',  {msg: 'Достижение подтверждено', type: 'good'});
+              $state.go('student', {id: $stateParams.owner._id});
+
           })
 
         };
@@ -171,7 +174,8 @@ angular.module('admin.controllers',
           if($scope.message != '') {
           $scope.showTextaria = false;
           $http.post('api/admin/unconfirm/' + ach._id, {message: $scope.message}).success(function(result) {
-            $scope.$emit('showMessage', {msg: 'Отказ отправлен', type: 'good'})
+            $scope.$emit('showMessage', {msg: 'Отказ отправлен', type: 'good'});
+              $state.go('student', {id: $stateParams.owner._id});
           })
         }
          };
@@ -195,15 +199,17 @@ angular.module('admin.controllers',
                     $scope.inviteCode = 'код';
                     $scope.inviteLink = 'ссылка';
                     $scope.secret = null;
+
                     $scope.generate = function() {
-
+                    if($scope.currentUser.role == 1) {
                     if($scope.secret) {
-
-                    $http.post('api/admin/invite/' + $scope.currentUser._id, {secret: $scope.secret}).success(function(res) {
-                      $scope.inviteCode = res.data;
-                      $scope.inviteLink = 'http://' + '162.243.78.140' + '/admin/registryAdmin/' + res.data;
-                    })
-                    
+                        $http.post('api/admin/invite/' + $scope.currentUser._id, {secret: $scope.secret}).success(function (res) {
+                            $scope.inviteCode = res.data;
+                            $scope.inviteLink = 'http://' + '162.243.78.140' + '/admin/registryAdmin/' + res.data;
+                        })
+                    } else {
+                        $scope.$emit('showMessage', {msg: 'Требуются права администратора', type: 'bad'});
+                    }
                   }
                   }
                 

@@ -33,9 +33,6 @@ angular.module('ActivityAggregator',
            'page_content': {
              templateUrl: 'partials/main.html',
              controller: 'indexCtrl'
-           },
-           'footer': {
-              templateUrl: 'partials/footer.html'
            }
          }
        })

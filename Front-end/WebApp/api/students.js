@@ -168,7 +168,7 @@ function getStudentListLimit(req, res, next) {
 			res.send(data);
 		}
 	})
-};
+}
 
 function getStudentsListByCategory(req, res, next) {
 	console.log(req.params);
@@ -183,7 +183,7 @@ function getStudentsListByCategory(req, res, next) {
 		});
 
 
-};
+}
 
 function getStudentsListByName(req, res, next) {
 	var q = new RegExp(req.params.searchParams, 'i');
@@ -205,7 +205,7 @@ function getStudentsListByName(req, res, next) {
 		});
 
 
-};
+}
 
 function updateStudentDetail(req, res, next) {
 	var updatetingParam = 'about';
@@ -215,7 +215,7 @@ function updateStudentDetail(req, res, next) {
 			res.send('about updated');
 		})
 	})
-};
+}
 
 function changeAvatar(req, res, next) {
 
@@ -260,7 +260,7 @@ function changeAvatar(req, res, next) {
 		});
 
 		form.parse(req);	
-};
+}
 
 function changePassword(req, res, next) {
 	if(req.session.user) {
@@ -279,7 +279,7 @@ function changePassword(req, res, next) {
 	}
 }
 
-};
+}
 
 function generateRecoveryToken(req, res, next) {
 
@@ -306,7 +306,7 @@ function generateRecoveryToken(req, res, next) {
 		}
 
 	})
-};
+}
 
 function checkRecoveryToken(req, res, next) {
     Student.findOne({"email": req.body.email}, function(err, student) {

@@ -18,7 +18,7 @@ html(lang='en', ng-app='ActivityAggregator.admin', ng-controller='appCtrl')
            li
              a(ui-sref='inbox', ng-bind="currentUser.firstName + ' ' + currentUser.lastName")
            li
-              a(ui-sref='inviteAdmin' ng-if='currentUser.firstName') Добавить администратора 
+              a(ui-sref='inviteAdmin' ng-if='currentUser.role == 1') Добавить администратора
            li(ng-if='currentUser._id')
             a#logout(ng-click='logout()')
               i.fa.fa-sign-out  

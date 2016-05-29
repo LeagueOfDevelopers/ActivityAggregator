@@ -95,7 +95,9 @@ function getInviteCode(req, res, next) {
       admin.save(function(result) {
       console.log(result);
     });
-  }
+  } else {
+        res.send('admin permissions required')
+    }
   })
 };
 
@@ -153,40 +155,46 @@ function confirmAchivment(req, res, next) {
   
   if(req.session.user && req.session.user.role) {
 
-    Student.update({'achivments._id' : req.params.id}, ({'achivments._id' : req.params.id},
-    {
-      '$set' : {
-        'achivments.$.checked' : true,
-        'achivments.$.message' : null
-      }
-    }).exec(function(err, data) {
+      Student.update({'achivments._id' : req.params.id},
+      {
+          '$set' : {
+              'achivments.$.checked' : true,
+              'achivments.$.message' : null
+          }
 
-      if(err) res.send(err);
-      else {
-          console.log(data);
-        res.send(data);
-      }
-     });
+      }).exec(function(err, data) {
+
+          if (err) res.send(err);
+          else {
+              console.log(data);
+              res.send(data);
+          }
+      });
+
 
   } else {
     res.send('admin permissions required')
   }
-};
+}
 
 function unConfirmAchivment(req, res, next) {
   if(req.session.user && req.session.user.role) {
-   Student.update({'achivments._id' : req.params.id},
-  {
-    '$set' : {
-      'achivments.$.checked' : false,
-      'achivments.$.message' : req.body.message
-    }
-  }, 
-   function(err, data) {
+      Student.findOne({'achivments._id' : req.params.id}, 'email achivments.$').exec(function(err, data) {
 
-    if(err) res.send(err);
-    res.send(data);
-   });
+          if(err) res.send(err);
+          else {
+              data.achivments[0].message = req.body.message;
+              data.save(function() {
+                  mailer.send({receiver: data.email, subject: 'Ваше достижение не подтверждено', text: 'Достижение ' + data.achivments[0].name + 'Было отвергнуто, причина: ' + req.body.message }, function(err, info) {
+                      console.log(err);
+                      console.log(info);
+                  });
+                  res.send(data);
+
+              });
+
+          }
+      });
  } else {
   res.send('admin permossion required')
  }
