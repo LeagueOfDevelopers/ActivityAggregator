@@ -351,7 +351,7 @@
 			"file": "api/students.js",
 			"settings":
 			{
-				"buffer_size": 8013,
+				"buffer_size": 8006,
 				"line_ending": "Windows"
 			}
 		},
@@ -448,7 +448,7 @@
 			"file": "api/requirerMiddleWare.js",
 			"settings":
 			{
-				"buffer_size": 909,
+				"buffer_size": 907,
 				"line_ending": "Windows"
 			}
 		},
@@ -528,7 +528,7 @@
 			"file": "api/admin.js",
 			"settings":
 			{
-				"buffer_size": 5964,
+				"buffer_size": 5909,
 				"line_ending": "Windows"
 			}
 		},
@@ -967,7 +967,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8013,
+						"buffer_size": 8006,
 						"regions":
 						{
 						},
@@ -1321,15 +1321,15 @@
 					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 909,
+						"buffer_size": 907,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								180,
-								180
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1646,7 +1646,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5964,
+						"buffer_size": 5909,
 						"regions":
 						{
 						},
@@ -1686,18 +1686,18 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								1279,
+								1279
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1464531470.3,
+							"tabs_extra_last_activated": 1464532400.07,
 							"tabs_extra_last_activated_sheet_index": 23
 						},
 						"translation.x": -0.0,
-						"translation.y": 363.0,
+						"translation.y": 547.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

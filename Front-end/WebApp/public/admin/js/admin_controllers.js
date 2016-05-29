@@ -128,13 +128,14 @@ angular.module('admin.controllers',
          $scope.fullPhoto = null;
          $scope.message = '';
          $scope.wasAction = false;
-         // var ach = {};
-         // $http.get('api/achivments/' + $stateParams.achToShow._id).success(function(res) {
-         //   ach = res.data.achivments[0];
-         //   console.log(res);
-         // })
 
-       var ach = $stateParams.achToShow;
+         var ach = {};
+         $http.get('api/achivments/' + $stateParams.achToShow._id).success(function(res) {
+           ach = res.data.achivments;
+           console.log(res);
+         })
+
+      // var ach = $stateParams.achToShow;
         var type = '';
         switch(ach.type) {
           case 'science' : type = 'Наука';  break;
