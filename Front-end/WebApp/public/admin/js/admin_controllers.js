@@ -30,7 +30,6 @@ angular.module('admin.controllers',
 	 '$state',
 	 'API',
 	function($scope, $state, API) {
-
 		$scope.$emit('changeTitle', {title: 'Авторизация администратора'});
 		$scope.auth = {};
 
@@ -87,7 +86,6 @@ angular.module('admin.controllers',
 	'$stateParams',
 	'avatar',
    function($scope, API, $stateParams, avatar) {
-
    		$scope.$emit('needAuth');
    		$scope.avatar = avatar;
    		API.query('students.getDetail', {studentId : $stateParams.id}, true).then(function(res) {
@@ -138,15 +136,18 @@ angular.module('admin.controllers',
 
 <<<<<<< HEAD
          var ach = {};
-         console.log('dssd'); 
-         API.query('achivments.getDetail', {studentId: $stateParams.studentId, achId: $stateParams.achId}).then(function(res) {
-             ach = res.data;
-             console.log(res);
+         $http.get('api/achivments/' + $stateParams.achToShow._id).success(function(res) {
+           ach = res.data.achivments;
+           console.log(res);
          })
 
+<<<<<<< HEAD
 =======
        var ach = $stateParams.achToShow;
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+      // var ach = $stateParams.achToShow;
+>>>>>>> parent of 87b969d... sdd
         var type = '';
         switch(ach.type) {
           case 'science' : type = 'Наука';  break;
@@ -160,7 +161,7 @@ angular.module('admin.controllers',
         cr.setTime(Date.parse(ach.created));
 
         $scope.achivment = {
-          owner: $stateParams.studentId,
+          owner: $stateParams.owner,
           type: type,
           name: ach.name,
           organization: ach.organization,
@@ -207,8 +208,7 @@ angular.module('admin.controllers',
          }
 }])
 
-.controller('inviteCtrl', ['$scope', '$http', 'API', function($scope, $http, API) {
-
+.controller('inviteCtrl', ['$scope', '$http', function($scope, $http) {
                     $scope.inviteCode = 'код';
                     $scope.inviteLink = 'ссылка';
                     $scope.secret = null;
@@ -218,7 +218,7 @@ angular.module('admin.controllers',
                     if($scope.secret) {
                         $http.post('api/admin/invite/' + $scope.currentUser._id, {secret: $scope.secret}).success(function (res) {
                             $scope.inviteCode = res.data;
-                            $scope.inviteLink = API.baseUrl + '/admin/registryAdmin/' + res.data;
+                            $scope.inviteLink = 'http://' + '162.243.78.140' + '/admin/registryAdmin/' + res.data;
                         })
                     } else {
                         $scope.$emit('showMessage', {msg: 'Требуются права администратора', type: 'bad'});

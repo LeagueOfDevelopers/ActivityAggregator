@@ -79,13 +79,7 @@ angular.module('app.services', [])
           url: function() {
             return '/api/adm/requests';
           }
-        },
-          getDetail: {
-              method: 'GET',
-              url: function(params) { //get
-                  return '/api' + '/students/' + params.studentId + '/achivments/' + params.achId;
-              }
-          }
+        }
         
       }
 

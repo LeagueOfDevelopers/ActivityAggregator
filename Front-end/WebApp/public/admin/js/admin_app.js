@@ -44,17 +44,22 @@
              templateUrl: 'admin/partials/profile.html',
              controller: 'profileCtrl'
            }
-         }
+         },
        })
 
        .state('achivment_detail', {
-           url: '/admin/achivment_detail/:studentId/:achId',
-           views: {
-               'page_content': {
-                   templateUrl: 'admin/partials/achivment.html',
-                   controller: 'achCtrl'
-               }
-          }
+          url: '/admin/achivment_detail',
+          params: {
+            'achToShow': null,
+            'owner': null
+          },
+
+          views: {
+           'page_content': {
+             templateUrl: 'admin/partials/achivment.html',
+             controller: 'achCtrl'
+             }
+          },   
        })
        
        .state('registryAdmin', {

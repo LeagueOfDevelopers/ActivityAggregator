@@ -22,6 +22,7 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <file leaf-file-name="admin_controllers.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/admin/js/admin_controllers.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -44,11 +45,29 @@
             <state relative-caret-position="-470">
               <caret line="158" column="7" selection-start-line="158" selection-start-column="7" selection-end-line="158" selection-end-column="7" />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+      <file leaf-file-name="requirerMiddleWare.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/requirerMiddleWare.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="387">
+              <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="admin_controllers.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/admin/js/admin_controllers.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="118">
+              <caret line="132" column="62" selection-start-line="132" selection-start-column="62" selection-end-line="132" selection-end-column="62" />
+>>>>>>> parent of 87b969d... sdd
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="api.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/api.js">
@@ -62,6 +81,13 @@
             <state relative-caret-position="155">
               <caret line="1836" column="18" selection-start-line="1836" selection-start-column="18" selection-end-line="1836" selection-end-column="18" />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/js/controllers.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1500">
+              <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+>>>>>>> parent of 87b969d... sdd
               <folding />
             </state>
           </provider>
@@ -71,12 +97,17 @@
         <entry file="file://$PROJECT_DIR$/api/achivments.js">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <state relative-caret-position="210">
               <caret line="14" column="56" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
 =======
             <state relative-caret-position="-1516">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+            <state relative-caret-position="-140">
+              <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+>>>>>>> parent of 87b969d... sdd
               <folding />
             </state>
           </provider>
@@ -86,7 +117,11 @@
         <entry file="file://$PROJECT_DIR$/public/admin/js/admin_controllers.js">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <state relative-caret-position="495">
+=======
+            <state relative-caret-position="450">
+>>>>>>> parent of 87b969d... sdd
               <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
 =======
             <state relative-caret-position="298">
@@ -97,6 +132,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="admin_app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/admin/js/admin_app.js">
@@ -114,6 +150,10 @@
       <file leaf-file-name="students.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/students.js">
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+      <file leaf-file-name="authAdmin.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/admin/partials/authAdmin.html">
+>>>>>>> parent of 87b969d... sdd
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-4276">
               <caret line="30" column="2" selection-start-line="30" selection-start-column="2" selection-end-line="30" selection-end-column="2" />
@@ -122,6 +162,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="build.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/admin/js/build/build.js">
@@ -135,11 +176,19 @@
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+      <file leaf-file-name="fullPhoto.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/admin/partials/fullPhoto.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="28" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="28" />
+>>>>>>> parent of 87b969d... sdd
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="services.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/admin/js/services.js">
@@ -153,11 +202,19 @@
             <state relative-caret-position="374">
               <caret line="38" column="1" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+      <file leaf-file-name="invite.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/admin/partials/invite.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="48" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="48" />
+>>>>>>> parent of 87b969d... sdd
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="services.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/services.js">
@@ -171,6 +228,13 @@
             <state relative-caret-position="-586">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+      <file leaf-file-name="registry_admin.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/admin/partials/registry_admin.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+>>>>>>> parent of 87b969d... sdd
               <folding />
             </state>
           </provider>
@@ -179,8 +243,8 @@
       <file leaf-file-name="controllers_main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/admin/js/controllers_main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="77" selection-start-line="23" selection-start-column="77" selection-end-line="23" selection-end-column="77" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -208,6 +272,7 @@
         <option value="$PROJECT_DIR$/MaiManager/packageNotificationGenerator.js" />
         <option value="$PROJECT_DIR$/MaiManager/mailTaskPerformer.js" />
         <option value="$PROJECT_DIR$/public/admin/partials/admin_inbox.html" />
+        <option value="$PROJECT_DIR$/public/admin/partials/achivment.html" />
         <option value="$PROJECT_DIR$/public/js/app.js" />
         <option value="$PROJECT_DIR$/views/admin.jade" />
         <option value="$PROJECT_DIR$/public/partials/auth.html" />
@@ -217,10 +282,6 @@
         <option value="$PROJECT_DIR$/api/admin.js" />
 <<<<<<< HEAD
         <option value="$PROJECT_DIR$/api/mailer.js" />
-        <option value="$PROJECT_DIR$/public/admin/partials/profile.html" />
-        <option value="$PROJECT_DIR$/public/admin/partials/achivment.html" />
-        <option value="$PROJECT_DIR$/public/admin/js/admin_app.js" />
-        <option value="$PROJECT_DIR$/public/admin/js/services.js" />
         <option value="$PROJECT_DIR$/public/admin/js/admin_controllers.js" />
 =======
 >>>>>>> parent of 5bd6cd4... bug fixing
@@ -327,7 +388,10 @@
             </PATH_ELEMENT>
           </PATH>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 87b969d... sdd
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="WebApp" />
@@ -338,7 +402,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< HEAD
               <option name="myItemId" value="views" />
+=======
+              <option name="myItemId" value="public" />
+>>>>>>> parent of 87b969d... sdd
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -352,11 +420,22 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< HEAD
               <option name="myItemId" value="api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+>>>>>>> parent of 87b969d... sdd
         </subPane>
       </pane>
     </panes>
@@ -442,32 +521,46 @@
       <workItem from="1464474353969" duration="3068000" />
 <<<<<<< HEAD
       <workItem from="1464528084045" duration="5347000" />
+<<<<<<< HEAD
       <workItem from="1464536189362" duration="4468000" />
       <workItem from="1464547700732" duration="37000" />
 =======
       <workItem from="1464528084045" duration="4282000" />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+      <workItem from="1464536189362" duration="1940000" />
+>>>>>>> parent of 87b969d... sdd
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="17528000" />
 =======
     <option name="totallyTimeSpent" value="11958000" />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+    <option name="totallyTimeSpent" value="14963000" />
+>>>>>>> parent of 87b969d... sdd
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1845238" sideWeight="0.34146342" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1845238" sideWeight="0.6474501" order="0" side_tool="false" content_ui="combo" />
+=======
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1936937" sideWeight="0.26923078" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1845238" sideWeight="0.8181818" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> parent of 87b969d... sdd
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2618658" sideWeight="0.50595236" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1845238" sideWeight="0.35254988" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1845238" sideWeight="0.18181819" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2618658" sideWeight="0.4940476" order="2" side_tool="false" content_ui="tabs" />
 =======
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1936937" sideWeight="0.26923078" order="2" side_tool="true" content_ui="tabs" />
@@ -478,6 +571,9 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.072013095" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1898527" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+>>>>>>> parent of 87b969d... sdd
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32569557" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -510,6 +606,37 @@
   </component>
   <component name="editorHistoryManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MaiManager/mailTaskPerformer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MaiManager/taskCheckers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sublime_project.sublime-workspace">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9795">
+          <caret line="653" column="87" selection-start-line="653" selection-start-column="87" selection-end-line="653" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> parent of 87b969d... sdd
     <entry file="file://$PROJECT_DIR$/MaiManager/packageNotificationGenerator.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -565,6 +692,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="52" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/error.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -622,6 +756,24 @@
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/public/admin/js/admin_app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="47" column="9" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-74">
+          <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> parent of 87b969d... sdd
     <entry file="file://$PROJECT_DIR$/views/admin.jade">
 =======
     <entry file="file://$PROJECT_DIR$/routes/users.js">
@@ -660,9 +812,21 @@
 <<<<<<< HEAD
         <state relative-caret-position="27510">
           <caret line="1836" column="18" selection-start-line="1836" selection-start-column="18" selection-end-line="1836" selection-end-column="18" />
+<<<<<<< HEAD
 =======
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/admin/js/controllers_main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+>>>>>>> parent of 87b969d... sdd
         </state>
       </provider>
     </entry>
@@ -670,7 +834,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+          <folding />
+>>>>>>> parent of 87b969d... sdd
         </state>
       </provider>
     </entry>
@@ -686,10 +854,14 @@
 <<<<<<< HEAD
         <state relative-caret-position="-317">
           <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
+<<<<<<< HEAD
 =======
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+          <folding />
+>>>>>>> parent of 87b969d... sdd
         </state>
       </provider>
     </entry>
@@ -698,10 +870,14 @@
 <<<<<<< HEAD
         <state relative-caret-position="463">
           <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+<<<<<<< HEAD
 =======
         <state relative-caret-position="270">
           <caret line="63" column="6" selection-start-line="63" selection-start-column="6" selection-end-line="63" selection-end-column="6" />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+          <folding />
+>>>>>>> parent of 87b969d... sdd
         </state>
       </provider>
     </entry>
@@ -710,10 +886,14 @@
 <<<<<<< HEAD
         <state relative-caret-position="255">
           <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+<<<<<<< HEAD
 =======
         <state relative-caret-position="435">
           <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+          <folding />
+>>>>>>> parent of 87b969d... sdd
         </state>
       </provider>
     </entry>
@@ -722,10 +902,14 @@
 <<<<<<< HEAD
         <state relative-caret-position="330">
           <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+<<<<<<< HEAD
 =======
         <state relative-caret-position="405">
           <caret line="27" column="52" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+          <folding />
+>>>>>>> parent of 87b969d... sdd
         </state>
       </provider>
     </entry>
@@ -733,6 +917,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -741,10 +926,14 @@
 <<<<<<< HEAD
         <state relative-caret-position="1080">
           <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
+<<<<<<< HEAD
 =======
         <state relative-caret-position="405">
           <caret line="27" column="80" selection-start-line="27" selection-start-column="80" selection-end-line="27" selection-end-column="80" />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+          <folding />
+>>>>>>> parent of 87b969d... sdd
         </state>
       </provider>
     </entry>
@@ -753,10 +942,14 @@
 <<<<<<< HEAD
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
 =======
         <state relative-caret-position="300">
           <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+          <folding />
+>>>>>>> parent of 87b969d... sdd
         </state>
       </provider>
     </entry>
@@ -765,10 +958,14 @@
 <<<<<<< HEAD
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
 =======
         <state relative-caret-position="9795">
           <caret line="653" column="87" selection-start-line="653" selection-start-column="87" selection-end-line="653" selection-end-column="87" />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+          <folding />
+>>>>>>> parent of 87b969d... sdd
         </state>
       </provider>
     </entry>
@@ -777,10 +974,14 @@
 <<<<<<< HEAD
         <state relative-caret-position="270">
           <caret line="63" column="6" selection-start-line="63" selection-start-column="6" selection-end-line="63" selection-end-column="6" />
+<<<<<<< HEAD
 =======
         <state relative-caret-position="1470">
           <caret line="98" column="28" selection-start-line="98" selection-start-column="28" selection-end-line="98" selection-end-column="28" />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+          <folding />
+>>>>>>> parent of 87b969d... sdd
         </state>
       </provider>
     </entry>
@@ -789,10 +990,14 @@
 <<<<<<< HEAD
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
 =======
         <state relative-caret-position="255">
           <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+          <folding />
+>>>>>>> parent of 87b969d... sdd
         </state>
       </provider>
     </entry>
@@ -821,6 +1026,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -828,6 +1034,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -836,11 +1043,15 @@
 <<<<<<< HEAD
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
 =======
         <state relative-caret-position="210">
           <caret line="14" column="55" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
           <folding />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+          <folding />
+>>>>>>> parent of 87b969d... sdd
         </state>
       </provider>
     </entry>
@@ -849,11 +1060,15 @@
 <<<<<<< HEAD
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
 =======
         <state relative-caret-position="210">
           <caret line="14" column="14" selection-start-line="6" selection-start-column="8" selection-end-line="14" selection-end-column="14" />
           <folding />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+          <folding />
+>>>>>>> parent of 87b969d... sdd
         </state>
       </provider>
     </entry>
@@ -862,11 +1077,15 @@
 <<<<<<< HEAD
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
 =======
         <state relative-caret-position="705">
           <caret line="47" column="9" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
           <folding />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+          <folding />
+>>>>>>> parent of 87b969d... sdd
         </state>
       </provider>
     </entry>
@@ -875,11 +1094,15 @@
 <<<<<<< HEAD
         <state relative-caret-position="120">
           <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+<<<<<<< HEAD
 =======
         <state relative-caret-position="-74">
           <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
           <folding />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+          <folding />
+>>>>>>> parent of 87b969d... sdd
         </state>
       </provider>
     </entry>
@@ -888,11 +1111,15 @@
 <<<<<<< HEAD
         <state relative-caret-position="-690">
           <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+<<<<<<< HEAD
 =======
         <state relative-caret-position="300">
           <caret line="20" column="77" selection-start-line="20" selection-start-column="69" selection-end-line="20" selection-end-column="77" />
           <folding />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+          <folding />
+>>>>>>> parent of 87b969d... sdd
         </state>
       </provider>
     </entry>
@@ -901,6 +1128,7 @@
 <<<<<<< HEAD
         <state relative-caret-position="387">
           <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
+<<<<<<< HEAD
         </state>
       </provider>
     </entry>
@@ -955,17 +1183,25 @@
           <caret line="14" column="79" selection-start-line="14" selection-start-column="79" selection-end-line="14" selection-end-column="79" />
           <folding />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+          <folding />
+>>>>>>> parent of 87b969d... sdd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/admin/partials/achivment.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="210">
 <<<<<<< HEAD
           <caret line="14" column="56" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
 =======
           <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+        <state relative-caret-position="-140">
+          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+>>>>>>> parent of 87b969d... sdd
           <folding />
         </state>
       </provider>
@@ -973,7 +1209,11 @@
     <entry file="file://$PROJECT_DIR$/node_modules/mongoose/lib/document.js">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <state relative-caret-position="495">
+=======
+        <state relative-caret-position="450">
+>>>>>>> parent of 87b969d... sdd
           <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
 =======
         <state relative-caret-position="155">
@@ -983,6 +1223,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/public/admin/partials/profile.html">
 =======
@@ -1006,10 +1247,17 @@
         <state relative-caret-position="298">
           <caret line="177" column="54" selection-start-line="177" selection-start-column="54" selection-end-line="177" selection-end-column="54" />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+    <entry file="file://$PROJECT_DIR$/public/admin/partials/authAdmin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> parent of 87b969d... sdd
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/public/js/services.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1021,10 +1269,17 @@
         <state relative-caret-position="-586">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+    <entry file="file://$PROJECT_DIR$/public/admin/partials/fullPhoto.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="28" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="28" />
+>>>>>>> parent of 87b969d... sdd
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/public/admin/js/services.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1036,21 +1291,32 @@
         <state relative-caret-position="-4276">
           <caret line="30" column="2" selection-start-line="30" selection-start-column="2" selection-end-line="30" selection-end-column="2" />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+    <entry file="file://$PROJECT_DIR$/public/admin/partials/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> parent of 87b969d... sdd
           <folding />
         </state>
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/public/admin/js/build/build.js">
+=======
+    <entry file="file://$PROJECT_DIR$/public/admin/partials/invite.html">
+>>>>>>> parent of 87b969d... sdd
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state relative-caret-position="105">
+          <caret line="7" column="48" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/admin/js/controllers_main.js">
+    <entry file="file://$PROJECT_DIR$/public/admin/partials/registry_admin.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
 =======
@@ -1059,6 +1325,10 @@
         <state relative-caret-position="374">
           <caret line="38" column="1" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+        <state relative-caret-position="345">
+          <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+>>>>>>> parent of 87b969d... sdd
           <folding />
         </state>
       </provider>
@@ -1066,16 +1336,22 @@
     <entry file="file://$PROJECT_DIR$/api/achivments.js">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <state relative-caret-position="2010">
           <caret line="134" column="30" selection-start-line="134" selection-start-column="30" selection-end-line="134" selection-end-column="30" />
 =======
         <state relative-caret-position="-1516">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+        <state relative-caret-position="118">
+          <caret line="132" column="62" selection-start-line="132" selection-start-column="62" selection-end-line="132" selection-end-column="62" />
+>>>>>>> parent of 87b969d... sdd
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/public/admin/js/admin_app.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1095,6 +1371,12 @@
         <state relative-caret-position="-470">
           <caret line="158" column="7" selection-start-line="158" selection-start-column="7" selection-end-line="158" selection-end-column="7" />
 >>>>>>> parent of 5bd6cd4... bug fixing
+=======
+    <entry file="file://$PROJECT_DIR$/public/js/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1500">
+          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+>>>>>>> parent of 87b969d... sdd
           <folding />
         </state>
       </provider>
