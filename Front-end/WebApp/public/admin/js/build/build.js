@@ -44,22 +44,17 @@
              templateUrl: 'admin/partials/profile.html',
              controller: 'profileCtrl'
            }
-         },
+         }
        })
 
        .state('achivment_detail', {
-          url: '/admin/achivment_detail',
-          params: {
-            'achToShow': null,
-            'owner': null
-          },
-
-          views: {
-           'page_content': {
-             templateUrl: 'admin/partials/achivment.html',
-             controller: 'achCtrl'
-             }
-          },   
+           url: '/admin/achivment_detail/:studentId/:achId',
+           views: {
+               'page_content': {
+                   templateUrl: 'admin/partials/achivment.html',
+                   controller: 'achCtrl'
+               }
+          }
        })
        
        .state('registryAdmin', {
@@ -117,6 +112,7 @@ angular.module('admin.controllers',
 	 '$state',
 	 'API',
 	function($scope, $state, API) {
+
 		$scope.$emit('changeTitle', {title: 'Авторизация администратора'});
 		$scope.auth = {};
 
@@ -173,6 +169,7 @@ angular.module('admin.controllers',
 	'$stateParams',
 	'avatar',
    function($scope, API, $stateParams, avatar) {
+
    		$scope.$emit('needAuth');
    		$scope.avatar = avatar;
    		API.query('students.getDetail', {studentId : $stateParams.id}, true).then(function(res) {
@@ -215,13 +212,14 @@ angular.module('admin.controllers',
          $scope.fullPhoto = null;
          $scope.message = '';
          $scope.wasAction = false;
-         // var ach = {};
-         // $http.get('api/achivments/' + $stateParams.achToShow._id).success(function(res) {
-         //   ach = res.data.achivments[0];
-         //   console.log(res);
-         // })
 
-       var ach = $stateParams.achToShow;
+         var ach = {};
+         console.log('dssd'); 
+         API.query('achivments.getDetail', {studentId: $stateParams.studentId, achId: $stateParams.achId}).then(function(res) {
+             ach = res.data;
+             console.log(res);
+         })
+
         var type = '';
         switch(ach.type) {
           case 'science' : type = 'Наука';  break;
@@ -235,7 +233,7 @@ angular.module('admin.controllers',
         cr.setTime(Date.parse(ach.created));
 
         $scope.achivment = {
-          owner: $stateParams.owner,
+          owner: $stateParams.studentId,
           type: type,
           name: ach.name,
           organization: ach.organization,
@@ -251,7 +249,7 @@ angular.module('admin.controllers',
         $scope.confirm = function() {
           $http.post('api/admin/confirm/' + ach._id).success(function(result) {
             $scope.$emit('showMessage',  {msg: 'Достижение подтверждено', type: 'good'});
-              $scope.wasAction = true;
+              $state.go('student', {id: $stateParams.owner._id});
 
           })
 
@@ -262,7 +260,7 @@ angular.module('admin.controllers',
           $scope.showTextaria = false;
           $http.post('api/admin/unconfirm/' + ach._id, {message: $scope.message}).success(function(result) {
             $scope.$emit('showMessage', {msg: 'Отказ отправлен', type: 'good'});
-              $scope.wasAction = true;
+              $state.go('student', {id: $stateParams.owner._id});
           })
         }
          };
@@ -282,19 +280,22 @@ angular.module('admin.controllers',
          }
 }])
 
-.controller('inviteCtrl', ['$scope', '$http', function($scope, $http) {
+.controller('inviteCtrl', ['$scope', '$http', 'API', function($scope, $http, API) {
+
                     $scope.inviteCode = 'код';
                     $scope.inviteLink = 'ссылка';
                     $scope.secret = null;
+
                     $scope.generate = function() {
-
+                    if($scope.currentUser.role == 1) {
                     if($scope.secret) {
-
-                    $http.post('api/admin/invite/' + $scope.currentUser._id, {secret: $scope.secret}).success(function(res) {
-                      $scope.inviteCode = res.data;
-                      $scope.inviteLink = 'http://' + '162.243.78.140' + '/admin/registryAdmin/' + res.data;
-                    })
-                    
+                        $http.post('api/admin/invite/' + $scope.currentUser._id, {secret: $scope.secret}).success(function (res) {
+                            $scope.inviteCode = res.data;
+                            $scope.inviteLink = API.baseUrl + '/admin/registryAdmin/' + res.data;
+                        })
+                    } else {
+                        $scope.$emit('showMessage', {msg: 'Требуются права администратора', type: 'bad'});
+                    }
                   }
                   }
                 
@@ -514,7 +515,13 @@ angular.module('app.services', [])
           url: function() {
             return '/api/adm/requests';
           }
-        }
+        },
+          getDetail: {
+              method: 'GET',
+              url: function(params) { //get
+                  return '/api' + '/students/' + params.studentId + '/achivments/' + params.achId;
+              }
+          }
         
       }
 

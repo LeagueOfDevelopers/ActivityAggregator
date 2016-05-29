@@ -21,7 +21,7 @@
         <div class="achivments_list">
           <ul class="small-12">
             <li ng-repeat='ach in student.achivments' ng-if='!ach.checked'>
-              <a ui-sref="achivment_detail({achToShow : ach, owner: student})">
+              <a ui-sref="achivment_detail({achId : ach._id, studentId: student._id})">
               <div class="ach" ng-class='{unchecked: !ach.checked}'>
                 <div class="ach_icon {{ach.type}}"></div>
                 <div class="ach_title" ng-bind="ach.name"></div>
