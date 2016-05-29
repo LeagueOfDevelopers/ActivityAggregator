@@ -13,7 +13,7 @@ var transporter = nodemailer.createTransport(
 	        user: config.login,
 	        pass: config.password
     	}
-})
+});
  
 function send(params, callback) {
 
@@ -25,8 +25,10 @@ function send(params, callback) {
 	    html: params.html || null 
 	};
 	
+		 
+
 	transporter.sendMail(mailOptions, function(err, info){
 	    callback(err, info);
 	});
 
-}
+};

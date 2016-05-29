@@ -149,7 +149,7 @@ function getUncheckedRequests(req, res, next) {
        } else {
         res.send('admin permissions required')
        }
-}
+};
 
 function confirmAchivment(req, res, next) {
   
@@ -166,22 +166,12 @@ function confirmAchivment(req, res, next) {
 
           if (err) res.send(err);
           else {
-              Student.findOne({'achivments._id' : req.params.id}, 'email achivments.$', function(err, student) {
-                  if(err) console.log(err);
-                  else {
-                      mailer.send({
-                          receiver: student.email,
-                          subject: 'Ваше достижение подтверждено',
-                          text: 'Достижение ' + data.achivments[0].name + ' Было подтверждено администрацией, теперь оно будет отоброжаться в вашем профиле.'
-                      }, function (err, info) {
-                          console.log(err);
-                          console.log(info);
-                      });
-                  }
-              })
-
+              console.log(data);
+              res.send(data);
           }
-      })
+      });
+
+
   } else {
     res.send('admin permissions required')
   }
@@ -189,31 +179,22 @@ function confirmAchivment(req, res, next) {
 
 function unConfirmAchivment(req, res, next) {
   if(req.session.user && req.session.user.role) {
-      Student.update({'achivments._id' : req.params.id},
-          {
-              '$set' : {
-                  'achivments.$.checked' : false,
-                  'achivments.$.message' : req.body.message || 'Без комментария'
-              }
+      Student.findOne({'achivments._id' : req.params.id}, 'email achivments.$').exec(function(err, data) {
 
-          }).exec(function(err, data) {
-          if (err) res.send(err);
+          if(err) res.send(err);
           else {
-              Student.findOne({'achivments._id' : req.params.id}, 'email achivments.$', function(err, student) {
-                  if(err) console.log(err);
-                  else {
-                      mailer.send({
-                          receiver: student.email,
-                          subject: 'Ваше достижение не подтверждено',
-                          text: 'Достижение ' + data.achivments[0].name + ' Было отвергнуто администрацией, причина: ' + req.body.message
-                      }, function (err, info) {
-                          console.log(err || info);
-                      })
-                  }
-              })
+              data.achivments[0].message = req.body.message;
+              data.save(function() {
+                  mailer.send({receiver: data.email, subject: 'Ваше достижение не подтверждено', text: 'Достижение ' + data.achivments[0].name + 'Было отвергнуто, причина: ' + req.body.message }, function(err, info) {
+                      console.log(err);
+                      console.log(info);
+                  });
+                  res.send(data);
+
+              });
 
           }
-      })
+      });
  } else {
   res.send('admin permossion required')
  }

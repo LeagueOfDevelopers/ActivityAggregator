@@ -351,7 +351,7 @@
 			"file": "api/students.js",
 			"settings":
 			{
-				"buffer_size": 8006,
+				"buffer_size": 8013,
 				"line_ending": "Windows"
 			}
 		},
@@ -448,7 +448,7 @@
 			"file": "api/requirerMiddleWare.js",
 			"settings":
 			{
-				"buffer_size": 907,
+				"buffer_size": 909,
 				"line_ending": "Windows"
 			}
 		},
@@ -531,6 +531,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 				"buffer_size": 6878,
 =======
 				"buffer_size": 5964,
@@ -541,6 +542,9 @@
 =======
 				"buffer_size": 6878,
 >>>>>>> parent of a3fad68... dwd
+=======
+				"buffer_size": 5964,
+>>>>>>> parent of 5bd6cd4... bug fixing
 				"line_ending": "Windows"
 			}
 		},
@@ -979,7 +983,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8006,
+						"buffer_size": 8013,
 						"regions":
 						{
 						},
@@ -1333,15 +1337,15 @@
 					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 907,
+						"buffer_size": 909,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								180,
+								180
 							]
 						],
 						"settings":
@@ -1661,6 +1665,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 						"buffer_size": 6878,
 =======
 						"buffer_size": 5964,
@@ -1671,6 +1676,9 @@
 =======
 						"buffer_size": 6878,
 >>>>>>> parent of a3fad68... dwd
+=======
+						"buffer_size": 5964,
+>>>>>>> parent of 5bd6cd4... bug fixing
 						"regions":
 						{
 						},
@@ -1710,18 +1718,18 @@
 						"selection":
 						[
 							[
-								1279,
-								1279
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tabs_extra_last_activated": 1464532400.07,
+							"tabs_extra_last_activated": 1464531470.3,
 							"tabs_extra_last_activated_sheet_index": 23
 						},
 						"translation.x": -0.0,
-						"translation.y": 547.0,
+						"translation.y": 363.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
