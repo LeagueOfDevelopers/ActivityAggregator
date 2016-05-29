@@ -130,7 +130,13 @@ angular.module('admin.controllers',
          $scope.fullPhoto = null;
          $scope.message = '';
          $scope.wasAction = false;
+         // var ach = {};
+         // $http.get('api/achivments/' + $stateParams.achToShow._id).success(function(res) {
+         //   ach = res.data.achivments[0];
+         //   console.log(res);
+         // })
 
+<<<<<<< HEAD
          var ach = {};
          console.log('dssd'); 
          API.query('achivments.getDetail', {studentId: $stateParams.studentId, achId: $stateParams.achId}).then(function(res) {
@@ -138,6 +144,9 @@ angular.module('admin.controllers',
              console.log(res);
          })
 
+=======
+       var ach = $stateParams.achToShow;
+>>>>>>> parent of 5bd6cd4... bug fixing
         var type = '';
         switch(ach.type) {
           case 'science' : type = 'Наука';  break;
