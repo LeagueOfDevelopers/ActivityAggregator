@@ -123,7 +123,7 @@ function newAchivment(req, res, next) {
  Student.findById(req.params.id, function(err, doc) {
     if(err) res.send(err);
     doc.achivments.push(achivment);
-    doc.save(function(err, data) {
+    doc.save(function(err, result) {
         if(err) {
             res.send(err);
         } else {
@@ -131,7 +131,7 @@ function newAchivment(req, res, next) {
             var task = new Task({
                 type: 'package',
                 templateName: 'newAchivment',
-                text: fields,
+                text: result,
                 receiverGroup: 'admins'
             });
             task.save();

@@ -112,15 +112,15 @@ function addStudent(req, res, next) {
 			number: fields.number
 		});
 
-		student.save(function(err) {
-			if(!err) {
-				res.send({text: 'student added', code: 2});
-			} else {
+		student.save(function(err, result) {
+			if(err) {
 				res.send({err: err, code: 3});
+			} else {
+				res.send({text: 'student added', code: 2});
                 var task = new Task({
                     type: 'package',
                     templateName: 'newStudent',
-                    text: fields,
+                    text: result,
                     receiverGroup: 'admins'
                 });
                 task.save();

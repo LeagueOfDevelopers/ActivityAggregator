@@ -9,6 +9,8 @@ function generate(taskArr, callback) {
 
     taskArr.forEach(function(task) {
         packageData.push(task.text)
+        task.done = true;
+        task.save();
     });
 
     callback(packageData);

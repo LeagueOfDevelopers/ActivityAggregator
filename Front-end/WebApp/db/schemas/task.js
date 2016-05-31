@@ -20,7 +20,8 @@ var task = new schema({
 	},
 	done: {
 		type: Boolean,
-		required: true
+		required: true,
+		default: false
 	}
 });
 

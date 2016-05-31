@@ -33,9 +33,11 @@ function checkPackageTasks(templateName, groupName, receiversArr, callback) {
             if(err) callback(err);
             else if(taskArr) {
 
-                callback(null, taskArr);
+                callback(null, taskArr, groupName, receiversArr);
                     
-                }
+                } else {
+                callback("No new tasks");
+            }
             })
 }
 
