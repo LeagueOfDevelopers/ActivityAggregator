@@ -196,7 +196,7 @@ function unConfirmAchivment(req, res, next) {
           }
       });
  } else {
-  res.send('admin permossion required')
+  res.send('admin permissions required')
  }
 };
 

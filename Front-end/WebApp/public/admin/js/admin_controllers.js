@@ -196,7 +196,11 @@ angular.module('admin.controllers',
          }
 }])
 
-.controller('inviteCtrl', ['$scope', '$http', function($scope, $http) {
+.controller('inviteCtrl',
+    ['$scope',
+        '$http',
+        'API',
+        function($scope, $http, API) {
                     $scope.inviteCode = 'код';
                     $scope.inviteLink = 'ссылка';
                     $scope.secret = null;
@@ -206,7 +210,7 @@ angular.module('admin.controllers',
                     if($scope.secret) {
                         $http.post('api/admin/invite/' + $scope.currentUser._id, {secret: $scope.secret}).success(function (res) {
                             $scope.inviteCode = res.data;
-                            $scope.inviteLink = 'http://' + '162.243.78.140' + '/admin/registryAdmin/' + res.data;
+                            $scope.inviteLink = API.baseUrl + '/admin/registryAdmin/' + res.data;
                         })
                     } else {
                         $scope.$emit('showMessage', {msg: 'Требуются права администратора', type: 'bad'});

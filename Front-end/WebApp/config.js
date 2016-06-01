@@ -1,4 +1,5 @@
 module.exports.files = {
+
 	achivmentsDocs: {
 		path: './public/storage/students/',
 		link: './storage/students/',
@@ -18,7 +19,7 @@ module.exports.db = {
 	string: 'mongodb://localhost/aggregator'
 }
 
-module.exports.BASE_URL = 'localhost:3000';
+module.exports.BASE_URL = 'http://achievements.lod-misis.ru';
 
 module.exports.smtp = {
 	login: 'aggregator@lod-misis.ru',
