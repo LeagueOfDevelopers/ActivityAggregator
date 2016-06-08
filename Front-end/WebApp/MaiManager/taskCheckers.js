@@ -1,7 +1,7 @@
 var Task = require('../db/mongoose').models.Task;
 var async = require('async');
 var mailer = require('./mailer');
-var Student = require('./db/mongoose').models.Student;
+var Student = require('../db/mongoose').models.Student;
 
 
 module.exports = {
@@ -28,12 +28,12 @@ function checkPackageTasks(templateName, groupName, receiversArr, callback) {
     Task.find({"type": 'package',
                 'templateName' : templateName,
                 'done' : false,
-                'ReceiverGroup': group},
+                'receiverGroup': groupName},
         function (err, taskArr) {
             if(err) callback(err);
-            else if(taskArr) {
+            else if(taskArr && taskArr.length > 0) {
 
-                callback(null, taskArr, groupName, receiversArr);
+                callback(null, taskArr, templateName, groupName, receiversArr); //should be performer function
                     
                 } else {
                 callback("No new tasks");

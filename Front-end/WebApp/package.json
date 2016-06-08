@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www && DEBUG=WebApp:*",
-    "tas": "node ./postDefaultModels.js && DEBUG=TaskApp:*"
+    "postModels": "node ./postDefaulModels.js && DEBUG=WebApp:*",
+    "tasker": "node ./sheduleTasker.js && DEBUG=WebApp:*"
   },
   "dependencies": {
     "body-parser": "*",

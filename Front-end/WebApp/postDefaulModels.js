@@ -9,20 +9,20 @@ var taskChecker = require('./MaiManager/mailTaskPerformer');
 
 taskChecker.checkTasks();
 
-var task = new Task({
-	type: 'mail',
-	receiverGroup: 'testGroup',
-	templateName: 'newStudent',
-	text: {
-		id: '1',
-		name: 'Хуян Хуsянович'
-	},
-	done: false
-})
-
-task.save(function(data) {
-	console.log(data);
-})
+// var task = new Task({
+// 	type: 'mail',
+// 	receiverGroup: 'testGroup',
+// 	templateName: 'newStudent',
+// 	text: {
+// 		id: '1',
+// 		name: 'Хуян Хуsянович'
+// 	},
+// 	done: false
+// })
+//
+// task.save(function(data) {
+// 	console.log(data);
+// })
 
 function createAdminGroup() {
     var AdminGroup = new receiverGroup({

@@ -18,7 +18,7 @@ var transporter = nodemailer.createTransport(
 	        user: config.login,
 	        pass: config.password
     	}
-})
+});
 
  
 function send(params, callback) {
@@ -45,7 +45,7 @@ function getReceivers(task, callback) {
 			else if(receiverGroup) {
 				console.log(receiverGroup.receivers);
 				console.log("res");
-				callback(null, receiverGroup.receivers.map(function(item) { return item.email}));
+				callback(null, receiverGroup.receivers.map(function(item) {return item.email}));
 			} else {
 				callback(null)
 				console.log("not res");
@@ -76,11 +76,13 @@ function performTask(task, doneCallback) { //require task.templateName task.rece
 	async.series({
 		receivers: function(callback) {
 			getReceivers(task, function(err, receivers) {
+				console.log(err || receivers);
 				callback(err, receivers);
 			})
 		},
 		message: function(callback) {
 			generateMessageByTask(task, function(err, message) {
+				console.log(err || message);
 				callback(err, message);
 			})
 		}

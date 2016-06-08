@@ -123,7 +123,9 @@ function addStudent(req, res, next) {
                     text: result,
                     receiverGroup: 'admins'
                 });
-                task.save();
+                task.save(function (err, data) {
+					console.log(err || data);
+				});
 
 			}
 		})
@@ -293,10 +295,10 @@ function generateRecoveryToken(req, res, next) {
 					mailer.send({
 						receiver: email,
 						subject: 'Восстановление пароля',
-						text: 'Ваш код восстановления' + recoveryToken
+						text: 'Ваш код восстановления ' + recoveryToken
 					}, function (data) {
 						console.log(data);
-                        res.send({text: 'token getted', recoveryToken: recoveryToken});
+                        res.send({text: 'token getted'});
                     });
 				})
 			

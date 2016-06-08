@@ -75,7 +75,7 @@ function newAdmin(req, res, next) {
 		middleName: 'Админ',
 		email: 'adm@mail.ru',
 		hashPassword: '11111',
-    code: 'parent'
+        code: 'parent'
 	});
 
 	admin.save(function(data) {
@@ -106,7 +106,7 @@ function registryByInvite(req, res, next) {
   Admin.findOne({'invCodes' : req.body.code}, function(err, findedData) {
      if(findedData) {
       
-      Admin.findOne({'code': req.body.code}, function(er, data) {
+      Admin.findOne({'code': req.body.code}, function(err, data) {
         if(err) res.send(err);
         else if(data) {
           res.send('0'); //code already used
@@ -224,7 +224,7 @@ function rejectStudent(req, res, next) {
     else if(student) {
       student.status = 2;
       student.save(function(data) {
-          mailer.send({receiver: student.email, subject: 'Регистрация на платформе', text: 'Вам отказано в регисстрации'}, function(err, info) {
+          mailer.send({receiver: student.email, subject: 'Регистрация на платформе', text: 'Вам отказано в регистрации'}, function(err, info) {
               console.log(err);
               console.log(info);
           });
