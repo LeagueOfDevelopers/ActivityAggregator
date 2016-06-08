@@ -4,10 +4,8 @@ var receiver = require('./db/mongoose').models.EmailReceiver;
 var Task = require('./db/mongoose').models.Task;
 var Admin = require('./db/mongoose').models.Admin;
 var Student = require("./db/mongoose").models.Student;
+var config = require('./config.js');
 
-var taskChecker = require('./MaiManager/mailTaskPerformer');
-
-taskChecker.checkTasks();
 
 // var task = new Task({
 // 	type: 'mail',
@@ -64,5 +62,53 @@ function createStudentGroup() {
     })
 };
 
+
+function regitstryTemplates() {
+     var newStudent = new EmailTemplate({
+         name: 'newStudent',
+         subject: 'Новые заявки на регистрацию',
+         text: 'Подана новыя заявка',
+         htmlTemplate: config.emailTemplates + 'newStudent.jade'
+     });
+    newStudent.save(function (err, data) {
+        console.log(err || data);
+    });
+
+    var ach = new EmailTemplate({
+        name: 'newAchivment',
+        subject: 'Новые заявки на добавление достижения',
+        text: 'Подана новыя заявка',
+        htmlTemplate: config.emailTemplates + 'newAchivment.jade'
+    });
+    ach.save(function (err, data) {
+        console.log(err || data);
+    });
+
+    var achivmentConfirmed = new EmailTemplate({
+        name: 'achivmentConfirmed',
+        subject: 'Ваше достижение подтверждено',
+        text: 'Подана новыя заявка',
+        htmlTemplate: config.emailTemplates + 'achievementConfirmed.jade'
+    });
+
+    achivmentConfirmed.save(function (err, data) {
+        console.log(err || data);
+    });
+
+    var achivmentRej = new EmailTemplate({
+        name: 'achivmentRejected',
+        subject: 'Ваше достижение не подтверждено',
+        text: 'Подана новыя заявка',
+        htmlTemplate: config.emailTemplates + 'achievementRejected.jade'
+    });
+    achivmentRej.save(function (err, data) {
+        console.log(err || data);
+    })
+
+
+}
+
 createAdminGroup();
 createStudentGroup();
+regitstryTemplates();
+

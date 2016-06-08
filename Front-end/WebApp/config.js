@@ -28,3 +28,7 @@ module.exports.smtp = {
 	host: 'smtp.yandex.ru',
 	sender: '"Аггрегатор МИСиС" <aggregator@lod-misis.ru>'
 };
+
+module.exports.emailTemplates = './emailTemplates/';
+
+module.exports.shedule = '*/5 * * *';
