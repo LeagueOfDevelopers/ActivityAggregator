@@ -23,7 +23,10 @@ angular.module('ActivityAggregator',
            'page_content': {
              templateUrl: 'partials/studentsBase.html',
              controller: 'studentsBaseCtrl'
-           }
+           },
+             'footer': {
+                 templateUrl: 'partials/footer.html'
+             }
          }
        })
 
@@ -33,7 +36,10 @@ angular.module('ActivityAggregator',
            'page_content': {
              templateUrl: 'partials/main.html',
              controller: 'indexCtrl'
-           }
+           },
+             'footer': {
+                 templateUrl: 'partials/footer_mP.html'
+             }
          }
        })
 
@@ -44,6 +50,10 @@ angular.module('ActivityAggregator',
              templateUrl: 'partials/profile.html',
              controller: 'accountCtrl'
            },
+
+             'footer': {
+                 templateUrl: 'partials/footer.html'
+             }
          }
        })
 
@@ -53,8 +63,11 @@ angular.module('ActivityAggregator',
            'page_content': {
              templateUrl: 'partials/profile_another.html',
              controller: 'profileCtrl'
-           }
-         },
+           },
+             'footer': {
+                 templateUrl: 'partials/footer.html'
+             }
+         }
        })
 
        .state('add_achivment', {
@@ -83,7 +96,11 @@ angular.module('ActivityAggregator',
              'page_content': {
                templateUrl: 'partials/auth.html',
                controller: 'authCtrl'
-            }
+            },
+
+               'footer': {
+                   templateUrl: 'partials/footer.html'
+               }
            }
        })
 
@@ -721,14 +738,14 @@ angular.module('app.controllers.main',
 
       function startLoad(e, args) {
 
-        if(!$scope.onLoad[args.field]) console.log('field' + args.field + ' is not defined');
+        if(!$scope.onLoad.hasOwnProperty(args.field)) console.log('field' + args.field + ' is not defined');
         else $scope.onLoad[args.field] = true;
 
       };
 
       function stopLoad(e, args) {
 
-        if(!$scope.onLoad[args.field]) console.log('field' + args.field + 'is not defined');
+        if(!$scope.onLoad.hasOwnProperty(args.field)) console.log('field' + args.field + 'is not defined');
         else $scope.onLoad[args.field] = false;
         
       };

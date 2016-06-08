@@ -48,9 +48,13 @@ body {
   -moz-box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5);
   box-shadow: 3px 4px 5px -4px rgba(0, 0, 0, 0.5); }
 
+.page_content_wrapper {
+  min-height: 100%; }
+
 .page_content {
   padding-top: 60px;
-  padding-bottom: 60px; }
+  padding-bottom: 60px;
+  height: 100%; }
 
 .vertical_offset {
   margin-top: 40px;
@@ -64,6 +68,13 @@ body {
 .footer {
   width: 100%;
   height: 60px;
+  line-height: 60px;
+  background: #fff; }
+
+.footer_mp {
+  position: absolute;
+  top: 90%;
+  height: 10%;
   line-height: 60px;
   background: #fff; }
 
@@ -786,26 +797,10 @@ textaria {
 
 .main_page_header {
   margin-top: 15px;
-  height: 580px; }
+  height: 100%; }
 
 .main_page_header div.columns {
   height: 550px; }
-
-.grad {
-  top: 50%;
-  height: 50%;
-  width: 98%;
-  position: absolute;
-  background: #f6f6f6;
-  opacity: .5;
-  background: rgba(255, 255, 255, 0.03);
-  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.03) 20%, rgba(255, 255, 255, 0.03) 33%, rgba(255, 255, 255, 0.19) 41%, white 81%, white 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(20%, rgba(255, 255, 255, 0.03)), color-stop(33%, rgba(255, 255, 255, 0.03)), color-stop(41%, rgba(255, 255, 255, 0.19)), color-stop(81%, white), color-stop(100%, white));
-  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.03) 20%, rgba(255, 255, 255, 0.03) 33%, rgba(255, 255, 255, 0.19) 41%, white 81%, white 100%);
-  background: -o-linear-gradient(top, rgba(255, 255, 255, 0.03) 20%, rgba(255, 255, 255, 0.03) 33%, rgba(255, 255, 255, 0.19) 41%, white 81%, white 100%);
-  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0.03) 20%, rgba(255, 255, 255, 0.03) 33%, rgba(255, 255, 255, 0.19) 41%, white 81%, white 100%);
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 20%, rgba(255, 255, 255, 0.03) 33%, rgba(255, 255, 255, 0.19) 41%, white 81%, white 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 ); }
 
 .project_name {
   background: #fff;
@@ -1474,7 +1469,6 @@ textaria {
     transform: rotate(360deg); } }
 
 .preloader_wrapper {
-  position: relative;
   width: 100px;
   height: 100px;
   z-index: 1000; }

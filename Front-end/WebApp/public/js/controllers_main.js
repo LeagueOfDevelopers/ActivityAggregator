@@ -95,14 +95,14 @@ angular.module('app.controllers.main',
 
       function startLoad(e, args) {
 
-        if(!$scope.onLoad[args.field]) console.log('field' + args.field + ' is not defined');
+        if(!$scope.onLoad.hasOwnProperty(args.field)) console.log('field' + args.field + ' is not defined');
         else $scope.onLoad[args.field] = true;
 
       };
 
       function stopLoad(e, args) {
 
-        if(!$scope.onLoad[args.field]) console.log('field' + args.field + 'is not defined');
+        if(!$scope.onLoad.hasOwnProperty(args.field)) console.log('field' + args.field + 'is not defined');
         else $scope.onLoad[args.field] = false;
         
       };
